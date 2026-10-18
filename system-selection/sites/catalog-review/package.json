@@ -1,0 +1,12 @@
+{
+  "name": "catalog-review-interface",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test --experimental-test-coverage tests/core.test.mjs tests/form-contract.test.mjs tests/intake-v3.test.mjs tests/api.test.mjs",
+    "test:browser": "node tests/e2e-v3.mjs",
+    "test:browser:legacy": "node tests/e2e-mvp.mjs",
+    "dev": "node server.mjs"
+  }
+}

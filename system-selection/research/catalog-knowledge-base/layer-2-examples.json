@@ -1,0 +1,2064 @@
+{
+  "manifest": {
+    "revision": "layer2-examples-group1",
+    "kind": "executed_group1_normalization_cases",
+    "synthetic_profiles": true,
+    "real_candidate_metadata": true,
+    "layer3_executed": false
+  },
+  "cases": [
+    {
+      "id": "SYNTHETIC-L2-I01-aws",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I01-azure",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "azure",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I01-gcp",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "gcp",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I01-on_prem",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "on_prem",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I01-multi_cloud",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "multi_cloud",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [
+        {
+          "source_input": "I01",
+          "state": "unknown_set",
+          "reason": "Đa cloud chưa chỉ rõ tập cloud; không tạo HARD."
+        }
+      ],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I02-spark",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I02-trino",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I02-presto",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "presto"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-presto-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-presto"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I02-flink",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "flink"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-flink-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-flink"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I02-snowflake",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "snowflake"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-snowflake-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-snowflake"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I02-databricks",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "databricks"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-databricks-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-databricks"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I02-dremio",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "dremio"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-dremio-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-dremio"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I02-starrocks",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "starrocks"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-starrocks-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-starrocks"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I02-doris",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "doris"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-doris-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-doris"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I02-duckdb",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "duckdb"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-duckdb-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-duckdb"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I02-other",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "other"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-unresolved_engine"
+      ],
+      "objectives": [],
+      "unresolved": [
+        {
+          "source_input": "I02",
+          "state": "unknown_identity",
+          "reason": "Khác chưa có danh tính engine; không tạo HARD từ mục Khác."
+        }
+      ],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I03-iceberg",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I03-delta",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "delta",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I03-hudi",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "hudi",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I03-not_chosen",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "not_chosen",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [
+        {
+          "source_input": "I03",
+          "state": "not_decided",
+          "reason": "Chưa có format cụ thể; không tạo HARD từ đáp án tổng hợp."
+        }
+      ],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I03-mixed",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "mixed",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [
+        {
+          "source_input": "I03",
+          "state": "unknown_set",
+          "reason": "Chưa có format cụ thể; không tạo HARD từ đáp án tổng hợp."
+        }
+      ],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I04-lt_100",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "lt_100",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I04-100_to_999",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I04-1000_to_10000",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "1000_to_10000",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I04-gt_10000",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "gt_10000",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I05-one",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "one",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I05-two_to_three",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I05-more_than_three",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "more_than_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I06-no",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          },
+          "I06": "no"
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I06-yes",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          },
+          "I06": "yes"
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I06-unknown",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          },
+          "I06": "unknown"
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I07-none",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "none",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I07-table",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I07-column",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "column",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-column-spark",
+        "R-I07-column-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I07-row",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "row",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-row-spark",
+        "R-I07-row-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I07-column_and_row",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "column_and_row",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-column-spark",
+        "R-I07-column-trino",
+        "R-I07-row-spark",
+        "R-I07-row-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I07-unclear",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "unclear",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency"
+      ],
+      "objectives": [],
+      "unresolved": [
+        {
+          "source_input": "I07",
+          "state": "unknown_need",
+          "reason": "Chưa rõ mức phân quyền; không coi là Không cần."
+        }
+      ],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I08-yes",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "yes",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino",
+        "R-I08-vending"
+      ],
+      "objectives": [],
+      "unresolved": [
+        {
+          "source_input": "I08",
+          "state": "unknown_storage",
+          "reason": "Storage không thuộc payload form v2 và không được suy từ cloud."
+        }
+      ],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I08-no",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I08-unknown",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "unknown",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [
+        {
+          "source_input": "I08",
+          "state": "unknown_need",
+          "reason": "Chưa biết nhu cầu vending, khác với Không."
+        }
+      ],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I09-databricks",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "databricks"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I09-snowflake",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "snowflake"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I09-aws_native",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "aws_native"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I09-none",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I10-branching",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "selected": [
+              {
+                "feature": "branching",
+                "rank": "nice_to_have"
+              }
+            ]
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [
+        {
+          "id": "R-I10-branching",
+          "logical_need_id": "N-I10-branching",
+          "source_inputs": [
+            "I10"
+          ],
+          "property_id": "workflow.branching",
+          "role": "SOFT",
+          "status": "ready",
+          "qualifiers": {
+            "object_scope": "catalog",
+            "api": null
+          },
+          "candidate_bindings": {
+            "api": {
+              "source": "candidate_path",
+              "path": "branching_path.api",
+              "execution": "trace_only_deferred"
+            }
+          },
+          "acceptance_anchor": "workflow.branching",
+          "min_level_if_applicable": null,
+          "binding_sources": {
+            "form": [
+              "I10"
+            ],
+            "profile": "layer2-mvp-profile-v1",
+            "candidate_bindings": "trace_only_deferred"
+          },
+          "weight": 1,
+          "weight_rank": "low",
+          "weight_defaulted": true
+        }
+      ],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I10-multi_table_atomic",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "selected": [
+              {
+                "feature": "multi_table_atomic",
+                "rank": "nice_to_have"
+              }
+            ]
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [
+        {
+          "id": "R-I10-multi_table_atomic",
+          "logical_need_id": "N-I10-multi_table_atomic",
+          "source_inputs": [
+            "I10"
+          ],
+          "property_id": "transaction.multi_table_atomic",
+          "role": "SOFT",
+          "status": "ready",
+          "qualifiers": {
+            "client_path": null,
+            "failure_boundary": "catalog_metadata_commit",
+            "api": null
+          },
+          "candidate_bindings": {
+            "api": {
+              "source": "candidate_path",
+              "path": "atomic_path.api",
+              "execution": "trace_only_deferred"
+            },
+            "client_path": {
+              "source": "candidate_path",
+              "path": "atomic_path.client_path",
+              "execution": "trace_only_deferred"
+            }
+          },
+          "acceptance_anchor": "transaction.multi_table_atomic",
+          "min_level_if_applicable": null,
+          "binding_sources": {
+            "form": [
+              "I10"
+            ],
+            "profile": "layer2-mvp-profile-v1",
+            "candidate_bindings": "trace_only_deferred"
+          },
+          "weight": 1,
+          "weight_rank": "low",
+          "weight_defaulted": true
+        }
+      ],
+      "unresolved": [],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I10-metadata_federation",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "selected": [
+              {
+                "feature": "metadata_federation",
+                "rank": "nice_to_have"
+              }
+            ]
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [
+        {
+          "id": "R-I10-metadata_federation",
+          "logical_need_id": "N-I10-metadata_federation",
+          "source_inputs": [
+            "I10"
+          ],
+          "property_id": "metadata.federation_operation",
+          "role": "SOFT",
+          "status": "needs_context",
+          "qualifiers": {
+            "source_type": null,
+            "operation": "read_metadata",
+            "api": null
+          },
+          "candidate_bindings": {
+            "api": {
+              "source": "candidate_path",
+              "path": "federation_path.api",
+              "execution": "trace_only_deferred"
+            }
+          },
+          "acceptance_anchor": "metadata.federation_operation",
+          "min_level_if_applicable": null,
+          "binding_sources": {
+            "form": [
+              "I10"
+            ],
+            "profile": "layer2-mvp-profile-v1",
+            "candidate_bindings": "trace_only_deferred"
+          },
+          "weight": 1,
+          "weight_rank": "low",
+          "weight_defaulted": true
+        }
+      ],
+      "unresolved": [
+        {
+          "source_input": "I10",
+          "state": "unknown_sources",
+          "reason": "Chưa có danh sách nguồn federation; không đặt thay người dùng."
+        }
+      ],
+      "layer3_executed": false
+    },
+    {
+      "id": "SYNTHETIC-L2-I10-none",
+      "synthetic_profile": true,
+      "input": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "100_to_999",
+          "I05": "two_to_three",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      },
+      "readiness": "ready_for_assessment",
+      "requirement_ids": [
+        "R-I01-environment",
+        "R-I02-spark-read",
+        "R-I02-trino-read",
+        "R-I03-format-load",
+        "R-I04-capacity",
+        "R-I05-concurrency",
+        "R-I07-table-spark",
+        "R-I07-table-trino"
+      ],
+      "objectives": [],
+      "unresolved": [],
+      "layer3_executed": false
+    }
+  ]
+}

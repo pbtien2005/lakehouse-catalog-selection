@@ -1,0 +1,6 @@
+# Keep source files portable across Windows and Linux.
+* text=auto eol=lf
+
+# Runtime manifests verify JSON using SHA-256 of the original bytes.
+# Preserve their exact encoding and line endings on every platform.
+*.json -text

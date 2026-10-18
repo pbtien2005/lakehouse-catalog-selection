@@ -1,0 +1,41 @@
+{
+  "manifest": {
+    "revision": "mvp-settings-v1",
+    "assumption": true
+  },
+  "scenario_policy": {
+    "missing_support": "independent_cell_completions_using_property_rubric",
+    "qualifier_uncertainty": "shared_form_format_and_storage;other_dimensions_per_candidate_requirement",
+    "ties": "split_credit_equally",
+    "infeasible_utility": 0,
+    "no_soft_objectives": "no_ranking",
+    "regret": "observed_max_and_conservative_upper_bound",
+    "sampling": "uniform_marginal_domain_draws_with_paired_counterfactuals; paired draws are dependent; all evaluations fit max_scenarios",
+    "impact_budget_fraction": 0.5
+  },
+  "evaluation": {
+    "sensitivity_fraction": 0.3,
+    "sensitivity_iterations": 1000,
+    "sensitivity_method": "one_weight_at_a_time_common_scenarios",
+    "split_calibration_count": 6,
+    "split_holdout_count": 4
+  },
+  "transport": {
+    "port": 4317,
+    "request_max_bytes": 65536,
+    "output_max_bytes": 16777216,
+    "process_timeout_ms": 30000,
+    "max_active_requests": 1
+  },
+  "parameter_metadata": {
+    "scenario_policy": {
+      "assumption": true
+    },
+    "evaluation": {
+      "assumption": true
+    },
+    "transport": {
+      "assumption": true
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-18",
+  "python_tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "241",
+    "time": "6.102",
+    "timestamp": "2026-10-18T00:38:12.410982+07:00",
+    "hostname": "pbtien"
+  },
+  "javascript_tests": {
+    "tests": 30,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "python_coverage": {
+    "covered_lines": 1184,
+    "num_statements": 1274,
+    "percent_covered": 92.6948051948052,
+    "percent_covered_display": "93",
+    "missing_lines": 90,
+    "excluded_lines": 0,
+    "percent_statements_covered": 92.93563579277865,
+    "percent_statements_covered_display": "93",
+    "num_branches": 574,
+    "num_partial_branches": 23,
+    "covered_branches": 529,
+    "missing_branches": 45,
+    "percent_branches_covered": 92.1602787456446,
+    "percent_branches_covered_display": "92"
+  },
+  "browser": {
+    "official_pipeline": true,
+    "checks": [
+      "mutually exclusive unknown operations and inconsistent exact count show field-specific errors and keyboard focus",
+      "selected Nessie implementation, native branching claim, prerequisites, versions and still-enforced quota are shown",
+      "scenario comparison eligibility and insufficient verified alternatives are disclosed",
+      "input-v3 storage/actions/exact count survive actual browser payload; group counts and submitted payload match official result",
+      "single verified implementation keeps SOFT interval but shows unavailable top-rate comparison; seven catalogs are not presented as ranked",
+      "radio keyboard navigation and visible focus pass at narrow width"
+    ],
+    "page_errors": [],
+    "layout_findings": [],
+    "groups": {
+      "conditional": 6,
+      "eligible": 1,
+      "excluded": 0
+    },
+    "status": "passed"
+  },
+  "case_checks_passed": 10,
+  "protected_originals_unchanged": true,
+  "local_demo_url": "http://127.0.0.1:52831/#form",
+  "limits": [
+    "Documented design feasibility, not installed infrastructure certification.",
+    "Two source-based development cases, not an independent recommendation accuracy benchmark.",
+    "Two reviewed implementation profiles; other scopes retained with explicit uncertainty."
+  ]
+}

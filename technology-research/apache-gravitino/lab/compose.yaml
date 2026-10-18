@@ -1,0 +1,65 @@
+name: gravitino-learning
+
+services:
+  init:
+    image: alpine/curl:8.21.0
+    user: "0:0"
+    entrypoint: ["/bin/sh", "/lab/scripts/init.sh"]
+    volumes:
+      - ./:/lab:ro
+      - jdbc-drivers:/drivers
+      - entity-store:/entity-store
+      - raw-files:/raw-files
+    restart: "no"
+
+  postgres:
+    image: postgres:16.4
+    environment:
+      POSTGRES_DB: shop
+      POSTGRES_USER: lab
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run setup-env.ps1 first}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./sql/01-seed.sql:/docker-entrypoint-initdb.d/01-seed.sql:ro
+      - ./sql:/lab/sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lab -d shop"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  gravitino:
+    image: apache/gravitino:1.3.0
+    entrypoint: ["/bin/bash", "/lab/scripts/start-gravitino.sh"]
+    environment:
+      SKIP_CONFIG_REWRITE: "true"
+      JAVA_OPTS: "-Xms256m -Xmx1g"
+      # Used by the bootstrap client, not by the entity store.
+      LAB_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run setup-env.ps1 first}
+      PYTHONDONTWRITEBYTECODE: "1"
+    ports:
+      - "127.0.0.1:${GRAVITINO_PORT:-19090}:8090"
+    volumes:
+      - ./:/lab:ro
+      - ./conf/gravitino.conf:/opt/gravitino/conf/gravitino.conf:ro
+      - jdbc-drivers:/drivers:ro
+      - entity-store:/entity-store
+      - raw-files:/raw-files
+    depends_on:
+      init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python3", "/lab/scripts/lab.py", "health"]
+      interval: 10s
+      timeout: 5s
+      start_period: 40s
+      retries: 18
+    stop_grace_period: 40s
+
+volumes:
+  entity-store:
+  postgres-data:
+  raw-files:
+  jdbc-drivers:

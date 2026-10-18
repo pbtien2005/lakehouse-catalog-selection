@@ -1,0 +1,397 @@
+{
+  "manifest": {
+    "revision": "synthetic-kb-no-eligible-v1",
+    "synthetic": true,
+    "note": "Synthetic variant: all environment claims explicitly say none; single-HARD relaxation diagnostic."
+  },
+  "scopes": [
+    {
+      "id": "synthetic_alpha_v1",
+      "catalog_id": "synthetic_alpha",
+      "name": "Synthetic Alpha",
+      "edition": "synthetic",
+      "release": "fixture-v1"
+    },
+    {
+      "id": "synthetic_beta_v1",
+      "catalog_id": "synthetic_beta",
+      "name": "Synthetic Beta",
+      "edition": "synthetic",
+      "release": "fixture-v1"
+    },
+    {
+      "id": "synthetic_gamma_v1",
+      "catalog_id": "synthetic_gamma",
+      "name": "Synthetic Gamma",
+      "edition": "synthetic",
+      "release": "fixture-v1"
+    }
+  ],
+  "claims": [
+    {
+      "id": "synthetic_alpha_environment",
+      "scope_id": "synthetic_alpha_v1",
+      "property_id": "deployment.environment",
+      "qualifiers": {
+        "environment": "aws"
+      },
+      "level": "none",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "alpha/environment"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_alpha_format",
+      "scope_id": "synthetic_alpha_v1",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "load",
+        "api": "iceberg_rest"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "alpha/format"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_alpha_vending_s3",
+      "scope_id": "synthetic_alpha_v1",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "iceberg_rest"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "alpha/vending_s3"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_alpha_vending_adls",
+      "scope_id": "synthetic_alpha_v1",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "adls",
+        "api": "iceberg_rest"
+      },
+      "level": "none",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "alpha/vending_adls"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_alpha_branching",
+      "scope_id": "synthetic_alpha_v1",
+      "property_id": "workflow.branching",
+      "qualifiers": {
+        "object_scope": "catalog",
+        "api": "iceberg_rest"
+      },
+      "level": "partial",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "alpha/branching"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_alpha_federation",
+      "scope_id": "synthetic_alpha_v1",
+      "property_id": "metadata.federation_operation",
+      "qualifiers": {
+        "source_type": "postgresql",
+        "operation": "read_metadata",
+        "api": "catalog_api"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "alpha/federation"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_alpha_authorization",
+      "scope_id": "synthetic_alpha_v1",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "table",
+        "action": "read",
+        "access_path": "engine_read_path"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "alpha/authorization"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_beta_environment",
+      "scope_id": "synthetic_beta_v1",
+      "property_id": "deployment.environment",
+      "qualifiers": {
+        "environment": "aws"
+      },
+      "level": "none",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "beta/environment"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_beta_format",
+      "scope_id": "synthetic_beta_v1",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "load",
+        "api": "iceberg_rest"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "beta/format"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_beta_vending_s3",
+      "scope_id": "synthetic_beta_v1",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "iceberg_rest"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "beta/vending_s3"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_beta_vending_adls",
+      "scope_id": "synthetic_beta_v1",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "adls",
+        "api": "iceberg_rest"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "beta/vending_adls"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_beta_branching",
+      "scope_id": "synthetic_beta_v1",
+      "property_id": "workflow.branching",
+      "qualifiers": {
+        "object_scope": "catalog",
+        "api": "iceberg_rest"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "beta/branching"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_beta_federation",
+      "scope_id": "synthetic_beta_v1",
+      "property_id": "metadata.federation_operation",
+      "qualifiers": {
+        "source_type": "postgresql",
+        "operation": "read_metadata",
+        "api": "catalog_api"
+      },
+      "level": "none",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "beta/federation"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_beta_authorization",
+      "scope_id": "synthetic_beta_v1",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "table",
+        "action": "read",
+        "access_path": "engine_read_path"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "beta/authorization"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_gamma_environment",
+      "scope_id": "synthetic_gamma_v1",
+      "property_id": "deployment.environment",
+      "qualifiers": {
+        "environment": "aws"
+      },
+      "level": "none",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "gamma/environment"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_gamma_format",
+      "scope_id": "synthetic_gamma_v1",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "load",
+        "api": "iceberg_rest"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "gamma/format"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_gamma_vending_s3",
+      "scope_id": "synthetic_gamma_v1",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "iceberg_rest"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "gamma/vending_s3"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_gamma_vending_adls",
+      "scope_id": "synthetic_gamma_v1",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "adls",
+        "api": "iceberg_rest"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "gamma/vending_adls"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_gamma_branching",
+      "scope_id": "synthetic_gamma_v1",
+      "property_id": "workflow.branching",
+      "qualifiers": {
+        "object_scope": "catalog",
+        "api": "iceberg_rest"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "gamma/branching"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_gamma_authorization",
+      "scope_id": "synthetic_gamma_v1",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "table",
+        "action": "read",
+        "access_path": "engine_read_path"
+      },
+      "level": "full",
+      "status": "synthetic",
+      "note": "Synthetic claim for logic tests only.",
+      "evidence": [
+        {
+          "kind": "synthetic_fixture",
+          "locator": "gamma/authorization"
+        }
+      ]
+    }
+  ]
+}

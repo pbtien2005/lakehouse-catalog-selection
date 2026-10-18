@@ -1,0 +1,16 @@
+{
+  "manifest": {"revision": "synthetic-requirements-v1", "synthetic": true, "note": "Handwritten Layer 2 output for logic tests; not a real user profile."},
+  "candidates": [
+    {"id": "synthetic_alpha", "scope_id": "synthetic_alpha_v1"},
+    {"id": "synthetic_beta", "scope_id": "synthetic_beta_v1"},
+    {"id": "synthetic_gamma", "scope_id": "synthetic_gamma_v1"}
+  ],
+  "requirements": [
+    {"id": "H-environment", "property_id": "deployment.environment", "role": "HARD", "min_level_if_applicable": "full", "qualifiers": {"environment": "aws"}},
+    {"id": "H-format", "property_id": "catalog.format_operation", "role": "HARD", "min_level_if_applicable": "full", "qualifiers": {"format": "iceberg", "operation": "load", "api": "iceberg_rest"}},
+    {"id": "H-vending", "property_id": "storage.credential_vending", "role": "HARD", "min_level_if_applicable": "full", "qualifiers": {"storage": null, "api": "iceberg_rest"}, "qualifier_domains": {"storage": ["aws_s3", "adls"]}},
+    {"id": "S-branching", "property_id": "workflow.branching", "role": "SOFT", "rank": "low", "qualifiers": {"object_scope": "catalog", "api": "iceberg_rest"}},
+    {"id": "S-federation", "property_id": "metadata.federation_operation", "role": "SOFT", "rank": "high", "qualifiers": {"source_type": "postgresql", "operation": "read_metadata", "api": "catalog_api"}},
+    {"id": "S-authorization", "property_id": "security.authorization", "role": "SOFT", "rank": "low", "qualifiers": {"granularity": "table", "action": "read", "access_path": "engine_read_path"}}
+  ]
+}

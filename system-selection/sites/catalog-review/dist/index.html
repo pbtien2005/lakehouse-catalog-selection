@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FAFAF8">
+  <meta name="description" content="Công cụ đánh giá lựa chọn lakehouse catalog. So sánh khoảng điểm, điều kiện áp dụng và bằng chứng trong một bản thẩm định kỹ thuật.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; connect-src 'self'; base-uri 'self'; object-src 'none'">
+  <title>Catalog Review — Đánh giá lựa chọn catalog</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;450;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,450;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Đến nội dung chính</a>
+  <header class="topbar">
+    <a class="brand" href="#report" aria-label="Catalog Review, trang đánh giá">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 7h24M4 16h24M4 25h24" stroke="currentColor" stroke-opacity=".18" stroke-width="2"/><path d="M16 7h9M9 16h11M12 25h15" stroke="currentColor" stroke-width="4"/><path d="M16 4v6M25 4v6M9 13v6M20 13v6M12 22v6M27 22v6" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span>Catalog<span class="brand-light">Review</span></span>
+    </a>
+    <nav class="topnav" aria-label="Điều hướng chính"><a href="#report" data-nav="report">Đánh giá</a><a href="#knowledge" data-nav="knowledge">Cơ sở tri thức</a><a href="#method" data-nav="method">Phương pháp</a></nav>
+    <div class="topbar-end"><span class="prototype-tag">Bản mẫu tương tác</span><span class="topbar-divider"></span><span class="avatar" title="Không gian làm việc cá nhân">DE</span></div>
+  </header>
+  <aside class="sidebar" aria-label="Điều hướng hồ sơ">
+    <div class="workspace-label">Không gian làm việc</div>
+    <button class="workspace-switch" id="workspace-switch"><span class="workspace-icon">L</span><span>Lakehouse platform<small>Hồ sơ cá nhân</small></span><span class="switch-chevron">⌄</span></button>
+    <div class="sidebar-label">Hồ sơ đánh giá</div>
+    <nav class="side-nav"><a href="#report" data-side="report"><span data-icon="report"></span>Tổng quan<span class="nav-dot"></span></a><a href="#form" data-side="form"><span data-icon="sliders"></span>Yêu cầu của bạn<span class="nav-count">8</span></a><a href="#evidence" data-side="evidence"><span data-icon="book"></span>Bằng chứng & nguồn</a><a href="#assumptions" data-side="assumptions"><span data-icon="info"></span>Giả định & giới hạn</a></nav>
+    <div class="sidebar-rule"></div>
+    <button class="new-profile" id="new-profile"><span data-icon="plus"></span>Tạo hồ sơ mới</button>
+    <div class="sidebar-bottom"><div class="sidebar-footnote"><span class="small-status-dot"></span> Đánh giá trên thiết bị<small>Dữ liệu của bạn được lưu cục bộ.</small></div><a href="#method" class="sidebar-help"><span data-icon="help"></span>Hiểu cách đánh giá<span>↗</span></a><div class="sidebar-version">Catalog Review <span>v0.1</span></div></div>
+  </aside>
+  <main id="main" tabindex="-1"></main>
+  <dialog id="detail-dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript>Vui lòng bật JavaScript để sử dụng form và xem kết quả đánh giá.</noscript>
+</body>
+</html>

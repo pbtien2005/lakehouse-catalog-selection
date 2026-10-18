@@ -1,0 +1,4696 @@
+{
+  "manifest": {
+    "revision": "layer1-v3-data-2026-10-17-r1",
+    "created_on": "2026-10-17",
+    "property_dictionary": "layer-1-properties.json",
+    "property_dictionary_sha256": "f94a6f80086eb45ac0909d14f4a33222f019d32873e81c22bff7fc63b5ef6779",
+    "purpose": "official_documentation_based_initial_knowledge_base",
+    "language": "vi",
+    "catalogs_in_research_scope": [
+      "apache_polaris",
+      "apache_gravitino",
+      "project_nessie",
+      "unity_catalog_oss",
+      "unity_catalog_databricks",
+      "aws_glue_data_catalog",
+      "hive_metastore"
+    ],
+    "evidence_basis": "official_docs_and_official_repository_licenses",
+    "runtime_validation_performed": false,
+    "limitations": [
+      "Seven named technologies are included; Unity Catalog OSS and Databricks managed are separate candidates as requested.",
+      "Polaris 1.7.0 and Gravitino 1.1.0 are deliberate evidence baselines, not assertions of the latest release.",
+      "Other scopes use as_of and preserve rolling-doc limitations; no claim of support across all releases.",
+      "Databricks scope covers AWS documentation only; do not generalize to every cloud, region or subscription tier.",
+      "All claims remain draft and documentation-based. Full means the narrowly qualified contract is documented, not runtime-tested or production-certified.",
+      "Missing claims remain unknown. Coverage is property-level inventory, not exhaustive combinations or product completeness.",
+      "Sources are linked and sections identified; full upstream page snapshots are not archived in this revision.",
+      "Repeated use of one URL is not independent confirmation. No scores, rankings or hidden negative defaults are added.",
+      "Documentation ambiguities are tracked in layer-1-research-notes.md; affected strict capability claims remain unknown."
+    ]
+  },
+  "scopes": [
+    {
+      "id": "polaris_oss_1_7_0",
+      "catalog_id": "apache_polaris",
+      "name": "Apache Polaris",
+      "edition": "oss",
+      "deployment_mode": "self_managed",
+      "release": "1.7.0"
+    },
+    {
+      "id": "gravitino_oss_1_1_0",
+      "catalog_id": "apache_gravitino",
+      "name": "Apache Gravitino",
+      "edition": "oss",
+      "deployment_mode": "self_managed",
+      "release": "1.1.0"
+    },
+    {
+      "id": "nessie_oss_2026_10_17",
+      "catalog_id": "project_nessie",
+      "name": "Project Nessie",
+      "edition": "oss",
+      "deployment_mode": "self_managed",
+      "as_of": "2026-10-17"
+    },
+    {
+      "id": "unity_oss_2026_10_17",
+      "catalog_id": "unity_catalog_oss",
+      "name": "Unity Catalog OSS",
+      "edition": "oss",
+      "deployment_mode": "self_managed",
+      "as_of": "2026-10-17"
+    },
+    {
+      "id": "unity_databricks_aws_2026_10_17",
+      "catalog_id": "unity_catalog_databricks",
+      "name": "Unity Catalog trên Databricks",
+      "edition": "databricks_managed",
+      "deployment_mode": "managed",
+      "provider": "databricks",
+      "cloud": "aws",
+      "as_of": "2026-10-17"
+    },
+    {
+      "id": "glue_aws_2026_10_17",
+      "catalog_id": "aws_glue_data_catalog",
+      "name": "AWS Glue Data Catalog",
+      "edition": "aws_managed",
+      "deployment_mode": "managed",
+      "provider": "aws",
+      "as_of": "2026-10-17"
+    },
+    {
+      "id": "hms_oss_2026_10_17",
+      "catalog_id": "hive_metastore",
+      "name": "Apache Hive Metastore",
+      "edition": "oss",
+      "deployment_mode": "self_managed",
+      "as_of": "2026-10-17"
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl_polaris_oss_1_7_0_ice_create",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "create",
+        "api": "iceberg_rest"
+      },
+      "note": "API Iceberg có thao tác tạo bảng.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/generic-table/",
+          "locator": "Generic Table API Vs. Iceberg Table API",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_ice_load",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "load",
+        "api": "iceberg_rest"
+      },
+      "note": "API Iceberg tải metadata bảng Iceberg.",
+      "limits": [
+        "Generic table dùng API riêng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/generic-table/",
+          "locator": "Generic Table API Vs. Iceberg Table API",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_ice_register",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "register",
+        "api": "polaris_catalog_api"
+      },
+      "note": "TABLE_CREATE cho phép đăng ký bảng.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/managing-security/access-control/",
+          "locator": "Table privileges / TABLE_CREATE",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_spark_iceberg",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "connect_catalog",
+        "api": "iceberg_rest",
+        "connector": "iceberg_spark_catalog"
+      },
+      "note": "Spark có thể dùng Iceberg client với Polaris.",
+      "limits": [
+        "Không cần Polaris Spark client khi chỉ dùng Iceberg."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/polaris-spark-client/",
+          "locator": "Polaris Spark Client / Iceberg-only users",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_spark_delta",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "delta",
+        "operation": "create",
+        "api": "polaris_generic_table_api",
+        "connector": "polaris_spark_client",
+        "engine_release": "3.5.3_or_later_in_3.5_line"
+      },
+      "note": "Ví dụ Spark tạo bảng Delta qua Polaris client.",
+      "limits": [
+        "Cần Generic Tables beta và Delta extension phù hợp."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/polaris-spark-client/",
+          "locator": "Start Spark against a Deployed Polaris Service; Create tables with Spark",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_delta_generic",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "delta",
+        "operation": "create_generic_metadata_entry",
+        "api": "polaris_generic_table_api"
+      },
+      "note": "Generic table biểu diễn entry có format Delta.",
+      "limits": [
+        "Beta; không chứng minh commit Delta hoặc engine đọc/ghi."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/generic-table/",
+          "locator": "Working with Generic Table / Create a Generic Table",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_namespace",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "catalog.object_operation",
+      "qualifiers": {
+        "object_type": "namespace",
+        "operation": "create",
+        "api": "polaris_catalog_api"
+      },
+      "note": "Namespace là đối tượng có quyền tạo/quản trị.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/managing-security/access-control/",
+          "locator": "Namespace privileges",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_internal_oauth",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "authentication.method",
+      "qualifiers": {
+        "method": "oauth2_client_credentials",
+        "api": "polaris_catalog_api",
+        "authentication_mode": "internal"
+      },
+      "note": "Xác thực nội bộ cấp token qua client credentials.",
+      "limits": [
+        "Mode external vô hiệu endpoint token nội bộ."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/managing-security/external-idp/",
+          "locator": "Internal Authentication Configuration / Token Service",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_external_oidc",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "authentication.method",
+      "qualifiers": {
+        "method": "oidc_bearer_authentication",
+        "api": "polaris_catalog_api",
+        "authentication_mode": "external",
+        "token_format": "jwt",
+        "principal_mapping": "default"
+      },
+      "note": "Mode external dùng OIDC và ánh xạ principal.",
+      "limits": [
+        "JWT cho mapping mặc định; opaque token cần implementation riêng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/managing-security/external-idp/",
+          "locator": "Authentication Types; Principal Mapping",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_token_expiry",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "authentication.session_control",
+      "qualifiers": {
+        "action": "configure_max_token_validity",
+        "api": "polaris_catalog_api",
+        "authentication_mode": "internal"
+      },
+      "note": "Token broker cho phép cấu hình thời hạn token.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/managing-security/external-idp/",
+          "locator": "Internal Authentication Configuration / Token Broker",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_rbac",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "authorization.policy_model",
+      "qualifiers": {
+        "model": "rbac",
+        "api": "polaris_catalog_api"
+      },
+      "note": "Catalog roles gán quyền, principal roles nhận catalog roles.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/managing-security/access-control/",
+          "locator": "RBAC model",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_table_read",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "table",
+        "action": "read_data_via_vended_credentials",
+        "access_path": "polaris_catalog_api"
+      },
+      "note": "TABLE_READ_DATA cấp credential storage chỉ đọc.",
+      "limits": [
+        "Không suy lọc hàng/cột hoặc kiểm soát đường truy cập trực tiếp."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/managing-security/access-control/",
+          "locator": "Table privileges / TABLE_READ_DATA",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_aws_s3_backend",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "iceberg_rest"
+      },
+      "note": "Storage này có đường truy cập bằng credential được cấp.",
+      "limits": [
+        "Cần cấu hình tương ứng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+          "locator": "AWS S3",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_aws_s3_vending",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "iceberg_rest"
+      },
+      "note": "Cấp credential tạm thời theo phạm vi được phép.",
+      "limits": [
+        "Cần IAM/danh tính cloud và client tương thích."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+          "locator": "AWS S3",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_azure_adls_gen2_backend",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "azure_adls_gen2",
+        "api": "iceberg_rest"
+      },
+      "note": "Storage này có đường truy cập bằng credential được cấp.",
+      "limits": [
+        "Cần cấu hình tương ứng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+          "locator": "Azure ADLS",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_azure_adls_gen2_vending",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "azure_adls_gen2",
+        "api": "iceberg_rest"
+      },
+      "note": "Cấp credential tạm thời theo phạm vi được phép.",
+      "limits": [
+        "Cần IAM/danh tính cloud và client tương thích."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+          "locator": "Azure ADLS",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_gcs_backend",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "gcs",
+        "api": "iceberg_rest"
+      },
+      "note": "Storage này có đường truy cập bằng credential được cấp.",
+      "limits": [
+        "Cần cấu hình tương ứng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+          "locator": "Google Cloud Storage (GCS)",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_gcs_vending",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "gcs",
+        "api": "iceberg_rest"
+      },
+      "note": "Cấp credential tạm thời theo phạm vi được phép.",
+      "limits": [
+        "Cần IAM/danh tính cloud và client tương thích."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+          "locator": "Google Cloud Storage (GCS)",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_s3_method",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.access_method",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "iceberg_rest"
+      },
+      "note": "S3 dùng STS AssumeRole kèm policy theo table location.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+          "locator": "AWS S3",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": [
+        "aws_sts_assume_role_with_session_policy"
+      ]
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_s3_refresh",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.credential_lifecycle",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "action": "refresh",
+        "api": "iceberg_rest"
+      },
+      "note": "Có endpoint cấp lại credential trước khi hết hạn.",
+      "limits": [
+        "Client phải hỗ trợ giao thức credential refresh."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+          "locator": "Credential refresh",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_hms_fed",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "metadata.federation_operation",
+      "qualifiers": {
+        "source_type": "hive_metastore",
+        "operation": "delegate_catalog_operations",
+        "api": "polaris_catalog_api"
+      },
+      "note": "Federation giữ HMS làm nguồn metadata có thẩm quyền.",
+      "limits": [
+        "Extension Hive tùy chọn; cần build và bật feature, dùng IMPLICIT auth."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/federation/hive-metastore-federation/",
+          "locator": "Build-time enablement; Feature configuration; Runtime requirements",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_hms_authority",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "metadata.responsibility",
+      "qualifiers": {
+        "metadata_kind": "federated_table_metadata"
+      },
+      "note": "Mô tả cơ chế trong phạm vi qualifier đã ghi.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/federation/hive-metastore-federation/",
+          "locator": "Introduction",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": "Với Hive federation, HMS vẫn giữ metadata nguồn; Polaris làm trung gian."
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_local",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "deployment.environment",
+      "qualifiers": {
+        "environment": "local_docker_compose"
+      },
+      "note": "Quickstart hướng dẫn chạy cục bộ bằng Docker Compose.",
+      "limits": [
+        "Hướng dẫn này không dành cho production."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/getting-started/quick-start/",
+          "locator": "Quickstart",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_postgres",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "persistence.backend",
+      "qualifiers": {
+        "backend": "postgresql_relational_jdbc"
+      },
+      "note": "Relational JDBC có hướng dẫn PostgreSQL.",
+      "limits": [
+        "Cần bootstrap schema và realm."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/metastores/relational-jdbc/",
+          "locator": "Relational JDBC; Bootstrapping Polaris",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_deps",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "deployment.dependencies",
+      "qualifiers": {},
+      "note": "Phụ thuộc của các đường JDBC và cloud đang ghi nhận.",
+      "limits": [
+        "Các lựa chọn có điều kiện; không phải mọi deployment cần tất cả."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/metastores/relational-jdbc/",
+          "locator": "Bootstrapping Polaris",
+          "retrieved_at": "2026-10-17"
+        },
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+          "locator": "AWS S3",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": [
+        "postgresql_for_selected_relational_jdbc_backend",
+        "cloud_identity_for_selected_storage"
+      ]
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_schema_upgrade",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "operations.capability",
+      "qualifiers": {
+        "operation": "manual_schema_upgrade",
+        "component": "relational_jdbc_metastore"
+      },
+      "note": "Nâng schema JDBC do operator thực hiện thủ công.",
+      "limits": [
+        "Không có migration schema tự động."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/metastores/relational-jdbc/",
+          "locator": "Schema upgrades",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_metrics",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "operations.capability",
+      "qualifiers": {
+        "operation": "prometheus_metrics",
+        "component": "polaris_server"
+      },
+      "note": "Micrometer xuất metrics để Prometheus thu thập.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/telemetry/",
+          "locator": "Metrics",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_tracing",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "operations.capability",
+      "qualifiers": {
+        "operation": "otlp_tracing",
+        "component": "polaris_server"
+      },
+      "note": "Có xuất OpenTelemetry traces qua OTLP.",
+      "limits": [
+        "Mặc định tắt; cần bật và cấu hình collector."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/telemetry/",
+          "locator": "Traces",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_license",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "project.license",
+      "qualifiers": {
+        "component": "polaris_core"
+      },
+      "note": "LICENSE của tag 1.7.0 xác nhận Apache 2.0.",
+      "limits": [
+        "Danh sách không thay kiểm tra license dependency."
+      ],
+      "evidence": [
+        {
+          "kind": "official_repository",
+          "url": "https://raw.githubusercontent.com/apache/polaris/apache-polaris-1.7.0/LICENSE",
+          "locator": "Apache License, Version 2.0",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_ice_create",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "create",
+        "api": "iceberg_rest"
+      },
+      "note": "Dịch vụ REST hỗ trợ giao diện namespace và table.",
+      "limits": [
+        "Không suy hỗ trợ những endpoint chưa triển khai."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/iceberg-rest-service/",
+          "locator": "Capabilities",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_ice_load",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "load",
+        "api": "iceberg_rest"
+      },
+      "note": "Giao diện table bao gồm đường load của Iceberg REST.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/iceberg-rest-service/",
+          "locator": "Capabilities",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_spark_read",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "read",
+        "api": "iceberg_rest",
+        "connector": "iceberg_rest_catalog"
+      },
+      "note": "Ví dụ SQL minh họa thao tác qua Iceberg REST.",
+      "limits": [
+        "Cần client, FileIO và quyền phù hợp."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/iceberg-rest-service/",
+          "locator": "Exploring Apache Iceberg with Apache Spark SQL",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_spark_append",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "append",
+        "api": "iceberg_rest",
+        "connector": "iceberg_rest_catalog"
+      },
+      "note": "Ví dụ SQL minh họa thao tác qua Iceberg REST.",
+      "limits": [
+        "Cần client, FileIO và quyền phù hợp."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/iceberg-rest-service/",
+          "locator": "Exploring Apache Iceberg with Apache Spark SQL",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_trino_read",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "trino",
+        "format": "iceberg",
+        "operation": "read",
+        "api": "iceberg_rest",
+        "connector": "iceberg_rest_catalog"
+      },
+      "note": "Ví dụ SQL minh họa thao tác qua Iceberg REST.",
+      "limits": [
+        "Cần client, FileIO và quyền phù hợp."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/iceberg-rest-service/",
+          "locator": "Exploring Apache Iceberg with Trino SQL",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_namespace",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "catalog.object_operation",
+      "qualifiers": {
+        "object_type": "namespace",
+        "operation": "create",
+        "api": "iceberg_rest"
+      },
+      "note": "Dịch vụ triển khai giao diện namespace Iceberg.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/iceberg-rest-service/",
+          "locator": "Capabilities",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_rest_multitable",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "transaction.multi_table_atomic",
+      "qualifiers": {
+        "client_path": "iceberg_rest_transaction_endpoint",
+        "failure_boundary": "single_rest_multi_table_request",
+        "api": "iceberg_rest"
+      },
+      "note": "Endpoint multi table transaction chưa được triển khai.",
+      "limits": [
+        "Chỉ kết luận cho endpoint này trong 1.1.0."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/iceberg-rest-service/",
+          "locator": "Capabilities / interfaces not implemented",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "none"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_standalone_authz",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "table",
+        "action": "authorize_catalog_operation",
+        "access_path": "gravitino_iceberg_rest_standalone"
+      },
+      "note": "Standalone REST không hỗ trợ access control đã mô tả.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/iceberg-rest-service/",
+          "locator": "Access control / Prerequisites",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "none"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_aux_authz",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "table",
+        "action": "authorize_catalog_operation",
+        "access_path": "gravitino_iceberg_rest_auxiliary"
+      },
+      "note": "Auxiliary REST gửi kiểm tra quyền đến Gravitino.",
+      "limits": [
+        "Cần bật authorization và dùng dynamic configuration provider."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/iceberg-rest-service/",
+          "locator": "Access control / How access control works",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_oauth",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "authentication.method",
+      "qualifiers": {
+        "method": "oauth2_bearer_jwt",
+        "api": "gravitino_rest",
+        "token_format": "jwt"
+      },
+      "note": "OAuth xác minh JWT bằng signing key hoặc JWKS.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/security/how-to-authenticate/",
+          "locator": "OAuth mode",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_kerberos",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "authentication.method",
+      "qualifiers": {
+        "method": "kerberos",
+        "api": "gravitino_rest"
+      },
+      "note": "Gravitino có cơ chế xác thực Kerberos.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/security/how-to-authenticate/",
+          "locator": "Authentication; Kerberos mode",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_simple",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "authentication.method",
+      "qualifiers": {
+        "method": "simple_username_assertion",
+        "api": "gravitino_rest"
+      },
+      "note": "Simple mode lấy username client cung cấp.",
+      "limits": [
+        "Không đồng nghĩa xác minh danh tính mạnh bằng IdP."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/security/how-to-authenticate/",
+          "locator": "Simple mode",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_rbac",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "authorization.policy_model",
+      "qualifiers": {
+        "model": "rbac",
+        "api": "gravitino_rest"
+      },
+      "note": "Mô hình quyền gồm role gán cho user/group.",
+      "limits": [
+        "Không tự xác nhận enforcement qua mọi connector."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/security/access-control/",
+          "locator": "Gravitino Privilege Model / Access Control Models",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_dac",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "authorization.policy_model",
+      "qualifiers": {
+        "model": "dac_object_ownership",
+        "api": "gravitino_rest"
+      },
+      "note": "Owner của metadata object có quyền cấp truy cập.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/security/access-control/",
+          "locator": "Gravitino Privilege Model / Access Control Models",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_aws_s3",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "gravitino_iceberg_catalog"
+      },
+      "note": "Iceberg catalog liệt kê backend lưu dữ liệu này.",
+      "limits": [
+        "Phụ thuộc FileIO và catalog backend được cấu hình."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/lakehouse-iceberg-catalog/",
+          "locator": "Catalog capabilities",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_gcs",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "gcs",
+        "api": "gravitino_iceberg_catalog"
+      },
+      "note": "Iceberg catalog liệt kê backend lưu dữ liệu này.",
+      "limits": [
+        "Phụ thuộc FileIO và catalog backend được cấu hình."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/lakehouse-iceberg-catalog/",
+          "locator": "Catalog capabilities",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_azure_adls_gen2",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "azure_adls_gen2",
+        "api": "gravitino_iceberg_catalog"
+      },
+      "note": "Iceberg catalog liệt kê backend lưu dữ liệu này.",
+      "limits": [
+        "Phụ thuộc FileIO và catalog backend được cấu hình."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/lakehouse-iceberg-catalog/",
+          "locator": "Catalog capabilities",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_hdfs",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "hdfs",
+        "api": "gravitino_iceberg_catalog"
+      },
+      "note": "Iceberg catalog liệt kê backend lưu dữ liệu này.",
+      "limits": [
+        "Phụ thuộc FileIO và catalog backend được cấu hình."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/lakehouse-iceberg-catalog/",
+          "locator": "Catalog capabilities",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_s3_vend",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "iceberg_rest"
+      },
+      "note": "S3 token provider cấp credential STS có scoped privileges.",
+      "limits": [
+        "Cần role và quyền phù hợp; khác static key provider."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/security/credential-vending/",
+          "locator": "S3 token credential",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_s3_access",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "storage.access_method",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "iceberg_rest"
+      },
+      "note": "Tài liệu mô tả token và static key provider riêng.",
+      "limits": [
+        "Static key không đáp ứng hợp đồng credential tạm thời."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/security/credential-vending/",
+          "locator": "S3 credentials",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": [
+        "temporary_sts_token",
+        "static_access_key"
+      ]
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_s3_expiry",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "storage.credential_lifecycle",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "action": "configure_expiry",
+        "api": "iceberg_rest"
+      },
+      "note": "Thời hạn S3 token bị giới hạn bởi role session.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/security/credential-vending/",
+          "locator": "S3 token credential / token expiration",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_spark_vend",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "gravitino_spark_connector",
+        "client": "spark"
+      },
+      "note": "Connector Spark riêng chưa hỗ trợ vending theo tài liệu.",
+      "limits": [
+        "Không áp dụng kết luận này cho Spark dùng Iceberg REST."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/security/credential-vending/",
+          "locator": "Capabilities / No support for Spark/Trino/Flink connector yet",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "none"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_hive_fed",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "metadata.federation_operation",
+      "qualifiers": {
+        "source_type": "hive_metastore",
+        "operation": "proxy_iceberg_schema_table_ddl",
+        "api": "gravitino_iceberg_catalog"
+      },
+      "note": "Iceberg catalog proxy có backend Hive và hỗ trợ DDL.",
+      "limits": [
+        "Không suy quản lý snapshot hoặc toàn bộ Hive objects."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/lakehouse-iceberg-catalog/",
+          "locator": "Catalog capabilities",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_snapshot_api",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "versioning.operation",
+      "qualifiers": {
+        "reference_type": "iceberg_snapshot",
+        "operation": "manage",
+        "object_scope": "single_table",
+        "api": "gravitino_iceberg_catalog"
+      },
+      "note": "Unified Iceberg catalog không hỗ trợ quản lý snapshot.",
+      "limits": [
+        "Không áp dụng cho engine tự thao tác Iceberg metadata."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/lakehouse-iceberg-catalog/",
+          "locator": "Catalog capabilities",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "none"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_metadata",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "metadata.responsibility",
+      "qualifiers": {
+        "metadata_kind": "federated_source_metadata"
+      },
+      "note": "Mô tả cơ chế trong phạm vi qualifier đã ghi.",
+      "limits": [
+        "Không suy distributed transaction xuyên nguồn."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/overview/",
+          "locator": "Direct metadata management",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": "Connector quản lý trực tiếp nguồn; thay đổi phản ánh xuống nguồn tương ứng."
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_postgres",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "persistence.backend",
+      "qualifiers": {
+        "backend": "postgresql_entity_store"
+      },
+      "note": "Entity store hỗ trợ PostgreSQL qua relational JDBC.",
+      "limits": [
+        "Đây là Gravitino entity store, khác backend của bảng Iceberg."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/gravitino-server-config/",
+          "locator": "Entity store configuration",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_mysql",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "persistence.backend",
+      "qualifiers": {
+        "backend": "mysql_entity_store"
+      },
+      "note": "Entity store hỗ trợ MySQL qua relational JDBC.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/gravitino-server-config/",
+          "locator": "Entity store configuration",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_local",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "deployment.environment",
+      "qualifiers": {
+        "environment": "standalone_service"
+      },
+      "note": "REST catalog có chế độ dịch vụ standalone.",
+      "limits": [
+        "Standalone và auxiliary có khả năng authorization khác nhau."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/iceberg-rest-service/",
+          "locator": "Server management",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_metrics",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "operations.capability",
+      "qualifiers": {
+        "operation": "prometheus_metrics",
+        "component": "gravitino_server"
+      },
+      "note": "Metrics xuất qua JMX/HTTP, có định dạng Prometheus.",
+      "limits": [
+        "Metrics không là số đo hiệu năng của workload."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/metrics/",
+          "locator": "Introduction; Metrics source",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_lineage",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "governance.lineage",
+      "qualifiers": {
+        "relation_type": "column",
+        "integration": "spark_openlineage_with_gravitino_jar"
+      },
+      "note": "Spark jar và OpenLineage cung cấp lineage cấp cột.",
+      "limits": [
+        "Cần tích hợp thu thập/xử lý/sink sự kiện; không tự phủ mọi engine."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/lineage/lineage/",
+          "locator": "Overview; Capabilities",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_unified_authz_unresolved",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "table",
+        "action": "authorize_metadata_request",
+        "access_path": "gravitino_unified_rest"
+      },
+      "note": "Trang Access Control có đoạn phủ nhận kiểm tra metadata và đoạn mô tả built-in authorization.",
+      "limits": [
+        "Chưa phân giải mâu thuẫn trong tài liệu; không dùng để PASS/FAIL."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://gravitino.apache.org/docs/1.1.0/security/access-control/",
+          "locator": "Info after Access Control Models; Built-in Authorization",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "unknown"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_ice_load",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "load",
+        "api": "nessie_api"
+      },
+      "note": "Iceberg client dùng Nessie Catalog và TableOperations.",
+      "limits": [
+        "Đường client NessieCatalog, khác Iceberg REST."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/iceberg/iceberg/",
+          "locator": "Iceberg Extension Points",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_rest",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "integration.api_operation",
+      "qualifiers": {
+        "api": "iceberg_rest",
+        "operation": "serve_catalog_requests"
+      },
+      "note": "Nessie cung cấp Iceberg REST cho client tương thích.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/try-nessie/",
+          "locator": "Getting Started with Nessie and Iceberg REST",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_spark_read",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "connect_catalog",
+        "api": "iceberg_rest",
+        "connector": "iceberg_rest_catalog",
+        "engine_release": "3.5_example"
+      },
+      "note": "Hướng dẫn kết nối Spark SQL qua Iceberg REST.",
+      "limits": [
+        "Ví dụ dùng Nessie extension 0.109.0 và Iceberg 1.11.0; chưa lab."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/try-nessie/",
+          "locator": "Spark SQL example",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_trino_read",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "trino",
+        "format": "iceberg",
+        "operation": "read",
+        "api": "nessie_api",
+        "engine_release": "484"
+      },
+      "note": "Trino Iceberg connector liệt kê backend Nessie.",
+      "limits": [
+        "Cần cấu hình catalog, filesystem và quyền storage."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://trino.io/docs/current/connector/iceberg.html",
+          "locator": "Requirements; General configuration",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_oidc",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "authentication.method",
+      "qualifiers": {
+        "method": "oidc_bearer_authentication",
+        "api": "nessie_api"
+      },
+      "note": "Nessie xác minh bearer token qua OIDC.",
+      "limits": [
+        "Mặc định authentication tắt; phải bật rõ."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/nessie-latest/authentication/",
+          "locator": "OpenID Bearer Tokens",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_idp",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "authentication.identity_provider",
+      "qualifiers": {
+        "identity_provider": "configured_oidc_provider",
+        "protocol": "oidc",
+        "api": "nessie_api"
+      },
+      "note": "Server cấu hình OIDC issuer và client.",
+      "limits": [
+        "Không suy mọi provider hay mọi token format tương thích."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/nessie-latest/authentication/",
+          "locator": "OpenID Bearer Tokens",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_cel",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "authorization.policy_model",
+      "qualifiers": {
+        "model": "cel_rules_over_roles_references_paths",
+        "api": "nessie_api"
+      },
+      "note": "CEL rules sử dụng role, reference và content path.",
+      "limits": [
+        "Phải bật authorization; không suy SQL GRANT hoặc ABAC mọi loại."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/nessie-latest/authorization/",
+          "locator": "Reference implementation for Metadata Authorization; Variables",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_table_meta_read",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "table",
+        "action": "read_metadata",
+        "access_path": "nessie_api"
+      },
+      "note": "Có kiểm tra quyền đọc content theo reference/path.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/nessie-latest/authorization/",
+          "locator": "Stories; Access control model; Checks for Content operations",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_direct_data",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "table",
+        "action": "prevent_direct_storage_access",
+        "access_path": "nessie_metadata_authorizer_only"
+      },
+      "note": "Metadata authorizer không tự chặn truy cập trực tiếp dữ liệu.",
+      "limits": [
+        "Cần cơ chế storage riêng; không phủ định đường vending/signing."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/nessie-latest/authorization/",
+          "locator": "Authorization scope",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "none"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_metadata",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "metadata.responsibility",
+      "qualifiers": {
+        "metadata_kind": "catalog_reference_and_content_locations"
+      },
+      "note": "Mô tả cơ chế trong phạm vi qualifier đã ghi.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/nessie-latest/authorization/",
+          "locator": "Authorization scope",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": "Nessie lưu metadata và vị trí dữ liệu, không lưu trực tiếp nội dung dữ liệu."
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_aws_s3",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "iceberg_rest"
+      },
+      "note": "Hướng dẫn REST hỗ trợ S3 và MinIO.",
+      "limits": [
+        "Cần cấu hình warehouse, storage và credentials."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/try-nessie/",
+          "locator": "Feature list; Docker/Podman example",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_minio",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "minio",
+        "api": "iceberg_rest"
+      },
+      "note": "Hướng dẫn REST hỗ trợ S3 và MinIO.",
+      "limits": [
+        "Cần cấu hình warehouse, storage và credentials."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/try-nessie/",
+          "locator": "Feature list; Docker/Podman example",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_s3_method",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "storage.access_method",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "iceberg_rest"
+      },
+      "note": "S3 hỗ trợ signing và session tokens.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/try-nessie/",
+          "locator": "Feature list",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": [
+        "request_signing",
+        "session_tokens"
+      ]
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_branch",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "workflow.branching",
+      "qualifiers": {
+        "object_scope": "catalog",
+        "api": "nessie_api"
+      },
+      "note": "Nhánh nhận chuỗi commit riêng; merge công bố trạng thái nhất quán.",
+      "limits": [
+        "Cần quyền tạo/ghi/merge; storage files vẫn dùng chung."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/transactions/",
+          "locator": "Cross-Table Transactions / Via Branches",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_merge",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "versioning.operation",
+      "qualifiers": {
+        "reference_type": "branch",
+        "operation": "merge",
+        "object_scope": "catalog",
+        "api": "nessie_api"
+      },
+      "note": "Merge công bố chuỗi thay đổi của nhánh.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/transactions/",
+          "locator": "Cross-Table Transactions",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_history",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "versioning.operation",
+      "qualifiers": {
+        "reference_type": "commit_hash",
+        "operation": "read_history",
+        "object_scope": "catalog",
+        "api": "nessie_api"
+      },
+      "note": "Lịch sử giao dịch truy cập qua commit log.",
+      "limits": [
+        "Khả năng đọc dữ liệu lịch sử còn phụ thuộc retention của files."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/transactions/",
+          "locator": "Transactions",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_commit",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "commit.guarantee",
+      "qualifiers": {
+        "operation": "commit_multiple_content_changes",
+        "boundary": "single_catalog_commit",
+        "api": "nessie_api"
+      },
+      "note": "Mô tả cơ chế trong phạm vi qualifier đã ghi.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/transactions/",
+          "locator": "Cross-Table Transactions / Single Commits",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": "Một commit có thể chứa đồng thời thay đổi nhiều object; công cụ phải dùng primitive này."
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_atomic",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "transaction.multi_table_atomic",
+      "qualifiers": {
+        "client_path": "raw_nessie_single_commit",
+        "failure_boundary": "publication_of_multiple_content_updates_in_one_commit",
+        "api": "nessie_api"
+      },
+      "note": "Một catalog commit công bố đồng thời nhiều content updates.",
+      "limits": [
+        "Phạm vi metadata; không tự chứng minh START TRANSACTION của Spark/Trino."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/transactions/",
+          "locator": "Cross-Table Transactions / Single Commits",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_sql_atomic_unknown",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "transaction.multi_table_atomic",
+      "qualifiers": {
+        "client_path": "spark_sql_start_transaction",
+        "failure_boundary": "engine_failure_during_multi_table_dml",
+        "api": "nessie_api"
+      },
+      "note": "Chưa có bằng chứng cho transaction SQL nhiều bảng end-to-end của Spark.",
+      "limits": [
+        "Catalog primitives không bảo đảm engine đã tích hợp."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/transactions/",
+          "locator": "START TRANSACTION.. COMMIT; Isolation Levels / Info",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "unknown"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_postgres",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "persistence.backend",
+      "qualifiers": {
+        "backend": "postgresql_jdbc2"
+      },
+      "note": "Bảng hỗ trợ ghi PostgreSQL production cho version store.",
+      "limits": [
+        "JDBC cũ deprecated; ưu tiên JDBC2 trong tài liệu đang đọc."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/nessie-latest/configuration/",
+          "locator": "Support for the database specific implementations; JDBC Version Store Settings",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_local",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "deployment.environment",
+      "qualifiers": {
+        "environment": "local_docker_compose"
+      },
+      "note": "Có hướng dẫn Docker/Podman cho local.",
+      "limits": [
+        "Ví dụ demo cần bổ sung cấu hình trước production."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/try-nessie/",
+          "locator": "Docker/Podman compose",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_backup",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "operations.capability",
+      "qualifiers": {
+        "operation": "export_repository",
+        "component": "nessie_version_store"
+      },
+      "note": "Admin Tool xuất repository thành ZIP.",
+      "limits": [
+        "Cần truy cập database; không sao lưu các data files của bảng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/nessie-latest/export_import/",
+          "locator": "Exporting; Export contents",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_restore",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "operations.capability",
+      "qualifiers": {
+        "operation": "import_repository",
+        "component": "nessie_version_store"
+      },
+      "note": "Admin Tool nhập repository từ ZIP.",
+      "limits": [
+        "Mặc định từ chối repository đích không rỗng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/nessie-latest/export_import/",
+          "locator": "Importing",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_store_migration",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "migration.asset_preservation",
+      "qualifiers": {
+        "direction": "between_nessie_version_stores",
+        "peer_catalog": "project_nessie",
+        "asset": "commits_and_named_references"
+      },
+      "note": "Export/import chuyển commits và named references giữa version stores.",
+      "limits": [
+        "Không phải migration sang catalog khác hoặc copy data files."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/nessie-latest/export_import/",
+          "locator": "Migrating from a legacy version store type; Export contents",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_license",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "project.license",
+      "qualifiers": {
+        "component": "nessie_core"
+      },
+      "note": "Repository công bố Apache License 2.0.",
+      "limits": [
+        "Nguồn main theo ngày đọc, không phải SBOM từng binary."
+      ],
+      "evidence": [
+        {
+          "kind": "official_repository",
+          "url": "https://raw.githubusercontent.com/projectnessie/nessie/main/LICENSE",
+          "locator": "Apache License, Version 2.0",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_delta_meta",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "delta",
+        "operation": "load",
+        "api": "unity_catalog_rest"
+      },
+      "note": "CLI/API trả metadata và location của bảng Delta.",
+      "limits": [
+        "Transaction log Delta có vai trò riêng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/usage/tables/deltalake/",
+          "locator": "How to Get Table Metadata",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_delta_entry",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "delta",
+        "operation": "create_external_table_entry",
+        "api": "unity_catalog_rest"
+      },
+      "note": "Hướng dẫn tạo entry cho bảng Delta external.",
+      "limits": [
+        "Không suy server ghi hoặc quản lý lifecycle mọi file."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/usage/tables/deltalake/",
+          "locator": "How to Create a New Delta Table",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_uniform_load",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "delta",
+        "operation": "load",
+        "api": "iceberg_rest",
+        "metadata_representation": "iceberg_uniform"
+      },
+      "note": "Iceberg REST phục vụ metadata của Delta UniForm.",
+      "limits": [
+        "Không chứng minh create/commit bảng Iceberg native."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/usage/tables/uniform/",
+          "locator": "Read Delta Uniform tables via Iceberg REST Catalog",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_spark_read",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "delta",
+        "operation": "read",
+        "api": "unity_catalog_rest",
+        "connector": "unitycatalog_spark"
+      },
+      "note": "Ví dụ Spark thực hiện thao tác Delta này.",
+      "limits": [
+        "Cần bộ Spark/Delta/UC connector tương thích; không suy mọi release."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/integrations/unity-catalog-spark/",
+          "locator": "Using Spark SQL to query Unity Catalog schemas and tables",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_spark_append",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "delta",
+        "operation": "append",
+        "api": "unity_catalog_rest",
+        "connector": "unitycatalog_spark"
+      },
+      "note": "Ví dụ Spark thực hiện thao tác Delta này.",
+      "limits": [
+        "Cần bộ Spark/Delta/UC connector tương thích; không suy mọi release."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/integrations/unity-catalog-spark/",
+          "locator": "Insert New Rows into Table",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_spark_merge",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "delta",
+        "operation": "merge",
+        "api": "unity_catalog_rest",
+        "connector": "unitycatalog_spark"
+      },
+      "note": "Ví dụ Spark thực hiện thao tác Delta này.",
+      "limits": [
+        "Cần bộ Spark/Delta/UC connector tương thích; không suy mọi release."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/integrations/unity-catalog-spark/",
+          "locator": "Merge mytable with srctable",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_spark_uniform",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "delta",
+        "operation": "read",
+        "api": "iceberg_rest",
+        "connector": "iceberg_rest_catalog",
+        "metadata_representation": "iceberg_uniform"
+      },
+      "note": "Spark có ví dụ đọc UniForm bằng Iceberg connector.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/usage/tables/uniform/",
+          "locator": "Setting up REST Catalog with Apache Spark",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_api",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "integration.api_operation",
+      "qualifiers": {
+        "api": "iceberg_rest",
+        "operation": "load_uniform_table"
+      },
+      "note": "OSS có endpoint Iceberg REST cho UniForm.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/usage/tables/uniform/",
+          "locator": "Read Delta Uniform tables via Iceberg REST Catalog",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_oauth",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "authentication.method",
+      "qualifiers": {
+        "method": "external_identity_token_exchange",
+        "api": "unity_catalog_rest"
+      },
+      "note": "Provider ngoài xác thực; UC kiểm tra user trong database cục bộ.",
+      "limits": [
+        "Phải bật authorization phía server."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/server/auth/",
+          "locator": "Authentication flow; Configure UC Server Settings",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_google",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "authentication.identity_provider",
+      "qualifiers": {
+        "identity_provider": "google_identity",
+        "protocol": "oauth2",
+        "api": "unity_catalog_rest"
+      },
+      "note": "Google Identity là provider được hướng dẫn cụ thể.",
+      "limits": [
+        "UI được ghi chỉ hỗ trợ Google Identity trong trang này."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/server/auth/",
+          "locator": "Configure your External Identity Provider",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_admin_token",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "authentication.method",
+      "qualifiers": {
+        "method": "uc_admin_bearer_token",
+        "api": "unity_catalog_rest"
+      },
+      "note": "Server tạo admin token khi bật authentication/authorization.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/server/auth/",
+          "locator": "Restart the UC Server",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_user_privileges",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "authorization.policy_model",
+      "qualifiers": {
+        "model": "object_privileges_to_users",
+        "api": "unity_catalog_rest"
+      },
+      "note": "Admin tạo user và cấp privilege trên securable object.",
+      "limits": [
+        "Không tự đồng nhất với role/group của Databricks managed."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/server/users-privileges/",
+          "locator": "Creating New Users; Granting User Privileges",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_catalog_use",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "catalog",
+        "action": "use_catalog",
+        "access_path": "unity_catalog_rest_authorization_enabled"
+      },
+      "note": "USE CATALOG là privilege được admin cấp cho user.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/server/users-privileges/",
+          "locator": "Granting User Privileges",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_aws_s3",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "unity_catalog_rest"
+      },
+      "note": "Tích hợp Spark có cấu hình cho cloud storage này.",
+      "limits": [
+        "Cần cấu hình danh tính cloud."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/integrations/unity-catalog-spark/",
+          "locator": "Configure server properties for cloud storage",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_azure_adls_gen2",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "azure_adls_gen2",
+        "api": "unity_catalog_rest"
+      },
+      "note": "Tích hợp Spark có cấu hình cho cloud storage này.",
+      "limits": [
+        "Cần cấu hình danh tính cloud."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/integrations/unity-catalog-spark/",
+          "locator": "Configure server properties for cloud storage",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_gcs",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "gcs",
+        "api": "unity_catalog_rest"
+      },
+      "note": "Tích hợp Spark có cấu hình cho cloud storage này.",
+      "limits": [
+        "Cần cấu hình danh tính cloud."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/integrations/unity-catalog-spark/",
+          "locator": "Configure server properties for cloud storage",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_s3_methods",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "storage.access_method",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "unity_catalog_rest"
+      },
+      "note": "Các trang mô tả trả credentials cấu hình và cấu hình role.",
+      "limits": [
+        "Chưa đủ căn cứ credential luôn downscope theo từng bảng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/server/configuration/",
+          "locator": "Configuration",
+          "retrieved_at": "2026-10-17"
+        },
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/integrations/unity-catalog-spark/",
+          "locator": "Configure server properties for cloud storage",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": [
+        "configured_temporary_credentials",
+        "configured_role_based_access"
+      ]
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_s3_vend_unknown",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "unity_catalog_rest"
+      },
+      "note": "Có mô tả vending; chưa chứng minh đủ temporary và giới hạn theo bảng/quyền ở mọi cấu hình.",
+      "limits": [
+        "Giữ unknown theo hợp đồng chặt của property; không kết luận không có vending."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/server/configuration/",
+          "locator": "Configuration / bucket matching",
+          "retrieved_at": "2026-10-17"
+        },
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/integrations/unity-catalog-spark/",
+          "locator": "Credential vending; cloud storage",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "unknown"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_local",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "deployment.environment",
+      "qualifiers": {
+        "environment": "local_jvm"
+      },
+      "note": "Server chạy cục bộ với Java 17.",
+      "limits": [
+        "Trang hướng dẫn chạy main; không là chứng nhận production."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/server/configuration/",
+          "locator": "Running the Server",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_h2_file",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "persistence.backend",
+      "qualifiers": {
+        "backend": "h2_file_dev_mode"
+      },
+      "note": "Dev mode lưu metadata trong file H2.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/server/configuration/",
+          "locator": "Configuration / server.env",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_h2_memory",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "persistence.backend",
+      "qualifiers": {
+        "backend": "h2_in_memory_test_mode"
+      },
+      "note": "Test mode khởi tạo H2 trong bộ nhớ.",
+      "limits": [
+        "Không suy dữ liệu bền qua restart."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/server/configuration/",
+          "locator": "Configuration / server.env",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_logging",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "operations.capability",
+      "qualifiers": {
+        "operation": "server_log_rotation",
+        "component": "unity_catalog_server"
+      },
+      "note": "Log4j2 cho phép cấu hình mức log và rolling policy.",
+      "limits": [
+        "Server log chưa tự chứng minh audit mọi truy cập dữ liệu."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.unitycatalog.io/server/configuration/",
+          "locator": "Logging",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_license",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "project.license",
+      "qualifiers": {
+        "component": "unity_catalog_oss_core"
+      },
+      "note": "LICENSE repository OSS là Apache 2.0.",
+      "limits": [
+        "Không áp giấy phép này cho dịch vụ Databricks managed."
+      ],
+      "evidence": [
+        {
+          "kind": "official_repository",
+          "url": "https://raw.githubusercontent.com/unitycatalog/unitycatalog/main/LICENSE",
+          "locator": "Apache License, Version 2.0",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_metadata",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "metadata.responsibility",
+      "qualifiers": {
+        "metadata_kind": "managed_vs_external_object_lifecycle"
+      },
+      "note": "Mô tả cơ chế trong phạm vi qualifier đã ghi.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/",
+          "locator": "The Unity Catalog object model",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": "Managed tables/volumes gồm storage lifecycle; external objects giữ governance trong UC."
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_object_table",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "catalog.object_operation",
+      "qualifiers": {
+        "object_type": "table",
+        "operation": "represent_as_securable",
+        "api": "databricks_unity_catalog"
+      },
+      "note": "Loại object này thuộc mô hình securable của UC.",
+      "limits": [
+        "Không suy mọi thao tác CRUD."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/",
+          "locator": "The Unity Catalog object model",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_object_view",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "catalog.object_operation",
+      "qualifiers": {
+        "object_type": "view",
+        "operation": "represent_as_securable",
+        "api": "databricks_unity_catalog"
+      },
+      "note": "Loại object này thuộc mô hình securable của UC.",
+      "limits": [
+        "Không suy mọi thao tác CRUD."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/",
+          "locator": "The Unity Catalog object model",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_object_volume",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "catalog.object_operation",
+      "qualifiers": {
+        "object_type": "volume",
+        "operation": "represent_as_securable",
+        "api": "databricks_unity_catalog"
+      },
+      "note": "Loại object này thuộc mô hình securable của UC.",
+      "limits": [
+        "Không suy mọi thao tác CRUD."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/",
+          "locator": "The Unity Catalog object model",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_object_function",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "catalog.object_operation",
+      "qualifiers": {
+        "object_type": "function",
+        "operation": "represent_as_securable",
+        "api": "databricks_unity_catalog"
+      },
+      "note": "Loại object này thuộc mô hình securable của UC.",
+      "limits": [
+        "Không suy mọi thao tác CRUD."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/",
+          "locator": "The Unity Catalog object model",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_object_model",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "catalog.object_operation",
+      "qualifiers": {
+        "object_type": "model",
+        "operation": "represent_as_securable",
+        "api": "databricks_unity_catalog"
+      },
+      "note": "Loại object này thuộc mô hình securable của UC.",
+      "limits": [
+        "Không suy mọi thao tác CRUD."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/",
+          "locator": "The Unity Catalog object model",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_managed_ice_read",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "load_for_read",
+        "api": "iceberg_rest",
+        "table_type": "managed"
+      },
+      "note": "Bảng hỗ trợ cho phép đọc managed Iceberg.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/external-access/iceberg",
+          "locator": "Requirements / table types",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_managed_ice_write",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "commit_write",
+        "api": "iceberg_rest",
+        "table_type": "managed"
+      },
+      "note": "Bảng hỗ trợ cho phép ghi managed Iceberg.",
+      "limits": [
+        "Cần external data access và quyền EXTERNAL USE SCHEMA."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/external-access/iceberg",
+          "locator": "Requirements / table types",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_spark_ice_read",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "read",
+        "api": "iceberg_rest",
+        "connector": "iceberg_rest_catalog",
+        "table_type": "managed"
+      },
+      "note": "Spark có đường đọc managed Iceberg qua REST.",
+      "limits": [
+        "Phải bật external access và quyền schema."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/external-access/iceberg",
+          "locator": "Use Iceberg tables with Apache Spark; Requirements",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_foreign_ice_write",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "commit_write",
+        "api": "iceberg_rest",
+        "table_type": "foreign"
+      },
+      "note": "Foreign Iceberg chỉ được đọc qua endpoint này.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/external-access/iceberg",
+          "locator": "Requirements / table types",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "none"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_uniform_write",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "delta",
+        "operation": "commit_write",
+        "api": "iceberg_rest",
+        "metadata_representation": "iceberg_reads_enabled"
+      },
+      "note": "Delta bật Iceberg reads không nhận ghi qua Iceberg REST.",
+      "limits": [
+        "Không phủ định ghi bằng Delta client."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/external-access/iceberg",
+          "locator": "Requirements / table types",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "none"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_oauth",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "authentication.method",
+      "qualifiers": {
+        "method": "databricks_oauth",
+        "api": "iceberg_rest"
+      },
+      "note": "Iceberg REST hỗ trợ OAuth của Databricks.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/external-access/iceberg",
+          "locator": "Requirements; OAuth authentication",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_pat",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "authentication.method",
+      "qualifiers": {
+        "method": "personal_access_token",
+        "api": "iceberg_rest"
+      },
+      "note": "Iceberg REST hỗ trợ personal access token.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/external-access/iceberg",
+          "locator": "Requirements; Use Iceberg tables with Apache Spark",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_grant",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "authorization.policy_model",
+      "qualifiers": {
+        "model": "object_ownership_and_grant_revoke",
+        "api": "databricks_sql"
+      },
+      "note": "Owner và principal có quyền phù hợp quản lý grants.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/manage-privileges/",
+          "locator": "Who can manage privileges; Show, grant, and revoke privileges",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_rows",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "row",
+        "action": "filter_read_results",
+        "access_path": "databricks_supported_compute"
+      },
+      "note": "SQL UDF row filter loại hàng khỏi kết quả query.",
+      "limits": [
+        "Cần compute/table phù hợp; không suy mọi external engine."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/filters-and-masks",
+          "locator": "What are row filters?",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_columns",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "column",
+        "action": "mask_read_values",
+        "access_path": "databricks_supported_compute"
+      },
+      "note": "Column mask thay giá trị cột tại query time.",
+      "limits": [
+        "Không suy cấm đọc thô nếu storage cấp quyền riêng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/filters-and-masks",
+          "locator": "What are column masks?",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_abac",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "authorization.policy_model",
+      "qualifiers": {
+        "model": "abac_governed_tags",
+        "api": "databricks_sql"
+      },
+      "note": "ABAC policies áp dụng filter/mask theo governed tags.",
+      "limits": [
+        "Chưa đánh giá cross-engine ABAC ở bản dữ liệu này."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/filters-and-masks",
+          "locator": "When to use ABAC policies or dynamic views instead",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_s3_vend",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "unity_catalog_temporary_table_credentials"
+      },
+      "note": "Table credential API cấp token storage ngắn hạn theo quyền principal.",
+      "limits": [
+        "Chỉ table/client đủ điều kiện; cần external access và quyền tương ứng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/external-access/credential-vending",
+          "locator": "What is Unity Catalog credential vending?; Table credential vending",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_foreign_vend",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "iceberg_rest",
+        "table_type": "foreign"
+      },
+      "note": "Trang Iceberg REST phủ nhận, trang credential vending liệt kê foreign read được hỗ trợ.",
+      "limits": [
+        "Chưa phân giải khác biệt endpoint/table type; không dùng làm khẳng định full/none."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/external-access/iceberg",
+          "locator": "Requirements / Foreign Iceberg credential vending",
+          "retrieved_at": "2026-10-17"
+        },
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/external-access/credential-vending",
+          "locator": "Supported access types / Foreign Iceberg",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "unknown"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_hive_metastore_fed",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "metadata.federation_operation",
+      "qualifiers": {
+        "source_type": "hive_metastore",
+        "operation": "read_via_foreign_catalog",
+        "api": "databricks_catalog_federation"
+      },
+      "note": "Catalog federation truy cập nguồn qua foreign catalog.",
+      "limits": [
+        "Read-only; cần connection, storage credential và external location."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/query-federation/",
+          "locator": "Choose an approach; Catalog federation",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_aws_glue_data_catalog_fed",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "metadata.federation_operation",
+      "qualifiers": {
+        "source_type": "aws_glue_data_catalog",
+        "operation": "read_via_foreign_catalog",
+        "api": "databricks_catalog_federation"
+      },
+      "note": "Catalog federation truy cập nguồn qua foreign catalog.",
+      "limits": [
+        "Read-only; cần connection, storage credential và external location."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/query-federation/",
+          "locator": "Choose an approach; Catalog federation",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_snowflake_fed",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "metadata.federation_operation",
+      "qualifiers": {
+        "source_type": "snowflake",
+        "operation": "read_via_foreign_catalog",
+        "api": "databricks_catalog_federation"
+      },
+      "note": "Catalog federation truy cập nguồn qua foreign catalog.",
+      "limits": [
+        "Read-only; cần connection, storage credential và external location."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/query-federation/",
+          "locator": "Choose an approach; Catalog federation",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_jdbc_fed",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "metadata.federation_operation",
+      "qualifiers": {
+        "source_type": "external_relational_database_jdbc",
+        "operation": "query_read_only",
+        "api": "databricks_query_federation"
+      },
+      "note": "Query federation đẩy query xuống database qua JDBC.",
+      "limits": [
+        "Chưa ghi connector cụ thể; không suy write hoặc distributed transaction."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/query-federation/",
+          "locator": "Choose an approach / Query federation",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_lineage",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "governance.lineage",
+      "qualifiers": {
+        "relation_type": "column",
+        "integration": "databricks_spark_dataframe_or_sql"
+      },
+      "note": "UC tự thu lineage cấp cột cho query trên Databricks.",
+      "limits": [
+        "Bảng phải đăng ký UC; streaming và pipeline có yêu cầu Runtime riêng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-lineage",
+          "locator": "Lineage in Unity Catalog; Requirements",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_audit",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "governance.audit",
+      "qualifiers": {
+        "event_type": "unity_catalog_api_activity",
+        "boundary": "databricks_system_access_audit"
+      },
+      "note": "Audit system table có user, service, action và request.",
+      "limits": [
+        "System table đang Public Preview; phạm vi region và retention có điều kiện."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/admin/system-tables/audit-logs",
+          "locator": "Audit log system table schema",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_aws_deploy",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "deployment.environment",
+      "qualifiers": {
+        "environment": "databricks_on_aws"
+      },
+      "note": "UC là governance tích hợp trong Databricks workspace.",
+      "limits": [
+        "Scope này chỉ Databricks trên AWS."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/",
+          "locator": "What is Unity Catalog?",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_compute",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "deployment.dependencies",
+      "qualifiers": {},
+      "note": "Compute phải có access mode được UC hỗ trợ.",
+      "limits": [
+        "Yêu cầu Runtime khác nhau theo tính năng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/requirements",
+          "locator": "Compute requirements",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": [
+        "unity_catalog_enabled_workspace",
+        "supported_databricks_compute_access_mode"
+      ]
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_quota_metastore",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "limits.quota",
+      "qualifiers": {
+        "resource": "tables",
+        "boundary": "metastore"
+      },
+      "note": "Quota bảng được công bố theo đúng phạm vi cha.",
+      "limits": [
+        "Không phải throughput hoặc số bảng đã benchmark."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/resources/limits",
+          "locator": "Resource limits / Unity Catalog / Table",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": {
+        "amount": 1000000,
+        "unit": "tables"
+      },
+      "observation_context": {
+        "limit_kind": "fixed",
+        "conditions": "Databricks on AWS; current published limit; individual account increases not inspected.",
+        "as_of": "2026-10-17"
+      }
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_quota_schema",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "limits.quota",
+      "qualifiers": {
+        "resource": "tables",
+        "boundary": "schema"
+      },
+      "note": "Quota bảng được công bố theo đúng phạm vi cha.",
+      "limits": [
+        "Không phải throughput hoặc số bảng đã benchmark."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.databricks.com/aws/en/resources/limits",
+          "locator": "Resource limits / Unity Catalog / Table",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": {
+        "amount": 10000,
+        "unit": "tables"
+      },
+      "observation_context": {
+        "limit_kind": "adjustable",
+        "conditions": "Databricks on AWS; current published limit; individual account increases not inspected.",
+        "as_of": "2026-10-17"
+      }
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_metadata",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "metadata.responsibility",
+      "qualifiers": {
+        "metadata_kind": "catalog_table_schema_location"
+      },
+      "note": "Mô tả cơ chế trong phạm vi qualifier đã ghi.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html",
+          "locator": "Metadata repository",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": "Data Catalog giữ location, schema, properties; dữ liệu nằm ở nguồn."
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_ice_create",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "create",
+        "api": "aws_glue_iceberg_catalog"
+      },
+      "note": "Spark GlueCatalog hỗ trợ tạo/ghi bảng Iceberg trên S3.",
+      "limits": [
+        "Phân biệt phiên bản job Glue với dịch vụ Data Catalog."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-format-iceberg.html",
+          "locator": "Enabling Iceberg; Example: Write an Iceberg table",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_ice_load",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "load",
+        "api": "iceberg_rest"
+      },
+      "note": "AWS có API Iceberg REST cho load table.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/glue/latest/dg/iceberg-rest-apis.html",
+          "locator": "LoadTable",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_sigv4",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "authentication.method",
+      "qualifiers": {
+        "method": "aws_sigv4",
+        "api": "iceberg_rest"
+      },
+      "note": "Endpoint Data Catalog xác thực request bằng SigV4.",
+      "limits": [
+        "Cần IAM role và quyền tương ứng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/glue/latest/dg/iceberg-rest-apis.html",
+          "locator": "Authentication",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_iam",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "authorization.policy_model",
+      "qualifiers": {
+        "model": "iam_identity_and_resource_policies",
+        "api": "aws_glue_api"
+      },
+      "note": "IAM kiểm soát quyền trên tài nguyên Glue.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/glue/latest/dg/security-iam.html",
+          "locator": "Identity and access management; Managing access using policies",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_lf",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "authorization.external_policy",
+      "qualifiers": {
+        "policy_engine": "aws_lake_formation",
+        "access_path": "lake_formation_integrated_engine"
+      },
+      "note": "Glue có đường dùng Lake Formation grants.",
+      "limits": [
+        "Lake Formation là dịch vụ bổ sung; cần cấu hình và engine tương thích."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/glue/latest/dg/security-iam.html",
+          "locator": "Identity and access management / Note",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_filter_row",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "row",
+        "action": "filter_select_results",
+        "access_path": "lake_formation_integrated_engine"
+      },
+      "note": "Lake Formation data filters giới hạn kết quả đọc.",
+      "limits": [
+        "Chỉ SELECT trên engine tích hợp; không suy Glue IAM tự lọc hoặc chặn truy cập S3 trực tiếp."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/lake-formation/latest/dg/data-filtering.html",
+          "locator": "Data filtering and cell-level security; row-level security",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_filter_column",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "column",
+        "action": "filter_select_results",
+        "access_path": "lake_formation_integrated_engine"
+      },
+      "note": "Lake Formation data filters giới hạn kết quả đọc.",
+      "limits": [
+        "Chỉ SELECT trên engine tích hợp; không suy Glue IAM tự lọc hoặc chặn truy cập S3 trực tiếp."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/lake-formation/latest/dg/data-filtering.html",
+          "locator": "Data filtering and cell-level security; column-level security",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_s3",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "aws_glue_iceberg_catalog"
+      },
+      "note": "Hướng dẫn Iceberg dùng bảng đặt trên Amazon S3.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-format-iceberg.html",
+          "locator": "Example: Write an Iceberg table; Example: Read an Iceberg table",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_lf_vend",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "lake_formation_get_temporary_data_location_credentials"
+      },
+      "note": "Lake Formation cấp credential tạm theo location và quyền caller.",
+      "limits": [
+        "Cần location đăng ký, bảng Glue liên kết, quyền SELECT/SUPER và bật full-table vending; cùng region."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_GetTemporaryDataLocationCredentials.html",
+          "locator": "GetTemporaryDataLocationCredentials; Request Body / CredentialsScope",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_spark_read",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "read",
+        "api": "aws_glue_api",
+        "connector": "iceberg_glue_catalog"
+      },
+      "note": "AWS hướng dẫn Spark đọc Iceberg qua GlueCatalog.",
+      "limits": [
+        "Cần runtime/JAR, IAM và S3 được cấu hình."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-format-iceberg.html",
+          "locator": "Example: Read an Iceberg table using Spark",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_spark_append",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "append",
+        "api": "aws_glue_api",
+        "connector": "iceberg_glue_catalog"
+      },
+      "note": "Có ví dụ insert vào bảng Iceberg trong GlueCatalog.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-format-iceberg.html",
+          "locator": "Example: Insert into an Iceberg table",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_delta_read",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "trino",
+        "format": "delta",
+        "operation": "read",
+        "api": "aws_glue_api",
+        "connector": "trino_delta_lake",
+        "engine_release": "484"
+      },
+      "note": "Trino Delta connector hỗ trợ Glue metastore.",
+      "limits": [
+        "Connector đọc transaction log; Glue không thay Delta log."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://trino.io/docs/current/connector/delta-lake.html",
+          "locator": "Requirements; General configuration",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_delta_meta",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "delta",
+        "operation": "load_table_entry",
+        "api": "aws_glue_api"
+      },
+      "note": "Glue làm metastore cho Delta trong đường Trino.",
+      "limits": [
+        "Không đồng nghĩa Iceberg REST nhận commit Delta."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://trino.io/docs/current/connector/delta-lake.html",
+          "locator": "Requirements; General configuration",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_optimistic",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "commit.guarantee",
+      "qualifiers": {
+        "operation": "iceberg_table_commit",
+        "boundary": "single_table_metadata_update",
+        "api": "aws_glue_api"
+      },
+      "note": "Mô tả cơ chế trong phạm vi qualifier đã ghi.",
+      "limits": [
+        "AWS SDK >= 2.17.131; SDK cũ cần DynamoDB lock manager để bảo đảm atomicity."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://iceberg.apache.org/docs/latest/aws/",
+          "locator": "Glue Catalog / Optimistic Locking",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": "Iceberg GlueCatalog dùng version ID để optimistic lock; refresh/retry khi không có commit conflict."
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_concurrent",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "commit.concurrent_write",
+      "qualifiers": {
+        "operation": "iceberg_table_commit",
+        "writer_topology": "multiple_glue_catalog_clients_using_shared_optimistic_lock",
+        "api": "aws_glue_api",
+        "format": "iceberg"
+      },
+      "note": "Version ID phát hiện writer đã thay metadata trước đó.",
+      "limits": [
+        "Cùng yêu cầu SDK/locking; không chứng minh mọi engine phối hợp an toàn."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://iceberg.apache.org/docs/latest/aws/",
+          "locator": "Optimistic Locking",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_audit",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "governance.audit",
+      "qualifiers": {
+        "event_type": "glue_api_call",
+        "boundary": "aws_cloudtrail"
+      },
+      "note": "CloudTrail ghi identity, request và thời điểm gọi Glue.",
+      "limits": [
+        "Không suy audit mọi truy cập data files; một số nội dung nhạy cảm không được log."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/glue/latest/dg/monitor-cloudtrail.html",
+          "locator": "AWS Glue information in CloudTrail",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_encrypt",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "security.data_protection",
+      "qualifiers": {
+        "control": "aws_kms_encryption_at_rest",
+        "boundary": "data_catalog_metadata"
+      },
+      "note": "Có mã hóa metadata bằng KMS managed/customer keys.",
+      "limits": [
+        "Phải bật; mã hóa dữ liệu Iceberg/S3 được cấu hình riêng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/glue/latest/dg/encrypt-glue-data-catalog.html",
+          "locator": "Encrypting your Data Catalog",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_compaction",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "operations.capability",
+      "qualifiers": {
+        "operation": "managed_iceberg_compaction",
+        "component": "glue_data_catalog_table_optimizer"
+      },
+      "note": "Data Catalog có managed compaction cho bảng Iceberg.",
+      "limits": [
+        "Phải bật cho bảng; không là benchmark hiệu năng."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html",
+          "locator": "Table optimization",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_aws_endpoint",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "deployment.environment",
+      "qualifiers": {
+        "environment": "aws_regional_service"
+      },
+      "note": "AWS công bố các endpoint Glue theo region.",
+      "limits": [
+        "Không suy mọi tính năng phụ đều có ở mọi region."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/general/latest/gr/glue.html",
+          "locator": "Service endpoints",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_quota_aws_account_per_region",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "limits.quota",
+      "qualifiers": {
+        "resource": "tables",
+        "boundary": "aws_account_per_region"
+      },
+      "note": "Quota mặc định bảng được công bố và có thể điều chỉnh.",
+      "limits": [
+        "Quota thực của tài khoản chưa được kiểm tra."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/general/latest/gr/glue.html",
+          "locator": "Service quotas / Max tables per account; Max tables per database",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": {
+        "amount": 1000000,
+        "unit": "tables"
+      },
+      "observation_context": {
+        "limit_kind": "adjustable_default",
+        "conditions": "Each supported Region; AWS default, not the current account-approved quota.",
+        "as_of": "2026-10-17"
+      }
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_quota_database",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "limits.quota",
+      "qualifiers": {
+        "resource": "tables",
+        "boundary": "database"
+      },
+      "note": "Quota mặc định bảng được công bố và có thể điều chỉnh.",
+      "limits": [
+        "Quota thực của tài khoản chưa được kiểm tra."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/general/latest/gr/glue.html",
+          "locator": "Service quotas / Max tables per account; Max tables per database",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": {
+        "amount": 200000,
+        "unit": "tables"
+      },
+      "observation_context": {
+        "limit_kind": "adjustable_default",
+        "conditions": "Each supported Region; AWS default, not the current account-approved quota.",
+        "as_of": "2026-10-17"
+      }
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_metadata",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "metadata.responsibility",
+      "qualifiers": {
+        "metadata_kind": "hive_object_definitions"
+      },
+      "note": "Mô tả cơ chế trong phạm vi qualifier đã ghi.",
+      "limits": [
+        "Không thay transaction metadata của mọi table format."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://hive.apache.org/docs/latest/admin/adminmanual-metastore-3-0-administration/",
+          "locator": "Introduction",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": "HMS giữ định nghĩa database/table/function và có thể giữ statistics/authorization records."
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_db",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "persistence.backend",
+      "qualifiers": {
+        "backend": "postgresql"
+      },
+      "note": "Tài liệu Metastore 3.0+ liệt kê PostgreSQL.",
+      "limits": [
+        "Bảng tài liệu có minimum version lịch sử; không là khuyến nghị phiên bản DB hiện tại."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://hive.apache.org/docs/latest/admin/adminmanual-metastore-3-0-administration/",
+          "locator": "Supported RDBMSs",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_mysql",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "persistence.backend",
+      "qualifiers": {
+        "backend": "mysql"
+      },
+      "note": "Tài liệu Metastore 3.0+ liệt kê MySQL.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://hive.apache.org/docs/latest/admin/adminmanual-metastore-3-0-administration/",
+          "locator": "Supported RDBMSs",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_derby",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "persistence.backend",
+      "qualifiers": {
+        "backend": "derby_embedded"
+      },
+      "note": "Metastore có chế độ embedded Derby.",
+      "limits": [
+        "Không suy HA hoặc scale-out."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://hive.apache.org/docs/latest/admin/adminmanual-metastore-3-0-administration/",
+          "locator": "Introduction; Embedded Mode",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_standalone",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "deployment.environment",
+      "qualifiers": {
+        "environment": "standalone_metastore_service"
+      },
+      "note": "Từ Hive 3.0, HMS có thể chạy tách phần còn lại Hive.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://hive.apache.org/docs/latest/admin/adminmanual-metastore-3-0-administration/",
+          "locator": "Changes From Hive 2 to Hive 3",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_deps",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "deployment.dependencies",
+      "qualifiers": {},
+      "note": "HMS lưu định nghĩa object trong RDBMS qua DataNucleus.",
+      "limits": [
+        "RDBMS có thể embedded hoặc external."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://hive.apache.org/docs/latest/admin/adminmanual-metastore-3-0-administration/",
+          "locator": "Introduction",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": [
+        "rdbms_metadata_store",
+        "jdo_datanucleus_persistence"
+      ]
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_schema",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "operations.capability",
+      "qualifiers": {
+        "operation": "schema_init_upgrade_validate",
+        "component": "metastore_rdbms_schema"
+      },
+      "note": "Schematool có init, upgrade và validate schema.",
+      "limits": [
+        "Cần đường nâng cấp phù hợp phiên bản."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://hive.apache.org/docs/latest/admin/adminmanual-metastore-3-0-administration/",
+          "locator": "Installing and Upgrading the Metastore Schema",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_sba",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "authorization.policy_model",
+      "qualifiers": {
+        "model": "storage_based_authorization",
+        "api": "hive_metastore_thrift"
+      },
+      "note": "SBA dùng quyền thư mục filesystem làm nguồn policy.",
+      "limits": [
+        "Phải cấu hình listener/provider phía metastore."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://hive.apache.org/docs/latest/user/storage-based-authorization-in-the-metastore-server/",
+          "locator": "Storage Based Authorization",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_table_read",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "table",
+        "action": "read_metadata",
+        "access_path": "hive_metastore_thrift_sba_enabled"
+      },
+      "note": "SBA kiểm tra quyền đọc thư mục cho get_table/get_partition.",
+      "limits": [
+        "Phạm vi metadata; không suy row/column filtering."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://hive.apache.org/docs/latest/user/storage-based-authorization-in-the-metastore-server/",
+          "locator": "Storage Based Authorization; Configuration Parameters for Metastore Security",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_direct_revoke",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "table",
+        "action": "revoke_direct_file_access",
+        "access_path": "legacy_hive_metadata_grants_only"
+      },
+      "note": "Thu hồi grant metadata không tự thu quyền đọc filesystem.",
+      "limits": [
+        "Chỉ đường legacy grants; khác cấu hình SBA hoặc engine policy khác."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://hive.apache.org/docs/latest/hcatalog/hcatalog-authorization/",
+          "locator": "Default Authorization Model of Hive / problem scenarios",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "none"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_hdfs",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "storage.backend",
+      "qualifiers": {
+        "storage": "hdfs",
+        "api": "hive_metastore_thrift"
+      },
+      "note": "SBA mô tả database/table tương ứng thư mục HDFS.",
+      "limits": [
+        "HMS giữ location; engine/Hadoop client truy cập file."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://hive.apache.org/docs/latest/hcatalog/hcatalog-authorization/",
+          "locator": "Storage-System Based Authorization Model",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_hdfs_access",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "storage.access_method",
+      "qualifiers": {
+        "storage": "hdfs",
+        "api": "hive_metastore_thrift"
+      },
+      "note": "Đường SBA dựa trên permission user/group của filesystem.",
+      "limits": [
+        "Không chứng minh credential vending."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://hive.apache.org/docs/latest/hcatalog/hcatalog-authorization/",
+          "locator": "Storage-System Based Authorization Model",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": [
+        "filesystem_user_group_permissions"
+      ]
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_iceberg_read",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "trino",
+        "format": "iceberg",
+        "operation": "read",
+        "api": "hive_metastore_thrift",
+        "connector": "trino_iceberg",
+        "engine_release": "484"
+      },
+      "note": "Trino Iceberg connector dùng HMS làm catalog backend.",
+      "limits": [
+        "Cần cấu hình filesystem và quyền storage."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://trino.io/docs/current/connector/iceberg.html",
+          "locator": "Requirements; General configuration",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_iceberg_entry",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "load_table_entry",
+        "api": "hive_metastore_thrift"
+      },
+      "note": "HMS cung cấp table metadata cho đường Trino Iceberg.",
+      "limits": [
+        "Iceberg metadata files chứa snapshots; không phải mọi thứ nằm trong HMS."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://trino.io/docs/current/connector/iceberg.html",
+          "locator": "Requirements; General configuration",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_delta_read",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "trino",
+        "format": "delta",
+        "operation": "read",
+        "api": "hive_metastore_thrift",
+        "connector": "trino_delta_lake",
+        "engine_release": "484"
+      },
+      "note": "Trino Delta connector đọc Delta với HMS.",
+      "limits": [],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://trino.io/docs/current/connector/delta-lake.html",
+          "locator": "Requirements; General configuration",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_delta_entry",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "delta",
+        "operation": "load_table_entry",
+        "api": "hive_metastore_thrift"
+      },
+      "note": "HMS làm metastore cho bảng Delta ở đường Trino.",
+      "limits": [
+        "Engine đọc transaction log Delta trực tiếp."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://trino.io/docs/current/connector/delta-lake.html",
+          "locator": "Requirements",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_hudi_read",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "trino",
+        "format": "hudi",
+        "operation": "read",
+        "api": "hive_metastore_thrift",
+        "connector": "trino_hudi",
+        "engine_release": "484"
+      },
+      "note": "Trino Hudi connector cần HMS và Hudi >= 0.12.3.",
+      "limits": [
+        "Nguồn chỉ chứng minh đường query, không chứng minh write."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://trino.io/docs/current/connector/hudi.html",
+          "locator": "Requirements; General configuration",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "level": "full"
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_license",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "project.license",
+      "qualifiers": {
+        "component": "hive_metastore_core"
+      },
+      "note": "LICENSE của repository Hive công bố Apache 2.0.",
+      "limits": [
+        "Nguồn master theo ngày đọc, chưa kiểm SBOM binary."
+      ],
+      "evidence": [
+        {
+          "kind": "official_repository",
+          "url": "https://raw.githubusercontent.com/apache/hive/master/LICENSE",
+          "locator": "Apache License, Version 2.0",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft",
+      "value": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_performance_unknown",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "performance.observation",
+      "qualifiers": {
+        "metric": "catalog_request_latency_p95",
+        "scenario": "comparable_workload_not_yet_measured"
+      },
+      "note": "Chưa thu số đo workload tương đương cho scope này.",
+      "limits": [
+        "Không suy latency hoặc throughput từ quảng bá hay số bảng."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_effort_unknown",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "operations.effort_observation",
+      "qualifiers": {
+        "task": "operate_catalog",
+        "scenario": "team_and_environment_not_measured"
+      },
+      "note": "Chưa có quan sát giờ công cho đội ngũ và môi trường xác định.",
+      "limits": [
+        "Không gán nhãn dễ/khó vận hành bằng cảm tính."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_price_unknown",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "cost.price_component",
+      "qualifiers": {
+        "component": "catalog_total_billable_components_not_collected",
+        "region": "not_bound",
+        "billing_basis": "not_bound"
+      },
+      "note": "Chưa biên soạn đơn giá theo region, tier và thời điểm.",
+      "limits": [
+        "Null không phải miễn phí; chưa tính TCO."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_polaris_oss_1_7_0_quota_unknown",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "limits.quota",
+      "qualifiers": {
+        "resource": "tables",
+        "boundary": "catalog"
+      },
+      "note": "Chưa thu quota bảng áp dụng cho scope này.",
+      "limits": [
+        "Không suy vô hạn hoặc giới hạn từ quy mô demo."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_performance_unknown",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "performance.observation",
+      "qualifiers": {
+        "metric": "catalog_request_latency_p95",
+        "scenario": "comparable_workload_not_yet_measured"
+      },
+      "note": "Chưa thu số đo workload tương đương cho scope này.",
+      "limits": [
+        "Không suy latency hoặc throughput từ quảng bá hay số bảng."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_effort_unknown",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "operations.effort_observation",
+      "qualifiers": {
+        "task": "operate_catalog",
+        "scenario": "team_and_environment_not_measured"
+      },
+      "note": "Chưa có quan sát giờ công cho đội ngũ và môi trường xác định.",
+      "limits": [
+        "Không gán nhãn dễ/khó vận hành bằng cảm tính."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_price_unknown",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "cost.price_component",
+      "qualifiers": {
+        "component": "catalog_total_billable_components_not_collected",
+        "region": "not_bound",
+        "billing_basis": "not_bound"
+      },
+      "note": "Chưa biên soạn đơn giá theo region, tier và thời điểm.",
+      "limits": [
+        "Null không phải miễn phí; chưa tính TCO."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_gravitino_oss_1_1_0_quota_unknown",
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "limits.quota",
+      "qualifiers": {
+        "resource": "tables",
+        "boundary": "catalog"
+      },
+      "note": "Chưa thu quota bảng áp dụng cho scope này.",
+      "limits": [
+        "Không suy vô hạn hoặc giới hạn từ quy mô demo."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_performance_unknown",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "performance.observation",
+      "qualifiers": {
+        "metric": "catalog_request_latency_p95",
+        "scenario": "comparable_workload_not_yet_measured"
+      },
+      "note": "Chưa thu số đo workload tương đương cho scope này.",
+      "limits": [
+        "Không suy latency hoặc throughput từ quảng bá hay số bảng."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_effort_unknown",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "operations.effort_observation",
+      "qualifiers": {
+        "task": "operate_catalog",
+        "scenario": "team_and_environment_not_measured"
+      },
+      "note": "Chưa có quan sát giờ công cho đội ngũ và môi trường xác định.",
+      "limits": [
+        "Không gán nhãn dễ/khó vận hành bằng cảm tính."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_price_unknown",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "cost.price_component",
+      "qualifiers": {
+        "component": "catalog_total_billable_components_not_collected",
+        "region": "not_bound",
+        "billing_basis": "not_bound"
+      },
+      "note": "Chưa biên soạn đơn giá theo region, tier và thời điểm.",
+      "limits": [
+        "Null không phải miễn phí; chưa tính TCO."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_nessie_oss_2026_10_17_quota_unknown",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "limits.quota",
+      "qualifiers": {
+        "resource": "tables",
+        "boundary": "catalog"
+      },
+      "note": "Chưa thu quota bảng áp dụng cho scope này.",
+      "limits": [
+        "Không suy vô hạn hoặc giới hạn từ quy mô demo."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_performance_unknown",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "performance.observation",
+      "qualifiers": {
+        "metric": "catalog_request_latency_p95",
+        "scenario": "comparable_workload_not_yet_measured"
+      },
+      "note": "Chưa thu số đo workload tương đương cho scope này.",
+      "limits": [
+        "Không suy latency hoặc throughput từ quảng bá hay số bảng."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_effort_unknown",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "operations.effort_observation",
+      "qualifiers": {
+        "task": "operate_catalog",
+        "scenario": "team_and_environment_not_measured"
+      },
+      "note": "Chưa có quan sát giờ công cho đội ngũ và môi trường xác định.",
+      "limits": [
+        "Không gán nhãn dễ/khó vận hành bằng cảm tính."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_price_unknown",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "cost.price_component",
+      "qualifiers": {
+        "component": "catalog_total_billable_components_not_collected",
+        "region": "not_bound",
+        "billing_basis": "not_bound"
+      },
+      "note": "Chưa biên soạn đơn giá theo region, tier và thời điểm.",
+      "limits": [
+        "Null không phải miễn phí; chưa tính TCO."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_unity_oss_2026_10_17_quota_unknown",
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "limits.quota",
+      "qualifiers": {
+        "resource": "tables",
+        "boundary": "catalog"
+      },
+      "note": "Chưa thu quota bảng áp dụng cho scope này.",
+      "limits": [
+        "Không suy vô hạn hoặc giới hạn từ quy mô demo."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_performance_unknown",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "performance.observation",
+      "qualifiers": {
+        "metric": "catalog_request_latency_p95",
+        "scenario": "comparable_workload_not_yet_measured"
+      },
+      "note": "Chưa thu số đo workload tương đương cho scope này.",
+      "limits": [
+        "Không suy latency hoặc throughput từ quảng bá hay số bảng."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_effort_unknown",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "operations.effort_observation",
+      "qualifiers": {
+        "task": "operate_catalog",
+        "scenario": "team_and_environment_not_measured"
+      },
+      "note": "Chưa có quan sát giờ công cho đội ngũ và môi trường xác định.",
+      "limits": [
+        "Không gán nhãn dễ/khó vận hành bằng cảm tính."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_unity_databricks_aws_2026_10_17_price_unknown",
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "cost.price_component",
+      "qualifiers": {
+        "component": "catalog_total_billable_components_not_collected",
+        "region": "not_bound",
+        "billing_basis": "not_bound"
+      },
+      "note": "Chưa biên soạn đơn giá theo region, tier và thời điểm.",
+      "limits": [
+        "Null không phải miễn phí; chưa tính TCO."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_performance_unknown",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "performance.observation",
+      "qualifiers": {
+        "metric": "catalog_request_latency_p95",
+        "scenario": "comparable_workload_not_yet_measured"
+      },
+      "note": "Chưa thu số đo workload tương đương cho scope này.",
+      "limits": [
+        "Không suy latency hoặc throughput từ quảng bá hay số bảng."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_effort_unknown",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "operations.effort_observation",
+      "qualifiers": {
+        "task": "operate_catalog",
+        "scenario": "team_and_environment_not_measured"
+      },
+      "note": "Chưa có quan sát giờ công cho đội ngũ và môi trường xác định.",
+      "limits": [
+        "Không gán nhãn dễ/khó vận hành bằng cảm tính."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_glue_aws_2026_10_17_price_unknown",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "cost.price_component",
+      "qualifiers": {
+        "component": "catalog_total_billable_components_not_collected",
+        "region": "not_bound",
+        "billing_basis": "not_bound"
+      },
+      "note": "Chưa biên soạn đơn giá theo region, tier và thời điểm.",
+      "limits": [
+        "Null không phải miễn phí; chưa tính TCO."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_performance_unknown",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "performance.observation",
+      "qualifiers": {
+        "metric": "catalog_request_latency_p95",
+        "scenario": "comparable_workload_not_yet_measured"
+      },
+      "note": "Chưa thu số đo workload tương đương cho scope này.",
+      "limits": [
+        "Không suy latency hoặc throughput từ quảng bá hay số bảng."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_effort_unknown",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "operations.effort_observation",
+      "qualifiers": {
+        "task": "operate_catalog",
+        "scenario": "team_and_environment_not_measured"
+      },
+      "note": "Chưa có quan sát giờ công cho đội ngũ và môi trường xác định.",
+      "limits": [
+        "Không gán nhãn dễ/khó vận hành bằng cảm tính."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_price_unknown",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "cost.price_component",
+      "qualifiers": {
+        "component": "catalog_total_billable_components_not_collected",
+        "region": "not_bound",
+        "billing_basis": "not_bound"
+      },
+      "note": "Chưa biên soạn đơn giá theo region, tier và thời điểm.",
+      "limits": [
+        "Null không phải miễn phí; chưa tính TCO."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    },
+    {
+      "id": "cl_hms_oss_2026_10_17_quota_unknown",
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "limits.quota",
+      "qualifiers": {
+        "resource": "tables",
+        "boundary": "catalog"
+      },
+      "note": "Chưa thu quota bảng áp dụng cho scope này.",
+      "limits": [
+        "Không suy vô hạn hoặc giới hạn từ quy mô demo."
+      ],
+      "evidence": [],
+      "status": "draft",
+      "value": null
+    }
+  ]
+}

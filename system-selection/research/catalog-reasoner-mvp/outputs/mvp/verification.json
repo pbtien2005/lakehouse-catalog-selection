@@ -1,0 +1,218 @@
+{
+  "scope": "Completed local software MVP; real-world recommendation validity is not established",
+  "python_tests": {
+    "tests": 164,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "javascript_tests": {
+    "tests": 26,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "python_coverage": {
+    "covered_lines": 832,
+    "num_statements": 850,
+    "percent_covered": 97.140522875817,
+    "percent_covered_display": "97",
+    "missing_lines": 18,
+    "excluded_lines": 0,
+    "percent_statements_covered": 97.88235294117646,
+    "percent_statements_covered_display": "98",
+    "num_branches": 374,
+    "num_partial_branches": 17,
+    "covered_branches": 357,
+    "missing_branches": 17,
+    "percent_branches_covered": 95.45454545454545,
+    "percent_branches_covered_display": "95"
+  },
+  "coverage_scope": "pytest plus actual evaluation execution; browser not counted as Python coverage",
+  "layer2_checks": {
+    "checks": 74,
+    "canonical_questions": 10,
+    "canonical_answers": 48,
+    "real_candidates": 7,
+    "properties_preserved": 37,
+    "indirect_properties_preserved": 25
+  },
+  "browser": {
+    "official_pipeline": true,
+    "cases": [
+      {
+        "id": "SYNTHETIC-C01",
+        "status": "passed",
+        "groups": {
+          "conditional": 7,
+          "eligible": 0,
+          "excluded": 0
+        },
+        "answer_ids_and_ranks_preserved": true,
+        "payload_note": "optional none is explicitly false; feature lists serialized in registry order",
+        "score_intervals_exact": true,
+        "trace_exact": true
+      },
+      {
+        "id": "SYNTHETIC-C05",
+        "status": "passed",
+        "groups": {
+          "conditional": 7,
+          "eligible": 0,
+          "excluded": 0
+        },
+        "answer_ids_and_ranks_preserved": true,
+        "payload_note": "optional none is explicitly false; feature lists serialized in registry order",
+        "score_intervals_exact": true,
+        "trace_exact": true
+      },
+      {
+        "id": "SYNTHETIC-C04",
+        "status": "passed",
+        "groups": {
+          "conditional": 7,
+          "eligible": 0,
+          "excluded": 0
+        },
+        "answer_ids_and_ranks_preserved": true,
+        "payload_note": "optional none is explicitly false; feature lists serialized in registry order",
+        "score_intervals_exact": true,
+        "trace_exact": true
+      }
+    ],
+    "checks": [
+      "none exclusivity and missing rank show field and correction",
+      "radio arrow-key navigation changes the selected answer",
+      "three populated UI groups match a clearly named synthetic result from official Python"
+    ],
+    "layout_findings": [],
+    "page_errors": [],
+    "focus_measurement": {
+      "tag": "INPUT",
+      "outline": "solid",
+      "outlineWidth": "2px",
+      "rect": {
+        "x": 126.3125,
+        "y": 444.421875,
+        "width": 13,
+        "height": 13,
+        "top": 444.421875,
+        "right": 139.3125,
+        "bottom": 457.421875,
+        "left": 126.3125
+      }
+    },
+    "status": "passed"
+  },
+  "cases": {
+    "total": 10,
+    "valid": 9,
+    "input_error": 1,
+    "split": {
+      "split_counts": {
+        "calibration": 6,
+        "holdout": 4
+      },
+      "sha256": {
+        "calibration": "285e577b4e23576a1e3d5a467e85440a2d9e6267000cd679e455ff212fe8618f",
+        "holdout": "f17055583352d3cc49b400ce76ec87c17f427fcd2ac85203bb0025900a488f56"
+      },
+      "rule": "Never use holdout results to change code, KB or weights; defects found later are reported separately."
+    }
+  },
+  "behavior_coverage": {
+    "different_scenario_leaders": true,
+    "has_conditional": true,
+    "has_eligible": false,
+    "has_excluded_real_candidate": false,
+    "has_no_eligible": true,
+    "reason": "A missing claim is not none. Catalog quota and unresolved paths keep every real scope conditional; do not alter KB to force behavior coverage."
+  },
+  "sensitivity_draws": {
+    "SYNTHETIC-C01": 0,
+    "SYNTHETIC-C02": 1000,
+    "SYNTHETIC-C03": 0,
+    "SYNTHETIC-C04": 1000,
+    "SYNTHETIC-C05": 0,
+    "SYNTHETIC-C06": 0
+  },
+  "mapping": {
+    "rows": 33,
+    "coverage_gaps": 17
+  },
+  "trace_integrity": {
+    "assessment_rows_checked": 343,
+    "all_requirement_and_claim_references_valid": true
+  },
+  "protected_file_sha256": {
+    "layer-1-data.json": "043934db4b7babbc008c24f0e4cbad343093109297290df2ac1ca2b324567cb8",
+    "layer-1-properties.json": "f94a6f80086eb45ac0909d14f4a33222f019d32873e81c22bff7fc63b5ef6779",
+    "layer-2-property-plan.json": "46a8d9070c0fb1fb793466a948322fad3f86442c0441b9d95b31d93e6255b082",
+    "../catalog-reasoner-mvp/config.json": "50a010d28a0c9054d044553851a8a743a42d93557911516f9f2aa0e4c0fe6a10",
+    "../../sites/catalog-review/dist/styles.css": "31f1ab8bd7849204e15f702a4a681c4159632cd6bf00e0edb7b4441d7c4e1ddc"
+  },
+  "stylesheet_change": {
+    "baseline_sha256": "f5318af582fa32884fce80a604c6c93b5fd328f191d843ad448f6b34b6efeb72",
+    "current_sha256": "31f1ab8bd7849204e15f702a4a681c4159632cd6bf00e0edb7b4441d7c4e1ddc",
+    "approval": "User explicitly approved applying the overflow fix; other visual design retained."
+  },
+  "expert_sheet": {
+    "pages": 10,
+    "one_profile_per_page": true,
+    "system_results_included": false,
+    "visual_render_reviewed": true
+  },
+  "live_demo_url": "http://127.0.0.1:62178/#form",
+  "sha256": {
+    "research/catalog-reasoner-mvp/catalog_reasoner/application.py": "dcd9637d213d22f16e78807afc7724c8351a2c49b9aeec8d1c3ce5f96a2d2b35",
+    "research/catalog-reasoner-mvp/catalog_reasoner/cli.py": "b8c20162988d386c177abfa58688588fd88cd06e56476395abf8837ae2dc0e18",
+    "research/catalog-reasoner-mvp/catalog_reasoner/contracts.py": "f8ca216bbdca18c988120b14dfae5ddb2204f72a57236cc86d2f0cd22725e284",
+    "research/catalog-reasoner-mvp/catalog_reasoner/domains.py": "1574ff0f93ee080a1d9391fce95ca20a1224e0824502d3523b8b292d60b10937",
+    "research/catalog-reasoner-mvp/catalog_reasoner/evaluation.py": "a590de158b07e965dbb11ce44f41881beaaeea840686b103193582eeafde7c4a",
+    "research/catalog-reasoner-mvp/catalog_reasoner/hard_filter.py": "0fa24eef6fe132c2be00a685bbfb504d8a32621a8c829f1cf311ad11bef9ebea",
+    "research/catalog-reasoner-mvp/catalog_reasoner/layer2.py": "bada162e031ccfac3c5c64c7e281d44f8d229836d826c7a15566a02b1f50d216",
+    "research/catalog-reasoner-mvp/catalog_reasoner/layer2_io.py": "b9ff43c9e55bbd9ed52c8f50cbf397f89afae5974d6210e3b3a4cdc61c56bf8c",
+    "research/catalog-reasoner-mvp/catalog_reasoner/lookup.py": "9c684506c3422150f3d4aaa6cfbe881e6d2787e0f3bd08b764e74d77a6e5a12e",
+    "research/catalog-reasoner-mvp/catalog_reasoner/pipeline.py": "12650041fba22acd75f276a61589d0b6ea7bace08974f210d73434b6d46b9d13",
+    "research/catalog-reasoner-mvp/catalog_reasoner/project_io.py": "653ec0ece808eb554f9b38a8f4b02381e2dd2ab0a6d33586b8561ccbcf6a4f0d",
+    "research/catalog-reasoner-mvp/catalog_reasoner/project_lookup.py": "420e31dfb3d4628d43f4bc2e7d304adf7e523fda2bec76325c7d95b208038c92",
+    "research/catalog-reasoner-mvp/catalog_reasoner/scenarios.py": "73b9cdab377ac284f48dcd90d5995af267d09e08588fc87f58e759ff36462308",
+    "research/catalog-reasoner-mvp/catalog_reasoner/scoring.py": "afb19061dd9ee1dca6417b7906cccdc3b9ede6ef06a35820f86205de4de9bce1",
+    "research/catalog-reasoner-mvp/catalog_reasoner/__init__.py": "566a5679b0f01567bd203f5efef30891c76cf13870e423938fc522503978d844",
+    "research/catalog-reasoner-mvp/catalog_reasoner/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "research/catalog-reasoner-mvp/tests/test_cli.py": "d5bb0fed92bc7d660043aaeee90861f2688c54c96e707362ee5d01935131cf6f",
+    "research/catalog-reasoner-mvp/tests/test_evaluation.py": "46b5882a0400edbf8829a43d01941b49d00056d6d816c288ddd913432173d1a0",
+    "research/catalog-reasoner-mvp/tests/test_layer2.py": "5e5c7cc63075c6535f1907c025ea535d44c9f7163f324a059049a89388d3d4ac",
+    "research/catalog-reasoner-mvp/tests/test_mvp.py": "05ee7b1c909ddbcbaaf7b50cde6f9bbc5fca21095f9abc59eb6005cb404b6553",
+    "research/catalog-reasoner-mvp/tests/test_stage12.py": "579561698ca1e94ccdcb9234888d7820ce898e7874bd254dfe6a6f631989b99d",
+    "research/catalog-reasoner-mvp/cases/calibration.json": "285e577b4e23576a1e3d5a467e85440a2d9e6267000cd679e455ff212fe8618f",
+    "research/catalog-reasoner-mvp/cases/holdout.json": "f17055583352d3cc49b400ce76ec87c17f427fcd2ac85203bb0025900a488f56",
+    "research/catalog-reasoner-mvp/cases/split-manifest.json": "b91bb972f552b5acccacb36f81de255aefe8278e18a6fcc380b59b91379b6a57",
+    "research/catalog-reasoner-mvp/config.json": "50a010d28a0c9054d044553851a8a743a42d93557911516f9f2aa0e4c0fe6a10",
+    "research/catalog-reasoner-mvp/mvp-settings.json": "b6624beeade80058d16adec13aa721e9326245d5abeed6545b3c0a50cfda22ac",
+    "sites/catalog-review/server.mjs": "082a35da01ef055055e68234e6c7987320fc05d81fddadde70a794673261eeed",
+    "sites/catalog-review/dist/app.js": "f4e8d57155854cc4be63d4ca860b3c3c9d00797ee1bfcfe865a765016575ae24",
+    "sites/catalog-review/dist/core.js": "39e35e329a73814ea267e9ba4edfbddceb46d6f59c2a85fd280b69cd6a36360c",
+    "sites/catalog-review/dist/styles.css": "31f1ab8bd7849204e15f702a4a681c4159632cd6bf00e0edb7b4441d7c4e1ddc",
+    "sites/catalog-review/package.json": "cdd1d94081f1f0eb527e2e8a0b9cd1e78e48a1e0ffd83f3b2991ca7c97f51e83",
+    "sites/catalog-review/tests/e2e-mvp.mjs": "d17ae8bad4402088cdf7a6cffd1119accb2ea67c22e87695e983a43c35488602",
+    "sites/catalog-review/tests/api.test.mjs": "2e9abb613e6bc184420bef364a0c9cfbb53158c10c7e3cc17ba6d2ab9502ec72",
+    "research/catalog-knowledge-base/layer-2-kb-values.json": "1e7b0867f5f1cdd7198a4d065704dc5edc6a08559d11aca08f647c0468fd3f3b",
+    "research/catalog-knowledge-base/layer-1-data.json": "043934db4b7babbc008c24f0e4cbad343093109297290df2ac1ca2b324567cb8",
+    "research/catalog-knowledge-base/layer-1-properties.json": "f94a6f80086eb45ac0909d14f4a33222f019d32873e81c22bff7fc63b5ef6779",
+    "research/catalog-knowledge-base/form-v2-registry.json": "4dc4fd4d2d836eab3f6471455d36f16c7c2d330aa965ab61ef070b7381a41c69",
+    "research/catalog-knowledge-base/layer-2-validation.json": "f863a90b6e6a697229ed39d245680d2e55ba85836d1e227674e8a4ce7782af8c",
+    "research/catalog-reasoner-mvp/outputs/mvp/final-report.md": "f90d1d8a25a6c48e49925ce2c26ddfd67a1d780d2ba00d16091f316cc3824151",
+    "research/catalog-reasoner-mvp/outputs/mvp/limitations.md": "5a44dc8ec6555dcbbd859e753ecf0a4ecefbd9eee0d94468b86cd5e051588b5a",
+    "research/catalog-reasoner-mvp/outputs/mvp/domain-mapping-review.md": "f9072df1bdebb894b3be569b7ef17414eeb42896fc70702831749b10a35233a0",
+    "research/catalog-reasoner-mvp/outputs/mvp/summary.csv": "0528ec76583d301376049480bf55dcb2cd8bcda225c62bd759e95ce766993e50",
+    "research/catalog-reasoner-mvp/outputs/mvp/summary.json": "2ce5835fd10f5320730af8da5e003214bd730246b2f9f34c45c4a00182762600",
+    "research/catalog-reasoner-mvp/outputs/mvp/weight-sensitivity-calibration.json": "0c6d986952bb62148ed2d139e56636d091effc49c4d98d92cec2ec4782c01d9e",
+    "research/catalog-reasoner-mvp/outputs/mvp/form-perturbations.json": "f5e69bae60dd7eb2260800d410fd901c87ee364b5c9cc09db8d4344ddcb2d8d3",
+    "research/catalog-reasoner-mvp/output/pdf/expert-score-sheet.pdf": "5175d35c465c4639c76f31bfd25c881318bdef0bebd4894967247809daee747d",
+    "research/catalog-reasoner-mvp/outputs/mvp-tests.xml": "6c6da787723a57b91883d1f71d7ca8f802df3f9e08325702cbff106eef7fc45f",
+    "research/catalog-reasoner-mvp/outputs/mvp-coverage.json": "ca5ff061881280976d6e91a5c04c91c9dae3b82bfa2ba10978e86225836dbb12",
+    "sites/catalog-review/artifacts/mvp-js-tests.xml": "90675c1989a9c3a51f5c1721b8b9660c93642a423bb2374e0145cb0a1b7b3322",
+    "sites/catalog-review/artifacts/e2e-mvp.json": "03f03b6a05c6cba0c8ac97129acdc82bba7e65f4c362665a2d35ab47afcd6e07"
+  }
+}

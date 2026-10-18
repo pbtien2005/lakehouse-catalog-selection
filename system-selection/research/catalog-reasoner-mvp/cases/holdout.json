@@ -1,0 +1,140 @@
+{
+  "manifest": {
+    "synthetic_profiles": true,
+    "split": "holdout",
+    "frozen_before_remaining_implementation": true,
+    "tuning_allowed": false
+  },
+  "cases": [
+    {
+      "id": "SYNTHETIC-T01",
+      "synthetic_profile": true,
+      "description": "Nhom GCP doc Iceberg qua Trino; branching bat buoc.",
+      "form_answers": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "gcp",
+          "I02": [
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "lt_100",
+          "I05": "one",
+          "I07": "none",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "selected": [
+              {
+                "feature": "branching",
+                "rank": "mandatory"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "SYNTHETIC-T02",
+      "synthetic_profile": true,
+      "description": "On-prem doc Hudi qua Presto, quy mo lon; can vending.",
+      "form_answers": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "on_prem",
+          "I02": [
+            "presto"
+          ],
+          "I03": "hudi",
+          "I04": "gt_10000",
+          "I05": "one",
+          "I07": "none",
+          "I08": "yes",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      }
+    },
+    {
+      "id": "SYNTHETIC-T03",
+      "synthetic_profile": true,
+      "description": "Da cloud va format hon hop, nhieu writer; ca ba nhu cau dac thu bat buoc.",
+      "form_answers": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "multi_cloud",
+          "I02": [
+            "spark",
+            "trino",
+            "other"
+          ],
+          "I03": "mixed",
+          "I04": "lt_100",
+          "I05": "more_than_three",
+          "I07": "none",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "selected": [
+              {
+                "feature": "branching",
+                "rank": "mandatory"
+              },
+              {
+                "feature": "multi_table_atomic",
+                "rank": "mandatory"
+              },
+              {
+                "feature": "metadata_federation",
+                "rank": "mandatory"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "SYNTHETIC-T04",
+      "synthetic_profile": true,
+      "description": "AWS-native voi DuckDB, phan quyen bang; hai nang luc dac thu la nice-to-have.",
+      "form_answers": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "duckdb"
+          ],
+          "I03": "iceberg",
+          "I04": "lt_100",
+          "I05": "one",
+          "I07": "table",
+          "I08": "no",
+          "I09": [
+            "aws_native"
+          ],
+          "I10": {
+            "selected": [
+              {
+                "feature": "branching",
+                "rank": "nice_to_have"
+              },
+              {
+                "feature": "multi_table_atomic",
+                "rank": "nice_to_have"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

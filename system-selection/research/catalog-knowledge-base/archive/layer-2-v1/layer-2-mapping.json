@@ -1,0 +1,648 @@
+{
+  "manifest": {
+    "revision": "layer2-mapping-v1",
+    "created_on": "2026-10-17",
+    "artifact_kind": "declarative_mapping_specification_not_executable_engine",
+    "form_source": "input-v1.md",
+    "policy": "layer-2-policy.json",
+    "anchors": "layer-2-anchors.json",
+    "property_dictionary": "layer-1-properties.json"
+  },
+  "input_states": [
+    "known",
+    "unknown",
+    "unanswered",
+    "not_decided",
+    "not_applicable_with_reason"
+  ],
+  "context_contract": {
+    "description": "Optional case clarification/enrichment or previously authorized requirements; these are not additional visible form questions.",
+    "confirmed_required_inputs": "IDs of existing environment/engine/format facts explicitly required to remain",
+    "workload_bindings": "Only actual engine-format-operation links, with provenance",
+    "required_context_examples": [
+      "data_storage_or_allowed_storage_domain",
+      "required_catalog_operations",
+      "required_granularities",
+      "required_access_actions",
+      "required_access_paths",
+      "branching.object_scope",
+      "atomic_update.client_path",
+      "atomic_update.failure_boundary",
+      "federation_bindings",
+      "table_count_boundary"
+    ],
+    "candidate_bindings": "API/connector/path selection belongs to compatible L1 candidate scope resolution, not a question asking users which catalog supports a feature.",
+    "joint_path_resolution": "Layer 3 must resolve the linked engine, metadata, storage delegation and authorization paths jointly against one consistent catalog state/scope. Named logical access paths must bind to actual candidate paths. Independent full claims on incompatible paths cannot establish feasibility."
+  },
+  "questions": [
+    {
+      "id": "I01",
+      "label": "Nơi chạy chính?",
+      "type": "environment_fact",
+      "target_properties": [
+        "deployment.environment"
+      ],
+      "answers": [
+        {
+          "id": "aws",
+          "label": "AWS",
+          "effect": "context_and_preservation_candidate",
+          "environment": "aws"
+        },
+        {
+          "id": "azure",
+          "label": "Azure",
+          "effect": "context_and_preservation_candidate",
+          "environment": "azure"
+        },
+        {
+          "id": "gcp",
+          "label": "GCP",
+          "effect": "context_and_preservation_candidate",
+          "environment": "gcp"
+        },
+        {
+          "id": "on_prem",
+          "label": "On-prem",
+          "effect": "context_and_preservation_candidate",
+          "environment": "on_prem"
+        },
+        {
+          "id": "multi_cloud",
+          "label": "Đa cloud",
+          "effect": "unresolved_environment_set",
+          "requires": "decision_context.required_environments"
+        }
+      ],
+      "normalization_rule": "Lưu CONTEXT. Chỉ sinh HARD/min full khi điều kiện phải giữ môi trường được xác nhận; nhiều môi trường bắt buộc là AND trong cùng một phương án phù hợp, không là OR chọn tùy ý.",
+      "unknown_handling": "Giữ trường chưa rõ và phát sinh việc làm rõ; không chuyển thành không cần, không tự cho điểm hay chọn đáp án thay người dùng.",
+      "cardinality": "single",
+      "binding_rule": "I01 in confirmed_required_inputs",
+      "requirements_when_bound": {
+        "role": "HARD",
+        "min_level": "full",
+        "anchor": "deployment.environment"
+      },
+      "never_derive": [
+        "storage",
+        "catalog_vendor",
+        "managed_service_requirement"
+      ]
+    },
+    {
+      "id": "I02",
+      "label": "Engine truy vấn?",
+      "type": "engine_fact",
+      "target_properties": [
+        "integration.engine_operation"
+      ],
+      "answers": [
+        {
+          "id": "spark",
+          "label": "Spark",
+          "effect": "named_engine",
+          "engine": "spark"
+        },
+        {
+          "id": "trino_presto",
+          "label": "Trino-Presto",
+          "effect": "unresolved_group",
+          "members": [
+            "trino",
+            "presto"
+          ]
+        },
+        {
+          "id": "flink",
+          "label": "Flink",
+          "effect": "named_engine",
+          "engine": "flink"
+        },
+        {
+          "id": "snowflake",
+          "label": "Snowflake",
+          "effect": "named_engine",
+          "engine": "snowflake"
+        },
+        {
+          "id": "databricks",
+          "label": "Databricks",
+          "effect": "named_platform_engine",
+          "engine": "databricks"
+        },
+        {
+          "id": "dremio",
+          "label": "Dremio",
+          "effect": "named_engine",
+          "engine": "dremio"
+        },
+        {
+          "id": "starrocks_doris",
+          "label": "StarRocks-Doris",
+          "effect": "unresolved_group",
+          "members": [
+            "starrocks",
+            "doris"
+          ]
+        },
+        {
+          "id": "duckdb",
+          "label": "DuckDB",
+          "effect": "named_engine",
+          "engine": "duckdb"
+        },
+        {
+          "id": "other",
+          "label": "Khác",
+          "effect": "unresolved_name",
+          "requires": "decision_context.other_engine_identity"
+        }
+      ],
+      "normalization_rule": "Lưu tập engine và các nhóm chưa rõ. Khi đã xác nhận là yêu cầu cần giữ, tạo HARD/full cho từng workload binding thực sự được khai báo; không nhân mọi engine với mọi format, không tự gán write.",
+      "unknown_handling": "Giữ trường chưa rõ và phát sinh việc làm rõ; không chuyển thành không cần, không tự cho điểm hay chọn đáp án thay người dùng.",
+      "cardinality": "multi_proposed_control_for_existing_item",
+      "binding_rule": "I02 in confirmed_required_inputs",
+      "expansion": "declared_workload_bindings_only",
+      "requirements_when_bound": {
+        "role": "HARD",
+        "min_level": "full",
+        "anchor": "integration.engine_operation"
+      },
+      "missing_operation": "needs_context",
+      "group_handling": "clarify_actual_members_not_automatic_AND_or_OR"
+    },
+    {
+      "id": "I03",
+      "label": "Table format?",
+      "type": "format_fact",
+      "target_properties": [
+        "catalog.format_operation",
+        "integration.engine_operation"
+      ],
+      "answers": [
+        {
+          "id": "iceberg",
+          "label": "Iceberg",
+          "effect": "named_format",
+          "format": "iceberg"
+        },
+        {
+          "id": "delta",
+          "label": "Delta",
+          "effect": "named_format",
+          "format": "delta"
+        },
+        {
+          "id": "hudi",
+          "label": "Hudi",
+          "effect": "named_format",
+          "format": "hudi"
+        },
+        {
+          "id": "not_chosen",
+          "label": "Chưa chọn",
+          "effect": "keep_not_decided"
+        },
+        {
+          "id": "mixed",
+          "label": "Hỗn hợp",
+          "effect": "unresolved_format_set",
+          "requires": "decision_context.required_formats_and_workload_bindings"
+        }
+      ],
+      "normalization_rule": "Giữ format hiện trạng/đích và trạng thái chưa quyết định. Chỉ tạo HARD/full khi format được xác nhận phải hỗ trợ; thao tác catalog và engine lấy từ các liên kết có căn cứ.",
+      "unknown_handling": "Giữ trường chưa rõ và phát sinh việc làm rõ; không chuyển thành không cần, không tự cho điểm hay chọn đáp án thay người dùng.",
+      "cardinality": "single",
+      "binding_rule": "I03 in confirmed_required_inputs",
+      "requirements_when_bound": {
+        "role": "HARD",
+        "min_level": "full",
+        "anchors": [
+          "catalog.format_operation",
+          "integration.engine_operation"
+        ]
+      },
+      "mixed_is_not_all_formats": true
+    },
+    {
+      "id": "I04",
+      "label": "Số bảng?",
+      "type": "scale",
+      "target_properties": [
+        "limits.quota",
+        "performance.observation"
+      ],
+      "answers": [
+        {
+          "id": "lt_100",
+          "label": "<100",
+          "effect": "table_count_interval",
+          "lower": 0,
+          "upper": 99
+        },
+        {
+          "id": "100_to_1000",
+          "label": "100–1.000",
+          "effect": "table_count_interval",
+          "lower": 100,
+          "upper": 1000
+        },
+        {
+          "id": "1000_to_10000",
+          "label": "1.000–10.000",
+          "effect": "table_count_interval",
+          "lower": 1000,
+          "upper": 10000
+        },
+        {
+          "id": "gt_10000",
+          "label": ">10.000",
+          "effect": "table_count_interval",
+          "lower": 10001,
+          "upper": null
+        }
+      ],
+      "normalization_rule": "Lưu khoảng số bảng nguyên, không lấy trung điểm. Chỉ đề xuất kiểm tra quota theo boundary được xác nhận; performance cần scenario/SLO riêng, không tự tăng trọng số.",
+      "unknown_handling": "Giữ trường chưa rõ và phát sinh việc làm rõ; không chuyển thành không cần, không tự cho điểm hay chọn đáp án thay người dùng.",
+      "cardinality": "single",
+      "raw_boundaries_preserved": true,
+      "boundary_note": "Hai khoảng gốc cùng chứa 1.000; không tự sửa thành 999 trong bản mapping này.",
+      "quota_anchor": "limits.quota",
+      "performance_anchor": "performance.observation",
+      "auto_weight_change": false,
+      "hard_gate_requires": "confirmed_table_count_boundary_and_applicable_quota_evidence"
+    },
+    {
+      "id": "I05",
+      "label": "Số engine cùng ghi một bảng?",
+      "type": "scale",
+      "target_properties": [
+        "commit.concurrent_write",
+        "integration.engine_operation"
+      ],
+      "answers": [
+        {
+          "id": "one",
+          "label": "1",
+          "effect": "record_engine_count",
+          "lower": 1,
+          "upper": 1
+        },
+        {
+          "id": "two_to_three",
+          "label": "2–3",
+          "effect": "record_engine_count_and_request_concurrency_context",
+          "lower": 2,
+          "upper": 3
+        },
+        {
+          "id": "more_than_three",
+          "label": ">3",
+          "effect": "record_engine_count_and_request_concurrency_context",
+          "lower": 4,
+          "upper": null
+        }
+      ],
+      "normalization_rule": "Giữ số engine là bối cảnh. Nếu ghi đồng thời là yêu cầu đã xác nhận, tạo HARD/full theo thao tác và writer_topology. Một engine chưa loại trừ nhiều job/writer.",
+      "unknown_handling": "Giữ trường chưa rõ và phát sinh việc làm rõ; không chuyển thành không cần, không tự cho điểm hay chọn đáp án thay người dùng.",
+      "cardinality": "single",
+      "hard_activation": "decision_context.concurrent_writes_required == true",
+      "requirements_when_activated": {
+        "role": "HARD",
+        "min_level": "full",
+        "anchor": "commit.concurrent_write"
+      },
+      "auto_weight_change": false,
+      "never_imply": "multi_table_atomic_update"
+    },
+    {
+      "id": "I06",
+      "label": "Có ghi streaming vào bảng không?",
+      "type": "conditional_scale",
+      "target_properties": [
+        "integration.streaming_write",
+        "performance.observation"
+      ],
+      "answers": [
+        {
+          "id": "no",
+          "label": "Không",
+          "effect": "provisional_context_only"
+        },
+        {
+          "id": "yes",
+          "label": "Có",
+          "effect": "provisional_context_only"
+        },
+        {
+          "id": "unknown",
+          "label": "Chưa biết",
+          "effect": "provisional_unknown"
+        }
+      ],
+      "normalization_rule": "Nhánh giữ để chuẩn bị nhưng mặc định chưa bật, vì bộ input hiện hành chưa chốt giữ/bỏ. Không sinh HARD/SOFT hoặc đổi trọng số từ trường này trong phiên bản hiện tại.",
+      "unknown_handling": "Khi nhánh bất hoạt, giữ raw answer nếu có; không sinh việc làm rõ hoặc lỗi thiếu input từ nhánh này. Nếu được bật ở revision sau, giữ unknown riêng với không cần.",
+      "cardinality": "single_if_enabled",
+      "enabled_by_default": false,
+      "field_status": "pending_in_input_v1",
+      "answer_source": "proposed_answers_for_inactive_branch",
+      "when_inactive_and_absent": "no_requirement_no_missing_answer_warning",
+      "when_future_enabled_and_required": "use_anchor_with_confirmed_streaming_bindings"
+    },
+    {
+      "id": "I07",
+      "label": "Cần phân quyền mức nào?",
+      "type": "required_capability",
+      "target_properties": [
+        "security.authorization"
+      ],
+      "answers": [
+        {
+          "id": "table",
+          "label": "Cấp bảng",
+          "effect": "explicit_access_requirement",
+          "granularity": "table",
+          "role": "HARD",
+          "min_level": "full"
+        },
+        {
+          "id": "column_row",
+          "label": "Cấp cột-hàng",
+          "effect": "explicit_fine_grained_requirement_needs_scope",
+          "role": "HARD",
+          "min_level": "full",
+          "requires": "decision_context.required_granularities"
+        },
+        {
+          "id": "unclear",
+          "label": "Chưa rõ",
+          "effect": "unresolved_access_requirement"
+        }
+      ],
+      "normalization_rule": "Câu hỏi về nhu cầu quyền: mức được chọn sinh HARD/full; giữ yêu cầu ngay cả khi còn thiếu action/access_path. Với cột-hàng, không tự quyết định cần cả hai hay một trong hai.",
+      "unknown_handling": "Giữ trường chưa rõ và phát sinh việc làm rõ; không chuyển thành không cần, không tự cho điểm hay chọn đáp án thay người dùng.",
+      "cardinality": "single",
+      "anchor": "security.authorization",
+      "missing_dimensions": "needs_context_not_drop_requirement"
+    },
+    {
+      "id": "I08",
+      "label": "Cần credential vending cho engine ngoài?",
+      "type": "required_capability",
+      "target_properties": [
+        "storage.credential_vending"
+      ],
+      "answers": [
+        {
+          "id": "yes",
+          "label": "Có",
+          "effect": "explicit_requirement",
+          "role": "HARD",
+          "min_level": "full"
+        },
+        {
+          "id": "no",
+          "label": "Không",
+          "effect": "explicit_no_requirement"
+        },
+        {
+          "id": "unknown",
+          "label": "Chưa biết",
+          "effect": "unresolved_vending_need"
+        }
+      ],
+      "normalization_rule": "Có → HARD/full, chọn claim theo storage thực và đường API tương thích của candidate. Không → không tạo yêu cầu vending. Chưa biết → giữ unresolved_need, không đồng nhất Không.",
+      "unknown_handling": "Giữ trường chưa rõ và phát sinh việc làm rõ; không chuyển thành không cần, không tự cho điểm hay chọn đáp án thay người dùng.",
+      "cardinality": "single",
+      "anchor": "storage.credential_vending",
+      "storage_source": "decision_context.data_storage_or_allowed_storage_domain",
+      "api_source": "candidate_path",
+      "cloud_is_not_storage": true
+    },
+    {
+      "id": "I09",
+      "label": "Hợp đồng/nền tảng đã gắn bó?",
+      "type": "platform_context",
+      "target_properties": [],
+      "answers": [
+        {
+          "id": "databricks",
+          "label": "Databricks",
+          "effect": "context_and_reminder"
+        },
+        {
+          "id": "snowflake",
+          "label": "Snowflake",
+          "effect": "context_and_reminder"
+        },
+        {
+          "id": "aws_native",
+          "label": "AWS-native",
+          "effect": "context_and_reminder"
+        },
+        {
+          "id": "none",
+          "label": "Không",
+          "effect": "explicit_no_platform_commitment"
+        }
+      ],
+      "normalization_rule": "Chỉ lưu CONTEXT và nhắc rà điều khoản/di chuyển. Không lọc ứng viên, không tính migration cost hoặc giảm trọng số lock-in khi chưa có dữ liệu và yêu cầu tương ứng.",
+      "unknown_handling": "Giữ cam kết chưa rõ trong CONTEXT; không chặn readiness chỉ vì thiếu trường bối cảnh này. Chỉ nhắc rà soát khi có yêu cầu liên quan, không suy thành không có cam kết.",
+      "cardinality": "multi_proposed_control_for_existing_item",
+      "none_exclusive": true,
+      "no_direct_property_reason": "Đây là sự thật hợp đồng của ca lựa chọn, không phải một năng lực của catalog.",
+      "property_links_if_context_later_requires": [
+        "integration.engine_operation",
+        "migration.asset_preservation",
+        "cost.price_component"
+      ],
+      "automatic_weight_change": false
+    },
+    {
+      "id": "I10",
+      "label": "Nhu cầu đặc thù",
+      "type": "ranked_criterion_group",
+      "target_properties": [
+        "workflow.branching",
+        "transaction.multi_table_atomic",
+        "metadata.federation_operation"
+      ],
+      "answers": [
+        {
+          "id": "branching",
+          "label": "Thử nghiệm dữ liệu trên nhánh riêng rồi mới đưa vào bản chính",
+          "effect": "feature_selection",
+          "property_id": "workflow.branching"
+        },
+        {
+          "id": "multi_table_atomic",
+          "label": "Cập nhật nhiều bảng hoặc tất cả thành công hoặc tất cả thất bại",
+          "effect": "feature_selection",
+          "property_id": "transaction.multi_table_atomic"
+        },
+        {
+          "id": "metadata_federation",
+          "label": "Quản lý chung metadata từ nhiều catalog/nguồn qua một lớp thống nhất",
+          "effect": "feature_selection",
+          "property_id": "metadata.federation_operation"
+        },
+        {
+          "id": "none",
+          "label": "Không có nhu cầu nào trong số này",
+          "effect": "explicit_no_special_requirements"
+        }
+      ],
+      "normalization_rule": "Mỗi nhu cầu được chọn có rank mandatory hoặc nice_to_have. Thiếu rank giữ chưa phân loại, không tự xem là nice. Không nhân một lợi ích thành nhiều tiêu chí khi tách phép kiểm tra.",
+      "unknown_handling": "Giữ trường chưa rõ và phát sinh việc làm rõ; không chuyển thành không cần, không tự cho điểm hay chọn đáp án thay người dùng.",
+      "cardinality": "multi_with_rank",
+      "none_exclusive": true,
+      "allowed_ranks": {
+        "mandatory": {
+          "role": "HARD",
+          "min_level": "full",
+          "numeric_weight": null
+        },
+        "nice_to_have": {
+          "role": "SOFT",
+          "technical_levels_preserved": true,
+          "numeric_weight": null
+        }
+      },
+      "unselected_without_explicit_none": "not_selected_not_confirmed_no_requirement",
+      "unsupported_current_ranks": [
+        "important",
+        "not_needed"
+      ],
+      "rank_missing": "needs_rank",
+      "anchors": [
+        "workflow.branching",
+        "transaction.multi_table_atomic",
+        "metadata.federation_operation"
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "id": "W_HYBRID_CONTEXT",
+      "severity": "reminder",
+      "condition": "I01=on_prem and I09 includes a cloud platform",
+      "action": "Làm rõ topology/điều khoản nếu cần; không coi là mâu thuẫn chỉ từ nhãn.",
+      "mutates_answers": false
+    },
+    {
+      "id": "E_EXCLUSIVE_NONE",
+      "severity": "input_issue",
+      "condition": "I09 or I10 selects none together with other selections",
+      "action": "Giữ câu trả lời gốc; yêu cầu sửa lựa chọn loại trừ trước khi chốt yêu cầu.",
+      "mutates_answers": false
+    },
+    {
+      "id": "E_SINGLE_CHOICE_MULTIPLE",
+      "severity": "input_issue",
+      "condition": "A single-choice item contains multiple raw options",
+      "action": "Báo cấu trúc input cần sửa; không tự chọn một đáp án.",
+      "mutates_answers": false
+    },
+    {
+      "id": "W_STORAGE_UNRESOLVED",
+      "severity": "needs_context",
+      "condition": "I08=yes and actual/allowed storage is not known",
+      "action": "Giữ HARD vending và đánh dấu storage chưa rõ; không lấy storage từ I01.",
+      "mutates_answers": false
+    },
+    {
+      "id": "W_CONCURRENT_WRITE_CONTEXT",
+      "severity": "verification_reminder",
+      "condition": "I05>=2 and simultaneous-write semantics are not confirmed",
+      "action": "Làm rõ thao tác/topology; không tự tăng weight hoặc sinh transaction nhiều bảng.",
+      "mutates_answers": false
+    },
+    {
+      "id": "W_FINE_GRAINED_SCOPE",
+      "severity": "needs_context",
+      "condition": "I07=column_row and required granularities/actions/paths are not specified",
+      "action": "Giữ yêu cầu quyền; không tự áp AND cả cột và hàng.",
+      "mutates_answers": false
+    },
+    {
+      "id": "E_RANK_MISSING_OR_INVALID",
+      "severity": "input_issue",
+      "condition": "Selected I10 feature lacks a valid mandatory/nice_to_have rank",
+      "action": "Giữ nhu cầu chưa phân loại; không mặc định rank.",
+      "mutates_answers": false
+    },
+    {
+      "id": "W_ENVIRONMENT_SET",
+      "severity": "needs_context",
+      "condition": "I01=multi_cloud without a confirmed environment set",
+      "action": "Không mở rộng thành ba cloud tùy ý hoặc chọn một cloud thuận lợi.",
+      "mutates_answers": false
+    },
+    {
+      "id": "W_FORMAT_OR_ENGINE_GROUP",
+      "severity": "needs_context",
+      "condition": "I02 contains unresolved grouped engine/other or I03=mixed/not_chosen",
+      "action": "Giữ ambiguity; làm rõ binding khi cần kết luận chắc chắn.",
+      "mutates_answers": false
+    },
+    {
+      "id": "W_TABLE_BUCKET_BOUNDARY",
+      "severity": "design_note",
+      "condition": "Original I04 options share the boundary 1000",
+      "action": "Giữ khoảng theo đáp án gốc; đề xuất sửa nhãn ở revision form sau, không sửa dữ liệu ngầm.",
+      "mutates_answers": false
+    },
+    {
+      "id": "E_EXPLICIT_BOUNDARY_CONFLICT",
+      "severity": "input_issue",
+      "condition": "Confirmed context requires and prohibits the same action/location at the same boundary/time",
+      "action": "Giải thích điều kiện trực tiếp trái nhau; không suy xung đột từ tên vendor.",
+      "mutates_answers": false
+    }
+  ],
+  "output_contract": {
+    "revisions": [
+      "form",
+      "mapping",
+      "policy",
+      "property_dictionary"
+    ],
+    "required_sections": [
+      "raw_answers",
+      "normalized_context",
+      "requirements",
+      "objectives",
+      "unresolved",
+      "input_issues",
+      "reminders",
+      "trace"
+    ],
+    "requirement_fields": [
+      "id",
+      "logical_need_id",
+      "source_inputs",
+      "property_id",
+      "role",
+      "status",
+      "qualifiers",
+      "candidate_bindings",
+      "acceptance_anchor",
+      "min_level_if_applicable"
+    ],
+    "statuses": [
+      "ready",
+      "proposed_needs_confirmation",
+      "needs_context",
+      "needs_rank"
+    ],
+    "readiness": [
+      "ready_for_assessment",
+      "conditional_assessment_only",
+      "needs_input_correction"
+    ],
+    "unknown_data_never_converts_to": "NO_REQUIREMENT",
+    "soft_objective_weight": "unset_unless_explicitly_accepted_value_and_weight_policy",
+    "final_catalog_ranking": "not_computed_in_layer2"
+  }
+}
+

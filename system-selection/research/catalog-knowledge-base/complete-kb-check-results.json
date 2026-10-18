@@ -1,0 +1,173 @@
+{
+  "status": "passed",
+  "example_count": 8,
+  "scope": "Synthetic exact-arithmetic examples only; no catalog validation or user study.",
+  "examples": {
+    "E01_joint_compatibility": {
+      "separate_checks_pass": true,
+      "joint_check_passes": false
+    },
+    "E02_conflicts_and_repairs": {
+      "minimal_conflicts": [
+        [
+          "H1",
+          "H2"
+        ],
+        [
+          "H1",
+          "H3"
+        ],
+        [
+          "H2",
+          "H3"
+        ]
+      ],
+      "minimal_repairs": [
+        [
+          "H1",
+          "H2"
+        ],
+        [
+          "H1",
+          "H3"
+        ],
+        [
+          "H2",
+          "H3"
+        ]
+      ],
+      "removing_H1_alone_restores_feasibility": false
+    },
+    "E03_weighted_example": {
+      "raw_scores": [
+        {
+          "exact": "9/2",
+          "decimal": 4.5
+        },
+        {
+          "exact": "21/5",
+          "decimal": 4.2
+        }
+      ],
+      "value_scores": [
+        {
+          "exact": "7/8",
+          "decimal": 0.875
+        },
+        {
+          "exact": "4/5",
+          "decimal": 0.8
+        }
+      ],
+      "tie_weights_with_integration_fixed": [
+        {
+          "exact": "13/40",
+          "decimal": 0.325
+        },
+        {
+          "exact": "7/20",
+          "decimal": 0.35
+        },
+        {
+          "exact": "13/40",
+          "decimal": 0.325
+        }
+      ],
+      "security_weight_transfer_to_tie": {
+        "exact": "3/40",
+        "decimal": 0.075
+      }
+    },
+    "E04_ordinal_spacing": {
+      "raw_scores": [
+        {
+          "exact": "3",
+          "decimal": 3.0
+        },
+        {
+          "exact": "7/2",
+          "decimal": 3.5
+        }
+      ],
+      "recoded_scores": [
+        {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        {
+          "exact": "1/4",
+          "decimal": 0.25
+        }
+      ],
+      "winner_changes": true
+    },
+    "E05_candidate_normalization": {
+      "before": {
+        "A": {
+          "exact": "3/5",
+          "decimal": 0.6
+        },
+        "B": {
+          "exact": "2/5",
+          "decimal": 0.4
+        }
+      },
+      "after_adding_dominated_C": {
+        "A": {
+          "exact": "3/5",
+          "decimal": 0.6
+        },
+        "B": {
+          "exact": "17/20",
+          "decimal": 0.85
+        },
+        "C": {
+          "exact": "3/10",
+          "decimal": 0.3
+        }
+      },
+      "fixed_anchor_scores": {
+        "A": {
+          "exact": "3/5",
+          "decimal": 0.6
+        },
+        "B": {
+          "exact": "17/20",
+          "decimal": 0.85
+        }
+      }
+    },
+    "E06_exact_weight_regions": {
+      "narrow_margin_range_A_minus_B": [
+        {
+          "exact": "7/200",
+          "decimal": 0.035
+        },
+        {
+          "exact": "23/200",
+          "decimal": 0.115
+        }
+      ],
+      "wide_margin_range_A_minus_B": [
+        {
+          "exact": "-3/40",
+          "decimal": -0.075
+        },
+        {
+          "exact": "1/8",
+          "decimal": 0.125
+        }
+      ],
+      "narrow_A_is_strict_winner_everywhere": true,
+      "wide_winner_changes": true
+    },
+    "E07_dominance_zero_weight": {
+      "strict_raw_dominance": true,
+      "weighted_scores_tie": true
+    },
+    "E08_hard_gate": {
+      "winner_after_gate": "B",
+      "infeasible_A_has_higher_soft_score": true
+    }
+  }
+}

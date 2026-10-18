@@ -1,0 +1,1605 @@
+{
+  "assumptions": [
+    {
+      "applied_in_stage12": false,
+      "assumption": true,
+      "note": "Reserved for stage 3; an explicit model scale, not measured utility.",
+      "parameter": "level_to_value.full",
+      "value": 1
+    },
+    {
+      "applied_in_stage12": false,
+      "assumption": true,
+      "note": "Reserved for stage 3; an explicit model scale, not measured utility.",
+      "parameter": "level_to_value.none",
+      "value": 0
+    },
+    {
+      "applied_in_stage12": false,
+      "assumption": true,
+      "note": "Reserved for stage 3; an explicit model scale, not measured utility.",
+      "parameter": "level_to_value.partial",
+      "value": 0.5
+    },
+    {
+      "applied_in_stage12": false,
+      "assumption": true,
+      "note": "Reserved for stage 3; follows the latest requested high/low preset, not the previous equal-soft policy.",
+      "parameter": "rank_to_weight.high",
+      "value": 3
+    },
+    {
+      "applied_in_stage12": false,
+      "assumption": true,
+      "note": "Reserved for stage 3; follows the latest requested high/low preset, not the previous equal-soft policy.",
+      "parameter": "rank_to_weight.low",
+      "value": 1
+    },
+    {
+      "applied_in_stage12": false,
+      "assumption": true,
+      "note": "Reserved for stage 4; not a bound on the stage 1 qualifier-domain lookup.",
+      "parameter": "max_scenarios",
+      "value": 500
+    },
+    {
+      "applied_in_stage12": false,
+      "assumption": true,
+      "note": "Reserved for stage 4; stages 1-2 do not sample.",
+      "parameter": "seed",
+      "value": 42
+    },
+    {
+      "applied_in_stage12": false,
+      "assumption": true,
+      "note": "Applied only when a HARD requirement omits its minimum.",
+      "parameter": "default_hard_min_level",
+      "requirements": [],
+      "value": "full"
+    },
+    {
+      "applied_in_stage12": false,
+      "assumption": true,
+      "note": "Reserved for stage 3 when an explicit weight is absent.",
+      "parameter": "default_weight_rank",
+      "value": "low"
+    },
+    {
+      "applied_in_stage12": true,
+      "assumption": true,
+      "parameter": "lookup.candidate_unit",
+      "value": "one_explicit_KB_scope"
+    },
+    {
+      "applied_in_stage12": true,
+      "assumption": true,
+      "parameter": "lookup.claim_status",
+      "value": "use_supplied_claims_and_preserve_status_and_limits_in_trace"
+    },
+    {
+      "applied_in_stage12": true,
+      "assumption": true,
+      "parameter": "lookup.conflicting_claims",
+      "value": "unknown_not_last_claim_wins"
+    },
+    {
+      "applied_in_stage12": true,
+      "assumption": true,
+      "parameter": "lookup.finite_domains",
+      "value": "explicit_qualifier_domains_are_the_complete_allowed_set"
+    },
+    {
+      "applied_in_stage12": true,
+      "assumption": true,
+      "parameter": "lookup.missing_claim_qualifier",
+      "value": "not_a_wildcard"
+    },
+    {
+      "applied_in_stage12": true,
+      "assumption": true,
+      "parameter": "lookup.unknown_open_domain",
+      "value": "observed_compatible_values_plus_uncovered_case"
+    },
+    {
+      "applied_in_stage12": true,
+      "assumption": true,
+      "parameter": "requirement.status",
+      "requirements": [
+        "H-environment",
+        "H-format",
+        "H-vending",
+        "S-authorization",
+        "S-branching",
+        "S-federation"
+      ],
+      "value": "ready"
+    }
+  ],
+  "config": {
+    "default_hard_min_level": "full",
+    "default_weight_rank": "low",
+    "level_to_value": {
+      "full": 1,
+      "none": 0,
+      "partial": 0.5
+    },
+    "lookup_assumptions": {
+      "candidate_unit": "one_explicit_KB_scope",
+      "claim_status": "use_supplied_claims_and_preserve_status_and_limits_in_trace",
+      "conflicting_claims": "unknown_not_last_claim_wins",
+      "finite_domains": "explicit_qualifier_domains_are_the_complete_allowed_set",
+      "missing_claim_qualifier": "not_a_wildcard",
+      "unknown_open_domain": "observed_compatible_values_plus_uncovered_case"
+    },
+    "max_scenarios": 500,
+    "parameter_metadata": {
+      "default_hard_min_level": {
+        "assumption": true,
+        "note": "Applied only when a HARD requirement omits its minimum."
+      },
+      "default_weight_rank": {
+        "assumption": true,
+        "note": "Reserved for stage 3 when an explicit weight is absent."
+      },
+      "level_to_value": {
+        "assumption": true,
+        "note": "Reserved for stage 3; an explicit model scale, not measured utility."
+      },
+      "max_scenarios": {
+        "assumption": true,
+        "note": "Reserved for stage 4; not a bound on the stage 1 qualifier-domain lookup."
+      },
+      "rank_to_weight": {
+        "assumption": true,
+        "note": "Reserved for stage 3; follows the latest requested high/low preset, not the previous equal-soft policy."
+      },
+      "seed": {
+        "assumption": true,
+        "note": "Reserved for stage 4; stages 1-2 do not sample."
+      }
+    },
+    "rank_to_weight": {
+      "high": 3,
+      "low": 1
+    },
+    "seed": 42
+  },
+  "groups": {
+    "conditional": [
+      {
+        "assessments": [
+          {
+            "conditions": [],
+            "level": "full",
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "property_id": "deployment.environment",
+            "requirement_id": "H-environment",
+            "role": "HARD",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_alpha_environment"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "environment": "aws"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_alpha_environment"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "alpha/environment"
+                    }
+                  ],
+                  "id": "synthetic_alpha_environment",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "deployment.environment",
+                  "qualifiers": {
+                    "environment": "aws"
+                  },
+                  "scope_id": "synthetic_alpha_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "environment": "aws"
+              },
+              "requirement_id": "H-environment",
+              "scope_id": "synthetic_alpha_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [],
+            "level": "full",
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "property_id": "catalog.format_operation",
+            "requirement_id": "H-format",
+            "role": "HARD",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_alpha_format"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "format": "iceberg",
+                    "operation": "load"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_alpha_format"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "alpha/format"
+                    }
+                  ],
+                  "id": "synthetic_alpha_format",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "catalog.format_operation",
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "format": "iceberg",
+                    "operation": "load"
+                  },
+                  "scope_id": "synthetic_alpha_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "api": "iceberg_rest",
+                "format": "iceberg",
+                "operation": "load"
+              },
+              "requirement_id": "H-format",
+              "scope_id": "synthetic_alpha_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [
+              {
+                "allowed_values": [
+                  "aws_s3",
+                  "adls"
+                ],
+                "domain_complete": true,
+                "qualifier": "storage",
+                "type": "qualifier_unresolved"
+              }
+            ],
+            "level": "unknown",
+            "level_interval": {
+              "max": "full",
+              "min": "none"
+            },
+            "min_level": "full",
+            "property_id": "storage.credential_vending",
+            "requirement_id": "H-vending",
+            "role": "HARD",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_alpha_vending_adls"
+                  ],
+                  "level_interval": {
+                    "max": "none",
+                    "min": "none"
+                  },
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "storage": "adls"
+                  },
+                  "unknown_reasons": []
+                },
+                {
+                  "claim_ids": [
+                    "synthetic_alpha_vending_s3"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "storage": "aws_s3"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_alpha_vending_adls",
+                "synthetic_alpha_vending_s3"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "alpha/vending_adls"
+                    }
+                  ],
+                  "id": "synthetic_alpha_vending_adls",
+                  "level": "none",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "storage.credential_vending",
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "storage": "adls"
+                  },
+                  "scope_id": "synthetic_alpha_v1",
+                  "status": "synthetic"
+                },
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "alpha/vending_s3"
+                    }
+                  ],
+                  "id": "synthetic_alpha_vending_s3",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "storage.credential_vending",
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "storage": "aws_s3"
+                  },
+                  "scope_id": "synthetic_alpha_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "api": "iceberg_rest",
+                "storage": null
+              },
+              "requirement_id": "H-vending",
+              "scope_id": "synthetic_alpha_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [],
+            "level": "full",
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": null,
+            "property_id": "security.authorization",
+            "requirement_id": "S-authorization",
+            "role": "SOFT",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_alpha_authorization"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "access_path": "engine_read_path",
+                    "action": "read",
+                    "granularity": "table"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_alpha_authorization"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "alpha/authorization"
+                    }
+                  ],
+                  "id": "synthetic_alpha_authorization",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "security.authorization",
+                  "qualifiers": {
+                    "access_path": "engine_read_path",
+                    "action": "read",
+                    "granularity": "table"
+                  },
+                  "scope_id": "synthetic_alpha_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "access_path": "engine_read_path",
+                "action": "read",
+                "granularity": "table"
+              },
+              "requirement_id": "S-authorization",
+              "scope_id": "synthetic_alpha_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [],
+            "level": "partial",
+            "level_interval": {
+              "max": "partial",
+              "min": "partial"
+            },
+            "min_level": null,
+            "property_id": "workflow.branching",
+            "requirement_id": "S-branching",
+            "role": "SOFT",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_alpha_branching"
+                  ],
+                  "level_interval": {
+                    "max": "partial",
+                    "min": "partial"
+                  },
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "object_scope": "catalog"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_alpha_branching"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "alpha/branching"
+                    }
+                  ],
+                  "id": "synthetic_alpha_branching",
+                  "level": "partial",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "workflow.branching",
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "object_scope": "catalog"
+                  },
+                  "scope_id": "synthetic_alpha_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "api": "iceberg_rest",
+                "object_scope": "catalog"
+              },
+              "requirement_id": "S-branching",
+              "scope_id": "synthetic_alpha_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [],
+            "level": "full",
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": null,
+            "property_id": "metadata.federation_operation",
+            "requirement_id": "S-federation",
+            "role": "SOFT",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_alpha_federation"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "api": "catalog_api",
+                    "operation": "read_metadata",
+                    "source_type": "postgresql"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_alpha_federation"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "alpha/federation"
+                    }
+                  ],
+                  "id": "synthetic_alpha_federation",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "metadata.federation_operation",
+                  "qualifiers": {
+                    "api": "catalog_api",
+                    "operation": "read_metadata",
+                    "source_type": "postgresql"
+                  },
+                  "scope_id": "synthetic_alpha_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "api": "catalog_api",
+                "operation": "read_metadata",
+                "source_type": "postgresql"
+              },
+              "requirement_id": "S-federation",
+              "scope_id": "synthetic_alpha_v1"
+            },
+            "unknown_reasons": []
+          }
+        ],
+        "candidate_id": "synthetic_alpha",
+        "group": "conditional",
+        "hard_conditions": [
+          {
+            "claim_ids": [
+              "synthetic_alpha_vending_adls",
+              "synthetic_alpha_vending_s3"
+            ],
+            "conditions": [
+              {
+                "allowed_values": [
+                  "aws_s3",
+                  "adls"
+                ],
+                "domain_complete": true,
+                "qualifier": "storage",
+                "type": "qualifier_unresolved"
+              }
+            ],
+            "level_interval": {
+              "max": "full",
+              "min": "none"
+            },
+            "min_level": "full",
+            "reason": "support_not_established_for_every_allowed_case",
+            "requirement_id": "H-vending",
+            "unknown_reasons": []
+          }
+        ],
+        "hard_failures": [],
+        "hard_passes": [
+          {
+            "claim_ids": [
+              "synthetic_alpha_environment"
+            ],
+            "conditions": [],
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "reason": "minimum_met_for_every_declared_case",
+            "requirement_id": "H-environment",
+            "unknown_reasons": []
+          },
+          {
+            "claim_ids": [
+              "synthetic_alpha_format"
+            ],
+            "conditions": [],
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "reason": "minimum_met_for_every_declared_case",
+            "requirement_id": "H-format",
+            "unknown_reasons": []
+          }
+        ],
+        "scope_id": "synthetic_alpha_v1"
+      }
+    ],
+    "eligible": [
+      {
+        "assessments": [
+          {
+            "conditions": [],
+            "level": "full",
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "property_id": "deployment.environment",
+            "requirement_id": "H-environment",
+            "role": "HARD",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_gamma_environment"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "environment": "aws"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_gamma_environment"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "gamma/environment"
+                    }
+                  ],
+                  "id": "synthetic_gamma_environment",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "deployment.environment",
+                  "qualifiers": {
+                    "environment": "aws"
+                  },
+                  "scope_id": "synthetic_gamma_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "environment": "aws"
+              },
+              "requirement_id": "H-environment",
+              "scope_id": "synthetic_gamma_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [],
+            "level": "full",
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "property_id": "catalog.format_operation",
+            "requirement_id": "H-format",
+            "role": "HARD",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_gamma_format"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "format": "iceberg",
+                    "operation": "load"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_gamma_format"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "gamma/format"
+                    }
+                  ],
+                  "id": "synthetic_gamma_format",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "catalog.format_operation",
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "format": "iceberg",
+                    "operation": "load"
+                  },
+                  "scope_id": "synthetic_gamma_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "api": "iceberg_rest",
+                "format": "iceberg",
+                "operation": "load"
+              },
+              "requirement_id": "H-format",
+              "scope_id": "synthetic_gamma_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [
+              {
+                "allowed_values": [
+                  "aws_s3",
+                  "adls"
+                ],
+                "domain_complete": true,
+                "qualifier": "storage",
+                "type": "qualifier_unresolved"
+              }
+            ],
+            "level": "full",
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "property_id": "storage.credential_vending",
+            "requirement_id": "H-vending",
+            "role": "HARD",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_gamma_vending_adls"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "storage": "adls"
+                  },
+                  "unknown_reasons": []
+                },
+                {
+                  "claim_ids": [
+                    "synthetic_gamma_vending_s3"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "storage": "aws_s3"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_gamma_vending_adls",
+                "synthetic_gamma_vending_s3"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "gamma/vending_adls"
+                    }
+                  ],
+                  "id": "synthetic_gamma_vending_adls",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "storage.credential_vending",
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "storage": "adls"
+                  },
+                  "scope_id": "synthetic_gamma_v1",
+                  "status": "synthetic"
+                },
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "gamma/vending_s3"
+                    }
+                  ],
+                  "id": "synthetic_gamma_vending_s3",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "storage.credential_vending",
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "storage": "aws_s3"
+                  },
+                  "scope_id": "synthetic_gamma_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "api": "iceberg_rest",
+                "storage": null
+              },
+              "requirement_id": "H-vending",
+              "scope_id": "synthetic_gamma_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [],
+            "level": "full",
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": null,
+            "property_id": "security.authorization",
+            "requirement_id": "S-authorization",
+            "role": "SOFT",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_gamma_authorization"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "access_path": "engine_read_path",
+                    "action": "read",
+                    "granularity": "table"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_gamma_authorization"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "gamma/authorization"
+                    }
+                  ],
+                  "id": "synthetic_gamma_authorization",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "security.authorization",
+                  "qualifiers": {
+                    "access_path": "engine_read_path",
+                    "action": "read",
+                    "granularity": "table"
+                  },
+                  "scope_id": "synthetic_gamma_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "access_path": "engine_read_path",
+                "action": "read",
+                "granularity": "table"
+              },
+              "requirement_id": "S-authorization",
+              "scope_id": "synthetic_gamma_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [],
+            "level": "full",
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": null,
+            "property_id": "workflow.branching",
+            "requirement_id": "S-branching",
+            "role": "SOFT",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_gamma_branching"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "object_scope": "catalog"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_gamma_branching"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "gamma/branching"
+                    }
+                  ],
+                  "id": "synthetic_gamma_branching",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "workflow.branching",
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "object_scope": "catalog"
+                  },
+                  "scope_id": "synthetic_gamma_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "api": "iceberg_rest",
+                "object_scope": "catalog"
+              },
+              "requirement_id": "S-branching",
+              "scope_id": "synthetic_gamma_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [],
+            "level": "unknown",
+            "level_interval": {
+              "max": "full",
+              "min": "none"
+            },
+            "min_level": null,
+            "property_id": "metadata.federation_operation",
+            "requirement_id": "S-federation",
+            "role": "SOFT",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "none"
+                  },
+                  "qualifiers": {
+                    "api": "catalog_api",
+                    "operation": "read_metadata",
+                    "source_type": "postgresql"
+                  },
+                  "unknown_reasons": [
+                    "no_matching_claim"
+                  ]
+                }
+              ],
+              "claim_ids": [],
+              "claims": [],
+              "requested_qualifiers": {
+                "api": "catalog_api",
+                "operation": "read_metadata",
+                "source_type": "postgresql"
+              },
+              "requirement_id": "S-federation",
+              "scope_id": "synthetic_gamma_v1"
+            },
+            "unknown_reasons": [
+              "no_matching_claim"
+            ]
+          }
+        ],
+        "candidate_id": "synthetic_gamma",
+        "group": "eligible",
+        "hard_conditions": [],
+        "hard_failures": [],
+        "hard_passes": [
+          {
+            "claim_ids": [
+              "synthetic_gamma_environment"
+            ],
+            "conditions": [],
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "reason": "minimum_met_for_every_declared_case",
+            "requirement_id": "H-environment",
+            "unknown_reasons": []
+          },
+          {
+            "claim_ids": [
+              "synthetic_gamma_format"
+            ],
+            "conditions": [],
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "reason": "minimum_met_for_every_declared_case",
+            "requirement_id": "H-format",
+            "unknown_reasons": []
+          },
+          {
+            "claim_ids": [
+              "synthetic_gamma_vending_adls",
+              "synthetic_gamma_vending_s3"
+            ],
+            "conditions": [
+              {
+                "allowed_values": [
+                  "aws_s3",
+                  "adls"
+                ],
+                "domain_complete": true,
+                "qualifier": "storage",
+                "type": "qualifier_unresolved"
+              }
+            ],
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "reason": "minimum_met_for_every_declared_case",
+            "requirement_id": "H-vending",
+            "unknown_reasons": []
+          }
+        ],
+        "scope_id": "synthetic_gamma_v1"
+      }
+    ],
+    "excluded": [
+      {
+        "assessments": [
+          {
+            "conditions": [],
+            "level": "none",
+            "level_interval": {
+              "max": "none",
+              "min": "none"
+            },
+            "min_level": "full",
+            "property_id": "deployment.environment",
+            "requirement_id": "H-environment",
+            "role": "HARD",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_beta_environment"
+                  ],
+                  "level_interval": {
+                    "max": "none",
+                    "min": "none"
+                  },
+                  "qualifiers": {
+                    "environment": "aws"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_beta_environment"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "beta/environment"
+                    }
+                  ],
+                  "id": "synthetic_beta_environment",
+                  "level": "none",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "deployment.environment",
+                  "qualifiers": {
+                    "environment": "aws"
+                  },
+                  "scope_id": "synthetic_beta_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "environment": "aws"
+              },
+              "requirement_id": "H-environment",
+              "scope_id": "synthetic_beta_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [],
+            "level": "full",
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "property_id": "catalog.format_operation",
+            "requirement_id": "H-format",
+            "role": "HARD",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_beta_format"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "format": "iceberg",
+                    "operation": "load"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_beta_format"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "beta/format"
+                    }
+                  ],
+                  "id": "synthetic_beta_format",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "catalog.format_operation",
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "format": "iceberg",
+                    "operation": "load"
+                  },
+                  "scope_id": "synthetic_beta_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "api": "iceberg_rest",
+                "format": "iceberg",
+                "operation": "load"
+              },
+              "requirement_id": "H-format",
+              "scope_id": "synthetic_beta_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [
+              {
+                "allowed_values": [
+                  "aws_s3",
+                  "adls"
+                ],
+                "domain_complete": true,
+                "qualifier": "storage",
+                "type": "qualifier_unresolved"
+              }
+            ],
+            "level": "full",
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "property_id": "storage.credential_vending",
+            "requirement_id": "H-vending",
+            "role": "HARD",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_beta_vending_adls"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "storage": "adls"
+                  },
+                  "unknown_reasons": []
+                },
+                {
+                  "claim_ids": [
+                    "synthetic_beta_vending_s3"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "storage": "aws_s3"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_beta_vending_adls",
+                "synthetic_beta_vending_s3"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "beta/vending_adls"
+                    }
+                  ],
+                  "id": "synthetic_beta_vending_adls",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "storage.credential_vending",
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "storage": "adls"
+                  },
+                  "scope_id": "synthetic_beta_v1",
+                  "status": "synthetic"
+                },
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "beta/vending_s3"
+                    }
+                  ],
+                  "id": "synthetic_beta_vending_s3",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "storage.credential_vending",
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "storage": "aws_s3"
+                  },
+                  "scope_id": "synthetic_beta_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "api": "iceberg_rest",
+                "storage": null
+              },
+              "requirement_id": "H-vending",
+              "scope_id": "synthetic_beta_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [],
+            "level": "full",
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": null,
+            "property_id": "security.authorization",
+            "requirement_id": "S-authorization",
+            "role": "SOFT",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_beta_authorization"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "access_path": "engine_read_path",
+                    "action": "read",
+                    "granularity": "table"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_beta_authorization"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "beta/authorization"
+                    }
+                  ],
+                  "id": "synthetic_beta_authorization",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "security.authorization",
+                  "qualifiers": {
+                    "access_path": "engine_read_path",
+                    "action": "read",
+                    "granularity": "table"
+                  },
+                  "scope_id": "synthetic_beta_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "access_path": "engine_read_path",
+                "action": "read",
+                "granularity": "table"
+              },
+              "requirement_id": "S-authorization",
+              "scope_id": "synthetic_beta_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [],
+            "level": "full",
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": null,
+            "property_id": "workflow.branching",
+            "requirement_id": "S-branching",
+            "role": "SOFT",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_beta_branching"
+                  ],
+                  "level_interval": {
+                    "max": "full",
+                    "min": "full"
+                  },
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "object_scope": "catalog"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_beta_branching"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "beta/branching"
+                    }
+                  ],
+                  "id": "synthetic_beta_branching",
+                  "level": "full",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "workflow.branching",
+                  "qualifiers": {
+                    "api": "iceberg_rest",
+                    "object_scope": "catalog"
+                  },
+                  "scope_id": "synthetic_beta_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "api": "iceberg_rest",
+                "object_scope": "catalog"
+              },
+              "requirement_id": "S-branching",
+              "scope_id": "synthetic_beta_v1"
+            },
+            "unknown_reasons": []
+          },
+          {
+            "conditions": [],
+            "level": "none",
+            "level_interval": {
+              "max": "none",
+              "min": "none"
+            },
+            "min_level": null,
+            "property_id": "metadata.federation_operation",
+            "requirement_id": "S-federation",
+            "role": "SOFT",
+            "trace": {
+              "candidate_bindings": {},
+              "cases": [
+                {
+                  "claim_ids": [
+                    "synthetic_beta_federation"
+                  ],
+                  "level_interval": {
+                    "max": "none",
+                    "min": "none"
+                  },
+                  "qualifiers": {
+                    "api": "catalog_api",
+                    "operation": "read_metadata",
+                    "source_type": "postgresql"
+                  },
+                  "unknown_reasons": []
+                }
+              ],
+              "claim_ids": [
+                "synthetic_beta_federation"
+              ],
+              "claims": [
+                {
+                  "evidence": [
+                    {
+                      "kind": "synthetic_fixture",
+                      "locator": "beta/federation"
+                    }
+                  ],
+                  "id": "synthetic_beta_federation",
+                  "level": "none",
+                  "note": "Synthetic claim for logic tests only.",
+                  "property_id": "metadata.federation_operation",
+                  "qualifiers": {
+                    "api": "catalog_api",
+                    "operation": "read_metadata",
+                    "source_type": "postgresql"
+                  },
+                  "scope_id": "synthetic_beta_v1",
+                  "status": "synthetic"
+                }
+              ],
+              "requested_qualifiers": {
+                "api": "catalog_api",
+                "operation": "read_metadata",
+                "source_type": "postgresql"
+              },
+              "requirement_id": "S-federation",
+              "scope_id": "synthetic_beta_v1"
+            },
+            "unknown_reasons": []
+          }
+        ],
+        "candidate_id": "synthetic_beta",
+        "group": "excluded",
+        "hard_conditions": [],
+        "hard_failures": [
+          {
+            "claim_ids": [
+              "synthetic_beta_environment"
+            ],
+            "conditions": [],
+            "level_interval": {
+              "max": "none",
+              "min": "none"
+            },
+            "min_level": "full",
+            "reason": "maximum_supported_level_below_minimum",
+            "requirement_id": "H-environment",
+            "unknown_reasons": []
+          }
+        ],
+        "hard_passes": [
+          {
+            "claim_ids": [
+              "synthetic_beta_format"
+            ],
+            "conditions": [],
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "reason": "minimum_met_for_every_declared_case",
+            "requirement_id": "H-format",
+            "unknown_reasons": []
+          },
+          {
+            "claim_ids": [
+              "synthetic_beta_vending_adls",
+              "synthetic_beta_vending_s3"
+            ],
+            "conditions": [
+              {
+                "allowed_values": [
+                  "aws_s3",
+                  "adls"
+                ],
+                "domain_complete": true,
+                "qualifier": "storage",
+                "type": "qualifier_unresolved"
+              }
+            ],
+            "level_interval": {
+              "max": "full",
+              "min": "full"
+            },
+            "min_level": "full",
+            "reason": "minimum_met_for_every_declared_case",
+            "requirement_id": "H-vending",
+            "unknown_reasons": []
+          }
+        ],
+        "scope_id": "synthetic_beta_v1"
+      }
+    ]
+  },
+  "input_revisions": {
+    "kb": "synthetic-kb-v1",
+    "requirements": "synthetic-requirements-v1"
+  },
+  "not_run": [
+    "stage_3_soft_scoring",
+    "stage_4_scenarios_and_unknown_impact"
+  ],
+  "relaxations": [],
+  "stage": "1-2",
+  "synthetic_data": true
+}

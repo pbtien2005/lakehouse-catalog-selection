@@ -1,0 +1,490 @@
+{
+  "manifest": {
+    "revision": "layer2-kb-values-v1",
+    "kb_revision": "layer1-v3-data-2026-10-17-r1",
+    "kb_sha256": "043934db4b7babbc008c24f0e4cbad343093109297290df2ac1ca2b324567cb8",
+    "policy": "Known mapping values are accepted alternatives, not universal domains. Null qualifiers remain unknown; no path resolver."
+  },
+  "rows": [
+    {
+      "id": "M-001",
+      "property_id": "deployment.environment",
+      "qualifier": "environment",
+      "input_value": "aws",
+      "accepted_kb_values": [
+        "aws_regional_service",
+        "databricks_on_aws"
+      ],
+      "reason": "Both KB deployment identifiers explicitly designate an AWS-hosted service in the selected scope; local or standalone examples do not establish AWS deployment.",
+      "evidence_claim_ids": [
+        "cl_glue_aws_2026_10_17_aws_endpoint",
+        "cl_unity_databricks_aws_2026_10_17_aws_deploy"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-002",
+      "property_id": "deployment.environment",
+      "qualifier": "environment",
+      "input_value": "azure",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-003",
+      "property_id": "deployment.environment",
+      "qualifier": "environment",
+      "input_value": "gcp",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-004",
+      "property_id": "deployment.environment",
+      "qualifier": "environment",
+      "input_value": "on_prem",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-005",
+      "property_id": "integration.engine_operation",
+      "qualifier": "engine",
+      "input_value": "spark",
+      "accepted_kb_values": [
+        "spark"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_glue_aws_2026_10_17_spark_append",
+        "cl_glue_aws_2026_10_17_spark_read",
+        "cl_gravitino_oss_1_1_0_spark_append",
+        "cl_gravitino_oss_1_1_0_spark_read",
+        "cl_nessie_oss_2026_10_17_spark_read",
+        "cl_polaris_oss_1_7_0_spark_delta",
+        "cl_polaris_oss_1_7_0_spark_iceberg",
+        "cl_unity_databricks_aws_2026_10_17_spark_ice_read",
+        "cl_unity_oss_2026_10_17_spark_append",
+        "cl_unity_oss_2026_10_17_spark_merge",
+        "cl_unity_oss_2026_10_17_spark_read",
+        "cl_unity_oss_2026_10_17_spark_uniform"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-006",
+      "property_id": "integration.engine_operation",
+      "qualifier": "engine",
+      "input_value": "trino",
+      "accepted_kb_values": [
+        "trino"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_glue_aws_2026_10_17_delta_read",
+        "cl_gravitino_oss_1_1_0_trino_read",
+        "cl_hms_oss_2026_10_17_delta_read",
+        "cl_hms_oss_2026_10_17_hudi_read",
+        "cl_hms_oss_2026_10_17_iceberg_read",
+        "cl_nessie_oss_2026_10_17_trino_read"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-007",
+      "property_id": "integration.engine_operation",
+      "qualifier": "engine",
+      "input_value": "presto",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-008",
+      "property_id": "integration.engine_operation",
+      "qualifier": "engine",
+      "input_value": "flink",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-009",
+      "property_id": "integration.engine_operation",
+      "qualifier": "engine",
+      "input_value": "snowflake",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-010",
+      "property_id": "integration.engine_operation",
+      "qualifier": "engine",
+      "input_value": "databricks",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-011",
+      "property_id": "integration.engine_operation",
+      "qualifier": "engine",
+      "input_value": "dremio",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-012",
+      "property_id": "integration.engine_operation",
+      "qualifier": "engine",
+      "input_value": "starrocks",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-013",
+      "property_id": "integration.engine_operation",
+      "qualifier": "engine",
+      "input_value": "doris",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-014",
+      "property_id": "integration.engine_operation",
+      "qualifier": "engine",
+      "input_value": "duckdb",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-015",
+      "property_id": "integration.engine_operation",
+      "qualifier": "format",
+      "input_value": "iceberg",
+      "accepted_kb_values": [
+        "iceberg"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_glue_aws_2026_10_17_spark_append",
+        "cl_glue_aws_2026_10_17_spark_read",
+        "cl_gravitino_oss_1_1_0_spark_append",
+        "cl_gravitino_oss_1_1_0_spark_read",
+        "cl_gravitino_oss_1_1_0_trino_read",
+        "cl_hms_oss_2026_10_17_iceberg_read",
+        "cl_nessie_oss_2026_10_17_spark_read",
+        "cl_nessie_oss_2026_10_17_trino_read",
+        "cl_polaris_oss_1_7_0_spark_iceberg",
+        "cl_unity_databricks_aws_2026_10_17_spark_ice_read"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-016",
+      "property_id": "integration.engine_operation",
+      "qualifier": "format",
+      "input_value": "delta",
+      "accepted_kb_values": [
+        "delta"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_glue_aws_2026_10_17_delta_read",
+        "cl_hms_oss_2026_10_17_delta_read",
+        "cl_polaris_oss_1_7_0_spark_delta",
+        "cl_unity_oss_2026_10_17_spark_append",
+        "cl_unity_oss_2026_10_17_spark_merge",
+        "cl_unity_oss_2026_10_17_spark_read",
+        "cl_unity_oss_2026_10_17_spark_uniform"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-017",
+      "property_id": "integration.engine_operation",
+      "qualifier": "format",
+      "input_value": "hudi",
+      "accepted_kb_values": [
+        "hudi"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_hms_oss_2026_10_17_hudi_read"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-018",
+      "property_id": "integration.engine_operation",
+      "qualifier": "operation",
+      "input_value": "read",
+      "accepted_kb_values": [
+        "read"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_glue_aws_2026_10_17_delta_read",
+        "cl_glue_aws_2026_10_17_spark_read",
+        "cl_gravitino_oss_1_1_0_spark_read",
+        "cl_gravitino_oss_1_1_0_trino_read",
+        "cl_hms_oss_2026_10_17_delta_read",
+        "cl_hms_oss_2026_10_17_hudi_read",
+        "cl_hms_oss_2026_10_17_iceberg_read",
+        "cl_nessie_oss_2026_10_17_trino_read",
+        "cl_unity_databricks_aws_2026_10_17_spark_ice_read",
+        "cl_unity_oss_2026_10_17_spark_read",
+        "cl_unity_oss_2026_10_17_spark_uniform"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-019",
+      "property_id": "catalog.format_operation",
+      "qualifier": "format",
+      "input_value": "iceberg",
+      "accepted_kb_values": [
+        "iceberg"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_glue_aws_2026_10_17_ice_create",
+        "cl_glue_aws_2026_10_17_ice_load",
+        "cl_gravitino_oss_1_1_0_ice_create",
+        "cl_gravitino_oss_1_1_0_ice_load",
+        "cl_hms_oss_2026_10_17_iceberg_entry",
+        "cl_nessie_oss_2026_10_17_ice_load",
+        "cl_polaris_oss_1_7_0_ice_create",
+        "cl_polaris_oss_1_7_0_ice_load",
+        "cl_polaris_oss_1_7_0_ice_register",
+        "cl_unity_databricks_aws_2026_10_17_foreign_ice_write",
+        "cl_unity_databricks_aws_2026_10_17_managed_ice_read",
+        "cl_unity_databricks_aws_2026_10_17_managed_ice_write"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-020",
+      "property_id": "catalog.format_operation",
+      "qualifier": "format",
+      "input_value": "delta",
+      "accepted_kb_values": [
+        "delta"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_glue_aws_2026_10_17_delta_meta",
+        "cl_hms_oss_2026_10_17_delta_entry",
+        "cl_polaris_oss_1_7_0_delta_generic",
+        "cl_unity_databricks_aws_2026_10_17_uniform_write",
+        "cl_unity_oss_2026_10_17_delta_entry",
+        "cl_unity_oss_2026_10_17_delta_meta",
+        "cl_unity_oss_2026_10_17_uniform_load"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-021",
+      "property_id": "catalog.format_operation",
+      "qualifier": "format",
+      "input_value": "hudi",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-022",
+      "property_id": "catalog.format_operation",
+      "qualifier": "operation",
+      "input_value": "load",
+      "accepted_kb_values": [
+        "load"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_glue_aws_2026_10_17_ice_load",
+        "cl_gravitino_oss_1_1_0_ice_load",
+        "cl_nessie_oss_2026_10_17_ice_load",
+        "cl_polaris_oss_1_7_0_ice_load",
+        "cl_unity_oss_2026_10_17_delta_meta",
+        "cl_unity_oss_2026_10_17_uniform_load"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-023",
+      "property_id": "security.authorization",
+      "qualifier": "granularity",
+      "input_value": "table",
+      "accepted_kb_values": [
+        "table"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_gravitino_oss_1_1_0_aux_authz",
+        "cl_gravitino_oss_1_1_0_standalone_authz",
+        "cl_gravitino_oss_1_1_0_unified_authz_unresolved",
+        "cl_hms_oss_2026_10_17_direct_revoke",
+        "cl_hms_oss_2026_10_17_table_read",
+        "cl_nessie_oss_2026_10_17_direct_data",
+        "cl_nessie_oss_2026_10_17_table_meta_read",
+        "cl_polaris_oss_1_7_0_table_read"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-024",
+      "property_id": "security.authorization",
+      "qualifier": "granularity",
+      "input_value": "column",
+      "accepted_kb_values": [
+        "column"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_glue_aws_2026_10_17_filter_column",
+        "cl_unity_databricks_aws_2026_10_17_columns"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-025",
+      "property_id": "security.authorization",
+      "qualifier": "granularity",
+      "input_value": "row",
+      "accepted_kb_values": [
+        "row"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_glue_aws_2026_10_17_filter_row",
+        "cl_unity_databricks_aws_2026_10_17_rows"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-026",
+      "property_id": "security.authorization",
+      "qualifier": "action",
+      "input_value": "read",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-027",
+      "property_id": "commit.concurrent_write",
+      "qualifier": "operation",
+      "input_value": "append",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-028",
+      "property_id": "commit.concurrent_write",
+      "qualifier": "writer_topology",
+      "input_value": "multi_engine",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-029",
+      "property_id": "limits.quota",
+      "qualifier": "resource",
+      "input_value": "tables",
+      "accepted_kb_values": [
+        "tables"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_glue_aws_2026_10_17_quota_aws_account_per_region",
+        "cl_glue_aws_2026_10_17_quota_database",
+        "cl_gravitino_oss_1_1_0_quota_unknown",
+        "cl_hms_oss_2026_10_17_quota_unknown",
+        "cl_nessie_oss_2026_10_17_quota_unknown",
+        "cl_polaris_oss_1_7_0_quota_unknown",
+        "cl_unity_databricks_aws_2026_10_17_quota_metastore",
+        "cl_unity_databricks_aws_2026_10_17_quota_schema",
+        "cl_unity_oss_2026_10_17_quota_unknown"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-030",
+      "property_id": "limits.quota",
+      "qualifier": "boundary",
+      "input_value": "catalog",
+      "accepted_kb_values": [
+        "catalog"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_gravitino_oss_1_1_0_quota_unknown",
+        "cl_hms_oss_2026_10_17_quota_unknown",
+        "cl_nessie_oss_2026_10_17_quota_unknown",
+        "cl_polaris_oss_1_7_0_quota_unknown",
+        "cl_unity_oss_2026_10_17_quota_unknown"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-031",
+      "property_id": "workflow.branching",
+      "qualifier": "object_scope",
+      "input_value": "catalog",
+      "accepted_kb_values": [
+        "catalog"
+      ],
+      "reason": "Exact identifier already present in this property and qualifier in the KB; no semantic alias inferred.",
+      "evidence_claim_ids": [
+        "cl_nessie_oss_2026_10_17_branch"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "M-032",
+      "property_id": "transaction.multi_table_atomic",
+      "qualifier": "failure_boundary",
+      "input_value": "catalog_metadata_commit",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    },
+    {
+      "id": "M-033",
+      "property_id": "metadata.federation_operation",
+      "qualifier": "operation",
+      "input_value": "read_metadata",
+      "accepted_kb_values": [],
+      "reason": "No exact value in the KB for this property and qualifier; similar operations or deployment modes do not establish equivalence.",
+      "evidence_claim_ids": [],
+      "status": "coverage_gap"
+    }
+  ]
+}

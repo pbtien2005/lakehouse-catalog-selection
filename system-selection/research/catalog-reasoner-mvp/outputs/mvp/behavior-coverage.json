@@ -1,0 +1,1 @@
+{"different_scenario_leaders": true, "has_conditional": true, "has_eligible": false, "has_excluded_real_candidate": false, "has_no_eligible": true, "reason": "A missing claim is not none. Catalog quota and unresolved paths keep every real scope conditional; do not alter KB to force behavior coverage."}

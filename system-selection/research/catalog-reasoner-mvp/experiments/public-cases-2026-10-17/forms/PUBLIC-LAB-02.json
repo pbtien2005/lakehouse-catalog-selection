@@ -1,0 +1,14 @@
+{
+  "form_revision": "input-v2",
+  "answers": {
+    "I01": "on_prem",
+    "I02": ["spark"],
+    "I03": "iceberg",
+    "I04": "lt_100",
+    "I05": "one",
+    "I07": "none",
+    "I08": "no",
+    "I09": ["none"],
+    "I10": {"none": false, "selected": [{"feature": "branching", "rank": "mandatory"}]}
+  }
+}

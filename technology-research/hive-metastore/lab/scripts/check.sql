@@ -1,0 +1,2 @@
+SHOW DATABASES;
+SELECT 1 AS spark_ok;

@@ -1,0 +1,24 @@
+{
+  "level_to_value": {"none": 0, "partial": 0.5, "full": 1},
+  "rank_to_weight": {"high": 3, "low": 1},
+  "default_weight_rank": "low",
+  "default_hard_min_level": "full",
+  "max_scenarios": 500,
+  "seed": 42,
+  "parameter_metadata": {
+    "level_to_value": {"assumption": true, "note": "Reserved for stage 3; an explicit model scale, not measured utility."},
+    "rank_to_weight": {"assumption": true, "note": "Reserved for stage 3; follows the latest requested high/low preset, not the previous equal-soft policy."},
+    "max_scenarios": {"assumption": true, "note": "Reserved for stage 4; not a bound on the stage 1 qualifier-domain lookup."},
+    "seed": {"assumption": true, "note": "Reserved for stage 4; stages 1-2 do not sample."},
+    "default_hard_min_level": {"assumption": true, "note": "Applied only when a HARD requirement omits its minimum."},
+    "default_weight_rank": {"assumption": true, "note": "Reserved for stage 3 when an explicit weight is absent."}
+  },
+  "lookup_assumptions": {
+    "candidate_unit": "one_explicit_KB_scope",
+    "unknown_open_domain": "observed_compatible_values_plus_uncovered_case",
+    "finite_domains": "explicit_qualifier_domains_are_the_complete_allowed_set",
+    "conflicting_claims": "unknown_not_last_claim_wins",
+    "missing_claim_qualifier": "not_a_wildcard",
+    "claim_status": "use_supplied_claims_and_preserve_status_and_limits_in_trace"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "notes",
+  "comment": "Created using the unified metadata API",
+  "columns": [
+    {"name": "id", "type": "long", "nullable": false, "comment": "Identifier"},
+    {"name": "note", "type": "string", "nullable": true, "comment": "Learning note"}
+  ],
+  "properties": {}
+}

@@ -1,0 +1,153 @@
+{
+  "manifest": {
+    "format_revision": "layer1-design-example-1",
+    "purpose": "design_example_not_published_kb",
+    "created_on": "2026-10-17",
+    "limitations": [
+      "Not a complete catalog knowledge base.",
+      "All claims are drafts, based on document reading rather than runtime tests.",
+      "Three evidence records derive from one source, not three independent sources.",
+      "No JSON Schema or qualifier evaluator has been implemented yet."
+    ]
+  },
+  "catalogs": [
+    {
+      "id": "apache_polaris",
+      "name": "Apache Polaris",
+      "family": "polaris",
+      "edition_boundary": "open_source_project",
+      "in_decision_scope": true
+    }
+  ],
+  "scopes": [
+    {
+      "id": "polaris_oss_1_7_0",
+      "catalog_id": "apache_polaris",
+      "scope_kind": "release",
+      "edition": "oss",
+      "deployment_mode": "self_managed",
+      "release_selector": {
+        "match": "eq",
+        "scheme": "polaris_release",
+        "value": "1.7.0"
+      }
+    }
+  ],
+  "properties": [
+    {
+      "id": "storage.credential_vending",
+      "label": "Credential vending",
+      "definition": "Whether the catalog can vend temporary storage credentials in the specified scope.",
+      "value_type": "boolean",
+      "required_dimensions": ["storage", "api"],
+      "allowed_dimensions": ["storage", "api", "mechanism"],
+      "interpretation_limits": [
+        "Does not by itself establish row or column policy enforcement.",
+        "Does not establish compatibility with every engine or client release."
+      ]
+    },
+    {
+      "id": "integration.client_property_keys",
+      "label": "Credential property keys required by a client",
+      "definition": "Credential property name templates required by the specified client and library release.",
+      "value_type": "string_set",
+      "required_dimensions": ["storage", "api", "client", "client_library", "client_library_release"],
+      "allowed_dimensions": ["storage", "api", "client", "client_library", "client_library_release"],
+      "interpretation_limits": [
+        "Values are property name templates, not credentials or a complete connection configuration.",
+        "A documented version selector is not a runtime test of every matching release."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "src_polaris_1_7_0_vended_credentials",
+      "title": "Vended Credentials Reference",
+      "kind": "official_doc",
+      "publisher": "Apache Polaris",
+      "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+      "version_or_commit": "documentation_release_1.7.0",
+      "retrieved_at": "2026-10-17",
+      "snapshot_ref": null,
+      "limitations": "A versioned URL was read; no immutable content snapshot was captured for this example."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev_polaris_s3_vending",
+      "source_id": "src_polaris_1_7_0_vended_credentials",
+      "locator": {"section": "AWS S3"},
+      "finding": "S3 delegation uses AWS STS AssumeRole with permissions scoped to table locations.",
+      "method": "document_reading",
+      "captured_at": "2026-10-17",
+      "limitations": "No runtime verification was performed."
+    },
+    {
+      "id": "ev_polaris_adls_iceberg_1_7",
+      "source_id": "src_polaris_1_7_0_vended_credentials",
+      "locator": {"section": "Client compatibility summary", "row": "Apache Spark (Iceberg 1.7.x), ADLS / Blob"},
+      "finding": "The table specifies the account-name-suffixed ADLS property.",
+      "method": "document_reading",
+      "captured_at": "2026-10-17",
+      "limitations": "The row specifies the Iceberg library line, not an exhaustive Spark release matrix."
+    },
+    {
+      "id": "ev_polaris_adls_iceberg_1_8_plus",
+      "source_id": "src_polaris_1_7_0_vended_credentials",
+      "locator": {"section": "Client compatibility summary", "row": "Apache Spark (Iceberg >= 1.8), ADLS / Blob"},
+      "finding": "The table specifies the account-host-suffixed ADLS property.",
+      "method": "document_reading",
+      "captured_at": "2026-10-17",
+      "limitations": "The documented lower bound is not proof of runtime behavior in every future release."
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl_polaris_s3_vending",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.credential_vending",
+      "value": true,
+      "qualifiers": {
+        "storage": {"match": "eq", "value": "aws_s3"},
+        "api": {"match": "eq", "value": "iceberg_rest"},
+        "mechanism": {"match": "eq", "value": "aws_sts_assume_role"}
+      },
+      "evidence_links": [{"evidence_id": "ev_polaris_s3_vending", "relation": "supports"}],
+      "limitations": ["Runtime prerequisites and client compatibility require their own applicable evidence."],
+      "review": {"state": "draft", "author": "assistant", "reviewed_at": null},
+      "revision": 1
+    },
+    {
+      "id": "cl_polaris_adls_keys_iceberg_1_7",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "integration.client_property_keys",
+      "value": ["adls.sas-token.<account-name>"],
+      "qualifiers": {
+        "storage": {"match": "eq", "value": "azure_adls_blob"},
+        "api": {"match": "eq", "value": "iceberg_rest"},
+        "client": {"match": "eq", "value": "apache_spark"},
+        "client_library": {"match": "eq", "value": "apache_iceberg"},
+        "client_library_release": {"match": "release_line", "scheme": "iceberg", "major": 1, "minor": 7}
+      },
+      "evidence_links": [{"evidence_id": "ev_polaris_adls_iceberg_1_7", "relation": "supports"}],
+      "review": {"state": "draft", "author": "assistant", "reviewed_at": null},
+      "revision": 1
+    },
+    {
+      "id": "cl_polaris_adls_keys_iceberg_1_8_plus",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "integration.client_property_keys",
+      "value": ["adls.sas-token.<account-host>"],
+      "qualifiers": {
+        "storage": {"match": "eq", "value": "azure_adls_blob"},
+        "api": {"match": "eq", "value": "iceberg_rest"},
+        "client": {"match": "eq", "value": "apache_spark"},
+        "client_library": {"match": "eq", "value": "apache_iceberg"},
+        "client_library_release": {"match": "version_range", "scheme": "iceberg", "min_inclusive": "1.8.0"}
+      },
+      "evidence_links": [{"evidence_id": "ev_polaris_adls_iceberg_1_8_plus", "relation": "supports"}],
+      "review": {"state": "draft", "author": "assistant", "reviewed_at": null},
+      "revision": 1
+    }
+  ]
+}

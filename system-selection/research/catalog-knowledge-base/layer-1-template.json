@@ -1,0 +1,24 @@
+{
+  "manifest": {
+    "revision": "layer1-v3-template-2",
+    "created_on": "2026-10-17",
+    "property_dictionary": "layer-1-properties.json",
+    "purpose": "empty_authoring_template",
+    "catalogs_in_research_scope": [
+      "hive_metastore",
+      "aws_glue_data_catalog",
+      "apache_polaris",
+      "project_nessie",
+      "apache_gravitino",
+      "unity_catalog_oss",
+      "unity_catalog_databricks"
+    ],
+    "limitations": [
+      "Empty scopes and claims are intentional; copy a concrete scope and add sourced facts.",
+      "The property dictionary defines coverage, not confirmed product capabilities.",
+      "No specific subset of three catalogs has been selected."
+    ]
+  },
+  "scopes": [],
+  "claims": []
+}

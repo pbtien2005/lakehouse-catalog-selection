@@ -1,0 +1,59 @@
+{
+  "manifest": {
+    "revision": "layer2-runtime-config-v1",
+    "form_revision": "input-v2"
+  },
+  "default_environment_facts_as_hard": true,
+  "hard_min_level": "full",
+  "nice_to_have_weight_rank": "low",
+  "reasoning_config_source": "../catalog-reasoner-mvp/config.json",
+  "candidate_scope_ids": [
+    "polaris_oss_1_7_0",
+    "gravitino_oss_1_1_0",
+    "nessie_oss_2026_10_17",
+    "unity_oss_2026_10_17",
+    "unity_databricks_aws_2026_10_17",
+    "glue_aws_2026_10_17",
+    "hms_oss_2026_10_17"
+  ],
+  "table_count_intervals": {
+    "lt_100": {
+      "lower": 0,
+      "upper": 99
+    },
+    "100_to_999": {
+      "lower": 100,
+      "upper": 999
+    },
+    "1000_to_10000": {
+      "lower": 1000,
+      "upper": 10000
+    },
+    "gt_10000": {
+      "lower": 10001,
+      "upper": null
+    }
+  },
+  "parameter_metadata": {
+    "default_environment_facts_as_hard": {
+      "assumption": true,
+      "note": "Concrete I01-I03 choices are HARD by the approved MVP policy; the flag can be disabled."
+    },
+    "table_count_intervals": {
+      "assumption": true,
+      "note": "Integer bucket boundaries from form v2; they are demand data, not observed product limits."
+    },
+    "nice_to_have_weight_rank": {
+      "assumption": true,
+      "note": "Use the unchanged reasoning config low weight and mark weight_defaulted."
+    },
+    "hard_min_level": {
+      "assumption": true,
+      "note": "Full is required for requested support capabilities."
+    },
+    "candidate_scope_ids": {
+      "assumption": true,
+      "note": "User selected all seven real KB scopes."
+    }
+  }
+}

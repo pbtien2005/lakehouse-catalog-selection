@@ -1,0 +1,145 @@
+{
+  "group": "1",
+  "selected_candidates": "all_seven_real_KB_scopes",
+  "python_tests": {
+    "tests": 124,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "coverage": {
+    "covered_lines": 403,
+    "num_statements": 413,
+    "percent_covered": 96.88013136288998,
+    "percent_covered_display": "97",
+    "missing_lines": 10,
+    "excluded_lines": 0,
+    "percent_statements_covered": 97.57869249394673,
+    "percent_statements_covered_display": "98",
+    "num_branches": 196,
+    "num_partial_branches": 9,
+    "covered_branches": 187,
+    "missing_branches": 9,
+    "percent_branches_covered": 95.40816326530613,
+    "percent_branches_covered_display": "95"
+  },
+  "layer2_checks": {
+    "checks": 74,
+    "canonical_questions": 10,
+    "canonical_answers": 48,
+    "real_candidates": 7,
+    "properties_preserved": 37,
+    "indirect_properties_preserved": 25
+  },
+  "layer2_checks_passed": true,
+  "browser_contract_smoke": {
+    "status": "passed",
+    "checks": [
+      "canonical registry loaded; nine active questions; excluded fields and ranks absent",
+      "none exclusivity and missing rank produce field-specific errors",
+      "browser submit preserves IDs and unknown answer; no fixture result is fabricated",
+      "persisted canonical payload restores answers without conversion"
+    ],
+    "pageErrors": [],
+    "official_inference_run": false
+  },
+  "ui_to_layer2": {
+    "readiness": "ready_for_assessment",
+    "candidate_count": 7,
+    "requirements_count": 10,
+    "objectives_count": 1,
+    "unresolved_count": 1,
+    "layer3_executed": false
+  },
+  "out_of_scope_removed": [
+    "operations",
+    "portability",
+    "storage",
+    "name",
+    "five_rank_priorities",
+    "important/off/unknown_rank",
+    "JavaScript_fixture_evaluator"
+  ],
+  "pending_groups": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "note": "Counts and test percentages are measurements, not model parameters.",
+  "python_test_scope": {
+    "new_layer2_tests": 87,
+    "existing_stage12_tests": 37
+  },
+  "layer2_coverage": {
+    "catalog_reasoner\\layer2.py": {
+      "covered_lines": 160,
+      "num_statements": 167,
+      "percent_covered": 94.73684210526316,
+      "percent_covered_display": "95",
+      "missing_lines": 7,
+      "excluded_lines": 0,
+      "percent_statements_covered": 95.80838323353294,
+      "percent_statements_covered_display": "96",
+      "num_branches": 118,
+      "num_partial_branches": 8,
+      "covered_branches": 110,
+      "missing_branches": 8,
+      "percent_branches_covered": 93.22033898305085,
+      "percent_branches_covered_display": "93"
+    },
+    "catalog_reasoner\\layer2_io.py": {
+      "covered_lines": 39,
+      "num_statements": 40,
+      "percent_covered": 96.15384615384616,
+      "percent_covered_display": "96",
+      "missing_lines": 1,
+      "excluded_lines": 0,
+      "percent_statements_covered": 97.5,
+      "percent_statements_covered_display": "98",
+      "num_branches": 12,
+      "num_partial_branches": 1,
+      "covered_branches": 11,
+      "missing_branches": 1,
+      "percent_branches_covered": 91.66666666666667,
+      "percent_branches_covered_display": "92"
+    }
+  },
+  "javascript_tests": {
+    "tests": 23,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "javascript_core_coverage": {
+    "lines_percent": 100,
+    "branches_percent": 97.22,
+    "functions_percent": 100,
+    "scope": "dist/core.js only; browser smoke covers app contract, not whole app coverage"
+  },
+  "protected_file_sha256": {
+    "layer-1-data.json": "043934db4b7babbc008c24f0e4cbad343093109297290df2ac1ca2b324567cb8",
+    "layer-1-properties.json": "f94a6f80086eb45ac0909d14f4a33222f019d32873e81c22bff7fc63b5ef6779",
+    "layer-2-property-plan.json": "46a8d9070c0fb1fb793466a948322fad3f86442c0441b9d95b31d93e6255b082",
+    "../catalog-reasoner-mvp/config.json": "50a010d28a0c9054d044553851a8a743a42d93557911516f9f2aa0e4c0fe6a10",
+    "../../sites/catalog-review/dist/styles.css": "f5318af582fa32884fce80a604c6c93b5fd328f191d843ad448f6b34b6efeb72"
+  },
+  "implementation_sha256": {
+    "research/catalog-reasoner-mvp/catalog_reasoner/layer2.py": "bada162e031ccfac3c5c64c7e281d44f8d229836d826c7a15566a02b1f50d216",
+    "research/catalog-reasoner-mvp/catalog_reasoner/layer2_io.py": "b9ff43c9e55bbd9ed52c8f50cbf397f89afae5974d6210e3b3a4cdc61c56bf8c",
+    "sites/catalog-review/dist/core.js": "39e35e329a73814ea267e9ba4edfbddceb46d6f59c2a85fd280b69cd6a36360c",
+    "sites/catalog-review/dist/app.js": "ad243ce83c6deff7ac57030500402e760da1daf34c5dfff9aebbfc255601bfb9",
+    "sites/catalog-review/server.mjs": "08c73e021197bcbaf1e3bb924c9fbc28f57e2c2d2869d8d6fbb198eb5451a835"
+  },
+  "evidence_sha256": {
+    "research/catalog-reasoner-mvp/outputs/group1-tests.xml": "dedb10c8bf0f2162d1e8c0e366e47ea28b29d7783321fec4ea1dd07d377d93df",
+    "research/catalog-reasoner-mvp/outputs/group1-coverage.json": "a7b1be6c5d682188cfb365354d428e5bf75ac9844df1d54c44215c25acbacd88",
+    "research/catalog-reasoner-mvp/outputs/group1-ui-normalized.json": "0de35a9472be6a4b8ebb25b4d2e9b8259dc09359d407a498c276a07ea92a549f",
+    "research/catalog-reasoner-mvp/outputs/group1-review.md": "aff916a407cb61d808bee7b6e7b69eccd02a1f8fed0df11b903d19c48e326bf4",
+    "sites/catalog-review/artifacts/group1-js-tests.log": "0eff94afdcbfd2eae3dd500b18ce2311fefcf0bb8767ed5a10fdc0bd3c341ff2",
+    "sites/catalog-review/artifacts/group1-js-tests.xml": "aae47b6ed37d6c36b8847eba6202f33c97bb0a9ef88412f4fbaeb0b581c1eefa",
+    "sites/catalog-review/artifacts/group1-browser-check.json": "76b5a43f22e788593598b8ddfc94aeea3fdaf4b69b648ff168bf60ea73386441",
+    "sites/catalog-review/artifacts/group1-payload.json": "de53fa725ffa7f59907a47d3edad07d1772acf7c3b49aba14b30d11c335860c6",
+    "research/catalog-knowledge-base/layer-2-validation.json": "0c0ee667468073ae57b6638e314638cddb9f2d1da56bd33d4f26abaeaea069ec"
+  }
+}

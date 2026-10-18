@@ -1,0 +1,345 @@
+{
+  "scope": "Group 1 contract checks and executed Layer 2 normalization; no Layer 3",
+  "passed": true,
+  "checks": [
+    {
+      "name": "ten_unique_questions",
+      "passed": true
+    },
+    {
+      "name": "48_canonical_answers",
+      "passed": true
+    },
+    {
+      "name": "nine_active_questions_streaming_inactive",
+      "passed": true
+    },
+    {
+      "name": "only_two_feature_ranks",
+      "passed": true
+    },
+    {
+      "name": "mapping_uses_v2_and_canonical_registry",
+      "passed": true
+    },
+    {
+      "name": "mapping_questions_exactly_match_registry",
+      "passed": true
+    },
+    {
+      "name": "all_48_answer_rules_covered",
+      "passed": true
+    },
+    {
+      "name": "mapping_reads_canonical_answer_refs",
+      "passed": true
+    },
+    {
+      "name": "no_legacy_id_in_active_registry",
+      "passed": true
+    },
+    {
+      "name": "12_targets_and_anchors_exist",
+      "passed": true
+    },
+    {
+      "name": "anchor_types_and_qualifier_names_match_dictionary",
+      "passed": true
+    },
+    {
+      "name": "support_and_quantity_thresholds_match_types",
+      "passed": true
+    },
+    {
+      "name": "all_37_property_plan_records_still_exist",
+      "passed": true
+    },
+    {
+      "name": "25_indirect_properties_preserved",
+      "passed": true
+    },
+    {
+      "name": "fact_HARD_flag_enabled",
+      "passed": true
+    },
+    {
+      "name": "nice_to_have_uses_unchanged_config_low",
+      "passed": true
+    },
+    {
+      "name": "all_seven_real_scopes_selected",
+      "passed": true
+    },
+    {
+      "name": "integer_intervals_contiguous",
+      "passed": true
+    },
+    {
+      "name": "candidate_bindings_explicitly_trace_only",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I01:aws",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I01:azure",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I01:gcp",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I01:on_prem",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I01:multi_cloud",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I02:spark",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I02:trino",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I02:presto",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I02:flink",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I02:snowflake",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I02:databricks",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I02:dremio",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I02:starrocks",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I02:doris",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I02:duckdb",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I02:other",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I03:iceberg",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I03:delta",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I03:hudi",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I03:not_chosen",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I03:mixed",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I04:lt_100",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I04:100_to_999",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I04:1000_to_10000",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I04:gt_10000",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I05:one",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I05:two_to_three",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I05:more_than_three",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I06:no",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I06:yes",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I06:unknown",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I07:none",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I07:table",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I07:column",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I07:row",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I07:column_and_row",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I07:unclear",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I08:yes",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I08:no",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I08:unknown",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I09:databricks",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I09:snowflake",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I09:aws_native",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I09:none",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I10:branching",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I10:multi_table_atomic",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I10:metadata_federation",
+      "passed": true
+    },
+    {
+      "name": "runtime_answer:I10:none",
+      "passed": true
+    },
+    {
+      "name": "emitted_requirements_reference_real_properties_and_qualifiers",
+      "passed": true
+    },
+    {
+      "name": "every_emitted_predicate_has_mapping_trace",
+      "passed": true
+    },
+    {
+      "name": "protected_unchanged:layer-1-data.json",
+      "passed": true
+    },
+    {
+      "name": "protected_unchanged:layer-1-properties.json",
+      "passed": true
+    },
+    {
+      "name": "protected_unchanged:layer-2-property-plan.json",
+      "passed": true
+    },
+    {
+      "name": "protected_unchanged:../catalog-reasoner-mvp/config.json",
+      "passed": true
+    },
+    {
+      "name": "protected_unchanged:../../sites/catalog-review/dist/styles.css",
+      "passed": true
+    }
+  ],
+  "counts": {
+    "checks": 74,
+    "canonical_questions": 10,
+    "canonical_answers": 48,
+    "real_candidates": 7,
+    "properties_preserved": 37,
+    "indirect_properties_preserved": 25
+  },
+  "runtime_mapping_executed": true,
+  "product_capabilities_validated": false,
+  "layer3_executed": false,
+  "artifact_sha256": {
+    "form-v2-registry.json": "4dc4fd4d2d836eab3f6471455d36f16c7c2d330aa965ab61ef070b7381a41c69",
+    "layer-2-runtime-config.json": "ca596ec41141a07a04fe9185b6d5a5bd6b11b1cd98b7b1f20cb1a4a844acbb3a",
+    "layer-2-mapping.json": "4c8b100522cb854494efa73936d040e1a9f106131cfec6c0dd186a4d851d945b",
+    "layer-2-policy.json": "e8b547fe4994e8694c8a088b504f8bab809e3e5f7ab8f16eacd9c393439d8af7",
+    "layer-2-anchors.json": "25ab8574573e2500ea61688cf132374d5361c1c54305cebb0d05615e9d881a63",
+    "layer-2-mvp-profile.json": "eb025e7bcd0a7d32795d9e1ba1c74beb2946c9801c65a195855a13922301ec1d",
+    "layer-2-examples.json": "00da1b2a2de2ba379a7c555bed44ddad626e05bfe1fdb29d3b2bcc1bf1fb056c",
+    "layer-2-design.md": "92829ad1e2db08cae3f306d60adc96ae852737ddc1debe501c86ae4284cfdcb8",
+    "input-v2.md": "65bf5dce4d9094fdff555b6342ead838014c567c48815143d3813b68848fa072",
+    "layer-2-checks.py": "53544a3113071e156b3f0c38c18b81dd829a603776d8bea49beae78be8f4d807"
+  },
+  "source_sha256": {
+    "research/catalog-reasoner-mvp/catalog_reasoner/layer2.py": "bada162e031ccfac3c5c64c7e281d44f8d229836d826c7a15566a02b1f50d216",
+    "research/catalog-reasoner-mvp/catalog_reasoner/layer2_io.py": "b9ff43c9e55bbd9ed52c8f50cbf397f89afae5974d6210e3b3a4cdc61c56bf8c",
+    "sites/catalog-review/dist/core.js": "39e35e329a73814ea267e9ba4edfbddceb46d6f59c2a85fd280b69cd6a36360c",
+    "sites/catalog-review/dist/app.js": "f4e8d57155854cc4be63d4ca860b3c3c9d00797ee1bfcfe865a765016575ae24",
+    "sites/catalog-review/server.mjs": "082a35da01ef055055e68234e6c7987320fc05d81fddadde70a794673261eeed"
+  },
+  "protected_file_sha256": {
+    "layer-1-data.json": "043934db4b7babbc008c24f0e4cbad343093109297290df2ac1ca2b324567cb8",
+    "layer-1-properties.json": "f94a6f80086eb45ac0909d14f4a33222f019d32873e81c22bff7fc63b5ef6779",
+    "layer-2-property-plan.json": "46a8d9070c0fb1fb793466a948322fad3f86442c0441b9d95b31d93e6255b082",
+    "../catalog-reasoner-mvp/config.json": "50a010d28a0c9054d044553851a8a743a42d93557911516f9f2aa0e4c0fe6a10",
+    "../../sites/catalog-review/dist/styles.css": "31f1ab8bd7849204e15f702a4a681c4159632cd6bf00e0edb7b4441d7c4e1ddc"
+  },
+  "limitations": {
+    "candidate_bindings_execution": "trace_only_deferred",
+    "joint_path_resolution": "not_implemented_in_MVP",
+    "domain_translation": "not_performed_group_2_pending",
+    "layer3_executed": false
+  }
+}

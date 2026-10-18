@@ -1,0 +1,10 @@
+{
+  "purpose": "protected files before the approved MVP revision",
+  "sha256": {
+    "input-v1.md": "e7d76f61bc0f1b618eba8afa40a7d6fd4ca08f0bd4b6d87848838a4da78527cc",
+    "layer-1-design.md": "169b735418dc9d011796101cafc47933e6dea6d212e2b7b382991d1027e720e8",
+    "layer-1-properties.json": "01792cbc182a3382623bdce89a0c865b23dc1be27087342f87ccadd64aa22b03",
+    "layer-1-example.json": "93ed97d5383e77d8e36be795b718773592e5a49f5231931c4df2d5e652a485c0",
+    "layer-1-template.json": "ba1c799a0ed2e08bf03eac5985965ac58ee5e7e00c0a757fc58b8651a9f5a861"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "manifest": {
+    "revision": "layer2-mvp-profile-v1",
+    "created_on": "2026-10-17",
+    "kind": "explicit_assessment_defaults_not_user_facts"
+  },
+  "id": "mvp-catalog-v1",
+  "result_label": "MVP profile: read/load metadata; catalog concurrent append if requested. Candidate bindings are trace-only; no path resolution or implicit domain aliases.",
+  "disclosure_required_in_form_and_results": true,
+  "defaults": {
+    "engine_operation": "read",
+    "catalog_operations": [
+      "load"
+    ],
+    "table_count_boundary": "catalog",
+    "authorization_action": "read",
+    "authorization_paths": "each_selected_engine_read_path_trace_only",
+    "concurrent_operation": "append",
+    "concurrent_topology": "multi_engine",
+    "branching_object_scope": "catalog",
+    "atomic_failure_boundary": "catalog_metadata_commit",
+    "federation_operation": "read_metadata"
+  },
+  "context_resolution": [
+    {
+      "field": "data_storage_or_allowed_storage_domain",
+      "strategy": "unresolved_if_absent",
+      "reason": "Storage thực tế không suy từ cloud; chỉ yêu cầu vending còn điều kiện, các yêu cầu khác vẫn được đánh giá."
+    },
+    {
+      "field": "required_catalog_operations",
+      "strategy": "profile_default",
+      "value": [
+        "load"
+      ]
+    },
+    {
+      "field": "required_granularities",
+      "strategy": "derive_from_form",
+      "source": "I07",
+      "values": {
+        "table": [
+          "table"
+        ],
+        "column": [
+          "column"
+        ],
+        "row": [
+          "row"
+        ],
+        "column_and_row": [
+          "column",
+          "row"
+        ]
+      }
+    },
+    {
+      "field": "required_access_actions",
+      "strategy": "profile_default",
+      "value": [
+        "read"
+      ]
+    },
+    {
+      "field": "required_access_paths",
+      "strategy": "trace_only_deferred",
+      "value": "selected_engine_read_paths",
+      "reason": "Record the required path in trace; no automatic path selection in this MVP."
+    },
+    {
+      "field": "branching.object_scope",
+      "strategy": "profile_default",
+      "value": "catalog"
+    },
+    {
+      "field": "atomic_update.client_path",
+      "strategy": "trace_only_deferred",
+      "reason": "Record the required path in trace; no automatic path selection in this MVP."
+    },
+    {
+      "field": "atomic_update.failure_boundary",
+      "strategy": "profile_default",
+      "value": "catalog_metadata_commit",
+      "limits": "Chỉ all-or-nothing khi công bố metadata nhiều bảng; không suy atomic filesystem hoặc mọi truy vấn nhiều bảng đều có cùng snapshot."
+    },
+    {
+      "field": "federation_bindings",
+      "strategy": "unresolved_source_types_if_absent",
+      "operation_default": "read_metadata",
+      "reason": "Không tự chọn nguồn mà người dùng đang cần để làm ứng viên đạt."
+    },
+    {
+      "field": "table_count_boundary",
+      "strategy": "profile_default",
+      "value": "catalog"
+    },
+    {
+      "field": "workload_bindings",
+      "strategy": "derive_selected_engines_and_single_known_format_for_profile_read",
+      "operation_default": "read",
+      "limits": "Chỉ áp cho một format được chọn. Hỗn hợp phải có tập format/binding; Chưa chọn giữ biến format chung cho toàn phương án."
+    },
+    {
+      "field": "concurrent_writes_required",
+      "strategy": "derive_from_form",
+      "source": "I05",
+      "rule": "two_to_three or more_than_three => true; one does not prove absence of job concurrency"
+    },
+    {
+      "field": "required_environments",
+      "strategy": "derive_single_environment_or_keep_multicloud_unresolved",
+      "source": "I01"
+    },
+    {
+      "field": "performance_target",
+      "strategy": "deferred",
+      "reason": "Không tự tạo SLO hoặc score performance từ số bảng."
+    }
+  ],
+  "override_rules": {
+    "source": "form_registry_and_profile_defaults",
+    "explicit_case_requirement_supported": false,
+    "record_provenance": true,
+    "never_infer_override_from_candidate_scores": true,
+    "candidate_missing_evidence": "UNKNOWN_not_missing_user_input"
+  },
+  "concurrency_limits": "I05 từ hai engine tạo yêu cầu cơ chế concurrent append cấp catalog. Chưa xác minh toàn bộ engine ghi, MERGE/overwrite hoặc số writer job; không dùng kiểm tra này làm bằng chứng cho các phần đó.",
+  "candidate_bindings_execution": "trace_only_deferred"
+}

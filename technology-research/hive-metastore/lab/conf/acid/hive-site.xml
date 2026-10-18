@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<configuration>
+  <property><name>hive.metastore.uris</name><value>thrift://hive-metastore:9083</value></property>
+  <property><name>hive.support.concurrency</name><value>true</value></property>
+  <property><name>hive.txn.manager</name><value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value></property>
+  <property><name>hive.exec.dynamic.partition.mode</name><value>nonstrict</value></property>
+  <property><name>hive.execution.engine</name><value>mr</value></property>
+  <property><name>hive.server2.enable.doAs</name><value>false</value></property>
+  <property><name>hive.notification.event.poll.interval</name><value>0s</value></property>
+  <property><name>hive.metastore.warehouse.dir</name><value>file:///warehouse-acid</value></property>
+</configuration>

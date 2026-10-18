@@ -1,0 +1,10 @@
+{
+  "manifest": {"revision": "quality-policy-v1", "assumption": true},
+  "min_comparison_candidates": 2,
+  "comparison_scope": "evidenced_joint_profiles_with_resolved_user_context",
+  "unverified_paths": "retain_conditional_and_score_intervals_but_withhold_scenario_metrics",
+  "parameter_metadata": {
+    "min_comparison_candidates": {"assumption": true, "reason": "Avoid reporting a tautological win fraction when only one evidenced implementation is comparable."},
+    "comparison_scope": {"assumption": true, "reason": "Unknown joint compatibility cannot be synthesized from independent per-requirement completions."}
+  }
+}

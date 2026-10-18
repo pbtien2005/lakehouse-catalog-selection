@@ -1,0 +1,360 @@
+{
+  "manifest": {
+    "revision": "layer2-anchors-v1",
+    "property_dictionary": "layer-1-properties.json",
+    "purpose": "acceptance_contracts_not_product_claims"
+  },
+  "global_rules": {
+    "unknown_not_ordered": true,
+    "no_implicit_numeric_value_scale": true,
+    "only_full_hard_threshold_on_binary_properties": true,
+    "consistent_scope_required": true,
+    "joint_candidate_path_resolution_required": true
+  },
+  "anchors": [
+    {
+      "property_id": "deployment.environment",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Có bằng chứng dùng/triển khai scope trong môi trường bắt buộc đã xác nhận.",
+      "qualifier_bindings": {
+        "environment": {
+          "source": "form",
+          "path": "I01",
+          "meaning": "Môi trường được chọn và được xác nhận phải giữ."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "defer_to_layer3_path_and_scope_resolution",
+      "interpretation_limits": [
+        "Partial is not in this property's binary rubric.",
+        "This is not a provider preference."
+      ]
+    },
+    {
+      "property_id": "integration.engine_operation",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Mỗi engine/thao tác/format được yêu cầu có đường tích hợp trong cùng catalog scope.",
+      "qualifier_bindings": {
+        "engine": {
+          "source": "form",
+          "path": "I02_or_declared_workload_binding.engine",
+          "meaning": "Tách thành viên nhãn nhóm khi đã làm rõ."
+        },
+        "format": {
+          "source": "decision_context",
+          "path": "workload_bindings[].format",
+          "meaning": "Chỉ liên kết format thuộc workload này."
+        },
+        "operation": {
+          "source": "decision_context",
+          "path": "workload_bindings[].operation",
+          "meaning": "Không tự coi mọi engine phải ghi."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "workload_bindings[].api",
+          "meaning": "Có thể khác API giữa engine, nhưng cùng catalog state."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "defer_to_layer3_path_and_scope_resolution",
+      "interpretation_limits": [
+        "Do not create every engine-format pair.",
+        "Read/append/merge checks share a logical need and are not independent score bonuses."
+      ]
+    },
+    {
+      "property_id": "catalog.format_operation",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Catalog thực hiện được những thao tác metadata được ca lựa chọn yêu cầu trên format cần giữ.",
+      "qualifier_bindings": {
+        "format": {
+          "source": "form",
+          "path": "I03_or_confirmed_format_set",
+          "meaning": "Hỗn hợp phải có tập format được xác nhận."
+        },
+        "operation": {
+          "source": "decision_context",
+          "path": "required_catalog_operations[]",
+          "meaning": "Không mặc định mọi ca đều cần create/drop."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "catalog_metadata_path.api",
+          "meaning": "Đường có bằng chứng phù hợp."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "defer_to_layer3_path_and_scope_resolution",
+      "interpretation_limits": [
+        "Metadata registration does not establish engine write support."
+      ]
+    },
+    {
+      "property_id": "security.authorization",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Allow/deny được thực thi ở cấp quyền, hành động và các đường truy cập được yêu cầu.",
+      "qualifier_bindings": {
+        "granularity": {
+          "source": "decision_context",
+          "path": "required_granularities[]",
+          "meaning": "Cấp bảng lấy từ I07; nhóm cột-hàng cần làm rõ tập mức."
+        },
+        "action": {
+          "source": "decision_context",
+          "path": "required_access_actions[]",
+          "meaning": "Quyền cụ thể cần kiểm tra."
+        },
+        "access_path": {
+          "source": "decision_context",
+          "path": "required_access_paths[]",
+          "meaning": "Các engine/API/storage paths cần tuân thủ."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "defer_to_layer3_path_and_scope_resolution",
+      "interpretation_limits": [
+        "Cột-hàng is not silently expanded to both levels.",
+        "RBAC and vending are not substitutes for enforcement evidence."
+      ]
+    },
+    {
+      "property_id": "storage.credential_vending",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Catalog cấp credential storage tạm thời có scope phù hợp cho đường engine/storage cần dùng.",
+      "qualifier_bindings": {
+        "storage": {
+          "source": "decision_context",
+          "path": "data_storage_or_allowed_storage_domain",
+          "meaning": "Không suy từ I01."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "storage_delegation_path.api",
+          "meaning": "Chọn đúng đường và cùng scope."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "defer_to_layer3_path_and_scope_resolution",
+      "interpretation_limits": [
+        "No means no vending requirement, not a security waiver.",
+        "A known full claim for one storage does not settle an unknown storage."
+      ]
+    },
+    {
+      "property_id": "commit.concurrent_write",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Có cơ chế concurrent commit phù hợp thao tác và mô hình ghi đồng thời bắt buộc.",
+      "qualifier_bindings": {
+        "operation": {
+          "source": "decision_context",
+          "path": "write_operations[]",
+          "meaning": "Append/merge/overwrite/maintenance không tương đương."
+        },
+        "writer_topology": {
+          "source": "decision_context",
+          "path": "confirmed_writer_topology",
+          "meaning": "Không suy job count từ engine count."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "write_path.api",
+          "meaning": "Đường commit có bằng chứng."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "defer_to_layer3_path_and_scope_resolution",
+      "interpretation_limits": [
+        "Activate as HARD only when simultaneous-write requirement is confirmed.",
+        "No automatic weight increase from a scale bucket."
+      ]
+    },
+    {
+      "property_id": "limits.quota",
+      "value_type": "quantity",
+      "rubric_ref": null,
+      "hard_min_level": null,
+      "acceptance_contract": "Đối chiếu quota đúng phạm vi với khoảng số bảng; giữ kết quả có điều kiện khi khoảng cắt quota.",
+      "qualifier_bindings": {
+        "resource": {
+          "source": "constant",
+          "path": "tables",
+          "meaning": "Tài nguyên bảng."
+        },
+        "boundary": {
+          "source": "decision_context",
+          "path": "table_count_boundary",
+          "meaning": "Ví dụ một catalog; phải xác nhận phạm vi số bảng."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "defer_to_layer3_path_and_scope_resolution",
+      "interpretation_limits": [
+        "Do not substitute observed test size for maximum quota.",
+        "An open upper bound cannot be guaranteed by a finite quota."
+      ],
+      "comparison": {
+        "quantity_unit": "tables",
+        "all_values_within_quota": "quota >= upper_bound_when_finite",
+        "all_values_exceed_quota": "quota < lower_bound",
+        "otherwise": "conditional",
+        "missing_quota": "UNKNOWN"
+      }
+    },
+    {
+      "property_id": "performance.observation",
+      "value_type": "quantity",
+      "rubric_ref": null,
+      "hard_min_level": null,
+      "acceptance_contract": "Chỉ dùng quan sát đúng workload/scenario; không tạo SLO hoặc điểm từ số bảng.",
+      "qualifier_bindings": {
+        "metric": {
+          "source": "decision_context",
+          "path": "performance_target.metric",
+          "meaning": "Chỉ có khi ca có mục tiêu đã biết."
+        },
+        "scenario": {
+          "source": "decision_context",
+          "path": "performance_target.scenario",
+          "meaning": "Cùng workload/environment."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "defer_to_layer3_path_and_scope_resolution",
+      "interpretation_limits": [
+        "Context-only until a target and comparable observations exist."
+      ]
+    },
+    {
+      "property_id": "integration.streaming_write",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Đường ghi engine/format/mode phải được chứng minh nếu sau này streaming được xác nhận là yêu cầu.",
+      "qualifier_bindings": {
+        "engine": {
+          "source": "decision_context",
+          "path": "streaming_bindings[].engine",
+          "meaning": "Không tự chọn engine trong I02."
+        },
+        "format": {
+          "source": "decision_context",
+          "path": "streaming_bindings[].format",
+          "meaning": "Format của stream này."
+        },
+        "mode": {
+          "source": "decision_context",
+          "path": "streaming_bindings[].mode",
+          "meaning": "Micro-batch/streaming path/continuous được phân biệt."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "streaming_bindings[].api",
+          "meaning": "Cùng catalog scope."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "defer_to_layer3_path_and_scope_resolution",
+      "interpretation_limits": [
+        "This input is not enabled by the current confirmed form scope."
+      ]
+    },
+    {
+      "property_id": "workflow.branching",
+      "value_type": "support",
+      "rubric_ref": "branching",
+      "hard_min_level": "full",
+      "acceptance_contract": "Workflow tạo nhánh, ghi cô lập và công bố thay đổi ở object_scope người dùng cần.",
+      "qualifier_bindings": {
+        "object_scope": {
+          "source": "decision_context",
+          "path": "branching.object_scope",
+          "meaning": "Một bảng/tập bảng/catalog phải phân biệt."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "branching_path.api",
+          "meaning": "Đường thực hiện workflow."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "defer_to_layer3_path_and_scope_resolution",
+      "interpretation_limits": [
+        "For a mandatory full workflow, partial does not meet the minimum.",
+        "For nice-to-have, technical levels stay ordinal until value mapping is accepted."
+      ]
+    },
+    {
+      "property_id": "transaction.multi_table_atomic",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Không công bố trạng thái chỉ có một phần bảng được commit trong failure boundary đã xác nhận.",
+      "qualifier_bindings": {
+        "client_path": {
+          "source": "decision_context",
+          "path": "atomic_update.client_path",
+          "meaning": "Có thể được xác định từ workload và đường hỗ trợ của candidate."
+        },
+        "failure_boundary": {
+          "source": "decision_context",
+          "path": "atomic_update.failure_boundary",
+          "meaning": "Ghi rõ giới hạn all-or-nothing cần chứng minh."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "atomic_update_path.api",
+          "meaning": "Primitive/API và công cụ phải tương thích."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "defer_to_layer3_path_and_scope_resolution",
+      "interpretation_limits": [
+        "Do not equate orphan-file cleanup with logical atomic visibility.",
+        "Branch publication is eligible only if it proves this same contract."
+      ]
+    },
+    {
+      "property_id": "metadata.federation_operation",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Các nguồn cần quản lý thực hiện được các thao tác metadata được yêu cầu qua lớp thống nhất.",
+      "qualifier_bindings": {
+        "source_type": {
+          "source": "decision_context",
+          "path": "federation_bindings[].source_type",
+          "meaning": "Các nguồn thực tế, không phải mọi connector của catalog."
+        },
+        "operation": {
+          "source": "decision_context",
+          "path": "federation_bindings[].operation",
+          "meaning": "Discovery/read metadata/create/alter không tương đương."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "federation_bindings[].api",
+          "meaning": "Đường thống nhất có bằng chứng."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "defer_to_layer3_path_and_scope_resolution",
+      "interpretation_limits": [
+        "No automatic distributed-transaction or cross-source authorization assumption."
+      ]
+    }
+  ]
+}
+

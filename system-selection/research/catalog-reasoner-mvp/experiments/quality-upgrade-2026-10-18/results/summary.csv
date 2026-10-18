@@ -1,0 +1,11 @@
+﻿case_id,kind,status,reference_candidate,reference_group,profile,functional_status,hard_passes,hard_conditions,hard_failures,score_interval,top_rate,groups
+SOURCE-V3-AWS,development_public_source_adaptation,ok,aws_glue_data_catalog,eligible,glue_emr72_lakeformation_s3,eligible,9,0,0,,,"{""eligible"": 1, ""conditional"": 6, ""excluded"": 0}"
+SOURCE-V3-NESSIE,development_public_source_adaptation,ok,project_nessie,eligible,nessie_native_spark_local_lab,eligible,7,0,0,,,"{""eligible"": 1, ""conditional"": 6, ""excluded"": 0}"
+SYNTHETIC-V3-BUCKET-ONLY,synthetic_boundary,ok,project_nessie,conditional,nessie_native_spark_local_lab,eligible,6,1,0,,,"{""eligible"": 0, ""conditional"": 7, ""excluded"": 0}"
+SYNTHETIC-V3-UNKNOWN-STORAGE,synthetic_boundary,ok,aws_glue_data_catalog,conditional,glue_emr72_lakeformation_s3,conditional,8,1,0,,,"{""eligible"": 0, ""conditional"": 7, ""excluded"": 0}"
+SYNTHETIC-V3-UNREVIEWED-MERGE,synthetic_boundary,ok,project_nessie,conditional,,conditional,2,4,0,,,"{""eligible"": 0, ""conditional"": 7, ""excluded"": 0}"
+SYNTHETIC-V3-PRODUCTION-ONPREM,synthetic_boundary,ok,project_nessie,conditional,,conditional,1,6,0,,,"{""eligible"": 0, ""conditional"": 7, ""excluded"": 0}"
+SYNTHETIC-V3-UNKNOWN-OPERATIONS,synthetic_boundary,ok,project_nessie,conditional,nessie_native_spark_local_lab,conditional,4,0,0,,,"{""eligible"": 0, ""conditional"": 7, ""excluded"": 0}"
+SYNTHETIC-V3-MULTI-WRITER,synthetic_boundary,ok,project_nessie,conditional,nessie_native_spark_local_lab,conditional,7,1,0,,,"{""eligible"": 0, ""conditional"": 7, ""excluded"": 0}"
+SYNTHETIC-V3-BAD-COUNT,synthetic_invalid_input,input_error,aws_glue_data_catalog,,,,,,,,,"{""eligible"": 0, ""conditional"": 0, ""excluded"": 0}"
+SYNTHETIC-V3-BRANCH-SOFT,synthetic_priority_counterfactual,ok,project_nessie,eligible,nessie_native_spark_local_lab,eligible,6,0,0,"[1.0, 1.0]",,"{""eligible"": 1, ""conditional"": 6, ""excluded"": 0}"

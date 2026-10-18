@@ -1,0 +1,115 @@
+{
+  "manifest": {
+    "revision": "layer2-policy-v2",
+    "created_on": "2026-10-17",
+    "form_source": "input-v2.md",
+    "property_dictionary": "layer-1-properties.json",
+    "artifact_kind": "design_policy_not_runtime_engine",
+    "profile": "layer-2-mvp-profile.json",
+    "property_dictionary_revision": "layer1-properties-v3.1",
+    "registry": "form-v2-registry.json",
+    "runtime_config": "layer-2-runtime-config.json"
+  },
+  "confirmed_scope": {
+    "evidence": "User approved all seven real KB scopes and Group 1 corrections after stage-1 audit.",
+    "add_operations_or_lock_in_criteria": false,
+    "add_authentication_question": false,
+    "streaming": {
+      "status": "pending_in_input_v1",
+      "enabled_by_default": false
+    },
+    "platform_commitment_effect": "context_and_reminder_only",
+    "special_feature_ranks": [
+      "mandatory",
+      "nice_to_have"
+    ],
+    "approved_form_revision": {
+      "id": "input-v2",
+      "changes": [
+        "I01-I03 required-support wording",
+        "split grouped engines",
+        "nonoverlapping table buckets",
+        "explicit simultaneous-write wording",
+        "split permission granularities and add no_catalog_requirement"
+      ]
+    }
+  },
+  "role_rules": {
+    "explicit_need_yes": "HARD",
+    "explicit_need_no": "NO_REQUIREMENT",
+    "feature_mandatory": "HARD",
+    "feature_nice_to_have": "SOFT",
+    "environment_or_installed_engine_or_format": "HARD_for_concrete_choices_if_config_flag_true; aggregate_unknown_choices_unresolved_not_HARD",
+    "workload_scale": "I04_quota_check_and_I05_conditional_HARD_concurrency_no_weight_changes",
+    "unknown_or_unanswered": "KEEP_UNRESOLVED_not_NO_REQUIREMENT"
+  },
+  "unknown_policy": {
+    "user_need": "unresolved_need",
+    "input_context": "unresolved_context",
+    "knowledge_evidence": "layer3_evidence_gap",
+    "automatically_ignore": false,
+    "automatically_impute_zero": false,
+    "scenario_expansion": "only_declared_finite_domains_with_joint_constraints",
+    "probabilities": "none_unless_explicitly_supplied",
+    "unknown_is_not_not_applicable": true
+  },
+  "qualifier_policy": {
+    "form": "facts_named_by_user",
+    "decision_context": "not_accepted_as_extra_form_payload_in_MVP",
+    "candidate_path": "trace_only_deferred_no_MVP_path_selection",
+    "never_derive_storage_from_cloud": true,
+    "never_cross_product_all_engine_format_pairs": true,
+    "one_consistent_catalog_scope": true,
+    "candidate_bindings_must_be_resolved_jointly": false,
+    "same_api_for_all_engines_required": false,
+    "preserve_optional_claim_conditions": true,
+    "absent_table_type_or_metadata_representation_is_not_wildcard": true,
+    "candidate_bindings_execution": "trace_only_deferred"
+  },
+  "weight_policy": {
+    "active_preset": "nice_to_have_uses_config_low",
+    "source": "layer-2-runtime-config.json -> reasoning config rank_to_weight.low",
+    "weight_defaulted": true,
+    "normalize_in_layer2": false,
+    "important_rank_added": false,
+    "auto_adjust_from_scale": false,
+    "hard_predicates_in_score": false,
+    "no_soft_objectives": "feasible_set_without_forced_ranking",
+    "unknown_never_imputed_zero": true
+  },
+  "mandatory_policy": {
+    "hard_cap": null,
+    "never_demote_automatically": true,
+    "diagnose_infeasibility_in_layer3": true,
+    "count_logical_needs_not_atomic_checks": true
+  },
+  "validation_policy": {
+    "preserve_raw_answers": true,
+    "unknown_key_or_rank": "report_input_issue",
+    "exclusive_none_with_selection": "report_input_issue",
+    "silent_repair": false
+  },
+  "versioning": {
+    "store_form_mapping_policy_and_property_dictionary_revisions": true,
+    "store_profile_revision": true
+  },
+  "profile_policy": {
+    "active_profile": "mvp-catalog-v1",
+    "source": "layer-2-mvp-profile.json",
+    "defaults_are_user_facts": false,
+    "separate_preservation_confirmation_required": false,
+    "missing_context_blocks_all_assessment": false,
+    "candidate_bindings_execution": "trace_only_deferred"
+  },
+  "assessment_policy": {
+    "readiness_states": [
+      "ready_for_assessment",
+      "needs_input_correction"
+    ],
+    "unresolved_requirements_are_forwarded": true,
+    "readiness_does_not_mean_requirements_satisfied": true,
+    "only_invalid_input_blocks_normalization": true,
+    "layer3_keeps_pass_fail_unknown_per_requirement": true,
+    "shortlist_with_conditions_is_valid_output": true
+  }
+}

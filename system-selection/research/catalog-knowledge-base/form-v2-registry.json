@@ -1,0 +1,317 @@
+{
+  "manifest": {
+    "revision": "form-v2-registry-v1",
+    "form_revision": "input-v2",
+    "source": "input-v2.md",
+    "purpose": "single_canonical_question_and_answer_ID_registry"
+  },
+  "questions": [
+    {
+      "id": "I01",
+      "label": "Phương án catalog phải dùng được ở môi trường nào?",
+      "control": "single",
+      "enabled": true,
+      "optional": false,
+      "answers": [
+        {
+          "id": "aws",
+          "label": "AWS"
+        },
+        {
+          "id": "azure",
+          "label": "Azure"
+        },
+        {
+          "id": "gcp",
+          "label": "GCP"
+        },
+        {
+          "id": "on_prem",
+          "label": "On-prem"
+        },
+        {
+          "id": "multi_cloud",
+          "label": "Đa cloud"
+        }
+      ]
+    },
+    {
+      "id": "I02",
+      "label": "Phương án catalog phải hỗ trợ các engine nào?",
+      "control": "multi",
+      "enabled": true,
+      "optional": false,
+      "answers": [
+        {
+          "id": "spark",
+          "label": "Spark"
+        },
+        {
+          "id": "trino",
+          "label": "Trino"
+        },
+        {
+          "id": "presto",
+          "label": "Presto"
+        },
+        {
+          "id": "flink",
+          "label": "Flink"
+        },
+        {
+          "id": "snowflake",
+          "label": "Snowflake"
+        },
+        {
+          "id": "databricks",
+          "label": "Databricks"
+        },
+        {
+          "id": "dremio",
+          "label": "Dremio"
+        },
+        {
+          "id": "starrocks",
+          "label": "StarRocks"
+        },
+        {
+          "id": "doris",
+          "label": "Doris"
+        },
+        {
+          "id": "duckdb",
+          "label": "DuckDB"
+        },
+        {
+          "id": "other",
+          "label": "Khác"
+        }
+      ]
+    },
+    {
+      "id": "I03",
+      "label": "Phương án catalog phải hỗ trợ table format nào?",
+      "control": "single",
+      "enabled": true,
+      "optional": false,
+      "answers": [
+        {
+          "id": "iceberg",
+          "label": "Iceberg"
+        },
+        {
+          "id": "delta",
+          "label": "Delta"
+        },
+        {
+          "id": "hudi",
+          "label": "Hudi"
+        },
+        {
+          "id": "not_chosen",
+          "label": "Chưa chọn"
+        },
+        {
+          "id": "mixed",
+          "label": "Hỗn hợp"
+        }
+      ]
+    },
+    {
+      "id": "I04",
+      "label": "Số bảng dự kiến trong một catalog?",
+      "control": "single",
+      "enabled": true,
+      "optional": false,
+      "answers": [
+        {
+          "id": "lt_100",
+          "label": "<100"
+        },
+        {
+          "id": "100_to_999",
+          "label": "100–999"
+        },
+        {
+          "id": "1000_to_10000",
+          "label": "1.000–10.000"
+        },
+        {
+          "id": "gt_10000",
+          "label": ">10.000"
+        }
+      ]
+    },
+    {
+      "id": "I05",
+      "label": "Số engine có thể ghi đồng thời vào cùng một bảng?",
+      "control": "single",
+      "enabled": true,
+      "optional": false,
+      "answers": [
+        {
+          "id": "one",
+          "label": "1"
+        },
+        {
+          "id": "two_to_three",
+          "label": "2–3"
+        },
+        {
+          "id": "more_than_three",
+          "label": ">3"
+        }
+      ]
+    },
+    {
+      "id": "I06",
+      "label": "Có ghi streaming vào bảng không?",
+      "control": "single",
+      "enabled": false,
+      "optional": false,
+      "answers": [
+        {
+          "id": "no",
+          "label": "Không"
+        },
+        {
+          "id": "yes",
+          "label": "Có"
+        },
+        {
+          "id": "unknown",
+          "label": "Chưa biết"
+        }
+      ]
+    },
+    {
+      "id": "I07",
+      "label": "Cần phân quyền đọc dữ liệu tại catalog ở mức nào?",
+      "control": "single",
+      "enabled": true,
+      "optional": false,
+      "answers": [
+        {
+          "id": "none",
+          "label": "Không có yêu cầu phân quyền tại catalog"
+        },
+        {
+          "id": "table",
+          "label": "Cấp bảng"
+        },
+        {
+          "id": "column",
+          "label": "Cấp cột"
+        },
+        {
+          "id": "row",
+          "label": "Cấp hàng"
+        },
+        {
+          "id": "column_and_row",
+          "label": "Cả cấp cột và hàng"
+        },
+        {
+          "id": "unclear",
+          "label": "Chưa rõ"
+        }
+      ]
+    },
+    {
+      "id": "I08",
+      "label": "Cần credential vending cho engine ngoài?",
+      "control": "single",
+      "enabled": true,
+      "optional": false,
+      "answers": [
+        {
+          "id": "yes",
+          "label": "Có"
+        },
+        {
+          "id": "no",
+          "label": "Không"
+        },
+        {
+          "id": "unknown",
+          "label": "Chưa biết"
+        }
+      ]
+    },
+    {
+      "id": "I09",
+      "label": "Hợp đồng/nền tảng đã gắn bó?",
+      "control": "multi",
+      "enabled": true,
+      "optional": true,
+      "answers": [
+        {
+          "id": "databricks",
+          "label": "Databricks"
+        },
+        {
+          "id": "snowflake",
+          "label": "Snowflake"
+        },
+        {
+          "id": "aws_native",
+          "label": "AWS-native"
+        },
+        {
+          "id": "none",
+          "label": "Không"
+        }
+      ],
+      "exclusive_answer": "none"
+    },
+    {
+      "id": "I10",
+      "label": "Nhu cầu đặc thù",
+      "control": "features",
+      "enabled": true,
+      "optional": false,
+      "answers": [
+        {
+          "id": "branching",
+          "label": "Thử nghiệm trên nhánh catalog riêng rồi công bố vào bản chính"
+        },
+        {
+          "id": "multi_table_atomic",
+          "label": "Cập nhật metadata nhiều bảng: tất cả hoặc không bảng nào được công bố"
+        },
+        {
+          "id": "metadata_federation",
+          "label": "Quản lý/đọc metadata từ nhiều catalog hoặc nguồn qua một lớp thống nhất"
+        },
+        {
+          "id": "none",
+          "label": "Không có nhu cầu nào"
+        }
+      ],
+      "exclusive_answer": "none",
+      "ranks": [
+        {
+          "id": "mandatory",
+          "label": "Bắt buộc"
+        },
+        {
+          "id": "nice_to_have",
+          "label": "Nice-to-have"
+        }
+      ]
+    }
+  ],
+  "legacy_answer_ids": [
+    "trino_presto",
+    "starrocks_doris",
+    "100_to_1000",
+    "column_row"
+  ],
+  "excluded_payload_fields": [
+    "operations",
+    "portability",
+    "storage",
+    "priorities",
+    "name"
+  ]
+}

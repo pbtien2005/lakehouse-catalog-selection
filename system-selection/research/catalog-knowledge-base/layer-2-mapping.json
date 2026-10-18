@@ -1,0 +1,294 @@
+{
+  "manifest": {
+    "revision": "layer2-mapping-v2",
+    "created_on": "2026-10-17",
+    "artifact_kind": "declarative_mapping_specification_not_executable_engine",
+    "form_source": "input-v2.md",
+    "policy": "layer-2-policy.json",
+    "anchors": "layer-2-anchors.json",
+    "property_dictionary": "layer-1-properties.json",
+    "registry": "form-v2-registry.json",
+    "runtime_config": "layer-2-runtime-config.json",
+    "profile": "layer-2-mvp-profile.json",
+    "property_dictionary_revision": "layer1-properties-v3.1"
+  },
+  "input_states": [
+    "known",
+    "unknown",
+    "unanswered",
+    "not_decided",
+    "not_applicable_with_reason"
+  ],
+  "context_contract": {
+    "description": "Form-v2 payload only. Concrete facts are HARD under a config flag; aggregate choices stay unresolved and are not promoted to HARD.",
+    "candidate_bindings": "trace_only_deferred",
+    "joint_path_resolution": "not_implemented_in_MVP",
+    "domain_value_translation": "Group 2, not performed by the Group 1 normalizer."
+  },
+  "questions": [
+    {
+      "id": "I01",
+      "type": "environment_fact",
+      "target_properties": [
+        "deployment.environment"
+      ],
+      "answers_ref": "form-v2-registry.json#/questions/0/answers",
+      "answer_effects": {
+        "aws": "HARD_when_default_environment_facts_as_hard",
+        "azure": "HARD_when_default_environment_facts_as_hard",
+        "gcp": "HARD_when_default_environment_facts_as_hard",
+        "on_prem": "HARD_when_default_environment_facts_as_hard",
+        "multi_cloud": "unresolved_not_HARD"
+      },
+      "unknown_handling": "Keep unresolved; never convert unknown into no requirement."
+    },
+    {
+      "id": "I02",
+      "type": "engine_fact",
+      "target_properties": [
+        "integration.engine_operation"
+      ],
+      "answers_ref": "form-v2-registry.json#/questions/1/answers",
+      "answer_effects": {
+        "spark": "HARD_when_default_environment_facts_as_hard",
+        "trino": "HARD_when_default_environment_facts_as_hard",
+        "presto": "HARD_when_default_environment_facts_as_hard",
+        "flink": "HARD_when_default_environment_facts_as_hard",
+        "snowflake": "HARD_when_default_environment_facts_as_hard",
+        "databricks": "HARD_when_default_environment_facts_as_hard",
+        "dremio": "HARD_when_default_environment_facts_as_hard",
+        "starrocks": "HARD_when_default_environment_facts_as_hard",
+        "doris": "HARD_when_default_environment_facts_as_hard",
+        "duckdb": "HARD_when_default_environment_facts_as_hard",
+        "other": "unresolved_not_HARD"
+      },
+      "unknown_handling": "Keep unresolved; never convert unknown into no requirement."
+    },
+    {
+      "id": "I03",
+      "type": "format_fact",
+      "target_properties": [
+        "catalog.format_operation",
+        "integration.engine_operation"
+      ],
+      "answers_ref": "form-v2-registry.json#/questions/2/answers",
+      "answer_effects": {
+        "iceberg": "HARD_when_default_environment_facts_as_hard",
+        "delta": "HARD_when_default_environment_facts_as_hard",
+        "hudi": "HARD_when_default_environment_facts_as_hard",
+        "not_chosen": "unresolved_not_HARD",
+        "mixed": "unresolved_not_HARD"
+      },
+      "unknown_handling": "Keep unresolved; never convert unknown into no requirement."
+    },
+    {
+      "id": "I04",
+      "type": "scale",
+      "target_properties": [
+        "limits.quota",
+        "performance.observation"
+      ],
+      "answers_ref": "form-v2-registry.json#/questions/3/answers",
+      "answer_effects": {
+        "lt_100": "HARD_capacity_interval_from_config",
+        "100_to_999": "HARD_capacity_interval_from_config",
+        "1000_to_10000": "HARD_capacity_interval_from_config",
+        "gt_10000": "HARD_capacity_interval_from_config"
+      },
+      "unknown_handling": "Keep unresolved; never convert unknown into no requirement."
+    },
+    {
+      "id": "I05",
+      "type": "scale",
+      "target_properties": [
+        "commit.concurrent_write",
+        "integration.engine_operation"
+      ],
+      "answers_ref": "form-v2-registry.json#/questions/4/answers",
+      "answer_effects": {
+        "one": "context_not_proof_of_no_concurrency",
+        "two_to_three": "HARD_concurrent_append",
+        "more_than_three": "HARD_concurrent_append"
+      },
+      "unknown_handling": "Keep unresolved; never convert unknown into no requirement."
+    },
+    {
+      "id": "I06",
+      "type": "conditional_scale",
+      "target_properties": [
+        "integration.streaming_write",
+        "performance.observation"
+      ],
+      "answers_ref": "form-v2-registry.json#/questions/5/answers",
+      "answer_effects": {
+        "no": "inactive_trace_only",
+        "yes": "inactive_trace_only",
+        "unknown": "inactive_trace_only"
+      },
+      "unknown_handling": "Keep unresolved; never convert unknown into no requirement."
+    },
+    {
+      "id": "I07",
+      "type": "required_capability",
+      "target_properties": [
+        "security.authorization"
+      ],
+      "answers_ref": "form-v2-registry.json#/questions/6/answers",
+      "answer_effects": {
+        "none": "NO_REQUIREMENT",
+        "table": "HARD_read_authorization",
+        "column": "HARD_read_authorization",
+        "row": "HARD_read_authorization",
+        "column_and_row": "HARD_read_authorization",
+        "unclear": "unresolved_need"
+      },
+      "unknown_handling": "Keep unresolved; never convert unknown into no requirement."
+    },
+    {
+      "id": "I08",
+      "type": "required_capability",
+      "target_properties": [
+        "storage.credential_vending"
+      ],
+      "answers_ref": "form-v2-registry.json#/questions/7/answers",
+      "answer_effects": {
+        "yes": "HARD_vending",
+        "no": "NO_REQUIREMENT",
+        "unknown": "unresolved_need"
+      },
+      "unknown_handling": "Keep unresolved; never convert unknown into no requirement."
+    },
+    {
+      "id": "I09",
+      "type": "platform_context",
+      "target_properties": [],
+      "answers_ref": "form-v2-registry.json#/questions/8/answers",
+      "answer_effects": {
+        "databricks": "optional_context_and_reminder",
+        "snowflake": "optional_context_and_reminder",
+        "aws_native": "optional_context_and_reminder",
+        "none": "optional_context_and_reminder"
+      },
+      "unknown_handling": "Keep unresolved; never convert unknown into no requirement.",
+      "no_direct_property_reason": "Đây là sự thật hợp đồng của ca lựa chọn, không phải một năng lực của catalog."
+    },
+    {
+      "id": "I10",
+      "type": "ranked_criterion_group",
+      "target_properties": [
+        "workflow.branching",
+        "transaction.multi_table_atomic",
+        "metadata.federation_operation"
+      ],
+      "answers_ref": "form-v2-registry.json#/questions/9/answers",
+      "answer_effects": {
+        "branching": "mandatory_HARD_or_nice_to_have_SOFT_config_low_weight_defaulted",
+        "multi_table_atomic": "mandatory_HARD_or_nice_to_have_SOFT_config_low_weight_defaulted",
+        "metadata_federation": "mandatory_HARD_or_nice_to_have_SOFT_config_low_weight_defaulted",
+        "none": "NO_REQUIREMENT"
+      },
+      "unknown_handling": "Keep unresolved; never convert unknown into no requirement."
+    }
+  ],
+  "warnings": [
+    {
+      "id": "E_PAYLOAD",
+      "mutates_answers": false
+    },
+    {
+      "id": "E_FORM_REVISION",
+      "mutates_answers": false
+    },
+    {
+      "id": "E_UNKNOWN_FIELD",
+      "mutates_answers": false
+    },
+    {
+      "id": "E_CARDINALITY",
+      "mutates_answers": false
+    },
+    {
+      "id": "E_INVALID_ANSWER",
+      "mutates_answers": false
+    },
+    {
+      "id": "E_LEGACY_FORM_ANSWER",
+      "mutates_answers": false
+    },
+    {
+      "id": "E_EXCLUSIVE_NONE",
+      "mutates_answers": false
+    },
+    {
+      "id": "E_RANK_MISSING_OR_INVALID",
+      "mutates_answers": false
+    },
+    {
+      "id": "E_DUPLICATE_SELECTION",
+      "mutates_answers": false
+    }
+  ],
+  "output_contract": {
+    "revisions": [
+      "form",
+      "registry",
+      "mapping",
+      "policy",
+      "profile",
+      "config",
+      "property_dictionary",
+      "kb"
+    ],
+    "required_sections": [
+      "raw_answers",
+      "normalized_context",
+      "candidates",
+      "requirements",
+      "objectives",
+      "unresolved",
+      "input_issues",
+      "reminders",
+      "trace",
+      "assumptions",
+      "assessment_limits",
+      "revisions",
+      "readiness",
+      "profile_assumptions"
+    ],
+    "requirement_fields": [
+      "id",
+      "logical_need_id",
+      "source_inputs",
+      "property_id",
+      "role",
+      "status",
+      "qualifiers",
+      "candidate_bindings",
+      "acceptance_anchor",
+      "min_level_if_applicable",
+      "binding_sources"
+    ],
+    "statuses": [
+      "ready",
+      "needs_context"
+    ],
+    "readiness": [
+      "ready_for_assessment",
+      "needs_input_correction"
+    ],
+    "candidate_bindings_execution": "trace_only_deferred",
+    "soft_weight_source": "reasoning_config.rank_to_weight[config.nice_to_have_weight_rank]",
+    "weight_defaulted": true,
+    "final_catalog_ranking": "not_computed_in_layer2"
+  },
+  "input_migration": {
+    "automatic_migration": false,
+    "legacy_answer_ids": [
+      "trino_presto",
+      "starrocks_doris",
+      "100_to_1000",
+      "column_row"
+    ],
+    "action": "Keep raw values, report the exact field, and keep legacy grouped values unresolved; do not generate HARD from them."
+  }
+}

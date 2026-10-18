@@ -1,0 +1,81 @@
+{
+  "data_revision": "layer1-v3-data-2026-10-17-r1",
+  "checked_on": "2026-10-17",
+  "result": "pass",
+  "errors": [],
+  "counts": {
+    "scopes": 7,
+    "groups": 11,
+    "properties": 37,
+    "claims": 203,
+    "known_claims": 173,
+    "explicit_unknown_claims": 30,
+    "source_urls": 61,
+    "coverage_cells": 259
+  },
+  "by_scope": [
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "known": 29,
+      "unknown": 4,
+      "properties_with_scoped_evidence": 18
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "known": 30,
+      "unknown": 5,
+      "properties_with_scoped_evidence": 18
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "known": 24,
+      "unknown": 5,
+      "properties_with_scoped_evidence": 19
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "known": 22,
+      "unknown": 5,
+      "properties_with_scoped_evidence": 13
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "known": 28,
+      "unknown": 4,
+      "properties_with_scoped_evidence": 14
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "known": 22,
+      "unknown": 3,
+      "properties_with_scoped_evidence": 16
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "known": 18,
+      "unknown": 4,
+      "properties_with_scoped_evidence": 12
+    }
+  ],
+  "checks": [
+    "JSON syntax and duplicate keys",
+    "37 property and 11 group dictionary references",
+    "seven distinct scope identities",
+    "scope release/as_of and dates",
+    "dictionary SHA256",
+    "required and optional qualifier names",
+    "typed levels/values and rubrics",
+    "quantity units and observation context",
+    "evidence required for every known claim",
+    "official domain/repository allowlist",
+    "source inventory and retrieval dates",
+    "duplicate/conflicting exact claim keys",
+    "no scores/weights in claims"
+  ],
+  "limits": [
+    "No runtime tests were performed.",
+    "No automatic factual entailment or human approval is claimed.",
+    "URLs were read during research; this offline checker does not re-fetch them.",
+    "Properties with evidence are not exhaustively collected across qualifiers."
+  ]
+}

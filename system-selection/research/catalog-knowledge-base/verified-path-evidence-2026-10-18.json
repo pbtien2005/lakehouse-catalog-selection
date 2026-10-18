@@ -1,0 +1,852 @@
+{
+  "manifest": {
+    "revision": "verified-path-evidence-v1-2026-10-18",
+    "created_on": "2026-10-18",
+    "base_kb": "layer-1-data.json",
+    "base_kb_sha256": "043934db4b7babbc008c24f0e4cbad343093109297290df2ac1ca2b324567cb8",
+    "property_dictionary": "layer-1-properties.json",
+    "merge_policy": "Append new scoped claims; remove only explicitly superseded null placeholders; retain original file and all seven scopes.",
+    "verification_scope": "Fresh source-text review of relevant official sections; not infrastructure execution, benchmark or independent expert approval.",
+    "numeric_facts": "Release labels, source table counts and digest character counts are sourced metadata; no model score/weight or new numeric default is introduced.",
+    "negative_claim_policy": "Missing documentation is unknown. No new universal none claim was inferred from missing features or service placement.",
+    "limits": [
+      "Profiles cover two bounded documented solution recipes, not all implementations of seven catalogs.",
+      "Source worked-example minimum counts are not certified resource limits."
+    ]
+  },
+  "sources": [
+    {
+      "id": "AWS-EMR-FGAC",
+      "url": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless-lf-enable.html",
+      "title": "Using EMR Serverless with AWS Lake Formation for fine-grained access control",
+      "publisher": "Amazon Web Services",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-18",
+      "access": "read_relevant_sections",
+      "locators": [
+        "Overview",
+        "Permission requirements / Tables registered in AWS Lake Formation",
+        "Iceberg supported table matrix",
+        "Spark configuration for Iceberg"
+      ],
+      "facts": [
+        "FGAC read queries on S3-backed Data Catalog tables are documented from EMR Serverless 7.2.0.",
+        "Registered-table data access uses Lake Formation temporary credentials; the runtime role accesses metadata.",
+        "Write credential and supported DML behavior changes at EMR 7.12; old and current release guarantees must be separated."
+      ],
+      "source_digest": {
+        "algorithm": "sha256",
+        "basis": "BeautifulSoup article element, otherwise main, otherwise document; get_text(space, strip=True); normalize whitespace; UTF-8",
+        "normalized_main_text_sha256": "0e356cad794c54facc24f0ce793f532832156dc7ac61f83bbab1a636745eb4fd",
+        "normalized_main_text_characters": 19011
+      },
+      "runtime_execution": "not_performed"
+    },
+    {
+      "id": "AWS-FGAC-LAB",
+      "url": "https://aws.amazon.com/blogs/big-data/fine-grained-access-control-in-amazon-emr-serverless-with-aws-lake-formation/",
+      "title": "Fine-grained access control in Amazon EMR Serverless with AWS Lake Formation",
+      "publisher": "Amazon Web Services",
+      "kind": "official_blog",
+      "retrieved_at": "2026-10-18",
+      "access": "read_relevant_sections",
+      "locators": [
+        "Solution overview",
+        "Create a Lake Formation enabled EMR Serverless application",
+        "Grant table permissions for the finance analyst",
+        "Grant table permissions for the product analyst"
+      ],
+      "facts": [
+        "A producer Glue database holds named Iceberg tables; consumer finance and product roles receive different SELECT filters.",
+        "The worked configuration selects EMR 7.2.0 and Glue plus Lake Formation; it is not generic Spark with a Glue endpoint.",
+        "Seven distinct table identifiers occur in the producer database permissions workflow; this is a documented example lower bound."
+      ],
+      "source_digest": {
+        "algorithm": "sha256",
+        "basis": "BeautifulSoup article element, otherwise main, otherwise document; get_text(space, strip=True); normalize whitespace; UTF-8",
+        "normalized_main_text_sha256": "3e0dcdffaec1fcbee6d6825be88e680dd32e77519ef953def5205b2eeaf1f4db",
+        "normalized_main_text_characters": 22695
+      },
+      "runtime_execution": "not_performed"
+    },
+    {
+      "id": "AWS-LF-FILTERS",
+      "url": "https://docs.aws.amazon.com/lake-formation/latest/dg/data-filtering.html",
+      "title": "Data filtering and cell-level security in Lake Formation",
+      "publisher": "Amazon Web Services",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-18",
+      "access": "read_relevant_sections",
+      "locators": [
+        "Data filtering and cell-level security",
+        "Data filters in Lake Formation"
+      ],
+      "facts": [
+        "Data filters restrict permitted rows and columns for SELECT through integrated engines.",
+        "The mechanism is read-side enforcement; it is not evidence that filters govern every write or direct S3 access."
+      ],
+      "source_digest": {
+        "algorithm": "sha256",
+        "basis": "BeautifulSoup article element, otherwise main, otherwise document; get_text(space, strip=True); normalize whitespace; UTF-8",
+        "normalized_main_text_sha256": "0f0b82f5691ccd2f9d3bbfcd5505baad4c62c9a4c29a344f6d63ffcb12400675",
+        "normalized_main_text_characters": 8977
+      },
+      "runtime_execution": "not_performed"
+    },
+    {
+      "id": "NESSIE-SPARK",
+      "url": "https://projectnessie.org/iceberg/spark/",
+      "title": "Spark via Iceberg",
+      "publisher": "Project Nessie",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-18",
+      "access": "read_relevant_sections",
+      "locators": [
+        "Configuration",
+        "Writing / Spark3",
+        "Reading"
+      ],
+      "facts": [
+        "Native SparkCatalog uses Iceberg NessieCatalog with a Nessie API endpoint and a warehouse path.",
+        "Examples create a logical table, append through DataFrameWriterV2 or INSERT, and read it through SELECT or DataFrame APIs.",
+        "The page combines several version examples; selecting compatible runtime JARs remains a deployment prerequisite."
+      ],
+      "source_digest": {
+        "algorithm": "sha256",
+        "basis": "BeautifulSoup article element, otherwise main, otherwise document; get_text(space, strip=True); normalize whitespace; UTF-8",
+        "normalized_main_text_sha256": "426cce21923741e788534a1a661f174d9e62ed20030d8a177d6970784fa6e9af",
+        "normalized_main_text_characters": 13758
+      },
+      "runtime_execution": "not_performed"
+    },
+    {
+      "id": "NESSIE-TRANSACTIONS",
+      "url": "https://projectnessie.org/guides/transactions/",
+      "title": "Transactions",
+      "publisher": "Project Nessie",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-18",
+      "access": "read_relevant_sections",
+      "locators": [
+        "Cross-Table Transactions / Via Branches",
+        "START TRANSACTION.. COMMIT",
+        "Isolation Levels / Info"
+      ],
+      "facts": [
+        "A sequence of branch commits can be published as one consistent catalog view through merge.",
+        "Catalog primitives do not establish multi-statement SQL transaction support in every engine."
+      ],
+      "source_digest": {
+        "algorithm": "sha256",
+        "basis": "BeautifulSoup article element, otherwise main, otherwise document; get_text(space, strip=True); normalize whitespace; UTF-8",
+        "normalized_main_text_sha256": "e795d3e1378079e8ad4be72f046774f5de51059b6939692599c4ee7068c7937d",
+        "normalized_main_text_characters": 5020
+      },
+      "runtime_execution": "not_performed"
+    },
+    {
+      "id": "NESSIE-SQL",
+      "url": "https://projectnessie.org/guides/sql/",
+      "title": "Nessie Spark SQL Extensions",
+      "publisher": "Project Nessie",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-18",
+      "access": "read_relevant_sections",
+      "locators": [
+        "Grammar since Nessie 0.95.0",
+        "Creating Branches/Tags",
+        "Switching to a Branch/Tag",
+        "Merging a Branch into another Branch"
+      ],
+      "facts": [
+        "Official SQL extensions expose creation, switching and merging of catalog references.",
+        "Grammar differs across the 0.95.0 boundary; the selected extension and engine must match."
+      ],
+      "source_digest": {
+        "algorithm": "sha256",
+        "basis": "BeautifulSoup article element, otherwise main, otherwise document; get_text(space, strip=True); normalize whitespace; UTF-8",
+        "normalized_main_text_sha256": "06b76115ae414abb0aa68a4ad9a9441fa1db852f3087a0e3a7ec9eeb01bddeec",
+        "normalized_main_text_characters": 95336
+      },
+      "runtime_execution": "not_performed"
+    },
+    {
+      "id": "NESSIE-LOCAL",
+      "url": "https://projectnessie.org/guides/try-nessie/",
+      "title": "Getting Started with Nessie and Iceberg REST",
+      "publisher": "Project Nessie",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-18",
+      "access": "read_relevant_sections",
+      "locators": [
+        "Docker/Podman compose",
+        "Spark SQL example",
+        "Production-like setup notes"
+      ],
+      "facts": [
+        "The official local-server recipe runs Nessie in Docker/Podman and demonstrates Spark connection.",
+        "The shown recipe uses MinIO and request signing; it does not establish credential vending for local filesystem clients.",
+        "Local-lab deployment evidence is not production readiness or cloud deployment certification."
+      ],
+      "source_digest": {
+        "algorithm": "sha256",
+        "basis": "BeautifulSoup article element, otherwise main, otherwise document; get_text(space, strip=True); normalize whitespace; UTF-8",
+        "normalized_main_text_sha256": "704c8cdf2ed5197258f13b10ed98f2dcfc7c7d6de597c07cf31419a20190dc0b",
+        "normalized_main_text_characters": 2754
+      },
+      "runtime_execution": "not_performed"
+    }
+  ],
+  "claims": [
+    {
+      "id": "vp_glue_emr72_iceberg_load",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "load",
+        "api": "aws_glue_api"
+      },
+      "note": "Đường EMR Serverless Spark tải metadata Iceberg từ Glue Data Catalog.",
+      "limits": [
+        "Chỉ đường Glue + EMR Serverless + Lake Formation đã cấu hình; không suy mọi Spark client dùng Glue.",
+        "EMR 7.2.0 trong bài lab; quyền metadata, IAM/S3 và LF grants phải phù hợp từng vai trò.",
+        "Không tuyên bố hạ tầng đã được triển khai hoặc benchmark trong dự án."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless-lf-enable.html",
+          "locator": "Permission requirements; Iceberg SELECT; Spark configuration for Iceberg",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-EMR-FGAC"
+        },
+        {
+          "kind": "official_blog",
+          "url": "https://aws.amazon.com/blogs/big-data/fine-grained-access-control-in-amazon-emr-serverless-with-aws-lake-formation/",
+          "locator": "Create a Lake Formation enabled EMR Serverless application; producer ingestion and consumer verification",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-FGAC-LAB"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "level": "full"
+    },
+    {
+      "id": "vp_glue_emr72_iceberg_create",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "create",
+        "api": "aws_glue_api"
+      },
+      "note": "Đường data engineer của lab tạo bảng Iceberg trong Glue catalog.",
+      "limits": [
+        "Chỉ đường Glue + EMR Serverless + Lake Formation đã cấu hình; không suy mọi Spark client dùng Glue.",
+        "EMR 7.2.0 trong bài lab; quyền metadata, IAM/S3 và LF grants phải phù hợp từng vai trò.",
+        "Không tuyên bố hạ tầng đã được triển khai hoặc benchmark trong dự án.",
+        "CREATE/INSERT ở EMR 7.2 cần IAM storage của role ghi; không gán cơ chế LF credential của release mới cho bản cũ."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless-lf-enable.html",
+          "locator": "Permission requirements; Iceberg SELECT; Spark configuration for Iceberg",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-EMR-FGAC"
+        },
+        {
+          "kind": "official_blog",
+          "url": "https://aws.amazon.com/blogs/big-data/fine-grained-access-control-in-amazon-emr-serverless-with-aws-lake-formation/",
+          "locator": "Create a Lake Formation enabled EMR Serverless application; producer ingestion and consumer verification",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-FGAC-LAB"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "level": "full"
+    },
+    {
+      "id": "vp_glue_emr72_spark_read",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "read",
+        "api": "aws_glue_api",
+        "connector": "emr_iceberg_spark_session_catalog",
+        "engine_release": "emr-7.2.0"
+      },
+      "note": "Đọc Iceberg qua Spark trên EMR Serverless với Glue catalog.",
+      "limits": [
+        "Chỉ đường Glue + EMR Serverless + Lake Formation đã cấu hình; không suy mọi Spark client dùng Glue.",
+        "EMR 7.2.0 trong bài lab; quyền metadata, IAM/S3 và LF grants phải phù hợp từng vai trò.",
+        "Không tuyên bố hạ tầng đã được triển khai hoặc benchmark trong dự án."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless-lf-enable.html",
+          "locator": "Permission requirements; Iceberg SELECT; Spark configuration for Iceberg",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-EMR-FGAC"
+        },
+        {
+          "kind": "official_blog",
+          "url": "https://aws.amazon.com/blogs/big-data/fine-grained-access-control-in-amazon-emr-serverless-with-aws-lake-formation/",
+          "locator": "Create a Lake Formation enabled EMR Serverless application; producer ingestion and consumer verification",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-FGAC-LAB"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "level": "full"
+    },
+    {
+      "id": "vp_glue_emr72_spark_append",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "append",
+        "api": "aws_glue_api",
+        "connector": "emr_iceberg_spark_session_catalog",
+        "engine_release": "emr-7.2.0"
+      },
+      "note": "Ghi thêm dữ liệu Iceberg bằng Spark; role ghi có IAM/S3 phù hợp.",
+      "limits": [
+        "Chỉ đường Glue + EMR Serverless + Lake Formation đã cấu hình; không suy mọi Spark client dùng Glue.",
+        "EMR 7.2.0 trong bài lab; quyền metadata, IAM/S3 và LF grants phải phù hợp từng vai trò.",
+        "Không tuyên bố hạ tầng đã được triển khai hoặc benchmark trong dự án.",
+        "Vai trò ghi dữ liệu khác vai trò analyst chỉ SELECT; Lake Formation row/column filters không được coi là bảo vệ các thao tác ghi."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless-lf-enable.html",
+          "locator": "Permission requirements; Iceberg SELECT; Spark configuration for Iceberg",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-EMR-FGAC"
+        },
+        {
+          "kind": "official_blog",
+          "url": "https://aws.amazon.com/blogs/big-data/fine-grained-access-control-in-amazon-emr-serverless-with-aws-lake-formation/",
+          "locator": "Create a Lake Formation enabled EMR Serverless application; producer ingestion and consumer verification",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-FGAC-LAB"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "level": "full"
+    },
+    {
+      "id": "vp_glue_emr72_spark_create_table",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "create_table",
+        "api": "aws_glue_api",
+        "connector": "emr_iceberg_spark_session_catalog",
+        "engine_release": "emr-7.2.0"
+      },
+      "note": "Tạo bảng Iceberg bằng Spark trong đường data engineer.",
+      "limits": [
+        "Chỉ đường Glue + EMR Serverless + Lake Formation đã cấu hình; không suy mọi Spark client dùng Glue.",
+        "EMR 7.2.0 trong bài lab; quyền metadata, IAM/S3 và LF grants phải phù hợp từng vai trò.",
+        "Không tuyên bố hạ tầng đã được triển khai hoặc benchmark trong dự án.",
+        "Vai trò ghi dữ liệu khác vai trò analyst chỉ SELECT; Lake Formation row/column filters không được coi là bảo vệ các thao tác ghi."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless-lf-enable.html",
+          "locator": "Permission requirements; Iceberg SELECT; Spark configuration for Iceberg",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-EMR-FGAC"
+        },
+        {
+          "kind": "official_blog",
+          "url": "https://aws.amazon.com/blogs/big-data/fine-grained-access-control-in-amazon-emr-serverless-with-aws-lake-formation/",
+          "locator": "Create a Lake Formation enabled EMR Serverless application; producer ingestion and consumer verification",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-FGAC-LAB"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "level": "full"
+    },
+    {
+      "id": "vp_glue_emr72_lf_row",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "row",
+        "action": "filter_select_results",
+        "access_path": "emr_serverless_lakeformation_fgac",
+        "engine": "spark",
+        "format": "iceberg"
+      },
+      "note": "Lake Formation filters giới hạn kết quả SELECT ở cấp row qua EMR Serverless FGAC.",
+      "limits": [
+        "Chỉ đường Glue + EMR Serverless + Lake Formation đã cấu hình; không suy mọi Spark client dùng Glue.",
+        "EMR 7.2.0 trong bài lab; quyền metadata, IAM/S3 và LF grants phải phù hợp từng vai trò.",
+        "Không tuyên bố hạ tầng đã được triển khai hoặc benchmark trong dự án.",
+        "Bật spark.emr-serverless.lakeformation.enabled; đăng ký S3 và gán filters cho runtime role.",
+        "Không suy chặn direct S3 access nếu caller có credential storage ngoài đường được quản trị."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless-lf-enable.html",
+          "locator": "Overview; How EMR Serverless works with AWS Lake Formation",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-EMR-FGAC"
+        },
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/lake-formation/latest/dg/data-filtering.html",
+          "locator": "Column-level security; Row-level security; filters apply only to read operations",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-LF-FILTERS"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "level": "full"
+    },
+    {
+      "id": "vp_glue_emr72_lf_column",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "granularity": "column",
+        "action": "filter_select_results",
+        "access_path": "emr_serverless_lakeformation_fgac",
+        "engine": "spark",
+        "format": "iceberg"
+      },
+      "note": "Lake Formation filters giới hạn kết quả SELECT ở cấp column qua EMR Serverless FGAC.",
+      "limits": [
+        "Chỉ đường Glue + EMR Serverless + Lake Formation đã cấu hình; không suy mọi Spark client dùng Glue.",
+        "EMR 7.2.0 trong bài lab; quyền metadata, IAM/S3 và LF grants phải phù hợp từng vai trò.",
+        "Không tuyên bố hạ tầng đã được triển khai hoặc benchmark trong dự án.",
+        "Bật spark.emr-serverless.lakeformation.enabled; đăng ký S3 và gán filters cho runtime role.",
+        "Không suy chặn direct S3 access nếu caller có credential storage ngoài đường được quản trị."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless-lf-enable.html",
+          "locator": "Overview; How EMR Serverless works with AWS Lake Formation",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-EMR-FGAC"
+        },
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/lake-formation/latest/dg/data-filtering.html",
+          "locator": "Column-level security; Row-level security; filters apply only to read operations",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-LF-FILTERS"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "level": "full"
+    },
+    {
+      "id": "vp_glue_emr72_lf_get_data_access",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "lake_formation_get_data_access",
+        "client": "emr_serverless_spark"
+      },
+      "note": "Lake Formation cấp credential tạm cho đường đọc bảng đã đăng ký của EMR Serverless Spark.",
+      "limits": [
+        "Chỉ đường Glue + EMR Serverless + Lake Formation đã cấu hình; không suy mọi Spark client dùng Glue.",
+        "EMR 7.2.0 trong bài lab; quyền metadata, IAM/S3 và LF grants phải phù hợp từng vai trò.",
+        "Không tuyên bố hạ tầng đã được triển khai hoặc benchmark trong dự án.",
+        "Đây là đường GetDataAccess có integrated enforcement, khác GetTemporaryDataLocationCredentials full-table.",
+        "Không suy credential tạm đơn độc thực hiện lọc hàng/cột."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless-lf-enable.html",
+          "locator": "Job runtime role IAM permissions; Tables registered in AWS Lake Formation",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-EMR-FGAC"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "level": "full"
+    },
+    {
+      "id": "vp_glue_documented_catalog_minimum",
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "limits.quota",
+      "qualifiers": {
+        "resource": "tables",
+        "boundary": "catalog"
+      },
+      "note": "Bài lab mô tả bảy bảng riêng trong một producer Glue catalog/database; đây là cận dưới của ví dụ đã công bố.",
+      "limits": [
+        "Không phải quota tối đa hay phép đo hiệu năng.",
+        "Chỉ xác nhận nhu cầu số bảng không vượt số minh họa, cùng phạm vi lab và điều kiện.",
+        "Không thay thế kiểm tra quota/headroom tài khoản thực."
+      ],
+      "evidence": [
+        {
+          "kind": "official_blog",
+          "url": "https://aws.amazon.com/blogs/big-data/fine-grained-access-control-in-amazon-emr-serverless-with-aws-lake-formation/",
+          "locator": "Grant table permissions for the finance analyst; Grant table permissions for the product analyst",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-FGAC-LAB"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "value": {
+        "amount": 7,
+        "unit": "tables"
+      },
+      "observation_context": {
+        "limit_kind": "demonstrated_minimum",
+        "conditions": "Documented producer catalog example, iceberg_db database, EMR 7.2.0; source-reported workflow, not independently executed.",
+        "as_of": "2026-10-18",
+        "observation_basis": "documented_worked_example",
+        "example_table_ids": [
+          "store_sales_iceberg",
+          "customer_demographics_iceberg",
+          "store_iceberg",
+          "item_iceberg",
+          "date_dim_iceberg",
+          "house_hold_demographics_iceberg",
+          "customer_iceberg"
+        ],
+        "upward_extrapolation_allowed": false
+      }
+    },
+    {
+      "id": "vp_nessie_local_lab",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "deployment.environment",
+      "qualifiers": {
+        "environment": "local_lab"
+      },
+      "note": "Nessie có recipe server cục bộ và native Spark client kết nối endpoint cục bộ.",
+      "limits": [
+        "Đường native Iceberg NessieCatalog; không đổi thành Iceberg REST chỉ vì cùng server hỗ trợ REST.",
+        "Spark/Iceberg/Nessie extension JAR phải tương thích; kho dữ liệu phải được Spark truy cập.",
+        "Recipe tự quản lý ở local lab; chưa xác nhận cấu hình production hoặc hạ tầng đã được chạy.",
+        "Recipe server local có thể dùng MinIO; chọn warehouse local filesystem là phạm vi của native Spark lab, không suy từ cloud."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/try-nessie/",
+          "locator": "Running Nessie on your laptop using Docker/Podman",
+          "retrieved_at": "2026-10-18",
+          "source_id": "NESSIE-LOCAL"
+        },
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/iceberg/spark/",
+          "locator": "Configuration: localhost Nessie API endpoint and local Spark master",
+          "retrieved_at": "2026-10-18",
+          "source_id": "NESSIE-SPARK"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "level": "full"
+    },
+    {
+      "id": "vp_nessie_native_spark_read",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "read",
+        "api": "nessie_api",
+        "connector": "iceberg_nessie_catalog",
+        "engine_release": "spark3_native_documented"
+      },
+      "note": "Native Spark NessieCatalog đọc bảng Iceberg bằng SELECT/DataFrame API.",
+      "limits": [
+        "Đường native Iceberg NessieCatalog; không đổi thành Iceberg REST chỉ vì cùng server hỗ trợ REST.",
+        "Spark/Iceberg/Nessie extension JAR phải tương thích; kho dữ liệu phải được Spark truy cập.",
+        "Recipe tự quản lý ở local lab; chưa xác nhận cấu hình production hoặc hạ tầng đã được chạy."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/iceberg/spark/",
+          "locator": "Configuration; Writing / Spark3; Reading",
+          "retrieved_at": "2026-10-18",
+          "source_id": "NESSIE-SPARK"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "level": "full"
+    },
+    {
+      "id": "vp_nessie_native_spark_append",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "append",
+        "api": "nessie_api",
+        "connector": "iceberg_nessie_catalog",
+        "engine_release": "spark3_native_documented"
+      },
+      "note": "Native Spark NessieCatalog hỗ trợ append và INSERT INTO.",
+      "limits": [
+        "Đường native Iceberg NessieCatalog; không đổi thành Iceberg REST chỉ vì cùng server hỗ trợ REST.",
+        "Spark/Iceberg/Nessie extension JAR phải tương thích; kho dữ liệu phải được Spark truy cập.",
+        "Recipe tự quản lý ở local lab; chưa xác nhận cấu hình production hoặc hạ tầng đã được chạy."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/iceberg/spark/",
+          "locator": "Configuration; Writing / Spark3; Reading",
+          "retrieved_at": "2026-10-18",
+          "source_id": "NESSIE-SPARK"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "level": "full"
+    },
+    {
+      "id": "vp_nessie_native_spark_create_table",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "create_table",
+        "api": "nessie_api",
+        "connector": "iceberg_nessie_catalog",
+        "engine_release": "spark3_native_documented"
+      },
+      "note": "Native Spark NessieCatalog có ví dụ CREATE TABLE và createTable.",
+      "limits": [
+        "Đường native Iceberg NessieCatalog; không đổi thành Iceberg REST chỉ vì cùng server hỗ trợ REST.",
+        "Spark/Iceberg/Nessie extension JAR phải tương thích; kho dữ liệu phải được Spark truy cập.",
+        "Recipe tự quản lý ở local lab; chưa xác nhận cấu hình production hoặc hạ tầng đã được chạy."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/iceberg/spark/",
+          "locator": "Configuration; Writing / Spark3; Reading",
+          "retrieved_at": "2026-10-18",
+          "source_id": "NESSIE-SPARK"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "level": "full"
+    },
+    {
+      "id": "vp_nessie_native_iceberg_create",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "create",
+        "api": "nessie_api"
+      },
+      "note": "NessieCatalog tạo entry Iceberg và commit metadata vào Nessie.",
+      "limits": [
+        "Đường native Iceberg NessieCatalog; không đổi thành Iceberg REST chỉ vì cùng server hỗ trợ REST.",
+        "Spark/Iceberg/Nessie extension JAR phải tương thích; kho dữ liệu phải được Spark truy cập.",
+        "Recipe tự quản lý ở local lab; chưa xác nhận cấu hình production hoặc hạ tầng đã được chạy."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/iceberg/spark/",
+          "locator": "Configuration; Writing / Spark3; Reading",
+          "retrieved_at": "2026-10-18",
+          "source_id": "NESSIE-SPARK"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "level": "full"
+    },
+    {
+      "id": "vp_nessie_documented_catalog_minimum",
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "limits.quota",
+      "qualifiers": {
+        "resource": "tables",
+        "boundary": "catalog"
+      },
+      "note": "Tài liệu native Spark có ví dụ tạo và đọc ít nhất một bảng logic trong Nessie catalog.",
+      "limits": [
+        "Cận dưới một bảng theo worked example, không phải giới hạn tối đa.",
+        "Không chứng minh 99 bảng từ bucket <100, không chứng minh hiệu năng hay SLA.",
+        "Ví dụ chính thức chưa được triển khai lại trong dự án."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/iceberg/spark/",
+          "locator": "Configuration; Writing / Spark3; Reading",
+          "retrieved_at": "2026-10-18",
+          "source_id": "NESSIE-SPARK"
+        }
+      ],
+      "status": "draft",
+      "verification": {
+        "source_text_cross_checked_on": "2026-10-18",
+        "independent_runtime_tested": false,
+        "human_expert_approved": false
+      },
+      "value": {
+        "amount": 1,
+        "unit": "tables"
+      },
+      "observation_context": {
+        "limit_kind": "demonstrated_minimum",
+        "conditions": "Native Spark NessieCatalog worked example creates then reads one logical table; source example, not an independently measured scale result.",
+        "as_of": "2026-10-18",
+        "observation_basis": "documented_worked_example",
+        "example_table_ids": [
+          "nessie.testing.city"
+        ],
+        "upward_extrapolation_allowed": false
+      },
+      "supersedes_claim_ids": [
+        "cl_nessie_oss_2026_10_17_quota_unknown"
+      ]
+    }
+  ],
+  "reviewed_existing_claims": [
+    {
+      "claim_id": "cl_nessie_oss_2026_10_17_ice_load",
+      "reviewed_on": "2026-10-18",
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/iceberg/spark/",
+          "locator": "Configuration; Writing / Spark3; Reading",
+          "retrieved_at": "2026-10-18",
+          "source_id": "NESSIE-SPARK"
+        }
+      ],
+      "finding": "Existing native Nessie load claim is consistent with documented SELECT; reuse its ID."
+    },
+    {
+      "claim_id": "cl_nessie_oss_2026_10_17_branch",
+      "reviewed_on": "2026-10-18",
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/transactions/",
+          "locator": "Cross-Table Transactions / Via Branches",
+          "retrieved_at": "2026-10-18",
+          "source_id": "NESSIE-TRANSACTIONS"
+        },
+        {
+          "kind": "official_doc",
+          "url": "https://projectnessie.org/guides/sql/",
+          "locator": "Creating Branches/Tags; Switching to a Branch/Tag; Merging a Branch into another Branch",
+          "retrieved_at": "2026-10-18",
+          "source_id": "NESSIE-SQL"
+        }
+      ],
+      "finding": "Full workflow at catalog scope supported through Nessie API; runtime tools and privileges must be configured."
+    },
+    {
+      "claim_id": "cl_glue_aws_2026_10_17_aws_endpoint",
+      "reviewed_on": "2026-10-18",
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless-lf-enable.html",
+          "locator": "Spark configuration for Iceberg / regional Glue endpoint",
+          "retrieved_at": "2026-10-18",
+          "source_id": "AWS-EMR-FGAC"
+        }
+      ],
+      "finding": "Existing AWS regional service claim retained; client location does not relocate the service."
+    }
+  ]
+}

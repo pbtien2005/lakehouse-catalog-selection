@@ -1,0 +1,105 @@
+{
+  "manifest": {
+    "revision": "layer2-policy-v1",
+    "created_on": "2026-10-17",
+    "form_source": "input-v1.md",
+    "property_dictionary": "layer-1-properties.json",
+    "artifact_kind": "design_policy_not_runtime_engine"
+  },
+  "confirmed_scope": {
+    "evidence": "User confirmed: Giữ bộ input hiện tại.",
+    "add_operations_or_lock_in_criteria": false,
+    "add_authentication_question": false,
+    "streaming": {
+      "status": "pending_in_input_v1",
+      "enabled_by_default": false
+    },
+    "platform_commitment_effect": "context_and_reminder_only",
+    "special_feature_ranks": [
+      "mandatory",
+      "nice_to_have"
+    ]
+  },
+  "role_rules": {
+    "explicit_need_yes": "HARD",
+    "explicit_need_no": "NO_REQUIREMENT",
+    "feature_mandatory": "HARD",
+    "feature_nice_to_have": "SOFT",
+    "environment_or_installed_engine_or_format": "CONTEXT_until_preservation_confirmed",
+    "workload_scale": "CONTEXT",
+    "unknown_or_unanswered": "KEEP_UNRESOLVED_not_NO_REQUIREMENT"
+  },
+  "preservation_confirmation": {
+    "source": "case_owner_confirmation_or_existing_authorized_requirement",
+    "field": "confirmed_required_inputs",
+    "not_inferred_from_catalog_scores": true
+  },
+  "unknown_policy": {
+    "user_need": "unresolved_need",
+    "input_context": "unresolved_context",
+    "knowledge_evidence": "layer3_evidence_gap",
+    "automatically_ignore": false,
+    "automatically_impute_zero": false,
+    "scenario_expansion": "only_declared_finite_domains_with_joint_constraints",
+    "probabilities": "none_unless_explicitly_supplied",
+    "unknown_is_not_not_applicable": true
+  },
+  "qualifier_policy": {
+    "form": "facts_named_by_user",
+    "decision_context": "confirmed_requirement_details",
+    "candidate_path": "selected_in_layer3_from_compatible_L1_scope",
+    "never_derive_storage_from_cloud": true,
+    "never_cross_product_all_engine_format_pairs": true,
+    "one_consistent_catalog_scope": true,
+    "candidate_bindings_must_be_resolved_jointly": true,
+    "same_api_for_all_engines_required": false
+  },
+  "weight_policy": {
+    "auto_adjust_from_scale": false,
+    "active_preset": null,
+    "automatic_rank_to_number": false,
+    "optional_presets": {
+      "demo_3_to_1": {
+        "raw_priority_factors": {
+          "high": 3,
+          "low": 1
+        },
+        "status": "inactive_design_example",
+        "requires": [
+          "explicit_preset_acceptance",
+          "defined_value_functions",
+          "nonduplicated_objectives",
+          "priority_labels_available_in_form_revision"
+        ],
+        "note": "The current form has no important/high rank. This preset is not applied by layer 2."
+      },
+      "demo_equal_soft": {
+        "raw_factor_per_soft_objective": 1,
+        "status": "inactive_reference_scenario",
+        "requires": [
+          "explicit_preset_acceptance",
+          "defined_value_functions",
+          "nonduplicated_objectives"
+        ]
+      }
+    },
+    "default_output": "SOFT_objectives_with_unset_weights",
+    "normalization_if_enabled": "normalize_only_active_soft_objectives_after_acceptance"
+  },
+  "mandatory_policy": {
+    "hard_cap": null,
+    "never_demote_automatically": true,
+    "diagnose_infeasibility_in_layer3": true,
+    "count_logical_needs_not_atomic_checks": true
+  },
+  "validation_policy": {
+    "preserve_raw_answers": true,
+    "unknown_key_or_rank": "report_input_issue",
+    "exclusive_none_with_selection": "report_input_issue",
+    "silent_repair": false
+  },
+  "versioning": {
+    "store_form_mapping_policy_and_property_dictionary_revisions": true
+  }
+}
+

@@ -1,0 +1,11 @@
+{
+  "split_counts": {
+    "calibration": 6,
+    "holdout": 4
+  },
+  "sha256": {
+    "calibration": "285e577b4e23576a1e3d5a467e85440a2d9e6267000cd679e455ff212fe8618f",
+    "holdout": "f17055583352d3cc49b400ce76ec87c17f427fcd2ac85203bb0025900a488f56"
+  },
+  "rule": "Never use holdout results to change code, KB or weights; defects found later are reported separately."
+}

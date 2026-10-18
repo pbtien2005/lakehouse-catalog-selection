@@ -1,0 +1,1 @@
+{"name":"incoming_events","type":"EXTERNAL","comment":"Existing JSONL files","storageLocation":"file:///raw-files/external/incoming","properties":{}}

@@ -1,0 +1,375 @@
+{
+  "manifest": {
+    "revision": "layer2-anchors-v2",
+    "property_dictionary": "layer-1-properties.json",
+    "purpose": "acceptance_contracts_not_product_claims",
+    "profile": "layer-2-mvp-profile.json",
+    "property_dictionary_revision": "layer1-properties-v3.1"
+  },
+  "global_rules": {
+    "unknown_not_ordered": true,
+    "no_implicit_numeric_value_scale": true,
+    "only_full_hard_threshold_on_binary_properties": true,
+    "consistent_scope_required": true,
+    "joint_candidate_path_resolution_required": false,
+    "explicit_soft_value_mapping": "../catalog-reasoner-mvp/config.json#level_to_value",
+    "candidate_bindings_execution": "trace_only_deferred",
+    "input_scope": "form_registry_and_profile_defaults_only_no_extra_case_context"
+  },
+  "anchors": [
+    {
+      "property_id": "deployment.environment",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Scope đáp ứng môi trường bắt buộc được chọn trực tiếp trong form v2.",
+      "qualifier_bindings": {
+        "environment": {
+          "source": "form",
+          "path": "I01",
+          "meaning": "Không cần confirmed_required_inputs."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "trace_only_unresolved_no_MVP_path_selection",
+      "interpretation_limits": [
+        "Partial is not in this property's binary rubric.",
+        "This is not a provider preference."
+      ]
+    },
+    {
+      "property_id": "integration.engine_operation",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Mỗi engine/thao tác/format được yêu cầu có đường tích hợp trong cùng catalog scope.",
+      "qualifier_bindings": {
+        "engine": {
+          "source": "form",
+          "path": "I02",
+          "meaning": "Engine riêng đã chọn, không còn nhãn nhóm."
+        },
+        "format": {
+          "source": "form",
+          "path": "I03_single_format",
+          "meaning": "Một format: mỗi engine đọc format đã chọn theo hợp đồng form; mixed giữ binding chưa rõ nếu thiếu."
+        },
+        "operation": {
+          "source": "profile",
+          "path": "defaults.engine_operation",
+          "meaning": "read from the disclosed MVP profile; no per-case override in form payload."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "workload_bindings[].api",
+          "meaning": "Required candidate path recorded in trace; not selected automatically in this MVP.",
+          "execution": "trace_only_deferred"
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "trace_only_unresolved_no_MVP_path_selection",
+      "interpretation_limits": [
+        "Only the disclosed single-format read profile expands selected engines. Mixed formats require actual bindings; not-chosen format is one shared variable.",
+        "Read/append/merge checks share a logical need and are not independent score bonuses."
+      ]
+    },
+    {
+      "property_id": "catalog.format_operation",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Catalog thực hiện được những thao tác metadata được ca lựa chọn yêu cầu trên format cần giữ.",
+      "qualifier_bindings": {
+        "format": {
+          "source": "form",
+          "path": "I03_single_format",
+          "meaning": "Chưa chọn là biến format chung, không phải AND cả ba."
+        },
+        "operation": {
+          "source": "profile",
+          "path": "defaults.catalog_operations",
+          "meaning": "load metadata, không tự thêm create/drop."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "catalog_metadata_path.api",
+          "meaning": "Required candidate path recorded in trace; not selected automatically in this MVP.",
+          "execution": "trace_only_deferred"
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "trace_only_unresolved_no_MVP_path_selection",
+      "interpretation_limits": [
+        "Metadata registration does not establish engine write support."
+      ]
+    },
+    {
+      "property_id": "security.authorization",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Allow/deny được thực thi ở cấp quyền, hành động và các đường truy cập được yêu cầu.",
+      "qualifier_bindings": {
+        "granularity": {
+          "source": "form",
+          "path": "I07",
+          "meaning": "table/column/row hoặc AND column và row được nêu rõ."
+        },
+        "action": {
+          "source": "profile",
+          "path": "defaults.authorization_action",
+          "meaning": "read theo profile."
+        },
+        "access_path": {
+          "source": "candidate_path",
+          "path": "selected_engine_read_paths[]",
+          "meaning": "Required candidate path recorded in trace; not selected automatically in this MVP.",
+          "execution": "trace_only_deferred"
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "trace_only_unresolved_no_MVP_path_selection",
+      "interpretation_limits": [
+        "No catalog authorization requirement does not waive other security requirements.",
+        "RBAC and vending are not substitutes for enforcement evidence."
+      ]
+    },
+    {
+      "property_id": "storage.credential_vending",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Catalog cấp credential storage tạm thời có scope phù hợp cho đường engine/storage cần dùng.",
+      "qualifier_bindings": {
+        "storage": {
+          "source": "unresolved_context_not_in_form",
+          "path": "data_storage_or_allowed_storage_domain",
+          "meaning": "Không suy từ I01."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "storage_delegation_path.api",
+          "meaning": "Required candidate path recorded in trace; not selected automatically in this MVP.",
+          "execution": "trace_only_deferred"
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "trace_only_unresolved_no_MVP_path_selection",
+      "interpretation_limits": [
+        "No means no vending requirement, not a security waiver.",
+        "A known full claim for one storage does not settle an unknown storage."
+      ]
+    },
+    {
+      "property_id": "commit.concurrent_write",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Có cơ chế concurrent commit phù hợp thao tác và mô hình ghi đồng thời bắt buộc.",
+      "qualifier_bindings": {
+        "operation": {
+          "source": "profile",
+          "path": "defaults.concurrent_operation",
+          "meaning": "append theo phạm vi MVP; không suy MERGE/overwrite."
+        },
+        "writer_topology": {
+          "source": "profile",
+          "path": "defaults.concurrent_topology",
+          "meaning": "multi_engine khi I05 từ hai engine; không suy số job."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "write_path.api",
+          "meaning": "Required candidate path recorded in trace; not selected automatically in this MVP.",
+          "execution": "trace_only_deferred"
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "trace_only_unresolved_no_MVP_path_selection",
+      "interpretation_limits": [
+        "I05 explicitly asks simultaneous writers; buckets >=2 activate HARD catalog-commit concurrency without an external confirmation flag.",
+        "No automatic weight increase from a scale bucket.",
+        "I05 từ hai engine tạo yêu cầu cơ chế concurrent append cấp catalog. Chưa xác minh toàn bộ engine ghi, MERGE/overwrite hoặc số writer job; không dùng kiểm tra này làm bằng chứng cho các phần đó."
+      ]
+    },
+    {
+      "property_id": "limits.quota",
+      "value_type": "quantity",
+      "rubric_ref": null,
+      "hard_min_level": null,
+      "acceptance_contract": "Đối chiếu quota đúng phạm vi với khoảng số bảng; giữ kết quả có điều kiện khi khoảng cắt quota.",
+      "qualifier_bindings": {
+        "resource": {
+          "source": "constant",
+          "path": "tables",
+          "meaning": "Tài nguyên bảng."
+        },
+        "boundary": {
+          "source": "profile",
+          "path": "defaults.table_count_boundary",
+          "meaning": "catalog theo câu I04 đã sửa."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "trace_only_unresolved_no_MVP_path_selection",
+      "interpretation_limits": [
+        "Do not substitute observed test size for maximum quota.",
+        "An open upper bound cannot be guaranteed by a finite quota."
+      ],
+      "comparison": {
+        "quantity_unit": "tables",
+        "all_values_within_quota": "quota >= upper_bound_when_finite",
+        "all_values_exceed_quota": "quota < lower_bound",
+        "otherwise": "conditional",
+        "missing_quota": "UNKNOWN"
+      }
+    },
+    {
+      "property_id": "performance.observation",
+      "value_type": "quantity",
+      "rubric_ref": null,
+      "hard_min_level": null,
+      "acceptance_contract": "Chỉ dùng quan sát đúng workload/scenario; không tạo SLO hoặc điểm từ số bảng.",
+      "qualifier_bindings": {
+        "metric": {
+          "source": "unresolved_context_not_in_form",
+          "path": "performance_target.metric",
+          "meaning": "Chỉ có khi ca có mục tiêu đã biết."
+        },
+        "scenario": {
+          "source": "unresolved_context_not_in_form",
+          "path": "performance_target.scenario",
+          "meaning": "Cùng workload/environment."
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "trace_only_unresolved_no_MVP_path_selection",
+      "interpretation_limits": [
+        "Context-only until a target and comparable observations exist."
+      ]
+    },
+    {
+      "property_id": "integration.streaming_write",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Đường ghi engine/format/mode phải được chứng minh nếu sau này streaming được xác nhận là yêu cầu.",
+      "qualifier_bindings": {
+        "engine": {
+          "source": "unresolved_context_not_in_form",
+          "path": "streaming_bindings[].engine",
+          "meaning": "Không tự chọn engine trong I02."
+        },
+        "format": {
+          "source": "unresolved_context_not_in_form",
+          "path": "streaming_bindings[].format",
+          "meaning": "Format của stream này."
+        },
+        "mode": {
+          "source": "unresolved_context_not_in_form",
+          "path": "streaming_bindings[].mode",
+          "meaning": "Micro-batch/streaming path/continuous được phân biệt."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "streaming_bindings[].api",
+          "meaning": "Required candidate path recorded in trace; not selected automatically in this MVP.",
+          "execution": "trace_only_deferred"
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "trace_only_unresolved_no_MVP_path_selection",
+      "interpretation_limits": [
+        "This input is not enabled by the current confirmed form scope."
+      ]
+    },
+    {
+      "property_id": "workflow.branching",
+      "value_type": "support",
+      "rubric_ref": "branching",
+      "hard_min_level": "full",
+      "acceptance_contract": "Workflow tạo nhánh, ghi cô lập và công bố thay đổi ở object_scope người dùng cần.",
+      "qualifier_bindings": {
+        "object_scope": {
+          "source": "profile",
+          "path": "defaults.branching_object_scope",
+          "meaning": "catalog from the disclosed MVP profile; no per-case scope override."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "branching_path.api",
+          "meaning": "Required candidate path recorded in trace; not selected automatically in this MVP.",
+          "execution": "trace_only_deferred"
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "trace_only_unresolved_no_MVP_path_selection",
+      "interpretation_limits": [
+        "For a mandatory full workflow, partial does not meet the minimum.",
+        "Nice-to-have uses the explicit MVP utility none=0, partial=0.5, full=1; partial is not a measured technical distance."
+      ]
+    },
+    {
+      "property_id": "transaction.multi_table_atomic",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Không công bố trạng thái chỉ có một phần bảng được commit trong failure boundary đã xác nhận.",
+      "qualifier_bindings": {
+        "client_path": {
+          "source": "candidate_path",
+          "path": "atomic_update_path.client_path",
+          "meaning": "Required candidate path recorded in trace; not selected automatically in this MVP.",
+          "execution": "trace_only_deferred"
+        },
+        "failure_boundary": {
+          "source": "profile",
+          "path": "defaults.atomic_failure_boundary",
+          "meaning": "catalog_metadata_commit: all-or-nothing publication, not physical file rollback."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "atomic_update_path.api",
+          "meaning": "Required candidate path recorded in trace; not selected automatically in this MVP.",
+          "execution": "trace_only_deferred"
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "trace_only_unresolved_no_MVP_path_selection",
+      "interpretation_limits": [
+        "Do not equate orphan-file cleanup with logical atomic visibility.",
+        "Branch publication is eligible only if it proves this same contract."
+      ]
+    },
+    {
+      "property_id": "metadata.federation_operation",
+      "value_type": "support",
+      "rubric_ref": "binary",
+      "hard_min_level": "full",
+      "acceptance_contract": "Các nguồn cần quản lý thực hiện được các thao tác metadata được yêu cầu qua lớp thống nhất.",
+      "qualifier_bindings": {
+        "source_type": {
+          "source": "unresolved_context_not_in_form",
+          "path": "federation_bindings[].source_type",
+          "meaning": "Nguồn thực tế không mặc định; thiếu chỉ làm yêu cầu federation chưa rõ."
+        },
+        "operation": {
+          "source": "profile",
+          "path": "defaults.federation_operation",
+          "meaning": "read_metadata theo MVP; không mặc định mọi thao tác quản trị."
+        },
+        "api": {
+          "source": "candidate_path",
+          "path": "federation_bindings[].api",
+          "meaning": "Required candidate path recorded in trace; not selected automatically in this MVP.",
+          "execution": "trace_only_deferred"
+        }
+      },
+      "missing_user_context": "keep_requirement_with_needs_context",
+      "missing_candidate_path": "trace_only_unresolved_no_MVP_path_selection",
+      "interpretation_limits": [
+        "No automatic distributed-transaction or cross-source authorization assumption."
+      ]
+    }
+  ]
+}

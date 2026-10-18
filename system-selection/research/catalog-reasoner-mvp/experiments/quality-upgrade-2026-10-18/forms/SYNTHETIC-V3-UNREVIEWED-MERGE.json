@@ -1,0 +1,1 @@
+{"answers": {"I01": "local_lab", "I02": ["spark"], "I03": "iceberg", "I04": "lt_100", "I05": "one", "I07": "none", "I08": "no", "I09": ["none"], "I10": {"none": false, "selected": [{"feature": "branching", "rank": "mandatory"}]}, "I11": "local_fs", "I12": {"spark": ["read", "merge"]}}, "context": {"table_count_exact": 1}, "form_revision": "input-v3"}

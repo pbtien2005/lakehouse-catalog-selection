@@ -1,0 +1,50 @@
+name: uc-oss-learning
+
+services:
+  init-storage:
+    image: alpine:3.20
+    # Only changes permissions on this lab's named volume, never host directories.
+    command: ["sh", "-c", "chmod 1777 /lab-data"]
+    volumes:
+      - table-data:/lab-data
+    restart: "no"
+
+  uc:
+    image: unitycatalog/unitycatalog:v0.6.0
+    # Same container UID as Spark for this local shared-filesystem exercise.
+    user: "0:0"
+    working_dir: /home/unitycatalog
+    ports:
+      - "127.0.0.1:18080:8080"
+    volumes:
+      - ./conf/server.properties:/home/unitycatalog/etc/conf/server.properties:ro
+      - catalog-db:/home/unitycatalog/etc/db
+      - table-data:/lab-data
+    depends_on:
+      init-storage:
+        condition: service_completed_successfully
+
+  spark:
+    image: spark:4.0.1-scala2.13-java17-python3-ubuntu
+    profiles: ["tools"]
+    # Matches UC's UID to avoid cross-container local file ownership issues.
+    user: "0:0"
+    working_dir: /tmp
+    environment:
+      UC_URI: http://uc:8080
+      SPARK_LOCAL_IP: 127.0.0.1
+      PYSPARK_PYTHON: python3
+    volumes:
+      - ./:/lab:ro
+      - table-data:/lab-data
+      - ivy-cache:/tmp/uc-lab-ivy
+    entrypoint: ["bash", "/lab/scripts/run-spark.sh"]
+    command: ["demo"]
+    depends_on:
+      uc:
+        condition: service_started
+
+volumes:
+  catalog-db:
+  table-data:
+  ivy-cache:

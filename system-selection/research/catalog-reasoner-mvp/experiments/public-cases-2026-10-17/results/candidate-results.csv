@@ -1,0 +1,22 @@
+﻿case_id,candidate_id,name,scope_id,group,hard_pass_count,hard_condition_count,hard_failure_count,score_interval,top_rate,max_regret_observed,regret_upper_bound
+PUBLIC-LAB-01,apache_gravitino,Apache Gravitino,gravitino_oss_1_1_0,conditional,0,7,0,,,,
+PUBLIC-LAB-01,apache_polaris,Apache Polaris,polaris_oss_1_7_0,conditional,0,7,0,,,,
+PUBLIC-LAB-01,aws_glue_data_catalog,AWS Glue Data Catalog,glue_aws_2026_10_17,conditional,1,6,0,,,,
+PUBLIC-LAB-01,hive_metastore,Apache Hive Metastore,hms_oss_2026_10_17,conditional,0,7,0,,,,
+PUBLIC-LAB-01,project_nessie,Project Nessie,nessie_oss_2026_10_17,conditional,0,7,0,,,,
+PUBLIC-LAB-01,unity_catalog_databricks,Unity Catalog trên Databricks,unity_databricks_aws_2026_10_17,conditional,1,6,0,,,,
+PUBLIC-LAB-01,unity_catalog_oss,Unity Catalog OSS,unity_oss_2026_10_17,conditional,0,7,0,,,,
+PUBLIC-LAB-02,apache_gravitino,Apache Gravitino,gravitino_oss_1_1_0,conditional,0,5,0,,,,
+PUBLIC-LAB-02,apache_polaris,Apache Polaris,polaris_oss_1_7_0,conditional,0,5,0,,,,
+PUBLIC-LAB-02,aws_glue_data_catalog,AWS Glue Data Catalog,glue_aws_2026_10_17,conditional,0,5,0,,,,
+PUBLIC-LAB-02,hive_metastore,Apache Hive Metastore,hms_oss_2026_10_17,conditional,0,5,0,,,,
+PUBLIC-LAB-02,project_nessie,Project Nessie,nessie_oss_2026_10_17,conditional,0,5,0,,,,
+PUBLIC-LAB-02,unity_catalog_databricks,Unity Catalog trên Databricks,unity_databricks_aws_2026_10_17,conditional,0,5,0,,,,
+PUBLIC-LAB-02,unity_catalog_oss,Unity Catalog OSS,unity_oss_2026_10_17,conditional,0,5,0,,,,
+PUBLIC-LAB-02-SOFT,apache_gravitino,Apache Gravitino,gravitino_oss_1_1_0,conditional,0,4,0,"[0.0, 1.0]",0.09400000000000007,1.0,1
+PUBLIC-LAB-02-SOFT,apache_polaris,Apache Polaris,polaris_oss_1_7_0,conditional,0,4,0,"[0.0, 1.0]",0.08366666666666672,1.0,1
+PUBLIC-LAB-02-SOFT,aws_glue_data_catalog,AWS Glue Data Catalog,glue_aws_2026_10_17,conditional,0,4,0,"[0.0, 1.0]",0.06766666666666671,1.0,1
+PUBLIC-LAB-02-SOFT,hive_metastore,Apache Hive Metastore,hms_oss_2026_10_17,conditional,0,4,0,"[0.0, 1.0]",0.03600000000000002,1.0,1
+PUBLIC-LAB-02-SOFT,project_nessie,Project Nessie,nessie_oss_2026_10_17,conditional,0,4,0,"[0.0, 1.0]",0.06500000000000004,1.0,1
+PUBLIC-LAB-02-SOFT,unity_catalog_databricks,Unity Catalog trên Databricks,unity_databricks_aws_2026_10_17,conditional,0,4,0,"[0.0, 1.0]",0.06700000000000005,1.0,1
+PUBLIC-LAB-02-SOFT,unity_catalog_oss,Unity Catalog OSS,unity_oss_2026_10_17,conditional,0,4,0,"[0.0, 1.0]",0.052666666666666695,1.0,1

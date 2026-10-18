@@ -1,0 +1,9 @@
+node_modules/
+.sites-runtime/
+.sites-checkout/
+artifacts/
+*.zip
+.env*
+!.env*.example
+!.env*.sample
+!.env*.template

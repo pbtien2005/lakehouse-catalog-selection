@@ -1,0 +1,28 @@
+{
+  "schema": "reviewed-public-problem-v1",
+  "purpose": "Evidence worksheet; not a payload to POST directly. Submit only form_payload after review.",
+  "is_synthetic_adaptation": true,
+  "independent_holdout": false,
+  "sources": [{"id": "SOURCE-A", "url": null, "title": null, "read_on": null}],
+  "problem_summary": null,
+  "facts": [
+    {"field": "answers.I01", "meaning": "catalog deployment environment", "value": null, "basis": "unknown", "evidence": []},
+    {"field": "answers.I02", "meaning": "required engines", "value": null, "basis": "unknown", "evidence": []},
+    {"field": "answers.I03", "meaning": "table format", "value": null, "basis": "unknown", "evidence": []},
+    {"field": "answers.I04", "meaning": "table count bucket at declared boundary", "value": null, "basis": "unknown", "evidence": []},
+    {"field": "answers.I05", "meaning": "engine types concurrently writing same table", "value": null, "basis": "unknown", "evidence": []},
+    {"field": "answers.I07", "meaning": "read authorization requirement", "value": null, "basis": "unknown", "evidence": []},
+    {"field": "answers.I08", "meaning": "credential vending requirement", "value": null, "basis": "unknown", "evidence": []},
+    {"field": "answers.I09", "meaning": "actual existing platform commitment, context only", "value": null, "basis": "unknown", "evidence": []},
+    {"field": "answers.I10", "meaning": "special needs and explicit priority", "value": null, "basis": "unknown", "evidence": []},
+    {"field": "answers.I11", "meaning": "storage fact, not inferred from cloud", "value": null, "basis": "unknown", "evidence": []},
+    {"field": "answers.I12", "meaning": "required operations per selected engine", "value": null, "basis": "unknown", "evidence": []},
+    {"field": "context.table_count_exact", "meaning": "exact requested count, only if known", "value": null, "basis": "unknown", "evidence": []}
+  ],
+  "allowed_basis": ["source_fact", "derived_from_source", "experimental_design", "unknown"],
+  "lab_scope_assumptions": [],
+  "missing_information": [],
+  "form_payload": {"form_revision": "input-v3", "answers": {}},
+  "execution_result_file": null,
+  "rule": "Source silence stays unknown; never invent a no-need answer, contract, platform lock-in, writer count or priority."
+}

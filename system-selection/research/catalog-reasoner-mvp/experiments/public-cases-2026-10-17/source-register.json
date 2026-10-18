@@ -1,0 +1,56 @@
+{
+  "review_date": "2026-10-17",
+  "method": "Read primary technical walkthroughs and official documentation; record locators rather than copy source articles.",
+  "sources": [
+    {
+      "id": "AWS-BLOG",
+      "title": "Fine-grained access control in Amazon EMR Serverless with AWS Lake Formation",
+      "publisher": "Amazon Web Services",
+      "published": "2024-11-01",
+      "url": "https://aws.amazon.com/blogs/big-data/fine-grained-access-control-in-amazon-emr-serverless-with-aws-lake-formation/",
+      "locators": ["Solution overview", "Create a Lake Formation enabled EMR Serverless application", "Grant table permissions for the finance analyst", "Verify access using interactive notebooks from EMR Studio"],
+      "facts": ["Cross-account Iceberg analytics uses Spark on EMR Serverless with Glue and Lake Formation.", "Finance permissions exclude cost/credit columns and filter date rows; ingestion and access-check notebooks are linked."],
+      "version_context": {"emr_release_in_walkthrough": "7.2.0"},
+      "artifact_status": "Article and linked notebook names inspected; notebook code and CloudFormation not executed or independently validated."
+    },
+    {
+      "id": "AWS-DOCS",
+      "title": "Using EMR Serverless with AWS Lake Formation for fine-grained access control",
+      "publisher": "Amazon Web Services",
+      "published": null,
+      "url": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless-lf-enable.html",
+      "locators": ["Permission requirements / Tables registered in AWS Lake Formation", "Supported table matrix and version notes"],
+      "facts": ["Lake Formation vends temporary credentials for registered table data access; the runtime role accesses catalog metadata.", "Write credential behavior depends on EMR release and operation."],
+      "version_context": {"documentation_is_live": true, "do_not_backport_latest_behavior_to_old_walkthrough": true}
+    },
+    {
+      "id": "DREMIO-LAB",
+      "title": "Getting Started with Project Nessie, Apache Iceberg, and Apache Spark Using Docker",
+      "publisher": "Dremio",
+      "published": null,
+      "url": "https://www.dremio.com/open-source/nessie/",
+      "locators": ["Adding Tables to the Catalog", "CREATE TABLE / CREATE BRANCH / MERGE BRANCH walkthrough"],
+      "facts": ["Local Docker walkthrough uses Spark, Iceberg and Nessie with a local warehouse.", "A one-table branch changes independently of main and is later merged."],
+      "version_context": {"spark": "3.2", "iceberg": "0.14.0", "nessie_spark_extension": "0.40.1", "nessie_api": "v1", "server_image_pinned": false},
+      "artifact_status": "Commands read, not executed. Historical example is not a tested current deployment recipe."
+    },
+    {
+      "id": "NESSIE-SQL",
+      "title": "Nessie Spark SQL Extensions",
+      "publisher": "Project Nessie",
+      "published": null,
+      "url": "https://projectnessie.org/guides/sql/",
+      "locators": ["Grammar since Nessie 0.95.0", "Creating Branches/Tags", "Merging a Branch into another Branch"],
+      "facts": ["Official extensions document catalog branch creation, switching and merge.", "The documentation distinguishes grammar before and after version 0.95.0; engine, Iceberg and extension versions must match."]
+    },
+    {
+      "id": "NESSIE-TRANSACTIONS",
+      "title": "Transactions",
+      "publisher": "Project Nessie",
+      "published": null,
+      "url": "https://projectnessie.org/guides/transactions/",
+      "locators": ["Transactions", "Branches and merges"],
+      "facts": ["Catalog commits and branch publication are distinct from automatic multi-statement SQL transaction support in every engine."]
+    }
+  ]
+}

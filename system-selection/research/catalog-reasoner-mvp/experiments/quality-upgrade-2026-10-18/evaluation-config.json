@@ -1,0 +1,40 @@
+{
+  "revision": "source-development-quality-checks-v1",
+  "review_date": "2026-10-18",
+  "assumption": true,
+  "verification_repeats": 2,
+  "profiles_are_synthetic_source_adaptations": true,
+  "independent_holdout": false,
+  "model_parameter_overrides": null,
+  "base_cases": {
+    "aws": {
+      "source_form": "../public-cases-2026-10-17/forms/PUBLIC-LAB-01.json",
+      "source_ids": ["AWS-BLOG", "AWS-DOCS"],
+      "additional_facts": {"I11": "s3", "I12": {"spark": ["read", "append", "create_table"]}},
+      "exact_count": {"value": 5, "assumption": true, "basis": "Same bounded finance lab subset; not total enterprise size or a manufactured maximum quota."},
+      "reference_candidate": "aws_glue_data_catalog",
+      "reference_is_unique_gold": false
+    },
+    "nessie": {
+      "source_form": "../public-cases-2026-10-17/forms/PUBLIC-LAB-02.json",
+      "source_ids": ["DREMIO-LAB", "NESSIE-SQL", "NESSIE-TRANSACTIONS", "https://projectnessie.org/iceberg/spark/"],
+      "additional_facts": {"I01": "local_lab", "I11": "local_fs", "I12": {"spark": ["read", "append", "create_table"]}},
+      "exact_count": {"value": 1, "assumption": true, "basis": "Bounded one-table source walkthrough. Local lab is corrected to its exact environment instead of production on_prem."},
+      "reference_candidate": "project_nessie",
+      "reference_is_unique_gold": false
+    }
+  },
+  "cases": [
+    {"id": "SOURCE-V3-AWS", "base": "aws", "kind": "development_public_source_adaptation", "expected_group": "eligible", "expected_functional": "eligible"},
+    {"id": "SOURCE-V3-NESSIE", "base": "nessie", "kind": "development_public_source_adaptation", "expected_group": "eligible", "expected_functional": "eligible"},
+    {"id": "SYNTHETIC-V3-BUCKET-ONLY", "base": "nessie", "kind": "synthetic_boundary", "omit_exact": true, "expected_group": "conditional", "expected_functional": "eligible"},
+    {"id": "SYNTHETIC-V3-UNKNOWN-STORAGE", "base": "aws", "kind": "synthetic_boundary", "answer_overrides": {"I11": "unknown"}, "expected_group": "conditional", "expected_functional": "conditional"},
+    {"id": "SYNTHETIC-V3-UNREVIEWED-MERGE", "base": "nessie", "kind": "synthetic_boundary", "answer_overrides": {"I12": {"spark": ["read", "merge"]}}, "expected_group": "conditional", "expected_functional": "conditional"},
+    {"id": "SYNTHETIC-V3-PRODUCTION-ONPREM", "base": "nessie", "kind": "synthetic_boundary", "answer_overrides": {"I01": "on_prem"}, "expected_group": "conditional", "expected_functional": "conditional"},
+    {"id": "SYNTHETIC-V3-UNKNOWN-OPERATIONS", "base": "nessie", "kind": "synthetic_boundary", "answer_overrides": {"I12": {"spark": ["unknown"]}}, "expected_group": "conditional", "expected_functional": "conditional"},
+    {"id": "SYNTHETIC-V3-MULTI-WRITER", "base": "nessie", "kind": "synthetic_boundary", "answer_overrides": {"I05": "two_to_three"}, "expected_group": "conditional", "expected_functional": "conditional"},
+    {"id": "SYNTHETIC-V3-BAD-COUNT", "base": "aws", "kind": "synthetic_invalid_input", "exact_override": 100, "expected_status": "input_error"},
+    {"id": "SYNTHETIC-V3-BRANCH-SOFT", "base": "nessie", "kind": "synthetic_priority_counterfactual", "answer_overrides": {"I10": {"none": false, "selected": [{"feature": "branching", "rank": "nice_to_have"}]}}, "expected_group": "eligible", "expected_functional": "eligible", "expected_score_interval": [1, 1]}
+  ],
+  "interpretation": "Acceptance checks exercise documented path recovery and uncertainty handling, not recommendation accuracy or generalization to arbitrary websites. All numeric workload choices are recorded here, factual evidence numbers remain in sourced KB claims, all scoring parameters remain in the original config."
+}

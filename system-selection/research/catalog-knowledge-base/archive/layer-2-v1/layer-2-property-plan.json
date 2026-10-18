@@ -1,0 +1,367 @@
+{
+  "manifest": {
+    "revision": "layer2-property-plan-v1",
+    "property_dictionary": "layer-1-properties.json",
+    "scope": "collection_plan_not_KB_changes"
+  },
+  "first_slice_input_ids": [
+    "I01",
+    "I02",
+    "I03",
+    "I08",
+    "I07"
+  ],
+  "first_slice_properties": [
+    "deployment.environment",
+    "integration.engine_operation",
+    "catalog.format_operation",
+    "storage.credential_vending",
+    "security.authorization"
+  ],
+  "direct_mapping_targets": [
+    "deployment.environment",
+    "integration.engine_operation",
+    "catalog.format_operation",
+    "security.authorization",
+    "storage.credential_vending",
+    "commit.concurrent_write",
+    "limits.quota",
+    "performance.observation",
+    "integration.streaming_write",
+    "workflow.branching",
+    "transaction.multi_table_atomic",
+    "metadata.federation_operation"
+  ],
+  "principles": [
+    "Do not fill more catalog claims before accepting this mapping contract.",
+    "The existing 37-property dictionary is unchanged.",
+    "A context-only question need not invent a positively scored product property.",
+    "Collect dependency facts only when a selected path actually requires them."
+  ],
+  "records": [
+    {
+      "property_id": "catalog.format_operation",
+      "value_type": "support",
+      "disposition": "first_slice",
+      "referenced_inputs": [
+        "I03"
+      ],
+      "reason": "Thu cho năm mục đầu tiên: nơi chạy, engine, format, vending, phân quyền; chỉ trong những scope/path thực tế cần đánh giá.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "catalog.object_operation",
+      "value_type": "support",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "metadata.responsibility",
+      "value_type": "text",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "integration.engine_operation",
+      "value_type": "support",
+      "disposition": "first_slice",
+      "referenced_inputs": [
+        "I02",
+        "I03",
+        "I05"
+      ],
+      "reason": "Thu cho năm mục đầu tiên: nơi chạy, engine, format, vending, phân quyền; chỉ trong những scope/path thực tế cần đánh giá.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "integration.api_operation",
+      "value_type": "support",
+      "disposition": "path_dependency_only",
+      "referenced_inputs": [],
+      "reason": "Chỉ kiểm tra khi cần chứng minh endpoint/path mà engine hoặc capability dùng.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "integration.streaming_write",
+      "value_type": "support",
+      "disposition": "inactive_streaming_branch",
+      "referenced_inputs": [
+        "I06"
+      ],
+      "reason": "Nhánh I06 hiện chưa bật; giữ định nghĩa, chưa ưu tiên điền dữ liệu cho đến khi chốt nhu cầu.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "authentication.method",
+      "value_type": "support",
+      "disposition": "path_dependency_only",
+      "referenced_inputs": [],
+      "reason": "Điều kiện kỹ thuật của đường truy cập đã chọn; không thêm tiêu chí OAuth2/OIDC hay câu hỏi mới.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "authentication.identity_provider",
+      "value_type": "support",
+      "disposition": "path_dependency_only",
+      "referenced_inputs": [],
+      "reason": "Chỉ cần nếu case/path có IdP hoặc yêu cầu identity thực sự liên quan.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "authentication.session_control",
+      "value_type": "support",
+      "disposition": "path_dependency_only",
+      "referenced_inputs": [],
+      "reason": "Chỉ cần nếu vòng đời phiên/token ảnh hưởng đường bắt buộc.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "authorization.policy_model",
+      "value_type": "support",
+      "disposition": "path_dependency_only",
+      "referenced_inputs": [],
+      "reason": "Giải thích cơ chế của enforcement; không thay security.authorization hoặc cộng điểm RBAC.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "security.authorization",
+      "value_type": "support",
+      "disposition": "first_slice",
+      "referenced_inputs": [
+        "I07"
+      ],
+      "reason": "Thu cho năm mục đầu tiên: nơi chạy, engine, format, vending, phân quyền; chỉ trong những scope/path thực tế cần đánh giá.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "authorization.external_policy",
+      "value_type": "support",
+      "disposition": "path_dependency_only",
+      "referenced_inputs": [],
+      "reason": "Chỉ thu khi enforcement bắt buộc phụ thuộc policy service ngoài.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "storage.backend",
+      "value_type": "support",
+      "disposition": "path_dependency_only",
+      "referenced_inputs": [],
+      "reason": "Xác minh storage của đường dữ liệu cần dùng, không suy từ cloud.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "storage.access_method",
+      "value_type": "string_set",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "storage.credential_vending",
+      "value_type": "support",
+      "disposition": "first_slice",
+      "referenced_inputs": [
+        "I08"
+      ],
+      "reason": "Thu cho năm mục đầu tiên: nơi chạy, engine, format, vending, phân quyền; chỉ trong những scope/path thực tế cần đánh giá.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "storage.credential_lifecycle",
+      "value_type": "support",
+      "disposition": "path_dependency_only",
+      "referenced_inputs": [],
+      "reason": "Chỉ thu khi path dùng vending cần refresh/expiry đáp ứng workload.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "commit.guarantee",
+      "value_type": "text",
+      "disposition": "path_dependency_only",
+      "referenced_inputs": [],
+      "reason": "Giải thích cơ chế commit/conflict/visibility khi concurrent-write hoặc transaction được dùng.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "commit.concurrent_write",
+      "value_type": "support",
+      "disposition": "conditional_workload",
+      "referenced_inputs": [
+        "I05"
+      ],
+      "reason": "Thu khi cần làm rõ hoặc đáp ứng ghi đồng thời; không tự tăng trọng số từ I05.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "transaction.multi_table_atomic",
+      "value_type": "support",
+      "disposition": "selected_feature",
+      "referenced_inputs": [
+        "I10"
+      ],
+      "reason": "Thu khi I10 chọn nhu cầu tương ứng; neo full theo hợp đồng đã xác nhận, nice-to-have chưa có trọng số số học.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "workflow.branching",
+      "value_type": "support",
+      "disposition": "selected_feature",
+      "referenced_inputs": [
+        "I10"
+      ],
+      "reason": "Thu khi I10 chọn nhu cầu tương ứng; neo full theo hợp đồng đã xác nhận, nice-to-have chưa có trọng số số học.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "versioning.operation",
+      "value_type": "support",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "metadata.federation_operation",
+      "value_type": "support",
+      "disposition": "selected_feature",
+      "referenced_inputs": [
+        "I10"
+      ],
+      "reason": "Thu khi I10 chọn nhu cầu tương ứng; neo full theo hợp đồng đã xác nhận, nice-to-have chưa có trọng số số học.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "migration.asset_preservation",
+      "value_type": "support",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "deployment.environment",
+      "value_type": "support",
+      "disposition": "first_slice",
+      "referenced_inputs": [
+        "I01"
+      ],
+      "reason": "Thu cho năm mục đầu tiên: nơi chạy, engine, format, vending, phân quyền; chỉ trong những scope/path thực tế cần đánh giá.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "deployment.dependencies",
+      "value_type": "string_set",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "persistence.backend",
+      "value_type": "support",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "operations.capability",
+      "value_type": "support",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "governance.audit",
+      "value_type": "support",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "governance.lineage",
+      "value_type": "support",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "security.data_protection",
+      "value_type": "support",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "limits.quota",
+      "value_type": "quantity",
+      "disposition": "conditional_workload",
+      "referenced_inputs": [
+        "I04"
+      ],
+      "reason": "Thu quota được công bố đúng boundary khi số bảng cần đối chiếu; không dùng số đã benchmark làm giới hạn.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "performance.observation",
+      "value_type": "quantity",
+      "disposition": "deferred_until_target",
+      "referenced_inputs": [
+        "I04",
+        "I06"
+      ],
+      "reason": "Chỉ thu khi có scenario/SLO so sánh; I04 không tự tạo mục tiêu hiệu năng.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "operations.effort_observation",
+      "value_type": "quantity",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "cost.price_component",
+      "value_type": "quantity",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "project.license",
+      "value_type": "string_set",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "project.support_policy",
+      "value_type": "text",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    },
+    {
+      "property_id": "project.maintenance_context",
+      "value_type": "text",
+      "disposition": "retained_outside_current_decision_slice",
+      "referenced_inputs": [],
+      "reason": "Giữ trong từ điển miền lớp 1; chưa có tiêu chí/ngưỡng hoặc yêu cầu trực tiếp trong form hiện hành. Không ưu tiên điền, không cộng điểm hoặc xóa property.",
+      "delete_from_layer1": false
+    }
+  ]
+}
+

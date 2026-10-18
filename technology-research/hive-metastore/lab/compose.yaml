@@ -1,0 +1,160 @@
+name: hms-full-lab
+services:
+  postgres:
+    image: postgres:16.4
+    environment:
+      POSTGRES_DB: metastore
+      POSTGRES_USER: hive
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run setup-env.ps1 first}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hive -d metastore"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  jdbc-init:
+    image: apache/hive:4.1.0
+    user: root
+    entrypoint: ["/bin/bash", "-ec"]
+    command:
+      - |
+        if [ ! -s /jdbc/postgresql-42.7.4.jar ]; then
+          curl --fail --location --retry 5 --retry-all-errors --retry-delay 3 --connect-timeout 15 --max-time 120 https://repo.maven.apache.org/maven2/org/postgresql/postgresql/42.7.4/postgresql-42.7.4.jar -o /jdbc/postgresql-42.7.4.jar.tmp
+          mv /jdbc/postgresql-42.7.4.jar.tmp /jdbc/postgresql-42.7.4.jar
+        fi
+        chmod 644 /jdbc/postgresql-42.7.4.jar
+        chmod 1777 /ivy
+        cp -n /opt/hive/lib/*.jar /hive-client/
+        cp -n /opt/hadoop/share/hadoop/common/*.jar /hive-client/
+        cp -n /opt/hadoop/share/hadoop/common/lib/*.jar /hive-client/
+        cp -n /opt/hadoop/share/hadoop/tools/lib/hadoop-aws-*.jar /hive-client/
+        cp -n /opt/hadoop/share/hadoop/tools/lib/bundle-*.jar /hive-client/
+    volumes:
+      - jdbc:/jdbc
+      - hive-client:/hive-client
+      - spark-ivy:/ivy
+
+  minio:
+    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
+    command: ["server", "/data", "--console-address", ":9001"]
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Run setup-env.ps1 first}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Run setup-env.ps1 first}
+    ports:
+      - "127.0.0.1:19000:9000"
+      - "127.0.0.1:19001:9001"
+    volumes:
+      - minio-data:/data
+
+  minio-init:
+    image: quay.io/minio/mc:RELEASE.2025-08-13T08-35-41Z
+    depends_on:
+      minio:
+        condition: service_started
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - |
+        for attempt in $$(seq 1 60); do
+          if mc alias set lab http://minio:9000 "$$MINIO_ROOT_USER" "$$MINIO_ROOT_PASSWORD" >/dev/null 2>&1; then
+            mc mb --ignore-existing lab/warehouse
+            exit 0
+          fi
+          sleep 2
+        done
+        echo "MinIO did not become ready" >&2
+        exit 1
+
+  hive-metastore:
+    image: apache/hive:4.1.0
+    environment:
+      SERVICE_NAME: metastore
+      DB_DRIVER: postgres
+      HADOOP_CLASSPATH: /opt/jdbc/*:/opt/hadoop/share/hadoop/tools/lib/*
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      jdbc-init:
+        condition: service_completed_successfully
+      minio-init:
+        condition: service_completed_successfully
+    ports:
+      - "127.0.0.1:19083:9083"
+    volumes:
+      - ./conf/full/hms/hive-site.xml:/opt/hive/conf/hive-site.xml:ro
+      - ./conf/full/hms/core-site.xml:/opt/hive/conf/core-site.xml:ro
+      - jdbc:/opt/jdbc:ro
+      - acid-warehouse:/warehouse-acid
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo > /dev/tcp/127.0.0.1/9083"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+  spark:
+    image: apache/spark:4.1.3-java21-python3
+    command: ["/bin/bash", "-c", "sleep infinity"]
+    working_dir: /tmp
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    depends_on:
+      hive-metastore:
+        condition: service_healthy
+    volumes:
+      - ./conf/full/spark-defaults.conf:/opt/spark/conf/spark-defaults.conf:ro
+      - ./conf/full/hms/core-site.xml:/opt/spark/conf/core-site.xml:ro
+      - ./scripts:/opt/lab/scripts:ro
+      - hive-client:/opt/hive-client:ro
+      - spark-ivy:/tmp/ivy
+
+  trino:
+    image: trinodb/trino:483
+    ports:
+      - "127.0.0.1:18080:8080"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    volumes:
+      - ./conf/trino/hive.properties:/etc/trino/catalog/hive.properties:ro
+    depends_on:
+      hive-metastore:
+        condition: service_healthy
+
+  hiveserver2-acid:
+    image: apache/hive:4.1.0
+    environment:
+      SERVICE_NAME: hiveserver2
+      IS_RESUME: "true"
+    depends_on:
+      hive-metastore:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:11000:10000"
+      - "127.0.0.1:11002:10002"
+    volumes:
+      - ./conf/acid/hive-site.xml:/opt/hive/conf/hive-site.xml:ro
+      - ./conf/acid/core-site.xml:/opt/hive/conf/core-site.xml:ro
+      - acid-warehouse:/warehouse-acid
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo > /dev/tcp/127.0.0.1/10000"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+volumes:
+  postgres-data:
+  minio-data:
+  jdbc:
+  hive-client:
+  spark-ivy:
+  acid-warehouse:

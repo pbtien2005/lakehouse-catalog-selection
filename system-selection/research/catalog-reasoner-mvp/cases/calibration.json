@@ -1,0 +1,187 @@
+{
+  "manifest": {
+    "synthetic_profiles": true,
+    "split": "calibration",
+    "frozen_before_remaining_implementation": true,
+    "tuning_allowed": true
+  },
+  "cases": [
+    {
+      "id": "SYNTHETIC-C01",
+      "synthetic_profile": true,
+      "description": "Architect tren AWS, mot Spark doc Iceberg, it bang, chua co nhu cau dac thu.",
+      "form_answers": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark"
+          ],
+          "I03": "iceberg",
+          "I04": "lt_100",
+          "I05": "one",
+          "I07": "none",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      }
+    },
+    {
+      "id": "SYNTHETIC-C02",
+      "synthetic_profile": true,
+      "description": "Nhom can thu nghiem tren nhanh catalog; branching va federation la nice-to-have.",
+      "form_answers": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "on_prem",
+          "I02": [
+            "spark"
+          ],
+          "I03": "iceberg",
+          "I04": "lt_100",
+          "I05": "one",
+          "I07": "none",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "selected": [
+              {
+                "feature": "branching",
+                "rank": "nice_to_have"
+              },
+              {
+                "feature": "metadata_federation",
+                "rank": "nice_to_have"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "SYNTHETIC-C03",
+      "synthetic_profile": true,
+      "description": "Da gan bo Databricks, doc Delta, can quyen cot va hang; chua biet vending.",
+      "form_answers": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "databricks"
+          ],
+          "I03": "delta",
+          "I04": "lt_100",
+          "I05": "one",
+          "I07": "column_and_row",
+          "I08": "unknown",
+          "I09": [
+            "databricks"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      }
+    },
+    {
+      "id": "SYNTHETIC-C04",
+      "synthetic_profile": true,
+      "description": "Hai engine Spark/Trino cung ghi, atomic nhieu bang bat buoc; branching la nice-to-have.",
+      "form_answers": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino"
+          ],
+          "I03": "iceberg",
+          "I04": "1000_to_10000",
+          "I05": "two_to_three",
+          "I07": "none",
+          "I08": "no",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "selected": [
+              {
+                "feature": "multi_table_atomic",
+                "rank": "mandatory"
+              },
+              {
+                "feature": "branching",
+                "rank": "nice_to_have"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "SYNTHETIC-C05",
+      "synthetic_profile": true,
+      "description": "Architect chua chot cloud, engine va format; chua ro quyen va vending.",
+      "form_answers": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "multi_cloud",
+          "I02": [
+            "other"
+          ],
+          "I03": "not_chosen",
+          "I04": "lt_100",
+          "I05": "one",
+          "I07": "unclear",
+          "I08": "unknown",
+          "I09": [
+            "none"
+          ],
+          "I10": {
+            "none": true,
+            "selected": []
+          }
+        }
+      }
+    },
+    {
+      "id": "SYNTHETIC-C06",
+      "synthetic_profile": true,
+      "description": "Ca mau thuan: chon Khong dong thoi Databricks va nhu cau branching thieu rank.",
+      "form_answers": {
+        "form_revision": "input-v2",
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark"
+          ],
+          "I03": "iceberg",
+          "I04": "lt_100",
+          "I05": "one",
+          "I07": "none",
+          "I08": "no",
+          "I09": [
+            "none",
+            "databricks"
+          ],
+          "I10": {
+            "selected": [
+              {
+                "feature": "branching"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

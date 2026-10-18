@@ -1,0 +1,196 @@
+{
+  "generated_at": "2026-10-17T11:56:27+07:00",
+  "scope": "static_consistency_and_reference_case_shape_only",
+  "runtime_mapping_executed": false,
+  "reference_cases_executed_against_normalizer": false,
+  "product_capabilities_validated": false,
+  "counts": {
+    "form_items": 10,
+    "answer_branches_including_inactive": 43,
+    "direct_properties": 12,
+    "first_slice_properties": 5,
+    "dictionary_properties_covered": 37,
+    "warning_rules": 11,
+    "handwritten_reference_cases": 16,
+    "checks": 35
+  },
+  "property_dispositions": {
+    "first_slice": 5,
+    "retained_outside_current_decision_slice": 16,
+    "path_dependency_only": 9,
+    "inactive_streaming_branch": 1,
+    "conditional_workload": 2,
+    "selected_feature": 3,
+    "deferred_until_target": 1
+  },
+  "checks": [
+    {
+      "name": "five_specification_json_files_parse",
+      "passed": true
+    },
+    {
+      "name": "ten_unique_form_items_I01_to_I10",
+      "passed": true
+    },
+    {
+      "name": "43_answer_branches_including_inactive_streaming",
+      "passed": true
+    },
+    {
+      "name": "answer_ids_unique_per_question",
+      "passed": true
+    },
+    {
+      "name": "every_item_has_unknown_rule_and_traceable_usage",
+      "passed": true
+    },
+    {
+      "name": "all_property_references_exist_in_layer1_v3",
+      "passed": true
+    },
+    {
+      "name": "12_unique_anchors_cover_exactly_the_direct_targets",
+      "passed": true
+    },
+    {
+      "name": "anchor_types_and_rubrics_match_dictionary",
+      "passed": true
+    },
+    {
+      "name": "every_required_qualifier_has_a_declared_binding",
+      "passed": true
+    },
+    {
+      "name": "qualifier_binding_sources_are_explicit",
+      "passed": true
+    },
+    {
+      "name": "support_thresholds_are_valid_full_and_quantities_have_no_support_threshold",
+      "passed": true
+    },
+    {
+      "name": "property_plan_covers_each_of_37_dictionary_properties_once",
+      "passed": true
+    },
+    {
+      "name": "plan_preserves_types_and_deletes_no_layer1_property",
+      "passed": true
+    },
+    {
+      "name": "first_slice_has_five_properties_for_I01_I02_I03_I08_I07",
+      "passed": true
+    },
+    {
+      "name": "plan_direct_targets_equal_mapping_targets",
+      "passed": true
+    },
+    {
+      "name": "confirmed_scope_keeps_existing_form",
+      "passed": true
+    },
+    {
+      "name": "streaming_branch_is_inactive_in_mapping_and_policy",
+      "passed": true
+    },
+    {
+      "name": "no_automatic_weights_or_hard_cap",
+      "passed": true
+    },
+    {
+      "name": "rank_roles_have_no_numeric_weights",
+      "passed": true
+    },
+    {
+      "name": "unknown_is_not_dropped_and_linked_paths_need_joint_resolution",
+      "passed": true
+    },
+    {
+      "name": "11_unique_nonmutating_warning_rules",
+      "passed": true
+    },
+    {
+      "name": "16_unique_hypothetical_reference_cases_not_runtime_results",
+      "passed": true
+    },
+    {
+      "name": "case_input_and_warning_references_exist",
+      "passed": true
+    },
+    {
+      "name": "first_slice_reference_has_eight_well_formed_hard_predicates",
+      "passed": true
+    },
+    {
+      "name": "form_table_count_boundaries_preserved_without_midpoint",
+      "passed": true
+    },
+    {
+      "name": "input_and_four_layer1_files_unchanged_from_baseline",
+      "passed": true
+    },
+    {
+      "name": "local_links_in_design_and_readme_resolve",
+      "passed": true
+    },
+    {
+      "name": "manifest_reference_exists:layer2-mapping-v1:form_source",
+      "passed": true
+    },
+    {
+      "name": "manifest_reference_exists:layer2-mapping-v1:policy",
+      "passed": true
+    },
+    {
+      "name": "manifest_reference_exists:layer2-mapping-v1:anchors",
+      "passed": true
+    },
+    {
+      "name": "manifest_reference_exists:layer2-mapping-v1:property_dictionary",
+      "passed": true
+    },
+    {
+      "name": "manifest_reference_exists:layer2-policy-v1:form_source",
+      "passed": true
+    },
+    {
+      "name": "manifest_reference_exists:layer2-policy-v1:property_dictionary",
+      "passed": true
+    },
+    {
+      "name": "manifest_reference_exists:layer2-anchors-v1:property_dictionary",
+      "passed": true
+    },
+    {
+      "name": "manifest_reference_exists:layer2-property-plan-v1:property_dictionary",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "baseline_files_unchanged": true,
+  "baseline_sha256": {
+    "layer-1-design.md": "169B735418DC9D011796101CAFC47933E6DEA6D212E2B7B382991D1027E720E8",
+    "layer-1-properties.json": "01792CBC182A3382623BDCE89A0C865B23DC1BE27087342F87CCADD64AA22B03",
+    "layer-1-example.json": "93ED97D5383E77D8E36BE795B718773592E5A49F5231931C4DF2D5E652A485C0",
+    "layer-1-template.json": "BA1C799A0ED2E08BF03EAC5985965AC58EE5E7E00C0A757FC58B8651A9F5A861",
+    "input-v1.md": "E7D76F61BC0F1B618EBA8AFA40A7D6FD4CA08F0BD4B6D87848838A4DA78527CC"
+  },
+  "missing_local_links": [],
+  "artifact_sha256": {
+    "layer-2-mapping.json": "1CC065162C2E9F0C2B10F6974508C976021342FF778BA5E40B756FEA7456E5C7",
+    "layer-2-policy.json": "44B77D80EE5ED0D221B78364CF23EA244A8C7D2D4BB8927832872B0A7C8D83B8",
+    "layer-2-anchors.json": "E8AC50770F9547C36A14909E8888095DEBF883152539CC1565B852251AB6D218",
+    "layer-2-property-plan.json": "3F1C7C7EC6C190E8869A3E71189D25AC25F153F8B4BB85994F1DA0A7040F04BF",
+    "layer-2-examples.json": "BC63DE76764125EB9A3856676887AD0F42650755FE60D6E0984BDC39907D74D2"
+  },
+  "limitations": [
+    "No normalizer exists yet; these checks do not execute the mappings or demonstrate behavioral correctness.",
+    "Reference cases are handwritten development oracles, not measured product outcomes."
+  ],
+  "validation_notes": [
+    "Local Markdown targets are URL-decoded before filesystem resolution."
+  ],
+  "document_sha256": {
+    "layer-2-design.md": "40A0FB0F7E802D64619F1302318E3F2FD7C85F405E4EF53668528E24B62B9256",
+    "README.md": "A045B7117B35FFD2E0B6002ED5928D40F11915FE663301A7B5E75B3713063D31"
+  }
+}

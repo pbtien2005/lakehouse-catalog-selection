@@ -1,0 +1,49 @@
+{
+  "manifest": {
+    "revision": "layer2-v3-reviewed-relations-v1",
+    "purpose": "Explicit semantic relations for v3; historical v2 mappings stay unchanged."
+  },
+  "rows": [
+    {
+      "id": "V3-AUTH-READ-FILTER",
+      "property_id": "security.authorization",
+      "qualifier": "action",
+      "input_value": "read",
+      "accepted_kb_values": ["filter_select_results"],
+      "status": "mapped",
+      "reason": "The requested read authorization means enforcing row/column restrictions on selected results. A match still requires the same granularity, explicit engine/format, and the access path of an evidenced joint implementation profile. It does not credit bare catalog metadata permission or arbitrary external Spark clients.",
+      "evidence_claim_ids": [],
+      "evidence": [{"url": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless-lf-enable.html", "locator": "Overview and Lake Formation access-control execution path"}]
+    },
+    {
+      "id": "V3-STORAGE-S3",
+      "property_id": "storage.credential_vending",
+      "qualifier": "storage",
+      "input_value": "s3",
+      "accepted_kb_values": ["aws_s3"],
+      "status": "mapped",
+      "reason": "Explicitly selected Amazon S3 maps to the KB storage ID aws_s3; no cloud inference.",
+      "evidence_claim_ids": []
+    },
+    {
+      "id": "V3-STORAGE-ADLS",
+      "property_id": "storage.credential_vending",
+      "qualifier": "storage",
+      "input_value": "adls_gen2",
+      "accepted_kb_values": ["azure_adls_gen2"],
+      "status": "mapped",
+      "reason": "Exact named storage selection maps to the existing KB identifier; no Azure cloud inference.",
+      "evidence_claim_ids": []
+    },
+    {
+      "id": "V3-STORAGE-LOCAL",
+      "property_id": "storage.credential_vending",
+      "qualifier": "storage",
+      "input_value": "local_fs",
+      "accepted_kb_values": ["local_filesystem"],
+      "status": "mapped",
+      "reason": "Explicit local filesystem selection; it does not assert a credential-vending implementation exists.",
+      "evidence_claim_ids": []
+    }
+  ]
+}

@@ -1,0 +1,2684 @@
+{
+  "manifest": {
+    "data_revision": "layer1-v3-data-2026-10-17-r1",
+    "cells": 259,
+    "meaning": "collection_inventory_not_product_capability_matrix",
+    "all_uncollected_combinations": "unknown"
+  },
+  "cells": [
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "catalog.format_operation",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_ice_create",
+        "cl_polaris_oss_1_7_0_ice_load",
+        "cl_polaris_oss_1_7_0_ice_register",
+        "cl_polaris_oss_1_7_0_delta_generic"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "catalog.object_operation",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_namespace"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "metadata.responsibility",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_hms_authority"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "integration.engine_operation",
+      "group": "engine_api",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_spark_iceberg",
+        "cl_polaris_oss_1_7_0_spark_delta"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "integration.api_operation",
+      "group": "engine_api",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "integration.streaming_write",
+      "group": "engine_api",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa đối chiếu engine, format, mode và connector của đường streaming."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "authentication.method",
+      "group": "authentication",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_internal_oauth",
+        "cl_polaris_oss_1_7_0_external_oidc"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "authentication.identity_provider",
+      "group": "authentication",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "authentication.session_control",
+      "group": "authentication",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_token_expiry"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "authorization.policy_model",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_rbac"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "security.authorization",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_table_read"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "authorization.external_policy",
+      "group": "authorization",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.backend",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_aws_s3_backend",
+        "cl_polaris_oss_1_7_0_azure_adls_gen2_backend",
+        "cl_polaris_oss_1_7_0_gcs_backend"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.access_method",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_s3_method"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.credential_vending",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_aws_s3_vending",
+        "cl_polaris_oss_1_7_0_azure_adls_gen2_vending",
+        "cl_polaris_oss_1_7_0_gcs_vending"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.credential_lifecycle",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_s3_refresh"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "commit.guarantee",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "commit.concurrent_write",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa chứng minh mô hình writer, thao tác và giao thức commit tương ứng."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "transaction.multi_table_atomic",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa chứng minh all-or-nothing cho client path và failure boundary cụ thể."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "workflow.branching",
+      "group": "versioning",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh đủ tạo nhánh, ghi cô lập và công bố ở cấp đối tượng cụ thể."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "versioning.operation",
+      "group": "versioning",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "metadata.federation_operation",
+      "group": "federation_migration",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_hms_fed"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "migration.asset_preservation",
+      "group": "federation_migration",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "deployment.environment",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_local"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "deployment.dependencies",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_deps"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "persistence.backend",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_postgres"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "operations.capability",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_schema_upgrade",
+        "cl_polaris_oss_1_7_0_metrics",
+        "cl_polaris_oss_1_7_0_tracing"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "governance.audit",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh loại sự kiện, principal và boundary audit."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "governance.lineage",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh quan hệ lineage và integration thu thập cụ thể."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "security.data_protection",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "limits.quota",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_polaris_oss_1_7_0_quota_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "performance.observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_polaris_oss_1_7_0_performance_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "operations.effort_observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_polaris_oss_1_7_0_effort_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "cost.price_component",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_polaris_oss_1_7_0_price_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "project.license",
+      "group": "observations_policy",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_polaris_oss_1_7_0_license"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "project.support_policy",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn policy hỗ trợ/EOL hoặc hợp đồng cho provider/edition này."
+    },
+    {
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "project.maintenance_context",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn trạng thái bảo trì theo phương pháp và thời điểm xác định."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "catalog.format_operation",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_ice_create",
+        "cl_gravitino_oss_1_1_0_ice_load"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "catalog.object_operation",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_namespace"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "metadata.responsibility",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_metadata"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "integration.engine_operation",
+      "group": "engine_api",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_spark_read",
+        "cl_gravitino_oss_1_1_0_spark_append",
+        "cl_gravitino_oss_1_1_0_trino_read"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "integration.api_operation",
+      "group": "engine_api",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "integration.streaming_write",
+      "group": "engine_api",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa đối chiếu engine, format, mode và connector của đường streaming."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "authentication.method",
+      "group": "authentication",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_oauth",
+        "cl_gravitino_oss_1_1_0_kerberos",
+        "cl_gravitino_oss_1_1_0_simple"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "authentication.identity_provider",
+      "group": "authentication",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "authentication.session_control",
+      "group": "authentication",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "authorization.policy_model",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_rbac",
+        "cl_gravitino_oss_1_1_0_dac"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "security.authorization",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_standalone_authz",
+        "cl_gravitino_oss_1_1_0_aux_authz"
+      ],
+      "unknown_claim_ids": [
+        "cl_gravitino_oss_1_1_0_unified_authz_unresolved"
+      ],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "authorization.external_policy",
+      "group": "authorization",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "storage.backend",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_aws_s3",
+        "cl_gravitino_oss_1_1_0_gcs",
+        "cl_gravitino_oss_1_1_0_azure_adls_gen2",
+        "cl_gravitino_oss_1_1_0_hdfs"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "storage.access_method",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_s3_access"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "storage.credential_vending",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_s3_vend",
+        "cl_gravitino_oss_1_1_0_spark_vend"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "storage.credential_lifecycle",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_s3_expiry"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "commit.guarantee",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "commit.concurrent_write",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa chứng minh mô hình writer, thao tác và giao thức commit tương ứng."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "transaction.multi_table_atomic",
+      "group": "commit_transaction",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_rest_multitable"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "workflow.branching",
+      "group": "versioning",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh đủ tạo nhánh, ghi cô lập và công bố ở cấp đối tượng cụ thể."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "versioning.operation",
+      "group": "versioning",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_snapshot_api"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "metadata.federation_operation",
+      "group": "federation_migration",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_hive_fed"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "migration.asset_preservation",
+      "group": "federation_migration",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "deployment.environment",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_local"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "deployment.dependencies",
+      "group": "deployment_operations",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "persistence.backend",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_postgres",
+        "cl_gravitino_oss_1_1_0_mysql"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "operations.capability",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_metrics"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "governance.audit",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh loại sự kiện, principal và boundary audit."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "governance.lineage",
+      "group": "governance",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_gravitino_oss_1_1_0_lineage"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "security.data_protection",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "limits.quota",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_gravitino_oss_1_1_0_quota_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "performance.observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_gravitino_oss_1_1_0_performance_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "operations.effort_observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_gravitino_oss_1_1_0_effort_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "cost.price_component",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_gravitino_oss_1_1_0_price_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "project.license",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa đưa được nguồn license phù hợp scope vào revision này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "project.support_policy",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn policy hỗ trợ/EOL hoặc hợp đồng cho provider/edition này."
+    },
+    {
+      "scope_id": "gravitino_oss_1_1_0",
+      "property_id": "project.maintenance_context",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn trạng thái bảo trì theo phương pháp và thời điểm xác định."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_ice_load"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "catalog.object_operation",
+      "group": "format_metadata",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "metadata.responsibility",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_metadata"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "group": "engine_api",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_spark_read",
+        "cl_nessie_oss_2026_10_17_trino_read"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "integration.api_operation",
+      "group": "engine_api",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_rest"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "integration.streaming_write",
+      "group": "engine_api",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa đối chiếu engine, format, mode và connector của đường streaming."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "authentication.method",
+      "group": "authentication",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_oidc"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "authentication.identity_provider",
+      "group": "authentication",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_idp"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "authentication.session_control",
+      "group": "authentication",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "authorization.policy_model",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_cel"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "security.authorization",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_table_meta_read",
+        "cl_nessie_oss_2026_10_17_direct_data"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "authorization.external_policy",
+      "group": "authorization",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "storage.backend",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_aws_s3",
+        "cl_nessie_oss_2026_10_17_minio"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "storage.access_method",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_s3_method"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "storage.credential_vending",
+      "group": "storage",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa chứng minh đồng thời credential tạm thời, scope dữ liệu/quyền và API/client."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "storage.credential_lifecycle",
+      "group": "storage",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "commit.guarantee",
+      "group": "commit_transaction",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_commit"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "commit.concurrent_write",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa chứng minh mô hình writer, thao tác và giao thức commit tương ứng."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "transaction.multi_table_atomic",
+      "group": "commit_transaction",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_atomic"
+      ],
+      "unknown_claim_ids": [
+        "cl_nessie_oss_2026_10_17_sql_atomic_unknown"
+      ],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "workflow.branching",
+      "group": "versioning",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_branch"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "versioning.operation",
+      "group": "versioning",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_merge",
+        "cl_nessie_oss_2026_10_17_history"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "metadata.federation_operation",
+      "group": "federation_migration",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "migration.asset_preservation",
+      "group": "federation_migration",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_store_migration"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "deployment.environment",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_local"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "deployment.dependencies",
+      "group": "deployment_operations",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "persistence.backend",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_postgres"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "operations.capability",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_backup",
+        "cl_nessie_oss_2026_10_17_restore"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "governance.audit",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh loại sự kiện, principal và boundary audit."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "governance.lineage",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh quan hệ lineage và integration thu thập cụ thể."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "security.data_protection",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "limits.quota",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_nessie_oss_2026_10_17_quota_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "performance.observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_nessie_oss_2026_10_17_performance_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "operations.effort_observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_nessie_oss_2026_10_17_effort_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "cost.price_component",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_nessie_oss_2026_10_17_price_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "project.license",
+      "group": "observations_policy",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_nessie_oss_2026_10_17_license"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "project.support_policy",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn policy hỗ trợ/EOL hoặc hợp đồng cho provider/edition này."
+    },
+    {
+      "scope_id": "nessie_oss_2026_10_17",
+      "property_id": "project.maintenance_context",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn trạng thái bảo trì theo phương pháp và thời điểm xác định."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_oss_2026_10_17_delta_meta",
+        "cl_unity_oss_2026_10_17_delta_entry",
+        "cl_unity_oss_2026_10_17_uniform_load"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "catalog.object_operation",
+      "group": "format_metadata",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "metadata.responsibility",
+      "group": "format_metadata",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "group": "engine_api",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_oss_2026_10_17_spark_read",
+        "cl_unity_oss_2026_10_17_spark_append",
+        "cl_unity_oss_2026_10_17_spark_merge",
+        "cl_unity_oss_2026_10_17_spark_uniform"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "integration.api_operation",
+      "group": "engine_api",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_oss_2026_10_17_api"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "integration.streaming_write",
+      "group": "engine_api",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa đối chiếu engine, format, mode và connector của đường streaming."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "authentication.method",
+      "group": "authentication",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_oss_2026_10_17_oauth",
+        "cl_unity_oss_2026_10_17_admin_token"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "authentication.identity_provider",
+      "group": "authentication",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_oss_2026_10_17_google"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "authentication.session_control",
+      "group": "authentication",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "authorization.policy_model",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_oss_2026_10_17_user_privileges"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "security.authorization",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_oss_2026_10_17_catalog_use"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "authorization.external_policy",
+      "group": "authorization",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "storage.backend",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_oss_2026_10_17_aws_s3",
+        "cl_unity_oss_2026_10_17_azure_adls_gen2",
+        "cl_unity_oss_2026_10_17_gcs"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "storage.access_method",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_oss_2026_10_17_s3_methods"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "storage.credential_vending",
+      "group": "storage",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_unity_oss_2026_10_17_s3_vend_unknown"
+      ],
+      "remaining_gap": "Chưa chứng minh đồng thời credential tạm thời, scope dữ liệu/quyền và API/client."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "storage.credential_lifecycle",
+      "group": "storage",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "commit.guarantee",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "commit.concurrent_write",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa chứng minh mô hình writer, thao tác và giao thức commit tương ứng."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "transaction.multi_table_atomic",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa chứng minh all-or-nothing cho client path và failure boundary cụ thể."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "workflow.branching",
+      "group": "versioning",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh đủ tạo nhánh, ghi cô lập và công bố ở cấp đối tượng cụ thể."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "versioning.operation",
+      "group": "versioning",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "metadata.federation_operation",
+      "group": "federation_migration",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "migration.asset_preservation",
+      "group": "federation_migration",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "deployment.environment",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_oss_2026_10_17_local"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "deployment.dependencies",
+      "group": "deployment_operations",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "persistence.backend",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_oss_2026_10_17_h2_file",
+        "cl_unity_oss_2026_10_17_h2_memory"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "operations.capability",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_oss_2026_10_17_logging"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "governance.audit",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh loại sự kiện, principal và boundary audit."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "governance.lineage",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh quan hệ lineage và integration thu thập cụ thể."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "security.data_protection",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "limits.quota",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_unity_oss_2026_10_17_quota_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "performance.observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_unity_oss_2026_10_17_performance_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "operations.effort_observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_unity_oss_2026_10_17_effort_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "cost.price_component",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_unity_oss_2026_10_17_price_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "project.license",
+      "group": "observations_policy",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_oss_2026_10_17_license"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "project.support_policy",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn policy hỗ trợ/EOL hoặc hợp đồng cho provider/edition này."
+    },
+    {
+      "scope_id": "unity_oss_2026_10_17",
+      "property_id": "project.maintenance_context",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn trạng thái bảo trì theo phương pháp và thời điểm xác định."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_managed_ice_read",
+        "cl_unity_databricks_aws_2026_10_17_managed_ice_write",
+        "cl_unity_databricks_aws_2026_10_17_foreign_ice_write",
+        "cl_unity_databricks_aws_2026_10_17_uniform_write"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "catalog.object_operation",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_object_table",
+        "cl_unity_databricks_aws_2026_10_17_object_view",
+        "cl_unity_databricks_aws_2026_10_17_object_volume",
+        "cl_unity_databricks_aws_2026_10_17_object_function",
+        "cl_unity_databricks_aws_2026_10_17_object_model"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "metadata.responsibility",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_metadata"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "group": "engine_api",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_spark_ice_read"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "integration.api_operation",
+      "group": "engine_api",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "integration.streaming_write",
+      "group": "engine_api",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa đối chiếu engine, format, mode và connector của đường streaming."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "authentication.method",
+      "group": "authentication",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_oauth",
+        "cl_unity_databricks_aws_2026_10_17_pat"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "authentication.identity_provider",
+      "group": "authentication",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "authentication.session_control",
+      "group": "authentication",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "authorization.policy_model",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_grant",
+        "cl_unity_databricks_aws_2026_10_17_abac"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "security.authorization",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_rows",
+        "cl_unity_databricks_aws_2026_10_17_columns"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "authorization.external_policy",
+      "group": "authorization",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "storage.backend",
+      "group": "storage",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "storage.access_method",
+      "group": "storage",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "storage.credential_vending",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_s3_vend"
+      ],
+      "unknown_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_foreign_vend"
+      ],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "storage.credential_lifecycle",
+      "group": "storage",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "commit.guarantee",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "commit.concurrent_write",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa chứng minh mô hình writer, thao tác và giao thức commit tương ứng."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "transaction.multi_table_atomic",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa chứng minh all-or-nothing cho client path và failure boundary cụ thể."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "workflow.branching",
+      "group": "versioning",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh đủ tạo nhánh, ghi cô lập và công bố ở cấp đối tượng cụ thể."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "versioning.operation",
+      "group": "versioning",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "metadata.federation_operation",
+      "group": "federation_migration",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_hive_metastore_fed",
+        "cl_unity_databricks_aws_2026_10_17_aws_glue_data_catalog_fed",
+        "cl_unity_databricks_aws_2026_10_17_snowflake_fed",
+        "cl_unity_databricks_aws_2026_10_17_jdbc_fed"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "migration.asset_preservation",
+      "group": "federation_migration",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "deployment.environment",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_aws_deploy"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "deployment.dependencies",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_compute"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "persistence.backend",
+      "group": "deployment_operations",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "operations.capability",
+      "group": "deployment_operations",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "governance.audit",
+      "group": "governance",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_audit"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "governance.lineage",
+      "group": "governance",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_lineage"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "security.data_protection",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "limits.quota",
+      "group": "observations_policy",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_quota_metastore",
+        "cl_unity_databricks_aws_2026_10_17_quota_schema"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "performance.observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_performance_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "operations.effort_observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_effort_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "cost.price_component",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_unity_databricks_aws_2026_10_17_price_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "project.license",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa đưa được nguồn license phù hợp scope vào revision này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "project.support_policy",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn policy hỗ trợ/EOL hoặc hợp đồng cho provider/edition này."
+    },
+    {
+      "scope_id": "unity_databricks_aws_2026_10_17",
+      "property_id": "project.maintenance_context",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn trạng thái bảo trì theo phương pháp và thời điểm xác định."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_ice_create",
+        "cl_glue_aws_2026_10_17_ice_load",
+        "cl_glue_aws_2026_10_17_delta_meta"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "catalog.object_operation",
+      "group": "format_metadata",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "metadata.responsibility",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_metadata"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "group": "engine_api",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_spark_read",
+        "cl_glue_aws_2026_10_17_spark_append",
+        "cl_glue_aws_2026_10_17_delta_read"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "integration.api_operation",
+      "group": "engine_api",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "integration.streaming_write",
+      "group": "engine_api",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa đối chiếu engine, format, mode và connector của đường streaming."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "authentication.method",
+      "group": "authentication",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_sigv4"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "authentication.identity_provider",
+      "group": "authentication",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "authentication.session_control",
+      "group": "authentication",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "authorization.policy_model",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_iam"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "security.authorization",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_filter_row",
+        "cl_glue_aws_2026_10_17_filter_column"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "authorization.external_policy",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_lf"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "storage.backend",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_s3"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "storage.access_method",
+      "group": "storage",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "storage.credential_vending",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_lf_vend"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "storage.credential_lifecycle",
+      "group": "storage",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "commit.guarantee",
+      "group": "commit_transaction",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_optimistic"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "commit.concurrent_write",
+      "group": "commit_transaction",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_concurrent"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "transaction.multi_table_atomic",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa chứng minh all-or-nothing cho client path và failure boundary cụ thể."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "workflow.branching",
+      "group": "versioning",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh đủ tạo nhánh, ghi cô lập và công bố ở cấp đối tượng cụ thể."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "versioning.operation",
+      "group": "versioning",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "metadata.federation_operation",
+      "group": "federation_migration",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "migration.asset_preservation",
+      "group": "federation_migration",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "deployment.environment",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_aws_endpoint"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "deployment.dependencies",
+      "group": "deployment_operations",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "persistence.backend",
+      "group": "deployment_operations",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "operations.capability",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_compaction"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "governance.audit",
+      "group": "governance",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_audit"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "governance.lineage",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh quan hệ lineage và integration thu thập cụ thể."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "security.data_protection",
+      "group": "governance",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_encrypt"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "limits.quota",
+      "group": "observations_policy",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_glue_aws_2026_10_17_quota_aws_account_per_region",
+        "cl_glue_aws_2026_10_17_quota_database"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "performance.observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_glue_aws_2026_10_17_performance_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "operations.effort_observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_glue_aws_2026_10_17_effort_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "cost.price_component",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_glue_aws_2026_10_17_price_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "project.license",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa đưa được nguồn license phù hợp scope vào revision này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "project.support_policy",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn policy hỗ trợ/EOL hoặc hợp đồng cho provider/edition này."
+    },
+    {
+      "scope_id": "glue_aws_2026_10_17",
+      "property_id": "project.maintenance_context",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn trạng thái bảo trì theo phương pháp và thời điểm xác định."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "catalog.format_operation",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_hms_oss_2026_10_17_iceberg_entry",
+        "cl_hms_oss_2026_10_17_delta_entry"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "catalog.object_operation",
+      "group": "format_metadata",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "metadata.responsibility",
+      "group": "format_metadata",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_hms_oss_2026_10_17_metadata"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "integration.engine_operation",
+      "group": "engine_api",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_hms_oss_2026_10_17_iceberg_read",
+        "cl_hms_oss_2026_10_17_delta_read",
+        "cl_hms_oss_2026_10_17_hudi_read"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "integration.api_operation",
+      "group": "engine_api",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "integration.streaming_write",
+      "group": "engine_api",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa đối chiếu engine, format, mode và connector của đường streaming."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "authentication.method",
+      "group": "authentication",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu cơ chế xác thực đúng API/scope; không được mặc định anonymous hoặc không hỗ trợ."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "authentication.identity_provider",
+      "group": "authentication",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "authentication.session_control",
+      "group": "authentication",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "authorization.policy_model",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_hms_oss_2026_10_17_sba"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "security.authorization",
+      "group": "authorization",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_hms_oss_2026_10_17_table_read",
+        "cl_hms_oss_2026_10_17_direct_revoke"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "authorization.external_policy",
+      "group": "authorization",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "storage.backend",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_hms_oss_2026_10_17_hdfs"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "storage.access_method",
+      "group": "storage",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_hms_oss_2026_10_17_hdfs_access"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "storage.credential_vending",
+      "group": "storage",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa chứng minh đồng thời credential tạm thời, scope dữ liệu/quyền và API/client."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "storage.credential_lifecycle",
+      "group": "storage",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "commit.guarantee",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "commit.concurrent_write",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa chứng minh mô hình writer, thao tác và giao thức commit tương ứng."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "transaction.multi_table_atomic",
+      "group": "commit_transaction",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa chứng minh all-or-nothing cho client path và failure boundary cụ thể."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "workflow.branching",
+      "group": "versioning",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh đủ tạo nhánh, ghi cô lập và công bố ở cấp đối tượng cụ thể."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "versioning.operation",
+      "group": "versioning",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "metadata.federation_operation",
+      "group": "federation_migration",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "migration.asset_preservation",
+      "group": "federation_migration",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "deployment.environment",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_hms_oss_2026_10_17_standalone"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "deployment.dependencies",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_hms_oss_2026_10_17_deps"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "persistence.backend",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_hms_oss_2026_10_17_db",
+        "cl_hms_oss_2026_10_17_mysql",
+        "cl_hms_oss_2026_10_17_derby"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "operations.capability",
+      "group": "deployment_operations",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_hms_oss_2026_10_17_schema"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "governance.audit",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh loại sự kiện, principal và boundary audit."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "governance.lineage",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa xác minh quan hệ lineage và integration thu thập cụ thể."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "security.data_protection",
+      "group": "governance",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "limits.quota",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_hms_oss_2026_10_17_quota_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "performance.observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_hms_oss_2026_10_17_performance_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "operations.effort_observation",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_hms_oss_2026_10_17_effort_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "cost.price_component",
+      "group": "observations_policy",
+      "collection_state": "explicit_unknown_only",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [
+        "cl_hms_oss_2026_10_17_price_unknown"
+      ],
+      "remaining_gap": "Chưa thu phạm vi/điều kiện khác của thuộc tính này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "project.license",
+      "group": "observations_policy",
+      "collection_state": "scoped_claims_available",
+      "known_claim_ids": [
+        "cl_hms_oss_2026_10_17_license"
+      ],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chỉ các qualifier đã ghi có bằng chứng; mọi tổ hợp chưa thu vẫn unknown."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "project.support_policy",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn policy hỗ trợ/EOL hoặc hợp đồng cho provider/edition này."
+    },
+    {
+      "scope_id": "hms_oss_2026_10_17",
+      "property_id": "project.maintenance_context",
+      "group": "observations_policy",
+      "collection_state": "not_collected",
+      "known_claim_ids": [],
+      "unknown_claim_ids": [],
+      "remaining_gap": "Chưa biên soạn trạng thái bảo trì theo phương pháp và thời điểm xác định."
+    }
+  ]
+}

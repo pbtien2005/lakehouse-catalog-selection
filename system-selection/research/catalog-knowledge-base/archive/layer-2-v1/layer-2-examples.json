@@ -1,0 +1,532 @@
+{
+  "manifest": {
+    "revision": "layer2-examples-v1",
+    "kind": "worked_reference_cases_not_engine_execution",
+    "all_cases_hypothetical": true,
+    "not_product_recommendations": true
+  },
+  "cases": [
+    {
+      "id": "L2-01-first-slice-ready",
+      "input": {
+        "answers": {
+          "I01": "aws",
+          "I02": [
+            "spark",
+            "trino_presto"
+          ],
+          "I03": "iceberg",
+          "I08": "yes",
+          "I07": "table"
+        },
+        "context": {
+          "confirmed_required_inputs": [
+            "I01",
+            "I02",
+            "I03"
+          ],
+          "resolved_engine_groups": {
+            "trino_presto": [
+              "trino"
+            ]
+          },
+          "data_storage": "aws_s3",
+          "required_catalog_operations": [
+            "register",
+            "load"
+          ],
+          "workload_bindings": [
+            {
+              "engine": "spark",
+              "format": "iceberg",
+              "operation": "append"
+            },
+            {
+              "engine": "trino",
+              "format": "iceberg",
+              "operation": "read"
+            }
+          ],
+          "required_granularities": [
+            "table"
+          ],
+          "required_access_actions": [
+            "read"
+          ],
+          "required_access_paths": [
+            "spark_data_path",
+            "trino_data_path"
+          ]
+        }
+      },
+      "expected": {
+        "readiness": "ready_for_assessment",
+        "requirements": [
+          {
+            "id": "R-env",
+            "logical_need_id": "N-environment",
+            "source_inputs": [
+              "I01"
+            ],
+            "property_id": "deployment.environment",
+            "role": "HARD",
+            "status": "ready",
+            "qualifiers": {
+              "environment": "aws"
+            },
+            "candidate_bindings": {},
+            "acceptance_anchor": "deployment.environment",
+            "min_level_if_applicable": "full"
+          },
+          {
+            "id": "R-spark-append",
+            "logical_need_id": "N-spark-workload",
+            "source_inputs": [
+              "I02",
+              "I03"
+            ],
+            "property_id": "integration.engine_operation",
+            "role": "HARD",
+            "status": "ready",
+            "qualifiers": {
+              "engine": "spark",
+              "format": "iceberg",
+              "operation": "append"
+            },
+            "candidate_bindings": {
+              "api": {
+                "source": "candidate_path",
+                "path": "spark_path.api"
+              }
+            },
+            "acceptance_anchor": "integration.engine_operation",
+            "min_level_if_applicable": "full"
+          },
+          {
+            "id": "R-trino-read",
+            "logical_need_id": "N-trino-workload",
+            "source_inputs": [
+              "I02",
+              "I03"
+            ],
+            "property_id": "integration.engine_operation",
+            "role": "HARD",
+            "status": "ready",
+            "qualifiers": {
+              "engine": "trino",
+              "format": "iceberg",
+              "operation": "read"
+            },
+            "candidate_bindings": {
+              "api": {
+                "source": "candidate_path",
+                "path": "trino_path.api"
+              }
+            },
+            "acceptance_anchor": "integration.engine_operation",
+            "min_level_if_applicable": "full"
+          },
+          {
+            "id": "R-format-register",
+            "logical_need_id": "N-format-metadata",
+            "source_inputs": [
+              "I03"
+            ],
+            "property_id": "catalog.format_operation",
+            "role": "HARD",
+            "status": "ready",
+            "qualifiers": {
+              "format": "iceberg",
+              "operation": "register"
+            },
+            "candidate_bindings": {
+              "api": {
+                "source": "candidate_path",
+                "path": "metadata_path.api"
+              }
+            },
+            "acceptance_anchor": "catalog.format_operation",
+            "min_level_if_applicable": "full"
+          },
+          {
+            "id": "R-format-load",
+            "logical_need_id": "N-format-metadata",
+            "source_inputs": [
+              "I03"
+            ],
+            "property_id": "catalog.format_operation",
+            "role": "HARD",
+            "status": "ready",
+            "qualifiers": {
+              "format": "iceberg",
+              "operation": "load"
+            },
+            "candidate_bindings": {
+              "api": {
+                "source": "candidate_path",
+                "path": "metadata_path.api"
+              }
+            },
+            "acceptance_anchor": "catalog.format_operation",
+            "min_level_if_applicable": "full"
+          },
+          {
+            "id": "R-vending",
+            "logical_need_id": "N-vending",
+            "source_inputs": [
+              "I08"
+            ],
+            "property_id": "storage.credential_vending",
+            "role": "HARD",
+            "status": "ready",
+            "qualifiers": {
+              "storage": "aws_s3"
+            },
+            "candidate_bindings": {
+              "api": {
+                "source": "candidate_path",
+                "path": "storage_delegation_path.api"
+              }
+            },
+            "acceptance_anchor": "storage.credential_vending",
+            "min_level_if_applicable": "full"
+          },
+          {
+            "id": "R-access-spark",
+            "logical_need_id": "N-table-access",
+            "source_inputs": [
+              "I07"
+            ],
+            "property_id": "security.authorization",
+            "role": "HARD",
+            "status": "ready",
+            "qualifiers": {
+              "granularity": "table",
+              "action": "read",
+              "access_path": "spark_data_path"
+            },
+            "candidate_bindings": {},
+            "acceptance_anchor": "security.authorization",
+            "min_level_if_applicable": "full"
+          },
+          {
+            "id": "R-access-trino",
+            "logical_need_id": "N-table-access",
+            "source_inputs": [
+              "I07"
+            ],
+            "property_id": "security.authorization",
+            "role": "HARD",
+            "status": "ready",
+            "qualifiers": {
+              "granularity": "table",
+              "action": "read",
+              "access_path": "trino_data_path"
+            },
+            "candidate_bindings": {},
+            "acceptance_anchor": "security.authorization",
+            "min_level_if_applicable": "full"
+          }
+        ],
+        "objectives": [],
+        "unresolved": [],
+        "notes": [
+          "The clarification context is explicitly part of this fictional case, not inferred from the real user's form.",
+          "More than three atomic HARD predicates is valid; no cap and no duplicate soft rewards.",
+          "The two engines may use different APIs against one consistent catalog scope.",
+          "No three candidate products were selected or assessed."
+        ]
+      }
+    },
+    {
+      "id": "L2-02-vending-unknown-storage",
+      "input": {
+        "answers": {
+          "I01": "aws",
+          "I08": "yes"
+        },
+        "context": {}
+      },
+      "expected": {
+        "readiness": "conditional_assessment_only",
+        "required_need": {
+          "property_id": "storage.credential_vending",
+          "role": "HARD",
+          "status": "needs_context",
+          "missing": [
+            "storage"
+          ]
+        },
+        "no_hard_environment_until_confirmed": true,
+        "forbidden_inferences": [
+          "storage=aws_s3",
+          "drop_vending_requirement"
+        ]
+      }
+    },
+    {
+      "id": "L2-03-unknown-vending-need",
+      "input": {
+        "answers": {
+          "I08": "unknown"
+        }
+      },
+      "expected": {
+        "unresolved_need": "vending",
+        "must_not_emit": "NO_REQUIREMENT",
+        "numeric_imputation": null
+      }
+    },
+    {
+      "id": "L2-04-no-vending-need",
+      "input": {
+        "answers": {
+          "I08": "no"
+        }
+      },
+      "expected": {
+        "vending_requirements": [],
+        "security_waiver": false
+      }
+    },
+    {
+      "id": "L2-05-grouped-engine-and-mixed-format",
+      "input": {
+        "answers": {
+          "I02": [
+            "trino_presto"
+          ],
+          "I03": "mixed"
+        }
+      },
+      "expected": {
+        "unresolved": [
+          "actual_engine_members",
+          "required_format_set",
+          "workload_bindings"
+        ],
+        "forbidden_inferences": [
+          "Trino_AND_Presto_required",
+          "Trino_OR_Presto_chosen_by_catalog_score",
+          "Iceberg_AND_Delta_AND_Hudi_required"
+        ]
+      }
+    },
+    {
+      "id": "L2-06-table-interval-cut",
+      "input": {
+        "answers": {
+          "I04": "1000_to_10000"
+        }
+      },
+      "hypothetical_quota": {
+        "amount": 5000,
+        "unit": "tables"
+      },
+      "expected": {
+        "interval": {
+          "lower": 1000,
+          "upper": 10000
+        },
+        "quota_relation": "conditional",
+        "assumed_exact_count": null,
+        "note": "Hypothetical numeric example; not a quota of any real catalog."
+      }
+    },
+    {
+      "id": "L2-07-open-upper-bound",
+      "input": {
+        "answers": {
+          "I04": "gt_10000"
+        }
+      },
+      "hypothetical_quota": {
+        "amount": 50000,
+        "unit": "tables"
+      },
+      "expected": {
+        "interval": {
+          "lower": 10001,
+          "upper": null
+        },
+        "quota_relation": "conditional_not_guaranteed",
+        "finite_quota_covers_all_values": false
+      }
+    },
+    {
+      "id": "L2-08-writer-context-no-weight-change",
+      "input": {
+        "answers": {
+          "I05": "more_than_three"
+        }
+      },
+      "expected": {
+        "role": "CONTEXT",
+        "weight_changes": [],
+        "atomic_multi_table_requirement": false,
+        "reminder": "W_CONCURRENT_WRITE_CONTEXT"
+      }
+    },
+    {
+      "id": "L2-09-hybrid-platform-context",
+      "input": {
+        "answers": {
+          "I01": "on_prem",
+          "I09": [
+            "aws_native"
+          ]
+        }
+      },
+      "expected": {
+        "input_contradiction": false,
+        "catalog_eliminations": [],
+        "reminder": "W_HYBRID_CONTEXT"
+      }
+    },
+    {
+      "id": "L2-10-special-feature-ranks",
+      "input": {
+        "answers": {
+          "I10": {
+            "selected": [
+              {
+                "feature": "branching",
+                "rank": "mandatory"
+              },
+              {
+                "feature": "metadata_federation",
+                "rank": "nice_to_have"
+              }
+            ]
+          }
+        }
+      },
+      "expected": {
+        "requirements": [
+          {
+            "property_id": "workflow.branching",
+            "role": "HARD",
+            "min_level": "full",
+            "status": "needs_context"
+          }
+        ],
+        "objectives": [
+          {
+            "property_id": "metadata.federation_operation",
+            "role": "SOFT",
+            "weight": null,
+            "status": "needs_context"
+          }
+        ],
+        "weight_preset_applied": null
+      }
+    },
+    {
+      "id": "L2-11-rank-missing",
+      "input": {
+        "answers": {
+          "I10": {
+            "selected": [
+              {
+                "feature": "branching",
+                "rank": null
+              }
+            ]
+          }
+        }
+      },
+      "expected": {
+        "readiness": "needs_input_correction",
+        "issue": "E_RANK_MISSING_OR_INVALID",
+        "default_nice_to_have": false
+      }
+    },
+    {
+      "id": "L2-12-exclusive-none",
+      "input": {
+        "answers": {
+          "I10": {
+            "none": true,
+            "selected": [
+              {
+                "feature": "branching",
+                "rank": "mandatory"
+              }
+            ]
+          }
+        }
+      },
+      "expected": {
+        "readiness": "needs_input_correction",
+        "issue": "E_EXCLUSIVE_NONE",
+        "raw_answers_preserved": true,
+        "automatic_repair": false
+      }
+    },
+    {
+      "id": "L2-13-inactive-streaming-absent",
+      "input": {
+        "answers": {
+          "I01": "gcp"
+        }
+      },
+      "expected": {
+        "streaming_requirements": [],
+        "streaming_missing_answer_issue": false
+      }
+    },
+    {
+      "id": "L2-14-fine-grained-group",
+      "input": {
+        "answers": {
+          "I07": "column_row"
+        },
+        "context": {}
+      },
+      "expected": {
+        "role": "HARD",
+        "status": "needs_context",
+        "needs": [
+          "required_granularities",
+          "required_access_actions",
+          "required_access_paths"
+        ],
+        "automatic_row_and_column_conjunction": false
+      }
+    },
+    {
+      "id": "L2-15-multi-cloud-unknown-set",
+      "input": {
+        "answers": {
+          "I01": "multi_cloud"
+        }
+      },
+      "expected": {
+        "status": "needs_context",
+        "all_clouds_assumed": false,
+        "choose_best_cloud_for_catalog": false
+      }
+    },
+    {
+      "id": "L2-16-unaccepted-rank",
+      "input": {
+        "answers": {
+          "I10": {
+            "selected": [
+              {
+                "feature": "branching",
+                "rank": "important"
+              }
+            ]
+          }
+        }
+      },
+      "expected": {
+        "readiness": "needs_input_correction",
+        "issue": "E_RANK_MISSING_OR_INVALID",
+        "high_priority_weight_applied": false
+      }
+    }
+  ]
+}
+

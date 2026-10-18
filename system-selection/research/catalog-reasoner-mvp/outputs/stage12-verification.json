@@ -1,0 +1,57 @@
+{
+  "stage": "1-2",
+  "tests": {
+    "tests": 37,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "coverage": {
+    "covered_lines": 206,
+    "num_statements": 206,
+    "percent_covered": 100.0,
+    "percent_covered_display": "100",
+    "missing_lines": 0,
+    "excluded_lines": 0,
+    "percent_statements_covered": 100.0,
+    "percent_statements_covered_display": "100",
+    "num_branches": 66,
+    "num_partial_branches": 0,
+    "covered_branches": 66,
+    "missing_branches": 0,
+    "percent_branches_covered": 100.0,
+    "percent_branches_covered_display": "100"
+  },
+  "coverage_basis": "37 pytest cases plus a CLI end-to-end run under coverage; Python package only",
+  "tdd_evidence": {
+    "core_red": "31 executed tests failed because implementation was absent",
+    "core_green": "31 passed after implementation",
+    "cli_red": "5 executed tests failed because CLI was absent, after correcting the workspace temporary path",
+    "integration_red": "2 behavioral failures reproduced: missing relaxation pass trace and lost separate Layer 2 objectives",
+    "final_green": {
+      "tests": 37,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "not_implemented": [
+    "stage_3_soft_scoring",
+    "stage_4_scenarios_regret_and_unknown_impact"
+  ],
+  "source_sha256": {
+    "catalog_reasoner/__init__.py": "566a5679b0f01567bd203f5efef30891c76cf13870e423938fc522503978d844",
+    "catalog_reasoner/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "catalog_reasoner/cli.py": "b8c20162988d386c177abfa58688588fd88cd06e56476395abf8837ae2dc0e18",
+    "catalog_reasoner/contracts.py": "f8ca216bbdca18c988120b14dfae5ddb2204f72a57236cc86d2f0cd22725e284",
+    "catalog_reasoner/hard_filter.py": "701da520ee3af71d1d3b83f9a63e54f990ac84f1974b40365c4599ab73aaed09",
+    "catalog_reasoner/lookup.py": "9c684506c3422150f3d4aaa6cfbe881e6d2787e0f3bd08b764e74d77a6e5a12e",
+    "catalog_reasoner/pipeline.py": "6059c26422d78da9a07ef0cc500df3ab9afd042cf5335ffa80ce32d46373ef69",
+    "tests/test_cli.py": "d5bb0fed92bc7d660043aaeee90861f2688c54c96e707362ee5d01935131cf6f",
+    "tests/test_stage12.py": "efaf697a67c52401ee199543fcc1c2d0d12ddf91abe57103b05864c8190aed53",
+    "config.json": "50a010d28a0c9054d044553851a8a743a42d93557911516f9f2aa0e4c0fe6a10",
+    "examples/synthetic-kb.json": "7d12158a30e6528f2b223d180f931c8da4d8efee1fc2b72de10341f14269187c",
+    "examples/synthetic-no-eligible-kb.json": "ec343ad84bd17d696b9de8395893494b8ad4bdf4279c522fce8ad1fe114abaad",
+    "examples/synthetic-requirements.json": "3418fb5abec14d9e0b4b728a81ada60e38f2b1c1aaff70553e9f577004ecba6f"
+  }
+}

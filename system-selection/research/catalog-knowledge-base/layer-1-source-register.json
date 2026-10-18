@@ -1,0 +1,558 @@
+{
+  "manifest": {
+    "revision": "layer1-v3-data-2026-10-17-r1",
+    "retrieved_at": "2026-10-17",
+    "purpose": "source_inventory_not_capability_authority"
+  },
+  "sources": [
+    {
+      "id": "p_access",
+      "url": "https://polaris.apache.org/releases/1.7.0/managing-security/access-control/",
+      "title": "Role-Based Access Control",
+      "document_scope": "Apache Polaris 1.7.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "p_auth",
+      "url": "https://polaris.apache.org/releases/1.7.0/managing-security/external-idp/",
+      "title": "Identity Providers",
+      "document_scope": "Apache Polaris 1.7.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "p_vend",
+      "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+      "title": "Vended Credentials Reference",
+      "document_scope": "Apache Polaris 1.7.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "p_generic",
+      "url": "https://polaris.apache.org/releases/1.7.0/generic-table/",
+      "title": "Generic Table",
+      "document_scope": "Apache Polaris 1.7.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "p_jdbc",
+      "url": "https://polaris.apache.org/releases/1.7.0/metastores/relational-jdbc/",
+      "title": "Relational JDBC",
+      "document_scope": "Apache Polaris 1.7.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "p_metrics",
+      "url": "https://polaris.apache.org/releases/1.7.0/telemetry/",
+      "title": "Telemetry",
+      "document_scope": "Apache Polaris 1.7.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "p_hms",
+      "url": "https://polaris.apache.org/releases/1.7.0/federation/hive-metastore-federation/",
+      "title": "Hive Metastore Federation",
+      "document_scope": "Apache Polaris 1.7.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "p_local",
+      "url": "https://polaris.apache.org/releases/1.7.0/getting-started/quick-start/",
+      "title": "Quickstart",
+      "document_scope": "Apache Polaris 1.7.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "p_spark",
+      "url": "https://polaris.apache.org/releases/1.7.0/polaris-spark-client/",
+      "title": "Polaris Spark Client",
+      "document_scope": "Apache Polaris 1.7.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "g_overview",
+      "url": "https://gravitino.apache.org/docs/1.1.0/overview/",
+      "title": "Overview",
+      "document_scope": "Apache Gravitino 1.1.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "g_rest",
+      "url": "https://gravitino.apache.org/docs/1.1.0/iceberg-rest-service/",
+      "title": "Iceberg REST catalog service",
+      "document_scope": "Apache Gravitino 1.1.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "g_vend",
+      "url": "https://gravitino.apache.org/docs/1.1.0/security/credential-vending/",
+      "title": "Gravitino credential vending",
+      "document_scope": "Apache Gravitino 1.1.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "g_auth",
+      "url": "https://gravitino.apache.org/docs/1.1.0/security/how-to-authenticate/",
+      "title": "How to authenticate",
+      "document_scope": "Apache Gravitino 1.1.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "g_access",
+      "url": "https://gravitino.apache.org/docs/1.1.0/security/access-control/",
+      "title": "Access Control",
+      "document_scope": "Apache Gravitino 1.1.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "g_ice",
+      "url": "https://gravitino.apache.org/docs/1.1.0/lakehouse-iceberg-catalog/",
+      "title": "Iceberg catalog",
+      "document_scope": "Apache Gravitino 1.1.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "g_config",
+      "url": "https://gravitino.apache.org/docs/1.1.0/gravitino-server-config/",
+      "title": "Apache Gravitino configuration",
+      "document_scope": "Apache Gravitino 1.1.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "g_metrics",
+      "url": "https://gravitino.apache.org/docs/1.1.0/metrics/",
+      "title": "Apache Gravitino metrics",
+      "document_scope": "Apache Gravitino 1.1.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "g_lineage",
+      "url": "https://gravitino.apache.org/docs/1.1.0/lineage/lineage/",
+      "title": "Apache Gravitino Lineage support",
+      "document_scope": "Apache Gravitino 1.1.0",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "n_tx",
+      "url": "https://projectnessie.org/guides/transactions/",
+      "title": "Transactions",
+      "document_scope": "Nessie rolling documentation; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "n_try",
+      "url": "https://projectnessie.org/guides/try-nessie/",
+      "title": "Getting Started with Nessie and Iceberg REST",
+      "document_scope": "Nessie rolling documentation; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "n_auth",
+      "url": "https://projectnessie.org/nessie-latest/authentication/",
+      "title": "Authentication",
+      "document_scope": "Nessie rolling documentation; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "n_access",
+      "url": "https://projectnessie.org/nessie-latest/authorization/",
+      "title": "Authorization (Access Control)",
+      "document_scope": "Nessie rolling documentation; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "n_config",
+      "url": "https://projectnessie.org/nessie-latest/configuration/",
+      "title": "Server Configuration",
+      "document_scope": "Nessie rolling documentation; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "n_backup",
+      "url": "https://projectnessie.org/nessie-latest/export_import/",
+      "title": "Nessie Server Admin Tool",
+      "document_scope": "Nessie rolling documentation; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "n_ice",
+      "url": "https://projectnessie.org/iceberg/iceberg/",
+      "title": "Apache Iceberg integration",
+      "document_scope": "Nessie rolling documentation; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "u_auth",
+      "url": "https://docs.unitycatalog.io/server/auth/",
+      "title": "Unity Catalog Authentication and Authorization",
+      "document_scope": "Unity Catalog OSS rolling documentation; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "u_access",
+      "url": "https://docs.unitycatalog.io/server/users-privileges/",
+      "title": "Users and Privileges",
+      "document_scope": "Unity Catalog OSS rolling documentation; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "u_spark",
+      "url": "https://docs.unitycatalog.io/integrations/unity-catalog-spark/",
+      "title": "Unity Catalog Apache Spark Integration",
+      "document_scope": "Unity Catalog OSS rolling documentation; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "u_uniform",
+      "url": "https://docs.unitycatalog.io/usage/tables/uniform/",
+      "title": "Unity Catalog with UniForm tables",
+      "document_scope": "Unity Catalog OSS rolling documentation; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "u_config",
+      "url": "https://docs.unitycatalog.io/server/configuration/",
+      "title": "Unity Catalog Server Configuration",
+      "document_scope": "Unity Catalog OSS rolling documentation; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "u_delta",
+      "url": "https://docs.unitycatalog.io/usage/tables/deltalake/",
+      "title": "Delta Lake",
+      "document_scope": "Unity Catalog OSS rolling documentation; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "d_overview",
+      "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/",
+      "title": "What is Unity Catalog?",
+      "document_scope": "Databricks managed Unity Catalog on AWS; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "d_rest",
+      "url": "https://docs.databricks.com/aws/en/external-access/iceberg",
+      "title": "Access Databricks tables from Apache Iceberg clients",
+      "document_scope": "Databricks managed Unity Catalog on AWS; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "d_filters",
+      "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/filters-and-masks",
+      "title": "Row filters and column masks",
+      "document_scope": "Databricks managed Unity Catalog on AWS; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "d_lineage",
+      "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-lineage",
+      "title": "Lineage in Unity Catalog",
+      "document_scope": "Databricks managed Unity Catalog on AWS; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "d_fed",
+      "url": "https://docs.databricks.com/aws/en/query-federation/",
+      "title": "Connect to external databases and catalogs",
+      "document_scope": "Databricks managed Unity Catalog on AWS; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "d_grants",
+      "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/manage-privileges/",
+      "title": "Manage privileges in Unity Catalog",
+      "document_scope": "Databricks managed Unity Catalog on AWS; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "d_vend",
+      "url": "https://docs.databricks.com/aws/en/external-access/credential-vending",
+      "title": "Unity Catalog credential vending for external system access",
+      "document_scope": "Databricks managed Unity Catalog on AWS; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "d_audit",
+      "url": "https://docs.databricks.com/aws/en/admin/system-tables/audit-logs",
+      "title": "Audit log system table reference",
+      "document_scope": "Databricks managed Unity Catalog on AWS; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "d_limits",
+      "url": "https://docs.databricks.com/aws/en/resources/limits",
+      "title": "Resource limits",
+      "document_scope": "Databricks managed Unity Catalog on AWS; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "d_require",
+      "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/requirements",
+      "title": "Unity Catalog requirements and limitations",
+      "document_scope": "Databricks managed Unity Catalog on AWS; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "a_overview",
+      "url": "https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html",
+      "title": "Data discovery and cataloging in AWS Glue",
+      "document_scope": "AWS Glue / named AWS integration; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "a_rest",
+      "url": "https://docs.aws.amazon.com/glue/latest/dg/iceberg-rest-apis.html",
+      "title": "AWS Glue REST APIs for Apache Iceberg specifications",
+      "document_scope": "AWS Glue / named AWS integration; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "a_iam",
+      "url": "https://docs.aws.amazon.com/glue/latest/dg/security-iam.html",
+      "title": "Identity and access management for AWS Glue",
+      "document_scope": "AWS Glue / named AWS integration; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "a_filters",
+      "url": "https://docs.aws.amazon.com/lake-formation/latest/dg/data-filtering.html",
+      "title": "Data filtering and cell-level security in Lake Formation",
+      "document_scope": "AWS Glue / named AWS integration; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "a_audit",
+      "url": "https://docs.aws.amazon.com/glue/latest/dg/monitor-cloudtrail.html",
+      "title": "Logging AWS Glue API calls with AWS CloudTrail",
+      "document_scope": "AWS Glue / named AWS integration; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "a_limits",
+      "url": "https://docs.aws.amazon.com/general/latest/gr/glue.html",
+      "title": "AWS Glue endpoints and quotas",
+      "document_scope": "AWS Glue / named AWS integration; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "a_spark",
+      "url": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-format-iceberg.html",
+      "title": "Using the Iceberg framework in AWS Glue",
+      "document_scope": "AWS Glue / named AWS integration; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "a_encrypt",
+      "url": "https://docs.aws.amazon.com/glue/latest/dg/encrypt-glue-data-catalog.html",
+      "title": "Encrypting your Data Catalog",
+      "document_scope": "AWS Glue / named AWS integration; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "a_vend",
+      "url": "https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_GetTemporaryDataLocationCredentials.html",
+      "title": "GetTemporaryDataLocationCredentials",
+      "document_scope": "AWS Glue / named AWS integration; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "a_lock",
+      "url": "https://iceberg.apache.org/docs/latest/aws/",
+      "title": "AWS integrations — Optimistic Locking",
+      "document_scope": "Iceberg GlueCatalog client; rolling docs; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "h_admin",
+      "url": "https://hive.apache.org/docs/latest/admin/adminmanual-metastore-3-0-administration/",
+      "title": "AdminManual Metastore 3.0 Administration",
+      "document_scope": "Hive documentation; historical version notes retained; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "h_sba",
+      "url": "https://hive.apache.org/docs/latest/user/storage-based-authorization-in-the-metastore-server/",
+      "title": "Storage Based Authorization in the Metastore Server",
+      "document_scope": "Hive documentation; historical version notes retained; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "h_hcat",
+      "url": "https://hive.apache.org/docs/latest/hcatalog/hcatalog-authorization/",
+      "title": "HCatalog Authorization",
+      "document_scope": "Hive documentation; historical version notes retained; as of 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "t_ice",
+      "url": "https://trino.io/docs/current/connector/iceberg.html",
+      "title": "Iceberg connector",
+      "document_scope": "Trino 484 current documentation observed 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "t_delta",
+      "url": "https://trino.io/docs/current/connector/delta-lake.html",
+      "title": "Delta Lake connector",
+      "document_scope": "Trino 484 current documentation observed 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "t_hudi",
+      "url": "https://trino.io/docs/current/connector/hudi.html",
+      "title": "Hudi connector",
+      "document_scope": "Trino 484 current documentation observed 2026-10-17",
+      "kind": "official_doc",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "p_license",
+      "url": "https://raw.githubusercontent.com/apache/polaris/apache-polaris-1.7.0/LICENSE",
+      "title": "Project LICENSE",
+      "document_scope": "Polaris release tag apache-polaris-1.7.0",
+      "kind": "official_repository",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "n_license",
+      "url": "https://raw.githubusercontent.com/projectnessie/nessie/main/LICENSE",
+      "title": "Project LICENSE",
+      "document_scope": "Nessie main observed 2026-10-17",
+      "kind": "official_repository",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "u_license",
+      "url": "https://raw.githubusercontent.com/unitycatalog/unitycatalog/main/LICENSE",
+      "title": "Project LICENSE",
+      "document_scope": "Unity Catalog OSS main observed 2026-10-17",
+      "kind": "official_repository",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    },
+    {
+      "id": "h_license",
+      "url": "https://raw.githubusercontent.com/apache/hive/master/LICENSE",
+      "title": "Project LICENSE",
+      "document_scope": "Hive master observed 2026-10-17",
+      "kind": "official_repository",
+      "retrieved_at": "2026-10-17",
+      "access": "read_relevant_sections"
+    }
+  ]
+}

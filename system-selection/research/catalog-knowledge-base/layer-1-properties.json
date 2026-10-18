@@ -1,0 +1,728 @@
+{
+  "manifest": {
+    "revision": "layer1-properties-v3.1",
+    "created_on": "2026-10-17",
+    "purpose": "domain_dictionary_not_product_assessments",
+    "limitations": [
+      "Definitions describe what to collect, not what any catalog supports.",
+      "The dictionary is independent of form IDs and scoring weights.",
+      "Optional table_type and metadata_representation preserve managed/foreign and UniForm conditions; absent qualifiers are not wildcards."
+    ]
+  },
+  "groups": [
+    {
+      "id": "format_metadata",
+      "label": "Table format và mô hình metadata"
+    },
+    {
+      "id": "engine_api",
+      "label": "Engine, API và streaming"
+    },
+    {
+      "id": "authentication",
+      "label": "Authentication — xác thực"
+    },
+    {
+      "id": "authorization",
+      "label": "Authorization — phân quyền"
+    },
+    {
+      "id": "storage",
+      "label": "Storage và cấp quyền truy cập dữ liệu"
+    },
+    {
+      "id": "commit_transaction",
+      "label": "Commit, concurrency và transaction"
+    },
+    {
+      "id": "versioning",
+      "label": "Branching và versioning"
+    },
+    {
+      "id": "federation_migration",
+      "label": "Federation và migration"
+    },
+    {
+      "id": "deployment_operations",
+      "label": "Triển khai, persistence và vận hành"
+    },
+    {
+      "id": "governance",
+      "label": "Audit, lineage và bảo vệ dữ liệu"
+    },
+    {
+      "id": "observations_policy",
+      "label": "Quy mô, chi phí và thông tin dự án"
+    }
+  ],
+  "rubrics": {
+    "binary": {
+      "ordered_levels": [
+        "none",
+        "full"
+      ],
+      "definitions": {
+        "none": "Có căn cứ không đáp ứng đúng hợp đồng thuộc tính trong phạm vi và điều kiện được nêu.",
+        "full": "Có căn cứ đáp ứng đúng hợp đồng thuộc tính trong phạm vi và điều kiện được nêu."
+      }
+    },
+    "branching": {
+      "ordered_levels": [
+        "none",
+        "partial",
+        "full"
+      ],
+      "definitions": {
+        "none": "Có căn cứ không hỗ trợ các thành phần workflow nhánh trong phạm vi nêu.",
+        "partial": "Có thành phần đáp ứng và thành phần được xác định không đáp ứng; nêu covered_parts và unmet_parts.",
+        "full": "Có căn cứ cho cả tạo nhánh, ghi cô lập và công bố ở cấp đối tượng nêu."
+      }
+    }
+  },
+  "properties": [
+    {
+      "id": "catalog.format_operation",
+      "group": "format_metadata",
+      "label": "Table format được hỗ trợ",
+      "value_type": "support",
+      "definition": "Khả năng thực hiện một thao tác catalog/metadata đối với table format được chỉ rõ.",
+      "qualifiers": [
+        "format",
+        "operation",
+        "api"
+      ],
+      "optional_qualifiers": [
+        "table_type",
+        "metadata_representation"
+      ],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Đăng ký bảng không tự chứng minh engine đọc, ghi hoặc hỗ trợ mọi tính năng của format."
+      ]
+    },
+    {
+      "id": "catalog.object_operation",
+      "group": "format_metadata",
+      "label": "Đối tượng và namespace",
+      "value_type": "support",
+      "definition": "Khả năng biểu diễn và quản lý namespace, table, view hoặc đối tượng được chỉ rõ.",
+      "qualifiers": [
+        "object_type",
+        "operation",
+        "api"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Không coi mọi loại view hoặc mọi độ sâu namespace là tương đương."
+      ]
+    },
+    {
+      "id": "metadata.responsibility",
+      "group": "format_metadata",
+      "label": "Trách nhiệm lưu metadata",
+      "value_type": "text",
+      "definition": "Thành phần có thẩm quyền lưu hoặc cập nhật một loại trạng thái metadata.",
+      "qualifiers": [
+        "metadata_kind"
+      ],
+      "optional_qualifiers": [],
+      "interpretation_limits": [
+        "Phân biệt metadata của catalog với file metadata/snapshot do format quản lý."
+      ]
+    },
+    {
+      "id": "integration.engine_operation",
+      "group": "engine_api",
+      "label": "Engine và thao tác",
+      "value_type": "support",
+      "definition": "Đường tích hợp cho một engine thực hiện một thao tác trên một format trong scope đang xét.",
+      "qualifiers": [
+        "engine",
+        "format",
+        "operation",
+        "api"
+      ],
+      "optional_qualifiers": [
+        "storage",
+        "connector",
+        "engine_release",
+        "table_type",
+        "metadata_representation"
+      ],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Tách read, append, merge và DDL; không suy tất cả engine đều ghi được."
+      ]
+    },
+    {
+      "id": "integration.api_operation",
+      "group": "engine_api",
+      "label": "Giao thức và thao tác API",
+      "value_type": "support",
+      "definition": "Khả năng cung cấp một thao tác qua giao thức/API được xác định.",
+      "qualifiers": [
+        "api",
+        "operation"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Có Iceberg REST không tự có đủ mọi endpoint hoặc client compatibility."
+      ]
+    },
+    {
+      "id": "integration.streaming_write",
+      "group": "engine_api",
+      "label": "Đường ghi streaming",
+      "value_type": "support",
+      "definition": "Đường ghi streaming hoặc micro-batch cụ thể qua engine và connector tương ứng.",
+      "qualifiers": [
+        "engine",
+        "format",
+        "mode",
+        "api"
+      ],
+      "optional_qualifiers": [
+        "storage",
+        "connector"
+      ],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Không đồng nhất streaming với Spark continuous processing hay giao dịch nhiều bảng."
+      ]
+    },
+    {
+      "id": "authentication.method",
+      "group": "authentication",
+      "label": "Cơ chế xác thực client",
+      "value_type": "support",
+      "definition": "Cơ chế xác thực principal/client tới dịch vụ catalog qua API xác định.",
+      "qualifiers": [
+        "method",
+        "api"
+      ],
+      "optional_qualifiers": [
+        "authentication_mode",
+        "token_format",
+        "principal_mapping"
+      ],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Phân biệt OAuth2 grant, OIDC, định dạng JWT và cơ chế kiểm tra token; chúng không phải các tên đồng nghĩa."
+      ]
+    },
+    {
+      "id": "authentication.identity_provider",
+      "group": "authentication",
+      "label": "Tích hợp identity provider",
+      "value_type": "support",
+      "definition": "Khả năng dùng một IdP hoặc loại IdP xác định trong đường xác thực.",
+      "qualifiers": [
+        "identity_provider",
+        "protocol",
+        "api"
+      ],
+      "optional_qualifiers": [
+        "authentication_mode"
+      ],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Một ví dụ Keycloak không chứng minh tương thích mọi IdP hoặc SSO qua mọi engine."
+      ]
+    },
+    {
+      "id": "authentication.session_control",
+      "group": "authentication",
+      "label": "Vòng đời phiên và token",
+      "value_type": "support",
+      "definition": "Khả năng thực hiện một tác vụ như cấp, kiểm tra hết hạn, làm mới hoặc thu hồi token/phiên.",
+      "qualifiers": [
+        "action",
+        "api"
+      ],
+      "optional_qualifiers": [
+        "authentication_mode"
+      ],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Token catalog và credential storage có vòng đời riêng."
+      ]
+    },
+    {
+      "id": "authorization.policy_model",
+      "group": "authorization",
+      "label": "Mô hình phân quyền",
+      "value_type": "support",
+      "definition": "Khả năng áp dụng mô hình quyền được chỉ rõ như role-based hoặc attribute-based tại catalog.",
+      "qualifiers": [
+        "model",
+        "api"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Nhãn RBAC/ABAC không tự chứng minh mức hàng/cột hoặc mọi đường truy cập."
+      ]
+    },
+    {
+      "id": "security.authorization",
+      "group": "authorization",
+      "label": "Phạm vi và thực thi quyền",
+      "value_type": "support",
+      "definition": "Thực thi allow/deny cho một hành động ở cấp tài nguyên và đường truy cập cụ thể.",
+      "qualifiers": [
+        "granularity",
+        "action",
+        "access_path"
+      ],
+      "optional_qualifiers": [
+        "engine",
+        "format"
+      ],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Quyền metadata/API không tự bảo vệ truy cập file trực tiếp."
+      ]
+    },
+    {
+      "id": "authorization.external_policy",
+      "group": "authorization",
+      "label": "Tích hợp policy bên ngoài",
+      "value_type": "support",
+      "definition": "Đường tích hợp một hệ thống quyết định/thực thi chính sách bên ngoài.",
+      "qualifiers": [
+        "policy_engine",
+        "access_path"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Có plugin không tự chứng minh mọi loại policy được thực thi."
+      ]
+    },
+    {
+      "id": "storage.backend",
+      "group": "storage",
+      "label": "Storage backend",
+      "value_type": "support",
+      "definition": "Khả năng sử dụng backend lưu dữ liệu được xác định qua đường catalog đang xét.",
+      "qualifiers": [
+        "storage",
+        "api"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "S3-compatible không đồng nghĩa native AWS S3 hoặc có cùng STS/signing."
+      ]
+    },
+    {
+      "id": "storage.access_method",
+      "group": "storage",
+      "label": "Cách cấp quyền truy cập storage",
+      "value_type": "string_set",
+      "definition": "Các cơ chế truy cập storage được mô tả, ví dụ credential vending, request signing hoặc danh tính được cấp riêng.",
+      "qualifiers": [
+        "storage",
+        "api"
+      ],
+      "optional_qualifiers": [],
+      "interpretation_limits": [
+        "Tập giá trị là mô tả cơ chế, không là số tính năng để cộng điểm."
+      ]
+    },
+    {
+      "id": "storage.credential_vending",
+      "group": "storage",
+      "label": "Credential vending",
+      "value_type": "support",
+      "definition": "Catalog trả credential storage tạm thời, giới hạn theo dữ liệu/quyền được phép trong phạm vi đã xác định.",
+      "qualifiers": [
+        "storage",
+        "api"
+      ],
+      "optional_qualifiers": [
+        "client",
+        "table_type",
+        "metadata_representation"
+      ],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Không thay cho row/column enforcement hoặc xác nhận mọi client."
+      ]
+    },
+    {
+      "id": "storage.credential_lifecycle",
+      "group": "storage",
+      "label": "Vòng đời credential storage",
+      "value_type": "support",
+      "definition": "Khả năng cấp lại, làm mới, hết hạn hoặc thu hồi quyền storage theo tác vụ được xác định.",
+      "qualifiers": [
+        "storage",
+        "action",
+        "api"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Credential hết hạn không tự chứng minh thu hồi tức thì ở mọi cache/client."
+      ]
+    },
+    {
+      "id": "commit.guarantee",
+      "group": "commit_transaction",
+      "label": "Ngữ nghĩa commit và visibility",
+      "value_type": "text",
+      "definition": "Hợp đồng atomicity, trạng thái commit, visibility, xử lý conflict/retry của một thao tác và boundary.",
+      "qualifiers": [
+        "operation",
+        "boundary",
+        "api"
+      ],
+      "optional_qualifiers": [],
+      "interpretation_limits": [
+        "Không ép các semantics khác nhau thành một mức tốt/xấu; ghi rõ nguồn và điều kiện."
+      ]
+    },
+    {
+      "id": "commit.concurrent_write",
+      "group": "commit_transaction",
+      "label": "Ghi đồng thời",
+      "value_type": "support",
+      "definition": "Hỗ trợ concurrent commit theo loại thao tác và mô hình writer đang xét.",
+      "qualifiers": [
+        "operation",
+        "writer_topology",
+        "api"
+      ],
+      "optional_qualifiers": [
+        "engine",
+        "format"
+      ],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Nhiều engine không bằng nhiều job; mức hỗ trợ không chứng minh throughput/SLO."
+      ]
+    },
+    {
+      "id": "transaction.multi_table_atomic",
+      "group": "commit_transaction",
+      "label": "Cập nhật nguyên tử nhiều bảng",
+      "value_type": "support",
+      "definition": "Bảo đảm all-or-nothing của các cập nhật nhiều bảng qua đường client/API và failure boundary được nêu.",
+      "qualifiers": [
+        "client_path",
+        "failure_boundary",
+        "api"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Catalog primitive hoặc branch publish không tự chứng minh transaction end-to-end."
+      ]
+    },
+    {
+      "id": "workflow.branching",
+      "group": "versioning",
+      "label": "Workflow nhánh dữ liệu",
+      "value_type": "support",
+      "definition": "Workflow gồm tạo nhánh, ghi cô lập và công bố thay đổi tại cấp đối tượng được chỉ rõ.",
+      "qualifiers": [
+        "object_scope",
+        "api"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "branching",
+      "interpretation_limits": [
+        "Không đồng nhất nhánh một bảng với nhánh cả catalog; chưa biết phần còn lại không là partial."
+      ]
+    },
+    {
+      "id": "versioning.operation",
+      "group": "versioning",
+      "label": "Thao tác versioning",
+      "value_type": "support",
+      "definition": "Khả năng tạo/sử dụng branch, tag, lịch sử, time travel, merge hoặc rollback theo thao tác và cấp đối tượng.",
+      "qualifiers": [
+        "reference_type",
+        "operation",
+        "object_scope",
+        "api"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Lịch sử metadata entity không tự là lịch sử snapshot dữ liệu."
+      ]
+    },
+    {
+      "id": "metadata.federation_operation",
+      "group": "federation_migration",
+      "label": "Federation metadata",
+      "value_type": "support",
+      "definition": "Quản lý hoặc truy cập metadata từ một loại nguồn qua lớp thống nhất.",
+      "qualifiers": [
+        "source_type",
+        "operation",
+        "api"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Không tự chứng minh distributed transaction hoặc governance xuyên mọi nguồn."
+      ]
+    },
+    {
+      "id": "migration.asset_preservation",
+      "group": "federation_migration",
+      "label": "Migration, import và export",
+      "value_type": "support",
+      "definition": "Khả năng chuyển một loại tài sản metadata/dữ liệu giữa scope và catalog khác theo chiều được chỉ rõ.",
+      "qualifiers": [
+        "direction",
+        "peer_catalog",
+        "asset"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Giữ location không tự là giữ snapshot history, UUID, grants hoặc rollback."
+      ]
+    },
+    {
+      "id": "deployment.environment",
+      "group": "deployment_operations",
+      "label": "Môi trường triển khai/sử dụng",
+      "value_type": "support",
+      "definition": "Khả năng triển khai hoặc dùng scope trong môi trường được xác định, với deployment mode của scope.",
+      "qualifiers": [
+        "environment"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Nơi chạy engine không quyết định vị trí catalog hoặc storage."
+      ]
+    },
+    {
+      "id": "deployment.dependencies",
+      "group": "deployment_operations",
+      "label": "Phụ thuộc hạ tầng",
+      "value_type": "string_set",
+      "definition": "Các dịch vụ/phụ thuộc bắt buộc hoặc tùy chọn của scope; note phân biệt hai loại.",
+      "qualifiers": [],
+      "optional_qualifiers": [],
+      "interpretation_limits": [
+        "Không mặc định mọi catalog cần Kubernetes và PostgreSQL."
+      ]
+    },
+    {
+      "id": "persistence.backend",
+      "group": "deployment_operations",
+      "label": "Persistence backend",
+      "value_type": "support",
+      "definition": "Khả năng dùng một backend lưu trạng thái catalog trong scope được nghiên cứu.",
+      "qualifiers": [
+        "backend"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Có backend không tự chứng minh cấu hình durable hoặc đã kiểm thử phục hồi."
+      ]
+    },
+    {
+      "id": "operations.capability",
+      "group": "deployment_operations",
+      "label": "Vận hành và phục hồi",
+      "value_type": "support",
+      "definition": "Khả năng phục vụ backup/restore, nâng cấp, rollback phiên bản, HA, giám sát hoặc tác vụ vận hành cụ thể.",
+      "qualifiers": [
+        "operation",
+        "component"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "HA không tự bảo đảm RTO/RPO; một lần restart không phải kiểm thử DR."
+      ]
+    },
+    {
+      "id": "governance.audit",
+      "group": "governance",
+      "label": "Audit",
+      "value_type": "support",
+      "definition": "Ghi nhận một loại sự kiện và chủ thể ở boundary được xác định.",
+      "qualifiers": [
+        "event_type",
+        "boundary"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Audit catalog không tự bao phủ mọi truy cập dữ liệu qua engine/storage."
+      ]
+    },
+    {
+      "id": "governance.lineage",
+      "group": "governance",
+      "label": "Lineage",
+      "value_type": "support",
+      "definition": "Thu thập hoặc cung cấp quan hệ lineage được chỉ rõ qua integration cụ thể.",
+      "qualifiers": [
+        "relation_type",
+        "integration"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Có lineage không tự là lineage cấp cột hoặc bao phủ mọi job."
+      ]
+    },
+    {
+      "id": "security.data_protection",
+      "group": "governance",
+      "label": "Bảo vệ dữ liệu và metadata",
+      "value_type": "support",
+      "definition": "Khả năng bảo vệ transport, dữ liệu/metadata lưu trữ, secret hoặc isolation theo control và boundary được nêu.",
+      "qualifiers": [
+        "control",
+        "boundary"
+      ],
+      "optional_qualifiers": [],
+      "rubric_ref": "binary",
+      "interpretation_limits": [
+        "Không suy tuân thủ pháp lý hoặc data residency chỉ từ một cơ chế mã hóa."
+      ]
+    },
+    {
+      "id": "limits.quota",
+      "group": "observations_policy",
+      "label": "Giới hạn/quota đã công bố",
+      "value_type": "quantity",
+      "definition": "Một quota hoặc giới hạn xác định của namespace, bảng, request hoặc tài nguyên khác.",
+      "qualifiers": [
+        "resource",
+        "boundary"
+      ],
+      "optional_qualifiers": [],
+      "interpretation_limits": [
+        "Số lượng đã thử thành công không phải giới hạn tối đa; không có quota công bố không nghĩa là vô hạn."
+      ],
+      "observation_context_required": true,
+      "observation_context_fields": [
+        "limit_kind",
+        "conditions"
+      ]
+    },
+    {
+      "id": "performance.observation",
+      "group": "observations_policy",
+      "label": "Quan sát hiệu năng",
+      "value_type": "quantity",
+      "definition": "Số đo hiệu năng tại workload, môi trường và loại phép đo được ghi trong observation_context.",
+      "qualifiers": [
+        "metric",
+        "scenario"
+      ],
+      "optional_qualifiers": [],
+      "interpretation_limits": [
+        "Không so latency/goodput khác semantics hoặc suy SLO từ số bảng đơn độc."
+      ],
+      "observation_context_required": true,
+      "observation_context_fields": [
+        "environment",
+        "workload",
+        "statistic",
+        "measurement_method"
+      ]
+    },
+    {
+      "id": "operations.effort_observation",
+      "group": "observations_policy",
+      "label": "Quan sát công vận hành",
+      "value_type": "quantity",
+      "definition": "Công sức hoặc thời gian của một tác vụ trong điều kiện nhân lực/môi trường cụ thể.",
+      "qualifiers": [
+        "task",
+        "scenario"
+      ],
+      "optional_qualifiers": [],
+      "interpretation_limits": [
+        "Không biến quan sát/ước tính giờ công thành nhãn dễ vận hành phổ quát."
+      ],
+      "observation_context_required": true,
+      "observation_context_fields": [
+        "environment",
+        "task_boundary",
+        "measurement_method"
+      ]
+    },
+    {
+      "id": "cost.price_component",
+      "group": "observations_policy",
+      "label": "Đơn giá thành phần",
+      "value_type": "quantity",
+      "definition": "Đơn giá có tiền tệ, đơn vị, thời điểm và tier/điều kiện; không phải TCO hoàn chỉnh.",
+      "qualifiers": [
+        "component",
+        "region",
+        "billing_basis"
+      ],
+      "optional_qualifiers": [],
+      "interpretation_limits": [
+        "OSS không đồng nghĩa tổng chi phí bằng 0; không tạo giá khi chưa có nguồn."
+      ],
+      "observation_context_required": true,
+      "observation_context_fields": [
+        "currency",
+        "as_of",
+        "tier",
+        "conditions"
+      ]
+    },
+    {
+      "id": "project.license",
+      "group": "observations_policy",
+      "label": "Giấy phép",
+      "value_type": "string_set",
+      "definition": "Các license được nguồn xác nhận cho component/revision thuộc scope.",
+      "qualifiers": [
+        "component"
+      ],
+      "optional_qualifiers": [],
+      "interpretation_limits": [
+        "Không suy kết luận pháp lý đầy đủ từ nhãn license; managed và OSS tách scope."
+      ]
+    },
+    {
+      "id": "project.support_policy",
+      "group": "observations_policy",
+      "label": "Chính sách hỗ trợ",
+      "value_type": "text",
+      "definition": "Cam kết hỗ trợ, vòng đời/EOL hoặc hình thức hỗ trợ có nguồn cho đúng provider/edition.",
+      "qualifiers": [
+        "provider"
+      ],
+      "optional_qualifiers": [],
+      "interpretation_limits": [
+        "Không coi hỗ trợ cộng đồng tương đương hợp đồng SLA."
+      ]
+    },
+    {
+      "id": "project.maintenance_context",
+      "group": "observations_policy",
+      "label": "Quản trị và bảo trì dự án",
+      "value_type": "text",
+      "definition": "Thông tin về tổ chức quản trị, release hoặc hoạt động bảo trì được ghi theo thời điểm và phương pháp.",
+      "qualifiers": [
+        "topic"
+      ],
+      "optional_qualifiers": [],
+      "interpretation_limits": [
+        "Không dùng số star/contributor hoặc tuổi dự án làm điểm chất lượng mặc định."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "manifest": {
+    "revision": "implementation-profiles-v1-2026-10-18",
+    "created_on": "2026-10-18",
+    "evidence_file": "verified-path-evidence-2026-10-18.json",
+    "context_value_policy": "Context uses canonical facts from explicit intake mapping: s3 -> aws_s3, local_fs -> local_filesystem; recipe selection never supplies missing facts.",
+    "portfolio_complete": false,
+    "deployment_validation": "documented_recipe_not_locally_executed",
+    "prerequisite_semantics": "Implementation prescriptions must be shown to the user; eligibility means documented capability under these conditions, never proof a current installation is configured."
+  },
+  "profiles": [
+    {
+      "id": "glue_emr72_lakeformation_s3",
+      "name": "AWS Glue + EMR Serverless 7.2.0 + Lake Formation trên S3",
+      "scope_id": "glue_aws_2026_10_17",
+      "context": {
+        "environment": "aws",
+        "format": "iceberg",
+        "storage": "aws_s3",
+        "engines": [
+          "spark"
+        ],
+        "operations": [
+          "read",
+          "append",
+          "create_table"
+        ]
+      },
+      "bindings": {
+        "integration.engine_operation": [
+          {
+            "when": {
+              "engine": "spark",
+              "format": "iceberg",
+              "operation": "read"
+            },
+            "qualifiers": {
+              "api": "aws_glue_api",
+              "connector": "emr_iceberg_spark_session_catalog",
+              "engine_release": "emr-7.2.0"
+            }
+          },
+          {
+            "when": {
+              "engine": "spark",
+              "format": "iceberg",
+              "operation": "append"
+            },
+            "qualifiers": {
+              "api": "aws_glue_api",
+              "connector": "emr_iceberg_spark_session_catalog",
+              "engine_release": "emr-7.2.0"
+            }
+          },
+          {
+            "when": {
+              "engine": "spark",
+              "format": "iceberg",
+              "operation": "create_table"
+            },
+            "qualifiers": {
+              "api": "aws_glue_api",
+              "connector": "emr_iceberg_spark_session_catalog",
+              "engine_release": "emr-7.2.0"
+            }
+          }
+        ],
+        "catalog.format_operation": {
+          "api": "aws_glue_api"
+        },
+        "security.authorization": {
+          "action": "filter_select_results",
+          "access_path": "emr_serverless_lakeformation_fgac"
+        },
+        "storage.credential_vending": {
+          "api": "lake_formation_get_data_access",
+          "client": "emr_serverless_spark"
+        }
+      },
+      "claim_ids": [
+        "vp_glue_emr72_iceberg_load",
+        "vp_glue_emr72_iceberg_create",
+        "vp_glue_emr72_spark_read",
+        "vp_glue_emr72_spark_append",
+        "vp_glue_emr72_spark_create_table",
+        "vp_glue_emr72_lf_row",
+        "vp_glue_emr72_lf_column",
+        "vp_glue_emr72_lf_get_data_access",
+        "vp_glue_documented_catalog_minimum",
+        "cl_glue_aws_2026_10_17_aws_endpoint"
+      ],
+      "compatibility_evidence": [
+        {
+          "url": "https://aws.amazon.com/blogs/big-data/fine-grained-access-control-in-amazon-emr-serverless-with-aws-lake-formation/",
+          "locator": "EMR 7.2.0 application; Glue metastore; Lake Formation enablement; producer ingestion and finance/product SELECT verification"
+        },
+        {
+          "url": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless-lf-enable.html",
+          "locator": "Permission requirements; Iceberg supported operations; native Glue Spark configuration"
+        }
+      ],
+      "prerequisites": [
+        "Dùng EMR Serverless Spark 7.2.0 trong recipe; bật Lake Formation FGAC cho application/job.",
+        "Đăng ký location S3, gán IAM và LF grants theo data engineer/finance/product roles.",
+        "Role ingestion có quyền ghi IAM/S3; analyst bị lọc khi SELECT qua integrated engine.",
+        "Quản trị truy cập trực tiếp S3 riêng; không cấp credential ngoài đường chính rồi giả định LF lọc được.",
+        "Cross-account lab cần resource share, resource links và quyền metadata ở cả hai tài khoản.",
+        "Đối chiếu quota/headroom, region và chính sách thực trước triển khai."
+      ],
+      "version_conditions": [
+        "Bài worked example dùng EMR 7.2.0; không tự nâng sang mọi bản mới hoặc runtime Spark tùy ý.",
+        "Nguồn EMR hiện tại đổi cơ chế credential cho nhiều DML từ 7.12; recipe này giữ quyền ghi của role cho đường EMR cũ."
+      ],
+      "evidence_limits": [
+        "Không có AWS resources hoặc notebook nào được triển khai lại.",
+        "Metadata API, data enforcement và credential API là các thành phần khác nhau của cùng bundle."
+      ]
+    },
+    {
+      "id": "nessie_native_spark_local_lab",
+      "name": "Nessie + Iceberg native SparkCatalog, local lab",
+      "scope_id": "nessie_oss_2026_10_17",
+      "context": {
+        "environment": "local_lab",
+        "format": "iceberg",
+        "storage": "local_filesystem",
+        "engines": [
+          "spark"
+        ],
+        "operations": [
+          "read",
+          "append",
+          "create_table"
+        ]
+      },
+      "bindings": {
+        "integration.engine_operation": [
+          {
+            "when": {
+              "engine": "spark",
+              "format": "iceberg",
+              "operation": "read"
+            },
+            "qualifiers": {
+              "api": "nessie_api",
+              "connector": "iceberg_nessie_catalog",
+              "engine_release": "spark3_native_documented"
+            }
+          },
+          {
+            "when": {
+              "engine": "spark",
+              "format": "iceberg",
+              "operation": "append"
+            },
+            "qualifiers": {
+              "api": "nessie_api",
+              "connector": "iceberg_nessie_catalog",
+              "engine_release": "spark3_native_documented"
+            }
+          },
+          {
+            "when": {
+              "engine": "spark",
+              "format": "iceberg",
+              "operation": "create_table"
+            },
+            "qualifiers": {
+              "api": "nessie_api",
+              "connector": "iceberg_nessie_catalog",
+              "engine_release": "spark3_native_documented"
+            }
+          }
+        ],
+        "catalog.format_operation": {
+          "api": "nessie_api"
+        },
+        "workflow.branching": {
+          "api": "nessie_api"
+        }
+      },
+      "claim_ids": [
+        "vp_nessie_local_lab",
+        "vp_nessie_native_spark_read",
+        "vp_nessie_native_spark_append",
+        "vp_nessie_native_spark_create_table",
+        "vp_nessie_native_iceberg_create",
+        "vp_nessie_documented_catalog_minimum",
+        "cl_nessie_oss_2026_10_17_ice_load",
+        "cl_nessie_oss_2026_10_17_branch"
+      ],
+      "compatibility_evidence": [
+        {
+          "url": "https://projectnessie.org/iceberg/spark/",
+          "locator": "Native NessieCatalog configuration, local endpoint, Spark3 CREATE/INSERT and SELECT including branch references"
+        },
+        {
+          "url": "https://projectnessie.org/guides/sql/",
+          "locator": "Nessie Spark SQL extensions: create/switch/merge references"
+        },
+        {
+          "url": "https://projectnessie.org/guides/transactions/",
+          "locator": "Via Branches: isolated commits and consistent-view publication"
+        },
+        {
+          "url": "https://projectnessie.org/guides/try-nessie/",
+          "locator": "Local Docker/Podman server is documented; native-client recipe uses the separate documented Nessie API"
+        }
+      ],
+      "prerequisites": [
+        "Chạy Nessie server cục bộ và cho native NessieCatalog client truy cập đúng endpoint.",
+        "Cài Iceberg runtime đúng Spark/Scala và Nessie SQL extensions tương thích; không dùng artifact mẫu lẫn phiên bản mà chưa kiểm tra.",
+        "Chọn warehouse path local có quyền đọc/ghi cho Spark; không suy từ recipe MinIO REST thành credential vending local.",
+        "Có quyền create/write/merge reference nếu bật authentication/authorization.",
+        "Dữ liệu lịch sử phụ thuộc retention của files; nhánh catalog không sao chép toàn bộ data files."
+      ],
+      "version_conditions": [
+        "Claim engine_release=spark3_native_documented chỉ mô tả đường Spark3 chính thức, không chứng nhận một bộ binary đã cài.",
+        "Nessie SQL grammar thay đổi tại 0.95.0; cần chọn syntax đúng extension version.",
+        "Bài Dremio legacy Spark3.2/Iceberg0.14/Nessie0.40.1 không được dùng làm chứng cứ đã chạy bản Nessie hiện tại."
+      ],
+      "evidence_limits": [
+        "Đây là composition các primitive chính thức được tài liệu mô tả, chưa chạy local infrastructure trong vòng này.",
+        "Không đồng nhất catalog branch với single-table Iceberg branch hoặc SQL transaction đa bảng."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "manifest": {
+    "revision": "layer1-v3-example-1",
+    "created_on": "2026-10-17",
+    "property_dictionary": "layer-1-properties.json",
+    "purpose": "document_based_design_example",
+    "limitations": [
+      "Only one product scope is illustrated; this is not a completed assessment of seven catalogs.",
+      "Known claims are documentation-based drafts; no runtime tests were performed.",
+      "One explicit unknown quota is included to show that null is not zero or an unlimited quota.",
+      "Six known claims reuse three source documents and are not six independent confirmations.",
+      "Authentication modes and technical conditions must be preserved when combining claims.",
+      "No configuration secrets or implementation property keys are stored."
+    ]
+  },
+  "scopes": [
+    {
+      "id": "polaris_oss_1_7_0",
+      "catalog_id": "apache_polaris",
+      "name": "Apache Polaris",
+      "edition": "oss",
+      "deployment_mode": "self_managed",
+      "release": "1.7.0"
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl_polaris_iceberg_register",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "format": "iceberg",
+        "operation": "register",
+        "api": "polaris_catalog_api"
+      },
+      "level": "full",
+      "note": "The table privilege documentation describes registering Iceberg tables.",
+      "limits": [
+        "This does not establish support for every format feature or engine write path."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/managing-security/access-control/",
+          "locator": "Securable object; Table privileges / TABLE_CREATE",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "cl_polaris_internal_auth",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "authentication.method",
+      "qualifiers": {
+        "method": "oauth2_client_credentials",
+        "api": "polaris_catalog_api",
+        "authentication_mode": "internal"
+      },
+      "level": "full",
+      "note": "Internal authentication includes a client-credentials token request.",
+      "limits": [
+        "The external-only mode disables the internal token endpoint.",
+        "No runtime authentication test was performed."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/managing-security/external-idp/",
+          "locator": "Authentication Types; Internal Authentication Configuration / Token Service",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "cl_polaris_external_auth",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "authentication.method",
+      "qualifiers": {
+        "method": "oidc_bearer_authentication",
+        "api": "polaris_catalog_api",
+        "authentication_mode": "external",
+        "token_format": "jwt",
+        "principal_mapping": "default"
+      },
+      "level": "full",
+      "note": "External authentication uses an OIDC identity provider.",
+      "limits": [
+        "Requires OIDC tenant and principal mapping configuration.",
+        "Default principal mapping is documented for JWT tokens; opaque tokens need a custom implementation.",
+        "Does not establish compatibility with every identity provider."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/managing-security/external-idp/",
+          "locator": "Authentication Types; External Authentication Configuration; Principal Mapping",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "cl_polaris_rbac",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "authorization.policy_model",
+      "qualifiers": {
+        "model": "rbac",
+        "api": "polaris_catalog_api"
+      },
+      "level": "full",
+      "note": "Catalog roles and principal roles participate in the documented RBAC model.",
+      "limits": [
+        "RBAC alone does not establish row or column enforcement."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/managing-security/access-control/",
+          "locator": "Role-Based Access Control; RBAC model",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "cl_polaris_s3_vending",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "iceberg_rest"
+      },
+      "level": "full",
+      "note": "S3 credential vending uses scoped AWS STS sessions.",
+      "limits": [
+        "Requires suitable IAM and storage configuration.",
+        "Does not establish row or column enforcement or every client's compatibility."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+          "locator": "AWS S3",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "cl_polaris_s3_access_method",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.access_method",
+      "qualifiers": {
+        "storage": "aws_s3",
+        "api": "iceberg_rest"
+      },
+      "value": [
+        "credential_vending_via_aws_sts_assume_role"
+      ],
+      "note": "A descriptive mechanism is recorded separately from the support level.",
+      "limits": [
+        "This list contains mechanisms described by the cited source and is not an exhaustive configuration guide."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+          "locator": "AWS S3",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "cl_polaris_table_quota_unknown",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "limits.quota",
+      "qualifiers": {
+        "resource": "tables",
+        "boundary": "catalog"
+      },
+      "value": null,
+      "note": "No applicable quota evidence was collected for this example.",
+      "limits": [
+        "Unknown quota is not zero, unlimited, or a product non-support claim."
+      ],
+      "evidence": [],
+      "status": "draft"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "revision": "public-source-labs-v1",
+  "review_date": "2026-10-17",
+  "profile_kind": "adapted_public_tutorial_with_explicit_lab_assumptions",
+  "synthetic_profile": true,
+  "untouched_holdout": false,
+  "tuning_allowed": false,
+  "verification_repeats": 2,
+  "parameter_metadata": {
+    "verification_repeats": {"assumption": true, "purpose": "Compare identical official pipeline calls without changing the seed."},
+    "case_parameters": {"assumption": true, "purpose": "Bounded lab design; not measured enterprise workload sizes."}
+  },
+  "case_parameters": {
+    "PUBLIC-LAB-01": {
+      "table_count": {"value": 5, "assumption": true, "basis": "Deliberately restrict the lab to the finance example's named tables; not the source deployment's total."},
+      "engine_types_writing": {"value": 1, "assumption": true, "basis": "Only the Spark writing path is in scope; no concurrency throughput claim."},
+      "table_ids": ["store_sales_iceberg", "customer_demographics_iceberg", "store_iceberg", "item_iceberg", "date_dim_iceberg"],
+      "preserve_aws_stack": {"value": true, "assumption": true},
+      "additional_feature_requirements": {"value": "none_in_this_lab", "assumption": true}
+    },
+    "PUBLIC-LAB-02": {
+      "table_count": {"value": 1, "assumption": true, "basis": "Bounded one-table walkthrough; branch references do not add logical tables."},
+      "engine_types_writing": {"value": 1, "assumption": true, "basis": "Spark is the only writing engine in the bounded experiment."},
+      "table_ids": ["nessie.db.table"],
+      "local_lab_mapped_to": {"value": "on_prem", "assumption": true},
+      "catalog_read_authorization_required": {"value": false, "assumption": true},
+      "credential_vending_required": {"value": false, "assumption": true},
+      "existing_platform_commitment": {"value": "none", "assumption": true},
+      "branching_rank": {"value": "mandatory", "assumption": true}
+    },
+    "PUBLIC-LAB-02-SOFT": {
+      "base_case": "PUBLIC-LAB-02",
+      "branching_rank": {"value": "nice_to_have", "assumption": true},
+      "purpose": "Controlled priority counterfactual, not a third public workload and not an observed preference."
+    }
+  },
+  "model_parameters": {
+    "policy": "Load unchanged project config.json, mvp-settings.json and Layer 2 assets; echo complete runtime config in each official result.",
+    "override": null
+  },
+  "infra_execution": "not_performed; only catalog selection pipeline is run",
+  "reference_solution_policy": "Published catalog is a feasible reference implementation in its source context, not a unique gold ranking."
+}

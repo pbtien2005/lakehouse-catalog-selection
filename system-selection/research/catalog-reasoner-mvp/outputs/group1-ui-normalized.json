@@ -1,0 +1,625 @@
+{
+  "assessment_limits": {
+    "candidate_bindings_execution": "trace_only_deferred",
+    "domain_translation": "not_performed_group_2_pending",
+    "joint_path_resolution": "not_implemented_in_MVP",
+    "layer3_executed": false
+  },
+  "assumptions": [
+    {
+      "assumption": true,
+      "parameter": "default_environment_facts_as_hard",
+      "value": true
+    },
+    {
+      "assumption": true,
+      "parameter": "hard_min_level",
+      "value": "full"
+    },
+    {
+      "assumption": true,
+      "parameter": "table_count_intervals.100_to_999",
+      "value": {
+        "lower": 100,
+        "upper": 999
+      }
+    },
+    {
+      "assumption": true,
+      "parameter": "rank_to_weight.low",
+      "source": "../catalog-reasoner-mvp/config.json",
+      "value": 1,
+      "weight_defaulted": true
+    }
+  ],
+  "candidates": [
+    {
+      "id": "apache_polaris",
+      "name": "Apache Polaris",
+      "scope_id": "polaris_oss_1_7_0"
+    },
+    {
+      "id": "apache_gravitino",
+      "name": "Apache Gravitino",
+      "scope_id": "gravitino_oss_1_1_0"
+    },
+    {
+      "id": "project_nessie",
+      "name": "Project Nessie",
+      "scope_id": "nessie_oss_2026_10_17"
+    },
+    {
+      "id": "unity_catalog_oss",
+      "name": "Unity Catalog OSS",
+      "scope_id": "unity_oss_2026_10_17"
+    },
+    {
+      "id": "unity_catalog_databricks",
+      "name": "Unity Catalog tr\u00ean Databricks",
+      "scope_id": "unity_databricks_aws_2026_10_17"
+    },
+    {
+      "id": "aws_glue_data_catalog",
+      "name": "AWS Glue Data Catalog",
+      "scope_id": "glue_aws_2026_10_17"
+    },
+    {
+      "id": "hive_metastore",
+      "name": "Apache Hive Metastore",
+      "scope_id": "hms_oss_2026_10_17"
+    }
+  ],
+  "input_issues": [],
+  "normalized_context": {
+    "I01": "aws",
+    "I02": [
+      "spark",
+      "trino"
+    ],
+    "I03": "iceberg",
+    "I04": "100_to_999",
+    "I05": "two_to_three",
+    "I07": "column_and_row",
+    "I08": "unknown",
+    "I09": [
+      "none"
+    ],
+    "I10": {
+      "none": false,
+      "selected": [
+        {
+          "feature": "branching",
+          "rank": "nice_to_have"
+        }
+      ]
+    }
+  },
+  "objectives": [
+    {
+      "acceptance_anchor": "workflow.branching",
+      "binding_sources": {
+        "candidate_bindings": "trace_only_deferred",
+        "form": [
+          "I10"
+        ],
+        "profile": "layer2-mvp-profile-v1"
+      },
+      "candidate_bindings": {
+        "api": {
+          "execution": "trace_only_deferred",
+          "path": "branching_path.api",
+          "source": "candidate_path"
+        }
+      },
+      "id": "R-I10-branching",
+      "logical_need_id": "N-I10-branching",
+      "min_level_if_applicable": null,
+      "property_id": "workflow.branching",
+      "qualifiers": {
+        "api": null,
+        "object_scope": "catalog"
+      },
+      "role": "SOFT",
+      "source_inputs": [
+        "I10"
+      ],
+      "status": "ready",
+      "weight": 1,
+      "weight_defaulted": true,
+      "weight_rank": "low"
+    }
+  ],
+  "profile_assumptions": {
+    "atomic_failure_boundary": "catalog_metadata_commit",
+    "authorization_action": "read",
+    "authorization_paths": "each_selected_engine_read_path_trace_only",
+    "branching_object_scope": "catalog",
+    "catalog_operations": [
+      "load"
+    ],
+    "concurrent_operation": "append",
+    "concurrent_topology": "multi_engine",
+    "engine_operation": "read",
+    "federation_operation": "read_metadata",
+    "table_count_boundary": "catalog"
+  },
+  "raw_answers": {
+    "I01": "aws",
+    "I02": [
+      "spark",
+      "trino"
+    ],
+    "I03": "iceberg",
+    "I04": "100_to_999",
+    "I05": "two_to_three",
+    "I07": "column_and_row",
+    "I08": "unknown",
+    "I09": [
+      "none"
+    ],
+    "I10": {
+      "none": false,
+      "selected": [
+        {
+          "feature": "branching",
+          "rank": "nice_to_have"
+        }
+      ]
+    }
+  },
+  "readiness": "ready_for_assessment",
+  "reminders": [
+    {
+      "config_parameter": "default_environment_facts_as_hard",
+      "message": "\u0111\u00e3 coi l\u1ef1a ch\u1ecdn n\u00e0y l\u00e0 b\u1eaft bu\u1ed9c",
+      "source_input": "I01"
+    },
+    {
+      "config_parameter": "default_environment_facts_as_hard",
+      "message": "\u0111\u00e3 coi l\u1ef1a ch\u1ecdn n\u00e0y l\u00e0 b\u1eaft bu\u1ed9c",
+      "source_input": "I02"
+    },
+    {
+      "config_parameter": "default_environment_facts_as_hard",
+      "message": "\u0111\u00e3 coi l\u1ef1a ch\u1ecdn n\u00e0y l\u00e0 b\u1eaft bu\u1ed9c",
+      "source_input": "I03"
+    }
+  ],
+  "requirements": [
+    {
+      "acceptance_anchor": "deployment.environment",
+      "binding_sources": {
+        "candidate_bindings": "trace_only_deferred",
+        "form": [
+          "I01"
+        ],
+        "profile": "layer2-mvp-profile-v1"
+      },
+      "candidate_bindings": {},
+      "id": "R-I01-environment",
+      "logical_need_id": "N-I01",
+      "min_level_if_applicable": "full",
+      "property_id": "deployment.environment",
+      "qualifiers": {
+        "environment": "aws"
+      },
+      "role": "HARD",
+      "source_inputs": [
+        "I01"
+      ],
+      "status": "ready"
+    },
+    {
+      "acceptance_anchor": "integration.engine_operation",
+      "binding_sources": {
+        "candidate_bindings": "trace_only_deferred",
+        "form": [
+          "I02"
+        ],
+        "profile": "layer2-mvp-profile-v1"
+      },
+      "candidate_bindings": {
+        "api": {
+          "execution": "trace_only_deferred",
+          "path": "spark_read_path.api",
+          "source": "candidate_path"
+        }
+      },
+      "id": "R-I02-spark-read",
+      "logical_need_id": "N-I02",
+      "min_level_if_applicable": "full",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "api": null,
+        "engine": "spark",
+        "format": "iceberg",
+        "operation": "read"
+      },
+      "role": "HARD",
+      "source_inputs": [
+        "I02"
+      ],
+      "status": "ready"
+    },
+    {
+      "acceptance_anchor": "integration.engine_operation",
+      "binding_sources": {
+        "candidate_bindings": "trace_only_deferred",
+        "form": [
+          "I02"
+        ],
+        "profile": "layer2-mvp-profile-v1"
+      },
+      "candidate_bindings": {
+        "api": {
+          "execution": "trace_only_deferred",
+          "path": "trino_read_path.api",
+          "source": "candidate_path"
+        }
+      },
+      "id": "R-I02-trino-read",
+      "logical_need_id": "N-I02",
+      "min_level_if_applicable": "full",
+      "property_id": "integration.engine_operation",
+      "qualifiers": {
+        "api": null,
+        "engine": "trino",
+        "format": "iceberg",
+        "operation": "read"
+      },
+      "role": "HARD",
+      "source_inputs": [
+        "I02"
+      ],
+      "status": "ready"
+    },
+    {
+      "acceptance_anchor": "catalog.format_operation",
+      "binding_sources": {
+        "candidate_bindings": "trace_only_deferred",
+        "form": [
+          "I03"
+        ],
+        "profile": "layer2-mvp-profile-v1"
+      },
+      "candidate_bindings": {
+        "api": {
+          "execution": "trace_only_deferred",
+          "path": "metadata_path.api",
+          "source": "candidate_path"
+        }
+      },
+      "id": "R-I03-format-load",
+      "logical_need_id": "N-I03",
+      "min_level_if_applicable": "full",
+      "property_id": "catalog.format_operation",
+      "qualifiers": {
+        "api": null,
+        "format": "iceberg",
+        "operation": "load"
+      },
+      "role": "HARD",
+      "source_inputs": [
+        "I03"
+      ],
+      "status": "ready"
+    },
+    {
+      "acceptance_anchor": "limits.quota",
+      "binding_sources": {
+        "candidate_bindings": "trace_only_deferred",
+        "form": [
+          "I04"
+        ],
+        "profile": "layer2-mvp-profile-v1"
+      },
+      "boundary_confirmed": true,
+      "candidate_bindings": {},
+      "demand_interval": {
+        "lower": 100,
+        "upper": 999
+      },
+      "id": "R-I04-capacity",
+      "logical_need_id": "N-I04",
+      "min_level_if_applicable": null,
+      "operator": "capacity_covers_demand_interval",
+      "property_id": "limits.quota",
+      "qualifiers": {
+        "boundary": "catalog",
+        "resource": "tables"
+      },
+      "role": "HARD",
+      "source_inputs": [
+        "I04"
+      ],
+      "status": "ready"
+    },
+    {
+      "acceptance_anchor": "commit.concurrent_write",
+      "binding_sources": {
+        "candidate_bindings": "trace_only_deferred",
+        "form": [
+          "I05"
+        ],
+        "profile": "layer2-mvp-profile-v1"
+      },
+      "candidate_bindings": {
+        "api": {
+          "execution": "trace_only_deferred",
+          "path": "commit_path.api",
+          "source": "candidate_path"
+        }
+      },
+      "id": "R-I05-concurrency",
+      "logical_need_id": "N-I05",
+      "min_level_if_applicable": "full",
+      "property_id": "commit.concurrent_write",
+      "qualifiers": {
+        "api": null,
+        "operation": "append",
+        "writer_topology": "multi_engine"
+      },
+      "role": "HARD",
+      "source_inputs": [
+        "I05"
+      ],
+      "status": "ready"
+    },
+    {
+      "acceptance_anchor": "security.authorization",
+      "binding_sources": {
+        "candidate_bindings": "trace_only_deferred",
+        "form": [
+          "I07"
+        ],
+        "profile": "layer2-mvp-profile-v1"
+      },
+      "candidate_bindings": {
+        "access_path": {
+          "execution": "trace_only_deferred",
+          "path": "spark_read_path",
+          "source": "candidate_path"
+        }
+      },
+      "id": "R-I07-column-spark",
+      "logical_need_id": "N-I07",
+      "min_level_if_applicable": "full",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "access_path": null,
+        "action": "read",
+        "granularity": "column"
+      },
+      "role": "HARD",
+      "source_inputs": [
+        "I07"
+      ],
+      "status": "ready"
+    },
+    {
+      "acceptance_anchor": "security.authorization",
+      "binding_sources": {
+        "candidate_bindings": "trace_only_deferred",
+        "form": [
+          "I07"
+        ],
+        "profile": "layer2-mvp-profile-v1"
+      },
+      "candidate_bindings": {
+        "access_path": {
+          "execution": "trace_only_deferred",
+          "path": "trino_read_path",
+          "source": "candidate_path"
+        }
+      },
+      "id": "R-I07-column-trino",
+      "logical_need_id": "N-I07",
+      "min_level_if_applicable": "full",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "access_path": null,
+        "action": "read",
+        "granularity": "column"
+      },
+      "role": "HARD",
+      "source_inputs": [
+        "I07"
+      ],
+      "status": "ready"
+    },
+    {
+      "acceptance_anchor": "security.authorization",
+      "binding_sources": {
+        "candidate_bindings": "trace_only_deferred",
+        "form": [
+          "I07"
+        ],
+        "profile": "layer2-mvp-profile-v1"
+      },
+      "candidate_bindings": {
+        "access_path": {
+          "execution": "trace_only_deferred",
+          "path": "spark_read_path",
+          "source": "candidate_path"
+        }
+      },
+      "id": "R-I07-row-spark",
+      "logical_need_id": "N-I07",
+      "min_level_if_applicable": "full",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "access_path": null,
+        "action": "read",
+        "granularity": "row"
+      },
+      "role": "HARD",
+      "source_inputs": [
+        "I07"
+      ],
+      "status": "ready"
+    },
+    {
+      "acceptance_anchor": "security.authorization",
+      "binding_sources": {
+        "candidate_bindings": "trace_only_deferred",
+        "form": [
+          "I07"
+        ],
+        "profile": "layer2-mvp-profile-v1"
+      },
+      "candidate_bindings": {
+        "access_path": {
+          "execution": "trace_only_deferred",
+          "path": "trino_read_path",
+          "source": "candidate_path"
+        }
+      },
+      "id": "R-I07-row-trino",
+      "logical_need_id": "N-I07",
+      "min_level_if_applicable": "full",
+      "property_id": "security.authorization",
+      "qualifiers": {
+        "access_path": null,
+        "action": "read",
+        "granularity": "row"
+      },
+      "role": "HARD",
+      "source_inputs": [
+        "I07"
+      ],
+      "status": "ready"
+    }
+  ],
+  "revisions": {
+    "config": "layer2-runtime-config-v1",
+    "form": "input-v2",
+    "kb": "layer1-v3-data-2026-10-17-r1",
+    "mapping": "layer2-mapping-v2",
+    "policy": "layer2-policy-v2",
+    "profile": "layer2-mvp-profile-v1",
+    "property_dictionary": "layer1-properties-v3.1",
+    "registry": "form-v2-registry-v1"
+  },
+  "trace": {
+    "R-I01-environment": {
+      "candidate_bindings_execution": "trace_only_deferred",
+      "mapping_rule": "I01",
+      "property_id": "deployment.environment",
+      "raw_answer": "aws",
+      "source_inputs": [
+        "I01"
+      ]
+    },
+    "R-I02-spark-read": {
+      "candidate_bindings_execution": "trace_only_deferred",
+      "mapping_rule": "I02",
+      "property_id": "integration.engine_operation",
+      "raw_answer": [
+        "spark",
+        "trino"
+      ],
+      "source_inputs": [
+        "I02"
+      ]
+    },
+    "R-I02-trino-read": {
+      "candidate_bindings_execution": "trace_only_deferred",
+      "mapping_rule": "I02",
+      "property_id": "integration.engine_operation",
+      "raw_answer": [
+        "spark",
+        "trino"
+      ],
+      "source_inputs": [
+        "I02"
+      ]
+    },
+    "R-I03-format-load": {
+      "candidate_bindings_execution": "trace_only_deferred",
+      "mapping_rule": "I03",
+      "property_id": "catalog.format_operation",
+      "raw_answer": "iceberg",
+      "source_inputs": [
+        "I03"
+      ]
+    },
+    "R-I04-capacity": {
+      "candidate_bindings_execution": "trace_only_deferred",
+      "mapping_rule": "I04",
+      "property_id": "limits.quota",
+      "raw_answer": "100_to_999",
+      "source_inputs": [
+        "I04"
+      ]
+    },
+    "R-I05-concurrency": {
+      "candidate_bindings_execution": "trace_only_deferred",
+      "mapping_rule": "I05",
+      "property_id": "commit.concurrent_write",
+      "raw_answer": "two_to_three",
+      "source_inputs": [
+        "I05"
+      ]
+    },
+    "R-I07-column-spark": {
+      "candidate_bindings_execution": "trace_only_deferred",
+      "mapping_rule": "I07",
+      "property_id": "security.authorization",
+      "raw_answer": "column_and_row",
+      "source_inputs": [
+        "I07"
+      ]
+    },
+    "R-I07-column-trino": {
+      "candidate_bindings_execution": "trace_only_deferred",
+      "mapping_rule": "I07",
+      "property_id": "security.authorization",
+      "raw_answer": "column_and_row",
+      "source_inputs": [
+        "I07"
+      ]
+    },
+    "R-I07-row-spark": {
+      "candidate_bindings_execution": "trace_only_deferred",
+      "mapping_rule": "I07",
+      "property_id": "security.authorization",
+      "raw_answer": "column_and_row",
+      "source_inputs": [
+        "I07"
+      ]
+    },
+    "R-I07-row-trino": {
+      "candidate_bindings_execution": "trace_only_deferred",
+      "mapping_rule": "I07",
+      "property_id": "security.authorization",
+      "raw_answer": "column_and_row",
+      "source_inputs": [
+        "I07"
+      ]
+    },
+    "R-I10-branching": {
+      "candidate_bindings_execution": "trace_only_deferred",
+      "mapping_rule": "I10",
+      "property_id": "workflow.branching",
+      "raw_answer": {
+        "none": false,
+        "selected": [
+          {
+            "feature": "branching",
+            "rank": "nice_to_have"
+          }
+        ]
+      },
+      "source_inputs": [
+        "I10"
+      ]
+    }
+  },
+  "unresolved": [
+    {
+      "reason": "Ch\u01b0a bi\u1ebft nhu c\u1ea7u vending, kh\u00e1c v\u1edbi Kh\u00f4ng.",
+      "source_input": "I08",
+      "state": "unknown_need"
+    }
+  ]
+}

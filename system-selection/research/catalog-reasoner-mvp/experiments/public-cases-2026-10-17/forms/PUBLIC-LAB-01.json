@@ -1,0 +1,14 @@
+{
+  "form_revision": "input-v2",
+  "answers": {
+    "I01": "aws",
+    "I02": ["spark"],
+    "I03": "iceberg",
+    "I04": "lt_100",
+    "I05": "one",
+    "I07": "column_and_row",
+    "I08": "yes",
+    "I09": ["aws_native"],
+    "I10": {"none": true, "selected": []}
+  }
+}

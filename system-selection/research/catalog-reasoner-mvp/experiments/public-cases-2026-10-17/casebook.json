@@ -1,0 +1,72 @@
+{
+  "revision": "public-source-labs-v1",
+  "source_register": "source-register.json",
+  "experiment_config": "experiment-config.json",
+  "evidence_labels": {
+    "source_fact": "Nguồn nói trực tiếp trong phạm vi được nêu.",
+    "derived_from_source": "Suy ra cho workload giới hạn, không phải thông số toàn hệ thống gốc.",
+    "experimental_design": "Lựa chọn công khai của người thiết kế lab, không gán cho tác giả nguồn."
+  },
+  "cases": [
+    {
+      "id": "PUBLIC-LAB-01",
+      "kind": "base_public_source_adaptation",
+      "synthetic_profile": true,
+      "title": "Phân quyền phân tích tài chính trên Iceberg trong môi trường AWS nhiều tài khoản",
+      "description": "Một nhóm dữ liệu giữ đường ghi Spark và chia sẻ dữ liệu cho người phân tích. Lab yêu cầu phân quyền đọc theo cột và hàng, giữ cơ chế cấp credential tạm thời. Chỉ khảo sát tập bảng tài chính đã chọn trong experiment-config, không đại diện toàn bộ triển khai gốc.",
+      "form_file": "forms/PUBLIC-LAB-01.json",
+      "source_ids": ["AWS-BLOG", "AWS-DOCS"],
+      "reference_implementation": {"candidate_id": "aws_glue_data_catalog", "companions": ["AWS Lake Formation", "EMR Serverless", "Amazon S3"], "is_gold_label": false},
+      "answer_evidence": {
+        "I01": {"basis": "source_fact", "source_ids": ["AWS-BLOG"], "locator": "Solution overview"},
+        "I02": {"basis": "source_fact", "source_ids": ["AWS-BLOG"], "locator": "EMR application type Spark; PySpark workspace", "scope": "Only the documented Spark ingestion/analysis path; provisioned unrelated services are not added as engines."},
+        "I03": {"basis": "source_fact", "source_ids": ["AWS-BLOG"], "locator": "Iceberg ingestion and TPC-DS table setup"},
+        "I04": {"basis": "experimental_design", "source_ids": ["AWS-BLOG"], "parameter_ref": "case_parameters.PUBLIC-LAB-01.table_count", "note": "Bounded subset chosen for this lab; source does not give the full catalog table count."},
+        "I05": {"basis": "derived_from_source", "source_ids": ["AWS-BLOG"], "parameter_ref": "case_parameters.PUBLIC-LAB-01.engine_types_writing", "note": "Count engine types, not producer/consumer accounts, user roles, Spark drivers, jobs or sessions."},
+        "I07": {"basis": "source_fact", "source_ids": ["AWS-BLOG"], "locator": "Finance analyst column permissions and date row filter", "note": "Evaluate catalog plus enforcement path; bare Glue metadata API is not the whole authorization solution."},
+        "I08": {"basis": "derived_from_source", "source_ids": ["AWS-DOCS"], "locator": "Tables registered in AWS Lake Formation", "note": "The lab explicitly preserves credential vending on the registered-table data access path; this is not a claim about every external engine or every write operation."},
+        "I09": {"basis": "experimental_design", "source_ids": [], "parameter_ref": "case_parameters.PUBLIC-LAB-01.preserve_aws_stack", "note": "Declared lab constraint, not evidence of a commercial contract; current Layer 2 treats this as context only."},
+        "I10": {"basis": "experimental_design", "source_ids": [], "parameter_ref": "case_parameters.PUBLIC-LAB-01.additional_feature_requirements", "note": "No additional feature is required in this bounded lab. Cross-account sharing is not automatically heterogeneous metadata federation."}
+      },
+      "not_encoded_by_current_form": ["producer/consumer account boundary", "S3 storage and registered location", "EMR release and exact operation", "enforcement through Lake Formation", "specific role and data-filter policies"],
+      "unknown_in_original_context": ["total production table count", "all possible writing engine types", "commercial platform commitment", "ranked preferences beyond the demonstrated access-control goal"],
+      "pre_run_checks": ["Input is valid and every active question has a provenance record.", "Column and row authorization and credential vending produce traced requirements.", "Reference Glue plus Lake Formation is not assumed eligible without matching KB qualifiers.", "If no SOFT objectives exist, do not invent a numerical score or winner."]
+    },
+    {
+      "id": "PUBLIC-LAB-02",
+      "kind": "base_public_source_adaptation",
+      "synthetic_profile": true,
+      "title": "Cô lập thay đổi ETL trên nhánh catalog trước khi công bố",
+      "description": "Lab Spark/Iceberg tự quản lý cần giữ bản main ổn định trong khi kiểm tra thay đổi trên nhánh catalog. Sau kiểm tra mới merge. Nhu cầu nhánh là bắt buộc theo mục tiêu thực nghiệm; không bổ sung yêu cầu giao dịch SQL nhiều bảng từ một ví dụ một bảng.",
+      "form_file": "forms/PUBLIC-LAB-02.json",
+      "source_ids": ["DREMIO-LAB", "NESSIE-SQL", "NESSIE-TRANSACTIONS"],
+      "reference_implementation": {"candidate_id": "project_nessie", "companions": ["Spark", "Iceberg", "local Docker warehouse"], "is_gold_label": false},
+      "answer_evidence": {
+        "I01": {"basis": "experimental_design", "source_ids": ["DREMIO-LAB"], "parameter_ref": "case_parameters.PUBLIC-LAB-02.local_lab_mapped_to", "note": "Map local self-managed lab to the available on_prem answer; this does not establish production on-prem readiness."},
+        "I02": {"basis": "source_fact", "source_ids": ["DREMIO-LAB"], "locator": "Adding Tables to the Catalog / Spark SQL", "note": "Dremio is the publisher, not an additional engine in this code path."},
+        "I03": {"basis": "source_fact", "source_ids": ["DREMIO-LAB"], "locator": "CREATE TABLE ... USING iceberg"},
+        "I04": {"basis": "derived_from_source", "source_ids": ["DREMIO-LAB"], "parameter_ref": "case_parameters.PUBLIC-LAB-02.table_count", "note": "The branch and main refer to versions of the same logical table."},
+        "I05": {"basis": "derived_from_source", "source_ids": ["DREMIO-LAB"], "parameter_ref": "case_parameters.PUBLIC-LAB-02.engine_types_writing", "note": "Only the demonstrated Spark writer is in scope; no multi-engine concurrency claim."},
+        "I07": {"basis": "experimental_design", "source_ids": [], "parameter_ref": "case_parameters.PUBLIC-LAB-02.catalog_read_authorization_required", "note": "No catalog FGAC requirement in this isolated lab; does not mean security is disabled or that Nessie cannot authorize."},
+        "I08": {"basis": "experimental_design", "source_ids": ["DREMIO-LAB"], "parameter_ref": "case_parameters.PUBLIC-LAB-02.credential_vending_required", "note": "Not needed by this bounded local-warehouse workload; not a negative support claim about a catalog."},
+        "I09": {"basis": "experimental_design", "source_ids": [], "parameter_ref": "case_parameters.PUBLIC-LAB-02.existing_platform_commitment"},
+        "I10": {"basis": "experimental_design", "source_ids": ["DREMIO-LAB", "NESSIE-SQL"], "parameter_ref": "case_parameters.PUBLIC-LAB-02.branching_rank", "note": "Need for catalog branches follows the source workflow; mandatory is our explicit lab priority. Do not substitute Iceberg table branches or infer multi-table SQL transactions."}
+      },
+      "not_encoded_by_current_form": ["Docker local lab versus production on-prem distinction", "local filesystem storage", "Spark/Iceberg/Nessie extension compatibility", "specific reference and API path"],
+      "unknown_in_original_context": ["enterprise deployment environment", "production authorization policies", "commercial platform commitment", "priority ranks not explicitly published"],
+      "pre_run_checks": ["Input is valid and every active question has a provenance record.", "Mandatory branching maps to HARD catalog branching requirements.", "Unknown claims cannot establish unconditional eligibility.", "No extra multi_table_atomic requirement is inferred from the walkthrough."]
+    },
+    {
+      "id": "PUBLIC-LAB-02-SOFT",
+      "kind": "controlled_priority_counterfactual",
+      "synthetic_profile": true,
+      "base_case": "PUBLIC-LAB-02",
+      "title": "Biến thể ưu tiên: nhánh catalog là nice-to-have",
+      "form_file": "forms/PUBLIC-LAB-02-SOFT.json",
+      "source_ids": [],
+      "answer_evidence": "inherit PUBLIC-LAB-02 except I10 rank",
+      "overrides": {"I10": {"basis": "experimental_design", "source_ids": [], "parameter_ref": "case_parameters.PUBLIC-LAB-02-SOFT.branching_rank"}},
+      "pre_run_checks": ["Only the branching rank differs from the base payload.", "The corresponding branching requirements become SOFT.", "Scenario leaders are not presented as validated deployment recommendations."]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "manifest": {
+    "revision": "layer1-v2-draft-1",
+    "created_on": "2026-10-17",
+    "purpose": "decision_knowledge_design_example",
+    "limitations": [
+      "One scope, two example property definitions, and one populated claim; not a complete knowledge base.",
+      "The claim is a document-based draft, not a runtime verification result.",
+      "A missing claim means unknown, not unsupported.",
+      "Repeated references to one document do not constitute independent evidence.",
+      "Levels describe technical coverage under a property rubric; they are not utility scores."
+    ]
+  },
+  "scopes": [
+    {
+      "id": "polaris_oss_1_7_0",
+      "catalog_id": "apache_polaris",
+      "name": "Apache Polaris",
+      "edition": "oss",
+      "deployment_mode": "self_managed",
+      "release": "1.7.0"
+    }
+  ],
+  "properties": [
+    {
+      "id": "storage.credential_vending",
+      "definition": "The catalog returns temporary storage credentials scoped to permitted data access over the specified API.",
+      "qualifiers": ["storage", "api"],
+      "ordered_levels": ["none", "full"],
+      "rubric": {
+        "none": "Applicable evidence explicitly establishes that this catalog-side credential-vending contract is not supported.",
+        "full": "Applicable evidence describes support for this catalog-side contract under the stated scope and conditions."
+      },
+      "interpretation_limits": [
+        "Unknown is outside the ordered scale; missing evidence is not none.",
+        "Prerequisites do not automatically make support partial.",
+        "Does not establish row or column enforcement, compatibility with every engine, or successful runtime execution."
+      ]
+    },
+    {
+      "id": "workflow.branching",
+      "definition": "A workflow that creates a branch, isolates writes, and publishes changes at the specified object scope and API.",
+      "qualifiers": ["object_scope", "api"],
+      "ordered_levels": ["none", "partial", "full"],
+      "rubric": {
+        "none": "Applicable evidence establishes no supported branch-workflow parts in the specified scope.",
+        "partial": "Evidence establishes supported parts and explicitly unmet parts of the reference workflow.",
+        "full": "Evidence establishes all three parts: branch creation, isolated writes, and publication."
+      },
+      "interpretation_limits": [
+        "If publication or isolation is unstudied, record unknown rather than partial.",
+        "A table branch is not automatically a catalog-wide branch.",
+        "Publication does not by itself establish all-or-nothing multi-table update semantics."
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl_polaris_s3_vending",
+      "scope_id": "polaris_oss_1_7_0",
+      "property_id": "storage.credential_vending",
+      "qualifiers": {"storage": "aws_s3", "api": "iceberg_rest"},
+      "level": "full",
+      "note": "The documentation describes AWS STS AssumeRole with a policy scoped to table locations.",
+      "limits": [
+        "Requires appropriate storage and IAM configuration.",
+        "No runtime test was performed.",
+        "This claim does not establish row or column policy enforcement."
+      ],
+      "evidence": [
+        {
+          "kind": "official_doc",
+          "url": "https://polaris.apache.org/releases/1.7.0/vended-credentials/",
+          "locator": "AWS S3",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "status": "draft"
+    }
+  ]
+}
